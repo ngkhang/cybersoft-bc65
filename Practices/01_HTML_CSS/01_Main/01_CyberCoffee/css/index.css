@@ -1,0 +1,71 @@
+/* HEADER */
+#header ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+#header li {
+  display: inline-block;
+}
+
+/* ABOUT */
+#about p {
+  margin: 0;
+  line-height: 19px;
+}
+
+#about>div {
+  text-align: right;
+  margin-bottom: 13px;
+}
+
+/* PRODUCT */
+
+#product ul {
+  color: blue;
+  list-style: circle;
+}
+
+#product ol {
+  color: blue;
+  list-style: circle;
+}
+
+#product .poster {
+  width: 20%;
+  display: inline-block;
+}
+
+#product img {
+  width: 100%;
+}
+
+/* MENU */
+
+#menu table {
+  border-collapse: collapse;
+  width: 700px;
+  margin: 0 auto;
+}
+
+#menu thead {
+  background: #c4cdd6;
+}
+
+table,
+th,
+td {
+  border: 2px solid #000;
+}
+
+td,
+th {
+  padding: 10px;
+}
+
+/* CONTACT */
+
+#contact {
+  text-align: center;
+}

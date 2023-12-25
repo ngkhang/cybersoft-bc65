@@ -1,0 +1,32 @@
+/* SECTION COFFEE */
+#homePage #coffee p {
+  margin: 0;
+  color: brown;
+}
+
+#homePage #coffee p>span {
+  color: red;
+}
+
+#homePage #coffee div>h2 {
+  text-align: left;
+}
+
+#homePage #coffee img {
+  width: 100%;
+}
+
+/* SECTION TEA */
+#homePage #tea p {
+  color: blue;
+  text-align: right;
+  margin: 0;
+}
+
+#homePage #tea ol {
+  list-style: upper-roman;
+}
+
+#homePage #tea img {
+  width: 100%;
+}

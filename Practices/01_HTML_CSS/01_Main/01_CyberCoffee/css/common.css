@@ -1,0 +1,22 @@
+body {
+  font-family: 'Times New Roman', Times, serif
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  background: #394a59;
+}
+
+h2 {
+  font-weight: bolder;
+  color: #996633;
+  text-align: center;
+}
+
+hr {
+  width: 50%;
+  height: 4px;
+  background: gray;
+  align-items: center;
+}
