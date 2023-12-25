@@ -1,32 +1,31 @@
-#coffeePage .nav {
+.coffeePage .coffee__nav {
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
 
-.banner>div {
+.coffeePage .coffee__banner div {
   width: 40%;
   display: inline-block;
 }
 
-.banner img {
+.coffeePage .coffee__banner img {
   width: 100%;
 }
 
-#coffeePage p {
+.coffeePage p {
   text-align: center;
   color: blue;
 }
 
-#coffeePage table {
+.coffeePage table {
   border-collapse: collapse;
   width: 800px;
   height: 500px;
   margin: 0 auto;
 }
 
-
-#coffeePage table th,
-#coffeePage table td {
+.coffeePage table th,
+.coffeePage table td {
   padding: 20px;
 }

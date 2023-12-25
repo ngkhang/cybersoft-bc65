@@ -1,32 +1,38 @@
-/* SECTION COFFEE */
-#homePage #coffee p {
+body {
+  margin: 8px;
+}
+
+/* ===== SECTION COFFEE ==== */
+.homePage__coffee p {
   margin: 0;
   color: brown;
 }
 
-#homePage #coffee p>span {
-  color: red;
+.homePage__coffee .content p:first-child {
+  margin-bottom: 21px;
 }
 
-#homePage #coffee div>h2 {
-  text-align: left;
-}
-
-#homePage #coffee img {
+.homePage__coffee .listCoffee>div,
+.homePage__coffee .listCoffee>div img {
   width: 100%;
 }
 
-/* SECTION TEA */
-#homePage #tea p {
+/* ===== SECTION TEA ==== */
+.homePage__tea .content {
+  margin-bottom: 17px;
+}
+
+.homePage__tea .content p {
   color: blue;
   text-align: right;
   margin: 0;
 }
 
-#homePage #tea ol {
+.homePage__tea .listTea ol {
   list-style: upper-roman;
 }
 
-#homePage #tea img {
+.homePage__tea .listTea>div,
+.homePage__tea .listTea>div img {
   width: 100%;
 }

@@ -1,35 +1,33 @@
-#teaPage ul {
+.teaPage .tea_nav ul {
   padding-left: 0;
   list-style: none;
   margin-bottom: 0;
 }
 
-#teaPage .banner div {
+.teaPage .tea__banner>div {
   margin-right: 19px;
   width: 40%;
   display: inline-block;
 }
 
-#teaPage img {
+.teaPage .tea__banner img {
   width: 100%;
   border: 10px solid #000
 }
 
-#teaPage p {
+.teaPage p {
   color: red;
-  text-align: right;
 }
 
-#teaPage table {
+.teaPage table {
   border-collapse: separate;
   border: 1px;
   margin: 0 auto;
   width: 900px;
-  text-align: center;
   border: 1px solid gray;
 }
 
-#teaPage th,
-#teaPage td {
+.teaPage th,
+.teaPage td {
   padding: 20px
 }
