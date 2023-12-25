@@ -1,0 +1,105 @@
+/* ==== HEADER ==== */
+.header {
+  margin-bottom: 40px;
+}
+
+.header__img {
+  width: 90px;
+  margin: 10px 0 20px 0;
+}
+
+.header__img img {
+  width: 100%;
+}
+
+.header__title h1 {
+  background: red;
+  margin-bottom: 15px;
+  font-size: 32px;
+}
+
+.header__title a {
+  font-size: 21px;
+}
+
+
+/* ==== INTRO ==== */
+.intro {
+  background: brown;
+  margin-bottom: 40px;
+}
+
+.intro h1 {
+  font-size: 40px;
+}
+
+.intro__content {
+  margin-bottom: 20px;
+}
+
+.intro__content p {
+  text-align: justify;
+  font-size: 30px;
+  margin: 0;
+  color: white;
+}
+
+.intro__content span {
+  font-style: italic;
+  font-weight: bold;
+  color: #000;
+}
+
+.intro__img {
+  width: 50%;
+}
+
+.intro__img img {
+  width: 100%;
+}
+
+/* ==== DEVELOPMENT ==== */
+.development {
+  background: brown;
+}
+
+.development ul {
+  color: #fff;
+  padding-left: 40px;
+  font-size: 25px;
+}
+
+.development li {
+  list-style: disc;
+}
+
+.development h1 {
+  font-size: 40px;
+}
+
+.development__img {
+  width: 50%;
+}
+
+.development__img img {
+  width: 100%;
+  ;
+}
+
+/* ==== MENU ==== */
+
+.menu h1 {
+  color: #000;
+}
+
+.menu table {
+  width: 900px;
+  height: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.menu table th,
+.menu table td {
+  padding: 25px 0;
+}
