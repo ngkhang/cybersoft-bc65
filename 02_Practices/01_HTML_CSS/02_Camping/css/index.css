@@ -1,50 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: #faf4f2;
-}
-
-a {
-  text-decoration: none;
-  color: #000;
-}
-
-/* HEADER */
-.header {
-  margin: 0 20px;
-  padding: 12px 0;
-}
-
-.header__logo {
-  margin-bottom: 10px;
-}
-
-.header>ul {
-  list-style: none;
-}
-
-.header li {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.header li:last-child {
-  margin-right: 0;
-}
-
-.header a {
-  color: #000;
-}
-
-/* CAROUSEL */
-.carousel {
-  margin-bottom: 20px;
-}
-
+/* ==== CAROUSEL ==== */
 .carousel>div {
   height: 700px;
   background-size: cover;
@@ -52,174 +6,84 @@ a {
   background-repeat: no-repeat;
 }
 
-/* ACTIVITIES */
-.activities__title {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.activities__listItem {
-  margin-bottom: 40px;
-  /* padding: 0 10px; */
-}
-
-.activities__listItem .item {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
-}
-
-.card {
-  background: #fff;
+/* ==== ACTIVITIES ==== */
+.activities__list .card {
+  background: rgb(var(--color-white));
   border-radius: 12px;
-  padding: 18px;
 }
 
-.card .card__title {
-  width: 100%;
-  margin-bottom: 5px;
-  position: relative;
+.activities__list .card:hover {
+  box-shadow: 0 0 10px 0 var(--color-darkOrange);
 }
 
-.card .card__title img {
-  width: 100%;
+.activities__list .card .card__title img {
   border-radius: 8px;
 }
 
-.card .card__title .icon {
-  position: absolute;
-  display: inline-block;
-  padding: 15px;
-  background: #ffffffba;
-  color: #e76f51;
-  /* opacity: 80%; */
+.activities__list .card .card__title .icon {
+  background: rgba(var(--color-white), 0.7);
+  color: var(--color-darkOrange);
   top: 15px;
   right: 15px;
   border-radius: 12px;
 }
 
-.card .card__content {
-  text-align: center;
-}
-
-.card .card__content h2 {
+.activities__list .card .card__content h2 {
   font-size: 18px;
-  margin-bottom: 14px;
 }
 
-.card .card__content p {
-  color: #8d8d8d;
+.activities__list .card .card__content p {
+  color: var(--color-gray);
   font-size: 14px;
-  margin-bottom: 18px;
 }
 
-.btn {
-  border-radius: 20px;
-}
-
-.card .card__content button {
+.card .card__content a {
   font-weight: bold;
-  padding: 10px 30px;
-  background: #e8e8e8;
-  color: #8d8d8d;
+  background: var(--color-bg-btn);
+  color: var(--color-gray);
   border: 0;
 }
 
-.activities__btn {
-  text-align: center;
-  margin-bottom: 80px;
+.activities__btn a {
+  color: var(--color-darkOrange);
+  background: transparent;
+  border: 1px solid var(--color-darkOrange);
 }
 
-.activities__btn button {
-  color: #e76f51;
-  background: #faf4f2;
-  border: 1px solid #e76f51;
-  padding: 10px 80px;
-}
-
-/* CONTACT */
+/* ==== CONTACT ==== */
 .contact {
-  background: #f8e1db;
   border-radius: 40px;
   margin-bottom: 80px;
-  width: 100%;
-}
-
-.contact>div {
-  padding-left: 40px;
-  padding-right: 40px;
-  width: 50%;
-}
-
-.contact__banner {
-  background-size: cover;
-  background-position: top;
-  float: left;
-  padding: 10px;
-}
-
-.contact__banner img {
-  width: 100%;
+  background: var(--color-pink) url('../image/mask.png') 80%/cover no-repeat;
 }
 
 .contact__content {
-  float: right;
-  padding: 70px;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
-.connect>div {
-  float: left;
-  width: 50%;
+.contact__content p {
+  line-height: 21px;
 }
 
-.connect p {
-  font-weight: bold;
-  margin-bottom: 10px;
+.contact__content .connect h3 {
+  font-size: 18px;
+  color: var(--color-gray);
 }
 
-.connect .connect__app>div {
-  display: inline-block;
+.contact__content .connect i {
+  color: var(--color-darkOrange);
+  font-size: 32px;
 }
 
-.clearFloat {
-  clear: both;
-}
-
-/* FOOTER */
+/* ==== FOOTER ==== */
 .footer {
-  padding: 80px 30px 40px 30px;
-  background: #f8e1db;
+  padding-top: 80px;
+  padding-bottom: 40px;
+  background: var(--color-pink);
   border-radius: 40px 40px 0 0;
 }
 
 .footer p {
   line-height: 30px;
-}
-
-.footer>p {
-  text-align: center;
-}
-
-.footer__item {
-  width: 20%;
-  float: left;
-  padding-left: 40px;
-  margin-bottom: 40px;
-}
-
-.footer__item:first-child {
-  width: 40%;
-  padding-left: 0;
-}
-
-.footer__item h3 {
-  margin-bottom: 20px;
-}
-
-.footer__item ul {
-  list-style: none;
-}
-
-.footer__item li {
-  margin-bottom: 10px;
 }

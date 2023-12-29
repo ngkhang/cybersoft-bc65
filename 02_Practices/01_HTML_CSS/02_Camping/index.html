@@ -5,190 +5,229 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Camping</title>
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/663be39e28.js" crossorigin="anonymous"></script>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap" rel="stylesheet">
+
+  <!-- Style CSS -->
+  <link rel="stylesheet" href="./css/common.css">
   <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
-  <!-- HAEDER -->
-  <div id="header" class="header">
-    <div class="header__logo">
-      <a href="/">
-        <img src="./image/logoicon.png" alt="brand camping">
+  <!-- ==== HEADER ==== -->
+  <div id="header" class="my-0 mx-20 py-15">
+    <div class="mb-10">
+      <a href="#">
+        <img src="./image/logoicon.png" alt="logo camping">
       </a>
     </div>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#destination">Destination</a></li>
-      <li><a href="#events">Events</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#contact">Contact us</a></li>
+    <ul class="list-style-none">
+      <li class="d-inline-block mr-10">
+        <a class="py-5" href="#">Home</a>
+      </li>
+      <li class="d-inline-block mr-10">
+        <a class="py-5" href="#services">Services</a>
+      </li>
+      <li class="d-inline-block mr-10">
+        <a class="py-5" href="#destination">Destination</a>
+      </li>
+      <li class="d-inline-block mr-10">
+        <a class="py-5" href="#events">Events</a>
+      </li>
+      <li class="d-inline-block mr-10">
+        <a class="py-5" href="#gallery">Gallery</a>
+      </li>
+      <li class="d-inline-block">
+        <a class="py-5" href="#contact">Contact us</a>
+      </li>
     </ul>
   </div>
 
-  <!-- CAROUSEL -->
+  <!-- ==== CAROUSEL ==== -->
   <div id="carousel" class="carousel">
     <div style="background-image: url(./image/BG.png);"></div>
   </div>
 
-  <!-- ACTIVITIES -->
+  <!-- ==== ACTIVITIES ==== -->
   <div id="activities" class="activities">
-    <div class="activities__title">
-      <div class="">
+    <div class="py-40 text-center">
+      <div class="mb-15">
         <img src="./image/Group 313.png" alt="icon destination and activities">
       </div>
       <h1>Explore Destinations & activities</h1>
     </div>
-    <div class="activities__listItem">
-      <div class="item">
-        <div class="card">
-          <div class="card__title">
-            <img src="./image/product1.png" alt="product 1">
-            <span class="icon"><i class="fa-solid fa-heart"></i></span>
+    <div class="activities__list mb-40">
+      <div class="float-left w-25 px-10">
+        <div class="card p-20">
+          <div class="card__title relative mb-10 w-100">
+            <img class="w-100" src="./image/product1.png" alt="product 1">
+            <span class="icon absolute p-15 d-inline-block"><i class="fa-solid fa-heart"></i></span>
           </div>
-          <div class="card__content">
-            <h2>Trickle Creek Ranch</h2>
-            <p>Book unique camping experiences on over 300,000 campsites.</p>
-            <button class="btn">Read More</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="card">
-          <div class="card__title">
-            <img src="./image/product4.png" alt="product 4">
-            <span class="icon"><i class="fa-solid fa-heart"></i></span>
-            <span></span>
-          </div>
-          <div class="card__content">
-            <h2>Trickle Creek Ranch</h2>
-            <p>Book unique camping experiences on over 300,000 campsites.</p>
-            <button class="btn">Read More</button>
+          <div class="card__content text-center">
+            <h2 class="mb-15">Trickle Creek Ranch</h2>
+            <p class="mb-20">Book unique camping experiences on over 300,000 campsites.</p>
+            <a href="#" class="d-inline-block px-30 py-10 btn">Read More</a>
           </div>
         </div>
       </div>
 
-      <div class="item">
-        <div class="card">
-          <div class="card__title">
-            <img src="./image/product5.png" alt="product 5">
-            <span class="icon"><i class="fa-solid fa-heart"></i></span>
+      <div class="float-left w-25 px-10">
+        <div class="card p-20">
+          <div class="card__title relative mb-10 w-100">
+            <img class="w-100" src="./image/product4.png" alt="product 4">
+            <span class="icon absolute p-15 d-inline-block"><i class="fa-solid fa-heart"></i></span>
             <span></span>
           </div>
-          <div class="card__content">
-            <h2>Trickle Creek Ranch</h2>
-            <p>Book unique camping experiences on over 300,000 campsites.</p>
-            <button class="btn">Read More</button>
+          <div class="card__content text-center">
+            <h2 class="mb-15">Trickle Creek Ranch</h2>
+            <p class="mb-20">Book unique camping experiences on over 300,000 campsites.</p>
+            <a href="#" class="d-inline-block px-30 py-10 btn">Read More</a>
           </div>
         </div>
       </div>
 
-      <div class="item">
-        <div class="card">
-          <div class="card__title">
-            <img src="./image/product1.png" alt="product 1">
-            <span class="icon"><i class="fa-solid fa-heart"></i></span>
+      <div class="float-left w-25 px-10">
+        <div class="card p-20">
+          <div class="card__title relative mb-10 w-100">
+            <img class="w-100" src="./image/product5.png" alt="product 5">
+            <span class="icon absolute p-15 d-inline-block"><i class="fa-solid fa-heart"></i></span>
             <span></span>
           </div>
-          <div class="card__content">
-            <h2>Trickle Creek Ranch</h2>
-            <p>Book unique camping experiences on over 300,000 campsites.</p>
-            <button class="btn">Read More</button>
+          <div class="card__content text-center">
+            <h2 class="mb-15">Trickle Creek Ranch</h2>
+            <p class="mb-20">Book unique camping experiences on over 300,000 campsites.</p>
+            <a href="#" class="d-inline-block px-30 py-10 btn">Read More</a>
           </div>
         </div>
       </div>
-      <div class="clearFloat"></div>
+
+      <div class="float-left w-25 px-10">
+        <div class="card p-20">
+          <div class="card__title relative mb-10 w-100">
+            <img class="w-100" src="./image/product1.png" alt="product 1">
+            <span class="icon absolute p-15 d-inline-block"><i class="fa-solid fa-heart"></i></span>
+            <span></span>
+          </div>
+          <div class="card__content text-center">
+            <h2 class="mb-15">Trickle Creek Ranch</h2>
+            <p class="mb-20">Book unique camping experiences on over 300,000 campsites.</p>
+            <a href="#" class="d-inline-block px-30 py-10 btn">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
     </div>
-    <div class="activities__btn">
-      <button class="btn">View All</button>
+    <div class="activities__btn mb-50 text-center">
+      <a href="#" class="btn d-inline-block px-80 py-10">View All</a>
     </div>
   </div>
 
-  <!-- CONTACT -->
-  <div id="contact" class="contact">
-    <div class="contact__banner" style="background-image: url('./image/mask.png');">
-      <img src="./image/homeicon.png" alt="banner contact">
+  <!-- ==== CONTACT ==== -->
+  <div id="contact" class="contact w-100 px-40">
+    <div class="px-40 py-40 w-50 float-left">
+      <img class="w-100" src="./image/homeicon.png" alt="banner contact">
     </div>
-    <div class="contact__content">
-      <h2>Let's Stay in Touch</h2>
-      <p>Get travel planning ideas, helpful tips, and stories from our visitors delivered right to your inbox.</p>
+    <div class="contact__content pl-40 w-50 float-left">
+      <h2 class="mb-20">Let's Stay in Touch</h2>
+      <p class="mb-40">Get travel planning ideas, helpful tips, and stories from our visitors delivered right to your
+        inbox.</p>
       <div class="connect">
-        <div class="connect__app">
-          <p>Download Our App</p>
-          <div>
+        <div class="connect__app w-60 float-left">
+          <h3 class="mb-20">Download Our App</h3>
+          <a href="#" class="d-inline-block">
             <img src="./image/download-on-the-app-store-apple-1.png" alt="app store">
-          </div>
-          <div>
+          </a>
+          <a href="#" class="d-inline-block">
             <img src="./image/google-play-badge-1.png" alt="google play">
-          </div>
+          </a>
         </div>
-        <div class="connect__social">
-          <p>Follow Us</p>
-          <span class="icon">
-            <i class="fa-brands fa-square-facebook"></i>
-          </span>
-          <span class="icon">
-            <i class="fa-brands fa-youtube"></i>
-          </span>
-          <span class="icon">
-            <i class="fa-brands fa-instagram"></i>
-          </span>
-          <span class="icon">
-            <i class="fa-brands fa-square-pinterest"></i>
-          </span>
+        <div class="connect__social w-40 float-left">
+          <h3 class="mb-20">Follow Us</h3>
+          <a class="d-inline-block" href="#"><i class="fa-brands fa-square-facebook"></i></a>
+          <a class="d-inline-block" href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a class="d-inline-block" href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a class="d-inline-block" href="#"><i class="fa-brands fa-square-pinterest"></i></a>
         </div>
-        <div class="clearFloat"></div>
+        <div class="clear"></div>
       </div>
     </div>
-    <div class="clearFloat"></div>
+    <div class="clear"></div>
   </div>
 
-  <!-- FOOTER -->
-  <div id="footer" class="footer">
-    <div class="footer__item">
-      <h3>Hipcamp is everywhere you want to camp.</h3>
+  <!-- ==== FOOTER ==== -->
+  <div id="footer" class="footer px-30">
+    <div class="mb-40 w-40 float-left">
+      <h3 class="mb-20">Hipcamp is everywhere you want to camp.</h3>
       <p>Discover unique experiances on reanches, nature preserves, farms, vineyards, and public campgrounds across the
         U.S. Book tent camping, treehouses, cabins, yurt, primitive backcountry sites, car camping, airstreams, tiny
         house, RV camping, glamping tents and more.</p>
     </div>
-    <div class="footer__item">
-      <h3>Let Us Help You</h3>
-      <ul>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Rules & Reservation</a></li>
-        <li><a href="#">Policies</a></li>
-        <li><a href="#">Accessibility</a></li>
-        <li><a href="#">Media Center</a></li>
+    <div class="mb-40 pl-40 w-20 float-left">
+      <h3 class="mb-20">Let Us Help You</h3>
+      <ul class="list-style-none">
+        <li class="mb-10">
+          <a href="#">About Us</a>
+        </li>
+        <li class="mb-10">
+          <a href="#">Rules & Reservation</a>
+        </li>
+        <li class="mb-10">
+          <a href="#">Policies</a>
+        </li>
+        <li class="mb-10">
+          <a href="#">Accessibility</a>
+        </li>
+        <li class="mb-10">
+          <a href="#">Media Center</a>
+        </li>
       </ul>
     </div>
-    <div class="footer__item">
-      <h3>Plan with Us
+    <div class="mb-40 pl-40 w-20 float-left">
+      <h3 class="mb-20">Plan with Us
       </h3>
-      <ul>
-        <li><a href="#">Find Trip Inspiration</a></li>
-        <li><a href="#">Build a Trip</a></li>
-        <li><a href="#">Buy a Pass</a></li>
-        <li><a href="#">Enter a Lottery</a></li>
+      <ul class="list-style-none">
+        <li class="mb-10">
+          <a href="#">Find Trip Inspiration</a>
+        </li>
+        <li class="mb-10">
+          <a href="#">Build a Trip</a>
+        </li>
+        <li class="mb-10">
+          <a href="#">Buy a Pass</a>
+        </li>
+        <li class="mb-10">
+          <a href="#">Enter a Lottery</a>
+        </li>
       </ul>
     </div>
-    <div class="footer__item">
-      <h3>Let Us Help You</h3>
-      <ul>
-        <li><a href="#">Your Account</a></li>
-        <li><a href="#">Your Reservations</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Help Center</a></li>
-        <li><a href="#">Submit Feedback</a></li>
+    <div class="mb-40 pl-40 w-20 float-left">
+      <h3 class="mb-20">Let Us Help You</h3>
+      <ul class="list-style-none">
+        <li class="mb-10">
+          <a href="#">Your Account</a>
+        </li>
+        <li class="mb-10">
+          <a href="#">Your Reservations</a>
+        </li>
+        <li class="mb-10">
+          <a href="#">Contact Us</a>
+        </li>
+        <li class="mb-10">
+          <a href="#">Help Center</a>
+        </li>
+        <li class="mb-10">
+          <a href="#">Submit Feedback</a>
+        </li>
       </ul>
     </div>
-    <div class="clearFloat"></div>
-    <p>&copy;2020. All right reserved.</p>
+    <div class="clear"></div>
+    <p class="text-center">&copy;2020. All right reserved.</p>
   </div>
-
-
-
 </body>
 
 </html>

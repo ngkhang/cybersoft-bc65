@@ -1,0 +1,172 @@
+:root {
+  --color-white: 255, 255, 255;
+  --color-darkOrange: #e76f51;
+  --color-pink: #f8e1db;
+  --color-gray: #8d8d8d;
+  --color-bg: #faf4f2;
+  --color-bg-btn: #e8e8e8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-bg);
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.btn {
+  border-radius: 20px;
+}
+
+.list-style-none {
+  list-style: none;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+/* MARGIN */
+.my-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.mx-20 {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+/* PADDING */
+.p-15 {
+  padding: 15px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.px-10 {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.px-30 {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.px-40 {
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+.px-80 {
+  padding-right: 80px;
+  padding-left: 80px;
+}
+
+.py-5 {
+  padding-top: 5px;
+  padding-right: 5px;
+}
+
+.py-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.py-15 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.py-40 {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.pl-40 {
+  padding-left: 40px;
+}
+
+/* TEXT CENTER */
+.text-center {
+  text-align: center;
+}
+
+/* WIDTH */
+.w-20 {
+  width: 20%;
+}
+
+.w-25 {
+  width: 25%;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-60 {
+  width: 60%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+/* FLOAT */
+.float-left {
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+/* DISPLAY */
+.d-inline-block {
+  display: inline-block;
+}
