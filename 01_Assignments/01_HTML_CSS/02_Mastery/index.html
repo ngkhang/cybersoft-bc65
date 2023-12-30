@@ -22,61 +22,74 @@
 <body>
   <!-- ==== HEADER ==== -->
   <div id="header">
-    <div class="mainSize">
-      <div class="header__logo">
-        <a href="#">
-          <i class="fa-regular fa-pen-to-square"></i>
-          <span>Mastery</span>
+    <div class="mainSize py-10 center">
+      <div class="mb-5">
+        <a class="inline-block" href="#">
+          <i class="fa-regular fa-pen-to-square text-center rounded-full p-10 mr-5"></i>
+          <span class="text-bolder text-21">Mastery</span>
         </a>
       </div>
-      <ul class="header__nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#service">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <ul class="list-style-none">
+        <li class="inline-block">
+          <a class="inline-block text-14 px-10 py-10" href="#">Home</a>
+        </li>
+        <li class="inline-block ml-20">
+          <a class="inline-block text-14 px-10 py-10" href="#about">About</a>
+        </li>
+        <li class="inline-block ml-20">
+          <a class="inline-block text-14 px-10 py-10" href="#service">Services</a>
+        </li>
+        <li class="inline-block ml-20">
+          <a class="inline-block text-14 px-10 py-10" href="#contact">Contact</a>
+        </li>
       </ul>
     </div>
   </div>
 
   <!-- ==== CAROUSEL ==== -->
-  <div class="carousel" style="background-image: url('./images/2.jpg');"></div>
+  <div class="carousel">
+    <div style="background-image: url('./images/2.jpg');"></div>
+  </div>
 
   <!-- ==== ABOUT ==== -->
   <div id="about">
-    <div class="mainSize">
-      <div class="about__info">
-        <h1>Welcome To Our Campus</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quibusdam, odio sunt, nam quidem assumenda ut
+    <div class="mainSize center py-40">
+      <div class="about__info float-left w-50">
+        <h1 class="mb-15">Welcome To Our Campus</h1>
+        <p class="mb-15">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quibusdam, odio sunt, nam quidem
+          assumenda ut
           vitae provident, rerum velit ullam repellat necessitatibus. Quasi cum similique consequatur praesentium
           molestias voluptatem?</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse magni deserunt eum?</p>
-        <a href="#">Read More</a>
+        <p class="mb-15">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse magni deserunt eum?</p>
+        <a href="#" class="inline-block rounded-8px font-bolder px-25 py-10 mt-20">Read More</a>
       </div>
-      <div class="about__banner">
-        <div><img src="./images/g1.jpg" alt="banner about"></div>
+      <div class="float-left w-50">
+        <div class="w-100">
+          <img class="w-100" src="./images/g1.jpg" alt="banner about">
+        </div>
       </div>
-      <div class="clearFloat"></div>
+      <div class="clear-both"></div>
     </div>
-    <div>
-      <div class="mainSize">
-        <div class="about__details">
-          <div class="item">
-            <span>60</span>
-            <span>professional instructors</span>
+    <div class="py-40">
+      <div class="mainSize center">
+        <div>
+          <div class="item float-left w-25">
+            <span class="float-left w-30 text-center font-bolder pr-15 text-44">60</span>
+            <span class="w-70 pr-20 text-20 uppercase">professional instructors</span>
           </div>
-          <div class="item">
-            <span>18</span>
-            <span>new courses every year</span>
+          <div class="item float-left w-25">
+            <span class="float-left w-30 text-center font-bolder pr-15 text-44">18</span>
+            <span class="w-70 pr-20 text-20 uppercase">new courses every year</span>
           </div>
-          <div class="item">
-            <span>34</span>
-            <span>live sessions every month</span>
+          <div class="item float-left w-25">
+            <span class="float-left w-30 text-center font-bolder pr-15 text-44">34</span>
+            <span class="w-70 pr-20 text-20 uppercase">live sessions every month</span>
           </div>
-          <div class="item">
-            <span>20</span>
-            <span>registered students</span>
+          <div class="item float-left w-25">
+            <span class="float-left w-30 text-center font-bolder pr-15 text-44">20</span>
+            <span class="w-70 pr-20 text-20 uppercase">registered students</span>
           </div>
-          <div class="clearFloat"></div>
+          <div class="clear-both"></div>
         </div>
       </div>
     </div>
@@ -84,116 +97,116 @@
 
   <!-- ==== SERVICE ==== -->
   <div id="service">
-    <div class="mainSize service__list">
-      <div class="wrapper">
-        <div class="item">
-          <i class="fa-solid fa-person"></i>
+    <div class="mainSize center py-60 service__list">
+      <div class="wrapper p-15 text-center float-left w-25">
+        <div class="item py-30">
+          <i class="text-32 mb-20 fa-solid fa-person"></i>
           <p>Socioligy</p>
         </div>
       </div>
-      <div class="wrapper">
-        <div class="item">
-          <i class="fa-solid fa-suitcase"></i>
+      <div class="wrapper p-15 text-center float-left w-25">
+        <div class="item py-30">
+          <i class="text-32 mb-20 fa-solid fa-suitcase"></i>
           <p>Business</p>
         </div>
       </div>
-      <div class="wrapper">
-        <div class="item">
-          <i class="fa-solid fa-code"></i>
+      <div class="wrapper p-15 text-center float-left w-25">
+        <div class="item py-30">
+          <i class="text-32 mb-20 fa-solid fa-code"></i>
           <p>Web Dev</p>
         </div>
       </div>
-      <div class="wrapper">
-        <div class="item">
-          <i class="fa-solid fa-flask"></i>
+      <div class="wrapper p-15 text-center float-left w-25">
+        <div class="item py-30">
+          <i class="text-32 mb-20 fa-solid fa-flask"></i>
           <p>Science</p>
         </div>
       </div>
-      <div class="wrapper">
-        <div class="item">
-          <i class="fa-solid fa-money-bill-1"></i>
+      <div class="wrapper p-15 text-center float-left w-25">
+        <div class="item py-30">
+          <i class="text-32 mb-20 fa-solid fa-money-bill-1"></i>
           <p>Ecomomics</p>
         </div>
       </div>
-      <div class="wrapper">
-        <div class="item">
-          <i class="fa-brands fa-gg"></i>
+      <div class="wrapper p-15 text-center float-left w-25">
+        <div class="item py-30">
+          <i class="text-32 mb-20 fa-brands fa-gg"></i>
           <p>Biology</p>
         </div>
       </div>
-      <div class="wrapper">
-        <div class="item">
-          <i class="fa-solid fa-desktop"></i>
+      <div class="wrapper p-15 text-center float-left w-25">
+        <div class="item py-30">
+          <i class="text-32 mb-20 fa-solid fa-desktop"></i>
           <p>Computing</p>
         </div>
       </div>
-      <div class="wrapper">
-        <div class="item">
-          <i class="fa-solid fa-arrow-pointer"></i>
+      <div class="wrapper p-15 text-center float-left w-25">
+        <div class="item py-30">
+          <i class="text-32 mb-20 fa-solid fa-arrow-pointer"></i>
           <p>Web Design</p>
         </div>
       </div>
-      <div class="clearFloat"></div>
+      <div class="clear-both"></div>
     </div>
   </div>
 
   <!-- ==== BLOG ==== -->
   <div id="blog">
-    <div class="mainSize">
-      <div class="blog__post">
-        <h2>Latest Posts</h2>
-        <div class="list__post">
+    <div class="mainSize center py-60">
+      <div class="blog__post float-left w-50 pr-20">
+        <h2 class="font-bolder mb-20">Latest Posts</h2>
+        <div class="list__post p-20 mb-20">
           <div class="post">
-            <div class="post__img">
-              <img src="./images/g9.jpg" alt="thumnail post">
+            <div class="float-left w-25">
+              <img class="w-100" src="./images/g9.jpg" alt="thumnail post">
             </div>
-            <div class="post__content">
+            <div class="float-left w-75">
               <h3>Summer Course Starts</h3>
               <span>April 25, 2020</span>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nemo ea voluptas aliquid
                 perferendis soluta eum dicta repellat quidem omnis.</p>
             </div>
           </div>
-          <hr>
+          <hr class="w-100">
           <div class="post">
-            <div class="post__img">
-              <img src="./images/g9.jpg" alt="thumnail post">
+            <div class="float-left w-25">
+              <img class="w-100" src="./images/g9.jpg" alt="thumnail post">
             </div>
-            <div class="post__content">
+            <div class="float-left w-75">
               <h3>Summer Course Starts</h3>
               <span>April 25, 2020</span>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nemo ea voluptas aliquid
                 perferendis soluta eum dicta repellat quidem omnis.</p>
             </div>
           </div>
-          <hr>
+          <hr class="w-100">
           <div class="post">
-            <div class="post__img">
-              <img src="./images/g9.jpg" alt="thumnail post">
+            <div class="float-left w-25">
+              <img class="w-100" src="./images/g9.jpg" alt="thumnail post">
             </div>
-            <div class="post__content">
+            <div class="float-left w-75">
               <h3>Summer Course Starts</h3>
               <span>April 25, 2020</span>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nemo ea voluptas aliquid
                 perferendis soluta eum dicta repellat quidem omnis.</p>
             </div>
           </div>
-          <div class="clearFloat"></div>
+          <div class="clear-both"></div>
         </div>
-        <div class="blog__btn">
-          <a href="#">View ALl</a>
+        <div class="px-20 py-10 text-right">
+          <a class="blog__btn inline-block font-bolder px-20 py-10" href="#">View ALl</a>
         </div>
       </div>
-      <div class="blog__event">
-        <h2>Upcoming Events</h2>
+      <div class="blog__event float-left w-50 pl-20">
+        <h2 class="font-bolder mb-20">Upcoming Events</h2>
         <div class="list__event">
           <!--  -->
         </div>
-        <div class="blog__btn">
-          <a href="#">View All</a>
+        <div class="px-20 py-10 text-right">
+          <a class="blog__btn inline-block font-bolder px-20 py-10" href="#">View All</a>
         </div>
       </div>
-      <div class="clearFloat"></div>
+      <div class="clear-both"></div>
     </div>
   </div>
 
