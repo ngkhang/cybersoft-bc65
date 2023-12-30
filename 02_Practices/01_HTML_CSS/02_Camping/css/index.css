@@ -38,7 +38,6 @@
 }
 
 .card .card__content a {
-  font-weight: bold;
   background: var(--color-bg-btn);
   color: var(--color-gray);
   border: 0;
