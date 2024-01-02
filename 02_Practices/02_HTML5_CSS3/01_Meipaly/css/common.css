@@ -1,0 +1,124 @@
+:root {
+  --color-red: #e62b4a;
+  --color-white: 255, 255, 255;
+  --color-shadow-white: 243, 243, 243;
+  --color-black: 0, 0, 0;
+  --color-gray: #888888;
+  --color-pink: 230, 43, 74;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  background: rgb(var(--color-white));
+  font-family: 'Oswald', sans-serif;
+  /*
+  default:
+    font-size: 16px; 
+    1rem = 16px;
+  */
+}
+
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainSize {
+  width: 75%;
+}
+
+
+.w-screen {
+  width: 100vw;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+
+/* ========== FLEX ========== */
+.flex-col {
+  flex-direction: column;
+}
+
+/* ========== WIDTH ========== */
+.w-25 {
+  width: 25%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/* ========== PADDING ========== */
+.py-15 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+
+.px-25 {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.py-25 {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.py-100 {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+
+
+
+/* ========== MARGIN ========== */
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+/* ========== TEXT ALGIN ========== */
+.text-center {
+  text-align: center;
+}
+
+
+/* ========== TEXT TRANSFORM ========== */
+.uppercase {
+  text-transform: uppercase;
+}
+
+
+/* ========== FONT WEIGHT ========== */
+.font-bolder {
+  font-weight: bolder;
+}

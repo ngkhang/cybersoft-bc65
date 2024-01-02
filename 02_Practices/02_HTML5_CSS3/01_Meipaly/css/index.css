@@ -1,0 +1,165 @@
+/* ========== HEADER ========= */
+.header {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid rgba(var(--color-white), 0.2);
+}
+
+.header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header nav a {
+  color: rgb(var(--color-white));
+}
+
+.header .header__logo {
+  font-size: 2rem;
+}
+
+.header .header__nav a:hover,
+.header .header__nav a.active {
+  color: var(--color-red);
+}
+
+/* 
+
+
+.header nav div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.header nav ul {
+  display: flex;
+  align-items: center;
+} */
+
+/* ========== CAROUSEL ========= */
+.carousel {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel>div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(var(--color-white));
+}
+
+.carousel p {
+  font-size: 1.6rem;
+}
+
+.carousel h1 {
+  font-size: calc(calc(75/16) * 1rem);
+  line-height: calc(calc(90/16) * 1rem);
+}
+
+.carousel button {
+  font-size: 1rem;
+  cursor: pointer;
+  border: 0;
+  background: var(--color-red);
+  color: rgb(var(--color-white));
+}
+
+/* ========== SERVICE ========= */
+.service {
+  background: rgb(var(--color-black));
+}
+
+.service .service__title span {
+  color: var(--color-red);
+  font-size: 0.875rem;
+}
+
+.service .service__title h2 {
+  color: rgb(var(--color-white));
+  font-size: 3.125rem;
+}
+
+.service .service__title p {
+  color: var(--color-gray);
+  font-size: 1rem;
+}
+
+.service .service__slide>div {
+  height: 200px;
+  background: rgb(var(--color-white));
+}
+
+/* ========== BLOG ========= */
+.blog {
+  background: rgb(var(--color-shadow-white));
+}
+
+.blog .blog__title span {
+  color: var(--color-gray);
+  font-size: 0.875rem;
+}
+
+.blog .blog__title h2 {
+  /* color: rgb(var(--color-white)); */
+  font-weight: normal;
+  font-size: 3.125rem;
+}
+
+.blog .blog__title p {
+  color: var(--color-gray);
+  font-size: 1rem;
+}
+
+/* ========== DYNAMIC NUMBER ========= */
+.number {
+  background: rgb(var(--color-black));
+}
+
+.number>div {
+  display: flex;
+  align-items: center;
+}
+
+.number span {
+  color: rgb(var(--color-white));
+  display: block;
+}
+
+.number span:first-child {
+  font-size: 3.75rem;
+  font-weight: 300;
+}
+
+.number span:last-child {
+  font-size: 1.25rem;
+  color: var(--color-gray);
+}
+
+/* ========== EXPERIENCE ========= */
+
+
+/* ========== CONTACT ========= */
+.contact {
+  background: rgb(var(--color-white));
+}
+
+.contact .contact__title h2 {
+  /* color: rgb(var(--color-white)); */
+  font-weight: normal;
+  font-size: 3.125rem;
+}
+
+.contact .contact__title p {
+  color: var(--color-gray);
+  font-size: 1rem;
+}
+
+/* ========== FOOTER ========= */
