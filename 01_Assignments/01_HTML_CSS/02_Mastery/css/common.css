@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 :root {
@@ -11,15 +12,14 @@
   --color-shadow-white: #f6f6f6;
   --color-gray: #7d7d7d;
   --color-dark: #1b1d2d;
+  /* #939393
+      #5a5a5a
+  */
 }
 
 html,
 body {
   font-family: 'Poppins', sans-serif;
-}
-
-a {
-  text-decoration: none;
 }
 
 .list-style-none {
@@ -30,26 +30,6 @@ a {
   margin: 0 auto;
 }
 
-
-.text-14 {
-  font-size: 14px;
-}
-
-.text-32 {
-  font-size: 32px;
-}
-
-.text-21 {
-  font-size: 21px;
-}
-
-.text-44 {
-  font-size: 44px;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
 
 /* ========== PADDING ========== */
 .p-10 {
@@ -106,6 +86,10 @@ a {
   padding-left: 20px;
 }
 
+.pb-20 {
+  padding-bottom: 20px;
+}
+
 .p-25 {
   padding: 25px;
 }
@@ -154,14 +138,26 @@ a {
 }
 
 
-
 /* ========== MARGIN ========== */
 .mr-15 {
   margin-right: 15px;
 }
 
+.mx-5 {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
 .mb-5 {
   margin-bottom: 5px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
 }
 
 .mb-15 {
@@ -190,20 +186,19 @@ a {
   border-radius: 8px;
 }
 
+.rounded-4px {
+  border-radius: 4px;
+}
+
 /* ========== DISPLAY ========== */
 .inline-block {
   display: inline-block;
 }
 
-/* ========== TEXT DECORATION ========== */
-.no-underline {
-  text-decoration: none;
+.block {
+  display: block;
 }
 
-/* ========== FONT WEIGHT ========== */
-.font-bolder {
-  font-weight: bolder;
-}
 
 /* ========== FLOAT ========== */
 .float-left {
@@ -214,14 +209,6 @@ a {
   clear: both;
 }
 
-/* ========== TEXT ALIGN ========== */
-.text-center {
-  text-align: center;
-}
-
-.text-right {
-  text-align: right;
-}
 
 /* ========== WIDTH ========== */
 .mainSize {
@@ -234,6 +221,10 @@ a {
 
 .w-30 {
   width: 30%;
+}
+
+.w-40 {
+  width: 40%;
 }
 
 .w-50 {
@@ -250,4 +241,53 @@ a {
 
 .w-100 {
   width: 100%;
+}
+
+
+/* ========== LINE CLAMP ========== */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+
+/* ========== FONT WEIGHT ========== */
+.font-bolder {
+  font-weight: bolder;
+}
+
+
+/* ========== FONT SIZE ========== */
+.text-14 {
+  font-size: 14px;
+}
+
+.text-32 {
+  font-size: 32px;
+}
+
+.text-21 {
+  font-size: 21px;
+}
+
+.text-44 {
+  font-size: 44px;
+}
+
+
+/* ========== TEXT-TRANSFORM ========== */
+.uppercase {
+  text-transform: uppercase;
+}
+
+
+/* ========== TEXT ALIGN ========== */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }

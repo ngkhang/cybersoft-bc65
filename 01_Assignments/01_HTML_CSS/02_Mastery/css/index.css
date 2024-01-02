@@ -1,4 +1,4 @@
-/* ==== HEADER ==== */
+/* ========== HEADER ========== */
 #header {
   background: var(--color-white);
 }
@@ -16,7 +16,7 @@
   color: var(--color-dark-blue);
 }
 
-/* ==== CAROUSEL ==== */
+/* ========== CAROUSEL ========== */
 .carousel>div {
   height: 600px;
   background-size: cover;
@@ -24,8 +24,8 @@
   background-position: top;
 }
 
-/* ==== ABOUT ==== */
-#about div:last-child {
+/* ========== ABOUT ========== */
+#about>div:last-child {
   background: var(--color-shadow-white);
 }
 
@@ -43,22 +43,21 @@
   background: var(--color-yellow);
 }
 
-/* ==== SERVICE ==== */
+/* ========== SERVICE ========== */
 #service .service__list .wrapper .item {
   color: var(--color-white);
   background: var(--color-dark-blue);
 }
 
-/* ==== BLOG ==== */
+/* ========== BLOG ========== */
 #blog {
   background: var(--color-shadow-white);
 }
 
 #blog hr {
-  background: var(--color-gray);
+  background: var(--color-shadow-white);
   height: 2px;
   border: 0;
-  margin: 5px 0;
 }
 
 #blog .blog__post h2,
@@ -70,9 +69,59 @@
   background: var(--color-white);
 }
 
+#blog .list__post .post h3 {
+  font-size: 18px;
+}
+
+#blog .list__post .post span {
+  font-size: 14px;
+  color: var(--color-gray);
+
+}
+
 #blog .blog__btn {
   color: var(--color-dark-blue);
   background: var(--color-yellow);
 }
 
-/* ==== CONTACT ==== */
+#blog .blog__event .list__event .event {
+  background: var(--color-white);
+}
+
+.event__time .top {
+  background: var(--color-yellow);
+}
+
+.event__time .bottom {
+  background: var(--color-dark-blue);
+  color: var(--color-white);
+}
+
+.event__info div span {
+  color: var(--color-dark-blue);
+  font-size: 15px;
+}
+
+/* ========== CONTACT ========== */
+#contact {
+  background: var(--color-dark-blue);
+  color: var(--color-white);
+}
+
+#contact a {
+  color: var(--color-white);
+}
+
+#contact .contact__info {
+  border-bottom: 1px solid var(--color-gray);
+}
+
+#contact .contact__direct i {
+  font-size: 18px;
+  color: var(--color-yellow)
+}
+
+#contact .contact__info p,
+#contact .contact__info a {
+  font-size: 14px;
+}
