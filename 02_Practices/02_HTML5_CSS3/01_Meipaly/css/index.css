@@ -1,3 +1,21 @@
+/* ========== ANIMATION ========= */
+@keyframes arrowDown {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: .5;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(60px);
+  }
+}
+
 /* ========== HEADER ========= */
 .header {
   background: transparent;
@@ -23,7 +41,7 @@
 
 .header .header__nav a:hover,
 .header .header__nav a.active {
-  color: var(--color-red);
+  color: rgb(var(--color-red));
 }
 
 /* 
@@ -56,20 +74,32 @@
 }
 
 .carousel p {
-  font-size: 1.6rem;
+  font-size: var(--text-2xl);
 }
 
 .carousel h1 {
-  font-size: calc(calc(75/16) * 1rem);
+  font-size: var(--text-7xl);
   line-height: calc(calc(90/16) * 1rem);
 }
 
 .carousel button {
-  font-size: 1rem;
+  font-size: var(--text-base);
   cursor: pointer;
   border: 0;
-  background: var(--color-red);
+  background: rgb(var(--color-red));
+  border: 2px solid rgb(var(--color-red));
   color: rgb(var(--color-white));
+  transition: all 0.3s linear;
+}
+
+.carousel button:hover {
+  background: rgb(var(--color-red-dark));
+}
+
+.carousel i {
+  font-size: var(--text-3xl);
+  color: rgb(var(--color-white));
+  animation: arrowDown .9s linear 0.1s infinite backwards;
 }
 
 /* ========== SERVICE ========= */
@@ -78,23 +108,81 @@
 }
 
 .service .service__title span {
-  color: var(--color-red);
-  font-size: 0.875rem;
+  color: rgb(var(--color-red));
+  font-size: var(--text-sm);
+  letter-spacing: 1px;
 }
 
 .service .service__title h2 {
   color: rgb(var(--color-white));
-  font-size: 3.125rem;
+  font-size: var(--text-5xl);
+  font-weight: normal;
+  letter-spacing: 1px;
 }
 
 .service .service__title p {
   color: var(--color-gray);
-  font-size: 1rem;
+  font-size: var(--text-base);
+  letter-spacing: 1px;
 }
 
 .service .service__slide>div {
-  height: 200px;
+  /* height: 200px; */
+  /* background: rgb(var(--color-white)); */
+}
+
+.slickCustom {
+  /* width: 100%; */
+}
+
+.slickCustom .item {
+  /* padding: 0 15px; */
+}
+
+.slickCustom .item>div {
+  cursor: pointer;
   background: rgb(var(--color-white));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  border: 4px solid transparent;
+  transition: all 0.3s linear;
+}
+
+.slickCustom .item>div:hover {
+  border-right-color: rgb(var(--color-red));
+}
+
+.slickCustom .item>div i {
+  font-size: var(--text-5xl);
+  color: var(--color-gray);
+}
+
+.slickCustom .item>div span {
+  font-size: var(--text-sm);
+  color: var(--color-gray);
+  letter-spacing: 1px;
+}
+
+.slick-dots {
+  position: relative;
+}
+
+/* .slick-dots li */
+.slick-dots li button:before {
+  color: #fff;
+  font-size: var(--text-base);
+  /* background: #fff; */
+}
+
+.slick-dots li.slick-active button:before {
+  color: rgb(var(--color-red));
+}
+
+.slick-list {
+  margin-bottom: 10px;
 }
 
 /* ========== BLOG ========= */
@@ -104,19 +192,20 @@
 
 .blog .blog__title span {
   color: var(--color-gray);
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
 }
 
 .blog .blog__title h2 {
+  font-size: var(--text-5xl);
   /* color: rgb(var(--color-white)); */
   font-weight: normal;
-  font-size: 3.125rem;
 }
 
 .blog .blog__title p {
   color: var(--color-gray);
-  font-size: 1rem;
+  font-size: var(--text-base);
 }
+
 
 /* ========== DYNAMIC NUMBER ========= */
 .number {
@@ -134,17 +223,39 @@
 }
 
 .number span:first-child {
-  font-size: 3.75rem;
+  font-size: var(--text-6xl);
   font-weight: 300;
 }
 
 .number span:last-child {
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
   color: var(--color-gray);
 }
 
 /* ========== EXPERIENCE ========= */
+.experience {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
+
+.experience .experience__title span {
+  color: rgb(var(--color-red));
+  font-size: var(--text-sm);
+}
+
+.experience .experience__title h2 {
+  font-size: var(--text-5xl);
+  color: rgb(var(--color-white));
+  font-weight: normal;
+}
+
+.experience .experience__title p {
+  color: var(--color-gray);
+  font-size: var(--text-base);
+}
 
 /* ========== CONTACT ========= */
 .contact {
@@ -152,14 +263,70 @@
 }
 
 .contact .contact__title h2 {
+  font-size: var(--text-5xl);
   /* color: rgb(var(--color-white)); */
   font-weight: normal;
-  font-size: 3.125rem;
 }
 
 .contact .contact__title p {
   color: var(--color-gray);
-  font-size: 1rem;
+  font-size: var(--text-base);
+}
+
+.contact .contact_details .form {
+  /* background: green; */
+}
+
+.contact .contact_details .form input,
+.contact .contact_details .form textarea {
+  font-size: var(--text-base);
+}
+
+.contact .contact_details .form button {
+  background: rgb(var(--color-black));
+  font-size: var(--text-base);
+  color: rgb(var(--color-white));
+  cursor: pointer;
+  border: 0;
+  transition: all 0.2s linear;
+}
+
+.contact .contact_details .form button:hover {
+  background: rgb(var(--color-red));
 }
 
 /* ========== FOOTER ========= */
+.footer {
+  background: rgb(var(--color-black));
+}
+
+.footer .footer__copyright {
+  color: rgb(var(--color-white));
+  font-size: var(--text-sm);
+}
+
+.footer .footer__social a {
+  background: rgba(var(--color-white), 0.2);
+  transition: all 0.4s linear;
+  width: 60px;
+  height: 60px;
+}
+
+.footer .footer__social a:hover {
+  background: rgb(var(--color-red));
+}
+
+.footer .footer__social a i {
+  font-size: var(--text-xl);
+  color: rgb(var(--color-white));
+}
+
+/* ========== BTN SCROLL UP ========= */
+.btnUp {
+  bottom: 0;
+  right: 0;
+  background: var(--color-gray);
+  color: rgb(var(--color-white));
+  font-size: var(--text-xl);
+  cursor: pointer;
+}
