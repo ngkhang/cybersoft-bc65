@@ -1,29 +1,42 @@
+/* ========== Reset CSS ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  list-style: none;
 }
 
+
+/* ========== Variable CSS ========== */
 :root {
-  --color-dark-blue: #002146;
-  --color-yellow: #fdc800;
+  /* Color */
   --color-white: #fff;
-  --color-shadow-white: #f6f6f6;
-  --color-gray: #7d7d7d;
-  --color-dark: #1b1d2d;
-  /* #939393
-      #5a5a5a
-  */
+  --color-slate: #f6f6f6;
+  --color-slate-200: #939393;
+  --color-gray-100: #969696;
+  --color-gray-200: #585858;
+  --color-yellow: #fdc800;
+  --color-blue-100: #1b1d2d;
+  --color-blue-200: #002146;
+
+  /* Font size */
+  --text-sm: 0.875rem;
+  /* 14px */
+  --text-base: 1rem;
+  /* 16px */
+  --text-xl: 1.3125rem;
+  /* 21px */
+  --text-2xl: 2rem;
+  /* 32px */
+  --text-3xl: 2.75rem;
+  /* 44px */
 }
+
 
 html,
 body {
   font-family: 'Poppins', sans-serif;
-}
-
-.list-style-none {
-  list-style: none;
 }
 
 .center {
@@ -32,13 +45,9 @@ body {
 
 
 /* ========== PADDING ========== */
-.p-10 {
-  padding: 10px;
-}
-
-.px-10 {
-  padding-right: 10px;
-  padding-left: 10px;
+.py-5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .py-10 {
@@ -46,36 +55,20 @@ body {
   padding-bottom: 10px;
 }
 
-.p-15 {
-  padding: 15px;
-}
-
-.px-15 {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-.py-15 {
-  padding-top: 15px;
-  padding-bottom: 15px;
+.p-10 {
+  padding: 10px;
 }
 
 .pr-15 {
   padding-right: 15px;
 }
 
-.p-20 {
-  padding: 20px;
+.pl-15 {
+  padding-left: 15px;
 }
 
-.px-20 {
-  padding-right: 20px;
-  padding-left: 20px;
-}
-
-.py-20 {
-  padding-top: 20px;
-  padding-bottom: 20px;
+.p-15 {
+  padding: 15px;
 }
 
 .pr-20 {
@@ -90,8 +83,18 @@ body {
   padding-bottom: 20px;
 }
 
-.p-25 {
-  padding: 25px;
+.px-20 {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.py-20 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.p-20 {
+  padding: 20px;
 }
 
 .px-25 {
@@ -99,32 +102,9 @@ body {
   padding-left: 25px;
 }
 
-.py-25 {
-  padding-top: 25px;
-  padding-bottom: 25px;
-}
-
-.p-30 {
-  padding: 30px;
-}
-
-.px-30 {
-  padding-right: 30px;
-  padding-left: 30px;
-}
-
 .py-30 {
   padding-top: 30px;
   padding-bottom: 30px;
-}
-
-.p-40 {
-  padding: 40px;
-}
-
-.px-40 {
-  padding-right: 40px;
-  padding-left: 40px;
 }
 
 .py-40 {
@@ -139,17 +119,17 @@ body {
 
 
 /* ========== MARGIN ========== */
-.mr-15 {
-  margin-right: 15px;
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.mr-5 {
+  margin-right: 5px;
 }
 
 .mx-5 {
   margin-right: 5px;
   margin-left: 5px;
-}
-
-.mb-5 {
-  margin-bottom: 5px;
 }
 
 .mr-10 {
@@ -164,49 +144,12 @@ body {
   margin-bottom: 15px;
 }
 
-.ml-20 {
-  margin-left: 20px;
-}
-
-.mt-20 {
-  margin-top: 20px;
-}
-
 .mb-20 {
   margin-bottom: 20px;
 }
 
-
-/* ========== BORDER RADIUS ========== */
-.rounded-full {
-  border-radius: 50%;
-}
-
-.rounded-8px {
-  border-radius: 8px;
-}
-
-.rounded-4px {
-  border-radius: 4px;
-}
-
-/* ========== DISPLAY ========== */
-.inline-block {
-  display: inline-block;
-}
-
-.block {
-  display: block;
-}
-
-
-/* ========== FLOAT ========== */
-.float-left {
-  float: left;
-}
-
-.clear-both {
-  clear: both;
+.ml-20 {
+  margin-left: 20px;
 }
 
 
@@ -223,8 +166,8 @@ body {
   width: 30%;
 }
 
-.w-40 {
-  width: 40%;
+.w-33 {
+  width: calc(100% / 3);
 }
 
 .w-50 {
@@ -235,45 +178,42 @@ body {
   width: 70%;
 }
 
-.w-75 {
-  width: 75%;
-}
-
 .w-100 {
   width: 100%;
 }
 
 
-/* ========== LINE CLAMP ========== */
-.line-clamp-2 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
-
-/* ========== FONT WEIGHT ========== */
-.font-bolder {
-  font-weight: bolder;
+/* ========== HEIGHT ========== */
+.h-screen {
+  height: 100vh;
 }
 
 
 /* ========== FONT SIZE ========== */
-.text-14 {
-  font-size: 14px;
+.text-sm {
+  font-size: var(--text-sm);
 }
 
-.text-32 {
-  font-size: 32px;
+.text-base {
+  font-size: var(--text-base);
 }
 
-.text-21 {
-  font-size: 21px;
+.text-xl {
+  font-size: var(--text-xl);
 }
 
-.text-44 {
-  font-size: 44px;
+.text-2xl {
+  font-size: var(--text-2xl);
+}
+
+.text-3xl {
+  font-size: var(--text-3xl);
+}
+
+
+/* ========== FONT WEIGHT ========== */
+.font-bold {
+  font-weight: 700;
 }
 
 
@@ -290,4 +230,99 @@ body {
 
 .text-right {
   text-align: right;
+}
+
+
+/* ========== LINE CLAMP ========== */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+
+/* ========== BORDER RADIUS ========== */
+.rounded-full {
+  border-radius: 50%;
+}
+
+.rounded-4px {
+  border-radius: 4px;
+}
+
+.rounded-8px {
+  border-radius: 8px;
+}
+
+
+/* ========== FLOAT ========== */
+.float-left {
+  float: left;
+}
+
+.clear-both {
+  clear: both;
+}
+
+
+/* ========== DISPLAY ========== */
+.inline-block {
+  display: inline-block;
+}
+
+.block {
+  display: block;
+}
+
+
+/* ========== BACKGROUND ========== */
+.bg-white {
+  background: var(--color-white);
+}
+
+.bg-slate {
+  background: var(--color-slate);
+}
+
+.bg-yellow {
+  background: var(--color-yellow);
+}
+
+.bg-blue-200 {
+  background: var(--color-blue-200);
+}
+
+
+/* ========== COLOR ========== */
+.color-white {
+  color: var(--color-white);
+}
+
+.color-slate {
+  color: var(--color-slate);
+}
+
+.color-gray-100 {
+  color: var(--color-gray-100);
+}
+
+.color-gray-200 {
+  color: var(--color-gray-200);
+}
+
+.color-slate-200 {
+  color: var(--color-slate-200);
+}
+
+.color-yellow {
+  color: var(--color-yellow);
+}
+
+.color-blue-100 {
+  color: var(--color-blue-100);
+}
+
+.color-blue-200 {
+  color: var(--color-blue-200);
 }

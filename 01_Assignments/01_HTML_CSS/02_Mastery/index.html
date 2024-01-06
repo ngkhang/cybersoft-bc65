@@ -21,26 +21,27 @@
 
 <body>
   <!-- ========== HEADER ========== -->
-  <div id="header">
-    <div class="mainSize py-10 center">
+  <div id="header" class="bg-white">
+    <div class="mainSize center py-10">
       <div class="mb-5">
         <a class="inline-block" href="#">
-          <i class="fa-regular fa-pen-to-square text-center rounded-full p-10 mr-5"></i>
-          <span class="text-bolder text-21">Mastery</span>
+          <!-- Not Align Center-->
+          <i class="fa-regular fa-pen-to-square bg-blue-200 text-center rounded-full color-yellow p-10 mr-5"></i>
+          <span class="color-blue-100 font-bold text-xl">Mastery</span>
         </a>
       </div>
-      <ul class="list-style-none">
+      <ul>
         <li class="inline-block">
-          <a class="inline-block text-14 px-10 py-10" href="#">Home</a>
+          <a class="inline-block text-sm p-10 color-blue-200" href="#">Home</a>
         </li>
         <li class="inline-block ml-20">
-          <a class="inline-block text-14 px-10 py-10" href="#about">About</a>
+          <a class="inline-block text-sm p-10 color-blue-200" href="#about">About</a>
         </li>
         <li class="inline-block ml-20">
-          <a class="inline-block text-14 px-10 py-10" href="#service">Services</a>
+          <a class="inline-block text-sm p-10 color-blue-200" href="#service">Services</a>
         </li>
         <li class="inline-block ml-20">
-          <a class="inline-block text-14 px-10 py-10" href="#contact">Contact</a>
+          <a class="inline-block text-sm p-10 color-blue-200" href="#contact">Contact</a>
         </li>
       </ul>
     </div>
@@ -53,41 +54,49 @@
 
   <!-- ========== ABOUT ========== -->
   <div id="about">
-    <div class="mainSize center py-40">
-      <div class="about__info float-left w-50">
-        <h1 class="mb-15">Welcome To Our Campus</h1>
-        <p class="mb-15">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quibusdam, odio sunt, nam quidem
+    <div class="mainSize center py-40 bg-white">
+      <div class="about__info float-left w-50 pr-20">
+        <h1 class="mb-15 color-blue-100">Welcome To Our Campus</h1>
+        <p class="mb-15 color-gray-100 font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+          quibusdam, odio
+          sunt, nam quidem
           assumenda ut
           vitae provident, rerum velit ullam repellat necessitatibus. Quasi cum similique consequatur praesentium
           molestias voluptatem?</p>
-        <p class="mb-15">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse magni deserunt eum?</p>
-        <a href="#" class="inline-block rounded-8px font-bolder px-25 py-10 mt-20">Read More</a>
+        <p class="mb-15 color-gray-100 font-bold">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse magni
+          deserunt
+          eum?</p>
+        <a href="#" class="inline-block rounded-8px font-bold px-25 py-10 color-blue-200 bg-yellow">Read More</a>
       </div>
-      <div class="float-left w-50">
+      <div class="float-left w-50 pl-20">
         <div class="w-100">
           <img class="w-100" src="./images/g1.jpg" alt="banner about">
         </div>
       </div>
       <div class="clear-both"></div>
     </div>
-    <div class="py-40">
+    <div class="py-40 bg-slate">
       <div class="mainSize center">
         <div>
-          <div class="item float-left w-25">
-            <span class="float-left w-30 text-center font-bolder pr-15 text-44">60</span>
-            <span class="w-70 pr-20 text-20 uppercase">professional instructors</span>
+          <div class="item float-left w-25 pr-20">
+            <span class="float-left w-30 text-center font-bold pr-15 text-3xl color-blue-200">60</span>
+            <span class="float-left w-70 text-xl uppercase color-blue-100">professional instructors</span>
+            <div class="clear-both"></div>
           </div>
-          <div class="item float-left w-25">
-            <span class="float-left w-30 text-center font-bolder pr-15 text-44">18</span>
-            <span class="w-70 pr-20 text-20 uppercase">new courses every year</span>
+          <div class="item float-left w-25 pr-20">
+            <span class="float-left w-30 text-center font-bold pr-15 text-3xl color-blue-200">18</span>
+            <span class="float-left w-70 text-xl uppercase color-blue-100">new courses every year</span>
+            <div class="clear-both"></div>
           </div>
-          <div class="item float-left w-25">
-            <span class="float-left w-30 text-center font-bolder pr-15 text-44">34</span>
-            <span class="w-70 pr-20 text-20 uppercase">live sessions every month</span>
+          <div class="item float-left w-25 pr-20">
+            <span class="float-left w-30 text-center font-bold pr-15 text-3xl color-blue-200">34</span>
+            <span class="float-left w-70 text-xl uppercase color-blue-100">live sessions every month</span>
+            <div class="clear-both"></div>
           </div>
-          <div class="item float-left w-25">
-            <span class="float-left w-30 text-center font-bolder pr-15 text-44">20</span>
-            <span class="w-70 pr-20 text-20 uppercase">registered students</span>
+          <div class="item float-left w-25 pr-20">
+            <span class="float-left w-30 text-center font-bold pr-15 text-3xl color-blue-200">20</span>
+            <span class="float-left w-70 text-xl uppercase color-blue-100">registered students</span>
+            <div class="clear-both"></div>
           </div>
           <div class="clear-both"></div>
         </div>
@@ -97,52 +106,52 @@
 
   <!-- ========== SERVICE ========== -->
   <div id="service">
-    <div class="mainSize center py-60 service__list">
-      <div class="wrapper p-15 text-center float-left w-25">
-        <div class="item py-30">
-          <i class="text-32 mb-20 fa-solid fa-person"></i>
+    <div class="mainSize center py-60">
+      <div class="p-15 text-center float-left w-25">
+        <div class="color-white bg-blue-200 py-30">
+          <i class="text-2xl mb-20 fa-solid fa-person"></i>
           <p>Socioligy</p>
         </div>
       </div>
-      <div class="wrapper p-15 text-center float-left w-25">
-        <div class="item py-30">
-          <i class="text-32 mb-20 fa-solid fa-suitcase"></i>
+      <div class="p-15 text-center float-left w-25">
+        <div class="color-white bg-blue-200 py-30">
+          <i class="text-2xl mb-20 fa-solid fa-suitcase"></i>
           <p>Business</p>
         </div>
       </div>
-      <div class="wrapper p-15 text-center float-left w-25">
-        <div class="item py-30">
-          <i class="text-32 mb-20 fa-solid fa-code"></i>
+      <div class="p-15 text-center float-left w-25">
+        <div class="color-white bg-blue-200 py-30">
+          <i class="text-2xl mb-20 fa-solid fa-code"></i>
           <p>Web Dev</p>
         </div>
       </div>
-      <div class="wrapper p-15 text-center float-left w-25">
-        <div class="item py-30">
-          <i class="text-32 mb-20 fa-solid fa-flask"></i>
+      <div class="p-15 text-center float-left w-25">
+        <div class="color-white bg-blue-200 py-30">
+          <i class="text-2xl mb-20 fa-solid fa-flask"></i>
           <p>Science</p>
         </div>
       </div>
-      <div class="wrapper p-15 text-center float-left w-25">
-        <div class="item py-30">
-          <i class="text-32 mb-20 fa-solid fa-money-bill-1"></i>
+      <div class="p-15 text-center float-left w-25">
+        <div class="color-white bg-blue-200 py-30">
+          <i class="text-2xl mb-20 fa-solid fa-money-bill-1"></i>
           <p>Ecomomics</p>
         </div>
       </div>
-      <div class="wrapper p-15 text-center float-left w-25">
-        <div class="item py-30">
-          <i class="text-32 mb-20 fa-brands fa-gg"></i>
+      <div class="p-15 text-center float-left w-25">
+        <div class="color-white bg-blue-200 py-30">
+          <i class="text-2xl mb-20 fa-brands fa-gg"></i>
           <p>Biology</p>
         </div>
       </div>
-      <div class="wrapper p-15 text-center float-left w-25">
-        <div class="item py-30">
-          <i class="text-32 mb-20 fa-solid fa-desktop"></i>
+      <div class="p-15 text-center float-left w-25">
+        <div class="color-white bg-blue-200 py-30">
+          <i class="text-2xl mb-20 fa-solid fa-desktop"></i>
           <p>Computing</p>
         </div>
       </div>
-      <div class="wrapper p-15 text-center float-left w-25">
-        <div class="item py-30">
-          <i class="text-32 mb-20 fa-solid fa-arrow-pointer"></i>
+      <div class="p-15 text-center float-left w-25">
+        <div class="color-white bg-blue-200 py-30">
+          <i class="text-2xl mb-20 fa-solid fa-arrow-pointer"></i>
           <p>Web Design</p>
         </div>
       </div>
@@ -151,19 +160,34 @@
   </div>
 
   <!-- ========== BLOG ========== -->
-  <div id="blog">
+  <div id="blog" class="bg-slate">
     <div class="mainSize center py-60">
-      <div class="blog__post float-left w-50 pr-20">
-        <h2 class="font-bolder mb-20">Latest Posts</h2>
-        <div class="list__post px-20 mb-20">
-          <div class="post py-20">
+      <div class="float-left w-50 pr-20">
+        <h2 class="text-2xl font-bold color-blue-200 mb-20">Latest Posts</h2>
+        <div class="px-20 mb-20 bg-white">
+          <div class="py-20">
             <div class="float-left w-30">
               <img class="w-100 rounded-4px" src="./images/g9.jpg" alt="thumnail post">
             </div>
             <div class="float-left w-70 pl-20">
-              <h3 class="mb-5">Summer Course Starts</h3>
-              <span class="mb-10 block font-bolder">April 25, 2020</span>
-              <p class="line-clamp-2">
+              <h3 class="text-xl color-blue-700 mb-5">Summer Course Starts</h3>
+              <span class="mb-10 block font-bold color-slate-200 text-sm">April 25, 2020</span>
+              <p class="text-base font-bold color-gray-100  line-clamp-2">
+                Lorem ipsum dolor sit amet consectetur
+                adipisicing elit architecto voluptas aliquid perferendis soluta eum dicta repellat quidem omnis.
+              </p>
+            </div>
+            <div class="clear-both"></div>
+          </div>
+          <hr class="w-100 bg-slate">
+          <div class="py-20">
+            <div class="float-left w-30">
+              <img class="w-100 rounded-4px" src="./images/g9.jpg" alt="thumnail post">
+            </div>
+            <div class="float-left w-70 pl-20">
+              <h3 class="text-xl color-blue-700 mb-5">Summer Course Starts</h3>
+              <span class="mb-10 block font-bold color-slate-200 text-sm">April 25, 2020</span>
+              <p class="text-base font-bold color-gray-100 line-clamp-2">
                 Lorem ipsum dolor sit amet consectetur
                 adipisicing elit architecto voluptas aliquid perferendis soluta eum dicta repellat quidem omnis.
               </p>
@@ -171,29 +195,14 @@
             <div class="clear-both"></div>
           </div>
           <hr class="w-100">
-          <div class="post py-20">
+          <div class="py-20">
             <div class="float-left w-30">
               <img class="w-100 rounded-4px" src="./images/g9.jpg" alt="thumnail post">
             </div>
             <div class="float-left w-70 pl-20">
-              <h3 class="mb-5">Summer Course Starts</h3>
-              <span class="mb-10 block font-bolder">April 25, 2020</span>
-              <p class="line-clamp-2">
-                Lorem ipsum dolor sit amet consectetur
-                adipisicing elit architecto voluptas aliquid perferendis soluta eum dicta repellat quidem omnis.
-              </p>
-            </div>
-            <div class="clear-both"></div>
-          </div>
-          <hr class="w-100">
-          <div class="post py-20">
-            <div class="float-left w-30">
-              <img class="w-100 rounded-4px" src="./images/g9.jpg" alt="thumnail post">
-            </div>
-            <div class="float-left w-70 pl-20">
-              <h3 class="mb-5">Summer Course Starts</h3>
-              <span class="mb-10 block font-bolder">April 25, 2020</span>
-              <p class="line-clamp-2">
+              <h3 class="text-xl color-blue-700 mb-5">Summer Course Starts</h3>
+              <span class="mb-10 block font-bold color-slate-200 text-sm">April 25, 2020</span>
+              <p class="text-base font-bold color-gray-100  line-clamp-2">
                 Lorem ipsum dolor sit amet consectetur
                 adipisicing elit architecto voluptas aliquid perferendis soluta eum dicta repellat quidem omnis.
               </p>
@@ -202,63 +211,61 @@
           </div>
         </div>
         <div class="px-20 py-10 text-right">
-          <a class="blog__btn inline-block font-bolder px-20 py-10 rounded-4px" href="#">View All</a>
+          <a class="inline-block color-blue-200 bg-yellow font-bold px-20 py-10 rounded-4px" href="#">View All</a>
         </div>
       </div>
-      <div class="blog__event float-left w-50 pl-20">
-        <h2 class="font-bolder mb-20">Upcoming Events</h2>
-        <div class="list__event">
-          <div class="event p-20 mb-20">
-            <div class="event__time text-center float-left w-30 pr-20">
-              <div class="top py-10">
-                <span class="block font-bolder">20</span>
-                <span class="block">Nov</span>
+      <div class="float-left w-50 pl-20">
+        <h2 class="text-2xl font-bold color-blue-200 mb-20">Upcoming Events</h2>
+        <div class="">
+          <div class="p-20 mb-20 bg-white">
+            <div class="float-left w-30 pr-20 text-center">
+              <div class="bg-yellow py-10">
+                <span class="block font-bold text-3xl">20</span>
+                <span class="block text-xl">Nov</span>
               </div>
-              <div class="bottom py-10">
-                <span>2020</span>
+              <div class="bg-blue-200 color-white py-10">
+                <span class="text-xl">2020</span>
               </div>
             </div>
-            <div class="event__info float-left w-70">
+            <div class="float-left w-70 event__info">
               <h3 class="mb-20">Luctus et ultrices posuere</h3>
-              <p class="mb-10">
+              <p class="mb-10 color-gray-100 font-bold">
                 Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla mollis
                 dapibus nunc, ut rhoncus turpis sodales quis. Integer sit amet mattis quam.
               </p>
-              <div>
-                <span class="font-bolder">07:00 - 10:00</span>
-                <span class="mx-5">|</span>
-                <span class="font-bolder">Melbourne, Australia</span>
+              <div class="text-sm">
+                <span class="font-bold color-blue-700 py-5 pr-15">07:00 - 10:00</span>
+                <span class="font-bold color-blue-700 py-5 pl-15">Melbourne, Australia</span>
               </div>
             </div>
             <div class="clear-both"></div>
           </div>
-          <div class="event p-20 mb-20">
-            <div class="event__time text-center float-left w-30 pr-20">
-              <div class="top py-10">
-                <span class="block font-bolder">25</span>
-                <span class="block">Nov</span>
+          <div class="p-20 mb-20 bg-white">
+            <div class="float-left w-30 pr-20 text-center">
+              <div class="bg-yellow py-10">
+                <span class="block font-bold text-3xl">25</span>
+                <span class="block text-xl">Nov</span>
               </div>
-              <div class="bottom py-10">
-                <span>2020</span>
+              <div class="bg-blue-200 color-white py-10">
+                <span class="text-xl">2020</span>
               </div>
             </div>
             <div class="event__info float-left w-70">
               <h3 class="mb-20">Nulla mollis dapibus nunc, ut</h3>
-              <p class="mb-10">
+              <p class="mb-10 color-gray-100 font-bold">
                 Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla mollis
                 dapibus nunc, ut rhoncus turpis sodales quis. Integer sit amet mattis quam.
               </p>
-              <div>
-                <span class="font-bolder">07:00 - 10:00</span>
-                <span class="mx-5">|</span>
-                <span class="font-bolder">Melbourne, Australia</span>
+              <div class="text-sm">
+                <span class="font-bold color-blue-700 py-5 pr-15">07:00 - 10:00</span>
+                <span class="font-bold color-blue-700 py-5 pl-15">Melbourne, Australia</span>
               </div>
             </div>
             <div class="clear-both"></div>
           </div>
         </div>
         <div class="px-20 py-10 text-right">
-          <a class="blog__btn inline-block font-bolder px-20 py-10 rounded-4px" href="#">View All</a>
+          <a class="inline-block color-blue-200 bg-yellow font-bold px-20 py-10 rounded-4px" href="#">View All</a>
         </div>
       </div>
       <div class="clear-both"></div>
@@ -266,48 +273,68 @@
   </div>
 
   <!-- ========== CONTACT ========== -->
-  <div id="contact">
+  <div id="contact" class="bg-blue-200 color-white">
     <div class="mainSize center py-60">
       <div class="contact__info pb-20 mb-20">
-        <div class="contact__direct float-left w-40">
+        <div class="float-left w-33 pr-20">
           <h4 class="mb-20">Contact Us</h4>
-          <p class="mb-10">
-            <i class="fa fa-map-marker-alt mr-10"></i>
+          <p class="mb-10 text-base">
+            <i class="fa fa-map-marker-alt text-base color-yellow mr-10"></i>
             Estate Business, #32841 block, #221DRS Real estate business building, UK.
           </p>
-          <p class="mb-10">
-            <i class="fa fa-phone mr-10"></i>
+          <p class="mb-10 text-base">
+            <i class="fa fa-phone text-base color-yellow mr-10"></i>
             +(21)-255-999-8888
           </p>
-          <p class="mb-10">
-            <i class="fa fa-envelope-open mr-10"></i>
+          <p class="mb-10 text-base">
+            <i class="fa fa-envelope-open text-base color-yellow mr-10"></i>
             corporate-mail@support.com
           </p>
         </div>
-        <div class="contact__feature float-left w-30">
+        <div class="float-left w-33 pr-20">
           <h4 class="mb-20">Featured Links</h4>
-          <ul class="list-style-none">
-            <li class="mb-5"><a href="#">Graduation</a></li>
-            <li class="mb-5"><a href="#">Admissions</a></li>
-            <li class="mb-5"><a href="#">Book Store</a></li>
-            <li class="mb-5"><a href="#">International</a></li>
-            <li class="mb-5"><a href="#">Courses</a></li>
+          <ul>
+            <li class="mb-5">
+              <a class="color-white text-base" href="#">Graduation</a>
+            </li>
+            <li class="mb-5">
+              <a class="color-white text-base" href="#">Admissions</a>
+            </li>
+            <li class="mb-5">
+              <a class="color-white text-base" href="#">Book Store</a>
+            </li>
+            <li class="mb-5">
+              <a class="color-white text-base" href="#">International</a>
+            </li>
+            <li class="mb-5">
+              <a class="color-white text-base" href="#">Courses</a>
+            </li>
           </ul>
         </div>
-        <div class="contact__link float-left w-30">
+        <div class="float-left w-33 pr-20">
           <h4 class="mb-20">Quick Links</h4>
-          <ul class="list-style-none">
-            <li class="mb-5"><a href="#">Home</a></li>
-            <li class="mb-5"><a href="#">About</a></li>
-            <li class="mb-5"><a href="#">Services</a></li>
-            <li class="mb-5"><a href="#">Blog</a></li>
-            <li class="mb-5"><a href="#">Contact</a></li>
+          <ul>
+            <li class="mb-5">
+              <a class="color-white" href="#">Home</a>
+            </li>
+            <li class="mb-5">
+              <a class="color-white" href="#">About</a>
+            </li>
+            <li class="mb-5">
+              <a class="color-white" href="#">Services</a>
+            </li>
+            <li class="mb-5">
+              <a class="color-white" href="#">Blog</a>
+            </li>
+            <li class="mb-5">
+              <a class="color-white" href="#">Contact</a>
+            </li>
           </ul>
         </div>
         <div class="clear-both"></div>
       </div>
-      <div class="contact__copyright">
-        <p>&copy; 2020 Mastery. All rights reserved | Designed by W3layouts</p>
+      <div>
+        <p>&copy; 2020 Mastery. All rights reserved | Designed by <span class="color-gray-100">W3layouts</span></p>
       </div>
     </div>
   </div>
