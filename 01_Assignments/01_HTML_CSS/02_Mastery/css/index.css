@@ -1,9 +1,4 @@
 /* ========== CAROUSEL ========== */
-#about img {
-  vertical-align: middle;
-}
-
-/* ========== CAROUSEL ========== */
 .carousel>div {
   height: 600px;
   background-size: cover;
@@ -16,11 +11,18 @@
   line-height: 30px;
 }
 
-
 /* ========== BLOG ========== */
 #blog hr {
   height: 2px;
   border: 0;
+}
+
+#blog .event__time .top {
+  border-radius: 8px 8px 0 0;
+}
+
+#blog .event__time .bottom {
+  border-radius: 0 0 8px 8px;
 }
 
 #blog .event__info div span:first-child {
