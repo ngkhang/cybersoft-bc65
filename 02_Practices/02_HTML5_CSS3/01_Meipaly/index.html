@@ -1,297 +1,655 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meipaly</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meipaly</title>
+    <!-- ========== Google Font ========== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
-    rel="stylesheet">
+    <!-- ========== CDN FontAwesome ========== -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- ========== CDN Slick ========== -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
 
-  <!-- Library -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ========== CDN Fancybox ========== -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+    />
 
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <!-- Add the slick-theme.css if you want default styling -->
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <!-- ========== Style CSS ========== -->
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
 
-  <!-- Style CSS -->
-  <link rel="stylesheet" href="./css/common.css">
-  <link rel="stylesheet" href="./css/index.css">
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="header w-full center bg-transparent absolute">
+      <nav class="mainSize flex items-center justify-between py-25">
+        <div class="text-4xl">
+          <a href="#" class="font-bold text-white">
+            <i class="fab fa-atlassian"></i>
+            <span>meipaly</span>
+          </a>
+        </div>
+        <ul class="header__nav center">
+          <li class="mr-10 px-25">
+            <a href="#" class="text-white active">HOME</a>
+          </li>
+          <li class="mr-10 px-25">
+            <a href="#" class="text-white">SERVICE</a>
+          </li>
+          <li class="mr-10 px-25">
+            <a href="#" class="text-white">SHOWCASE</a>
+          </li>
+          <li class="mr-10 px-25">
+            <a href="#" class="text-white">BLOG</a>
+          </li>
+          <li class="mr-10 px-25">
+            <a href="#" class="text-white">ABOUT US</a>
+          </li>
+          <li class="px-25">
+            <a href="#" class="text-white">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-</head>
-
-<body>
-  <!-- ========== HEADER ========= -->
-  <header class="header w-full center">
-    <nav class="mainSize py-25">
-      <div class="header__logo">
-        <a href="#" class="font-bolder">
-          <i class="fab fa-atlassian"></i>
-          <span>meipaly</span>
-        </a>
+    <!-- ========== CAROUSEL ========== -->
+    <section
+      class="carousel h-screen center"
+      style="background-image: url('./images/home_slider.jpg')"
+    >
+      <div class="flex flex-col items-center mainSize text-white uppercase">
+        <p class="text-2xl">welcome to meipaly agency</p>
+        <h1 class="text-center text-7xl mb-20">
+          smart web
+          <br />
+          design agency
+        </h1>
+        <button
+          class="pointer text-base uppercase text-white bg-red-100 px-25 py-15"
+        >
+          read more
+        </button>
+        <div>
+          <i class="fa fa-chevron-down text-3xl text-white"></i>
+        </div>
       </div>
-      <!-- <div class="header__nav"> -->
-      <ul class="header__nav center">
-        <li class="mr-10 px-25"><a class="active" href="#">HOME</a></li>
-        <li class="mr-10 px-25"><a href="#">SERVICE</a></li>
-        <li class="mr-10 px-25"><a href="#">SHOWCASE</a></li>
-        <li class="mr-10 px-25"><a href="#">BLOG</a></li>
-        <li class="mr-10 px-25"><a href="#">ABOUT US</a></li>
-        <li class="px-25"><a href="#">CONTACT</a></li>
-      </ul>
-      <!-- </div> -->
-    </nav>
-  </header>
+    </section>
 
-  <!-- ========== CAROUSEL ========= -->
-  <section class="carousel h-screen center" style="background-image: url('./images/home_slider.jpg');">
-    <div class="mainSize">
-      <p class="uppercase">welcome to meipaly agency</p>
-      <h1 class="uppercase text-center mb-20">
-        smart web
-        <br>
-        design agency
-      </h1>
-      <button class="uppercase px-25 py-15">read more</button>
-      <div>
-        <i class="fa fa-chevron-down"></i>
-      </div>
-    </div>
-  </section>
+    <!-- ========== SERVICE ========== -->
+    <section class="service h-screen center bg-black">
+      <div class="mainSize">
+        <div class="text-center">
+          <span class="text-red-100 text-sm">SERVICES WE ARE OFFERING</span>
+          <h2 class="mb-20 text-white text-5xl font-normal">
+            WE DESIGN DIGITAL PRODUCTS THAT HELP GROW BUSINESSES.
+          </h2>
+          <p class="mb-30 font-bold text-base text-gray-300">
+            We are committed to providing our customers with exceptional service
+            while offering
+            <br />
+            our employees the best training.
+          </p>
+        </div>
 
-  <!-- ========== SERVICE ========= -->
-  <section class="service h-screen center">
-    <div class="mainSize">
-      <div class="service__title text-center">
-        <span>SERVICES WE ARE OFFERING</span>
-        <h2 class="mb-20">WE DESIGN DIGITAL PRODUCTS THAT HELP GROW BUSINESSES.</h2>
-        <p class="font-bolder mb-30">
-          We are committed to providing our customers with exceptional service while offering
-          <br>
-          our employees the best training.
-        </p>
-      </div>
-      <div class="service__slide">
-        <div class="slickCustom">
-          <div class="item text-center">
-            <div class="mx-10">
-              <i class="fa fa-dice-d6"></i>
-              <span class="uppercase">
-                digital
-                <br />
-                marketing
-              </span>
+        <!-- Not refactor👇 -->
+        <div class="service__slide">
+          <div class="slickCustom">
+            <div class="item text-center">
+              <div
+                class="flex flex-col items-center justify-center pointer mx-10 bg-white text-gray-300"
+              >
+                <i class="fa fa-dice-d6 text-5xl"></i>
+                <span class="uppercase text-sm">
+                  app mobile
+                  <br />
+                  development
+                </span>
+              </div>
             </div>
-          </div>
-          <div class="item text-center">
-            <div class="mx-10">
-              <i class="fa fa-dice-d6"></i>
-              <span class="uppercase">
-                digital
-                <br />
-                marketing
-              </span>
+
+            <div class="item text-center">
+              <div
+                class="flex flex-col items-center justify-center pointer mx-10 bg-white text-gray-300"
+              >
+                <i class="fab fa-autoprefixer text-5xl"></i>
+                <span class="uppercase text-sm">
+                  digital
+                  <br />
+                  marketing
+                </span>
+              </div>
             </div>
-          </div>
-          <div class="item text-center">
-            <div class="mx-10">
-              <i class="fa fa-dice-d6"></i>
-              <span class="uppercase">
-                digital
-                <br />
-                marketing
-              </span>
+
+            <div class="item text-center">
+              <div
+                class="flex flex-col items-center justify-center pointer mx-10 bg-white text-gray-300"
+              >
+                <i class="fab fa-500px text-5xl"></i>
+                <span class="uppercase text-sm">
+                  seo & content
+                  <br />
+                  writing
+                </span>
+              </div>
             </div>
-          </div>
-          <div class="item text-center">
-            <div class="mx-10">
-              <i class="fa fa-dice-d6"></i>
-              <span class="uppercase">
-                digital
-                <br />
-                marketing
-              </span>
+
+            <div class="item text-center">
+              <div
+                class="flex flex-col items-center justify-center pointer mx-10 bg-white text-gray-300"
+              >
+                <i class="fa fa-blog text-5xl"></i>
+                <span class="uppercase text-sm">
+                  website
+                  <br />
+                  development
+                </span>
+              </div>
             </div>
-          </div>
-          <div class="item text-center">
-            <div class="mx-10">
-              <i class="fa fa-dice-d6"></i>
-              <span class="uppercase">
-                digital
-                <br />
-                marketing
-              </span>
+
+            <div class="item text-center">
+              <div
+                class="flex flex-col items-center justify-center pointer mx-10 bg-white text-gray-300"
+              >
+                <i class="fab fa-battle-net text-5xl"></i>
+                <span class="uppercase text-sm">
+                  digital
+                  <br />
+                  marketing
+                </span>
+              </div>
             </div>
-          </div>
-          <div class="item text-center">
-            <div class="mx-10">
-              <i class="fa fa-dice-d6"></i>
-              <span class="uppercase">
-                digital
-                <br />
-                marketing
-              </span>
+
+            <div class="item text-center">
+              <div
+                class="flex flex-col items-center justify-center pointer mx-10 bg-white text-gray-300"
+              >
+                <i class="fa fa-memory text-5xl"></i>
+                <span class="uppercase text-sm">
+                  app mobile
+                  <br />
+                  development
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========== BLOG ========= -->
-  <section class="blog center py-100">
-    <div class="mainSize">
-      <div class="blog__title text-center">
-        <span>OUR NEWS & ARTICLES</span>
-        <h2 class="mb-20">LATEST BLOG POSTS</h2>
-        <p class="font-bolder mb-50">
-          We are committed to providing our customers with exceptional service while offering our
-          <br />
-          employees the best training.
-        </p>
-      </div>
-      <div class="blog_list">
-        <div class="blog__item"><img src="" alt=""></div>
-        <div class="blog__item"><img src="" alt=""></div>
-        <div class="blog__item"><img src="" alt=""></div>
-        <div class="blog__item"><img src="" alt=""></div>
-        <div class="blog__item"><img src="" alt=""></div>
-        <div class="blog__item"><img src="" alt=""></div>
-        <div class="blog__item"><img src="" alt=""></div>
-        <div class="blog__item"><img src="" alt=""></div>
-        <div class="blog__item"><img src="" alt=""></div>
-        <div class="blog__item"><img src="" alt=""></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== DYNAMIC NUMBER ========= -->
-  <section class="number center py-100">
-    <div class="mainSize">
-      <div class="w-25 text-center">
-        <span>8,705</span>
-        <span>PROJECTS COMPLETED</span>
-      </div>
-      <div class="w-25 text-center">
-        <span>480</span>
-        <span>ACTIVE CLIENTS</span>
-      </div>
-      <div class="w-25 text-center">
-        <span>625</span>
-        <span>CUPS OF COFFEE</span>
-      </div>
-      <div class="w-25 text-center">
-        <span>9,774</span>
-        <span>HAPPY CLIENTS</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== EXPERIENCE ========= -->
-  <section class="experience center py-100" style="background-image: url(./images/bussiness_img_1.jpg);">
-    <div class="mainSize">
-      <div class="experience__title text-center">
-        <span class="uppercase">how do we works</span>
-        <h2 class="mb-20 uppercase">digital experience</h2>
-        <p class="font-bolder mb-50">
-          We are committed to providing our customers with exceptional service while offering our
-          <br />
-          employees the best training.
-        </p>
-      </div>
-      <div class="experience__video">
-        <iframe class="w-full h-screen" src="https://www.youtube.com/embed/kcSEsljlges" title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- ========== CONTACT ========= -->
-  <section class="contact center py-100">
-    <div class="mainSize">
-      <div class="contact__title text-center">
-        <h2 class="mb-20 uppercase">contact</h2>
-        <p class="font-bolder mb-50">
-          Thank you for your interest in our website & our services. If you have any
-          <br />
-          questions, please write us a message now!
-        </p>
-      </div>
-      <div class="contact_details flex items-center px-25">
-        <div class="w-60 map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.272843221653!2d106.70185321062071!3d10.790402689314838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175292591b672e5%3A0xb0efbe20cbbe911d!2zVHJ1bmcgVMOibSDEkMOgbyBU4bqhbyBM4bqtcCBUcsOsbmggQ3liZXJTb2Z0IC0gVHLhu6UgU-G7nyBDaMOtbmg!5e0!3m2!1sen!2sus!4v1704351477494!5m2!1sen!2sus"
-            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" height="450"
-            class="w-full"></iframe>
+    <!-- ========== BLOG ========== -->
+    <section class="blog center py-100 bg-gray-100">
+      <div class="mainSize">
+        <div class="text-center">
+          <span class="text-gray-300 text-sm">OUR NEWS & ARTICLES</span>
+          <h2 class="mb-20 text-5xl font-normal">LATEST BLOG POSTS</h2>
+          <p class="mb-50 font-bold text-gray-300 text-base">
+            We are committed to providing our customers with exceptional service
+            while offering our
+            <br />
+            employees the best training.
+          </p>
         </div>
-        <div class="w-40 form px-20 py-5">
-          <!-- HTML Form -->
-          <form action="?" method="get">
-            <div>
-              <label for="username"></label>
-              <input class="w-full py-15 mb-20 pl-20" name="username" type="text" id="username" placeholder="Username">
+        <!-- Not refactor👇 -->
+        <div class="blog__list grid">
+          <div class="blog__item relative firstItem">
+            <img
+              class="w-full h-full"
+              src="./images/grid-metro-1.jpg"
+              alt="blog banner"
+            />
+            <div
+              class="blog__item-hidden text-white h-full w-full absolute flex flex-col justify-between p-20"
+            >
+              <div class="item__icon text-center p-10 bg-white">
+                <a
+                  href="./images/grid-metro-1.jpg"
+                  data-fancybox="gallery"
+                  data-caption="Caption #1"
+                >
+                  <i class="fa fa-search-plus text-black text-base"></i>
+                </a>
+              </div>
+              <div class="item__content">
+                <p class="uppercase mb-5 text-gray-200 text-base">logo</p>
+                <h4 class="uppercase text-xl">flippin bird</h4>
+              </div>
             </div>
-            <div>
-              <label for="mail"></label>
-              <input class="w-full py-15 mb-20 pl-20" name="mail" type="email" id="mail" placeholder="Email Address">
+          </div>
+          <div class="blog__item relative">
+            <img
+              class="w-full h-full"
+              src="./images/grid-metro-2.jpg"
+              alt="blog banner"
+            />
+            <div
+              class="blog__item-hidden text-white h-full w-full absolute flex flex-col justify-between p-20"
+            >
+              <div class="item__icon text-center p-10 bg-white">
+                <a
+                  href="./images/grid-metro-2.jpg"
+                  data-fancybox="gallery"
+                  data-caption="Caption #1"
+                >
+                  <i class="fa fa-search-plus text-black text-base"></i>
+                </a>
+              </div>
+              <div class="item__content">
+                <p class="uppercase mb-5 text-gray-200 text-base">logo</p>
+                <h4 class="uppercase text-xl">flippin bird</h4>
+              </div>
             </div>
-            <div>
-              <label for="question"></label>
-              <textarea class="w-full py-15 mb-20 pl-20" name="question" id="question" cols="30" rows="10"
-                placeholder="Add a Question..."></textarea>
+          </div>
+          <div class="blog__item relative">
+            <img
+              class="w-full h-full"
+              src="./images/grid-metro-3.jpg"
+              alt="blog banner"
+            />
+            <div
+              class="blog__item-hidden text-white h-full w-full absolute flex flex-col justify-between p-20"
+            >
+              <div class="item__icon text-center p-10 bg-white">
+                <a
+                  href="./images/grid-metro-3.jpg"
+                  data-fancybox="gallery"
+                  data-caption="Caption #1"
+                >
+                  <i class="fa fa-search-plus text-black text-base"></i>
+                </a>
+              </div>
+              <div class="item__content">
+                <p class="uppercase mb-5 text-gray-200 text-base">logo</p>
+                <h4 class="uppercase text-xl">flippin bird</h4>
+              </div>
             </div>
-            <button class="w-full py-20" type="submit">Submit</button>
-          </form>
+          </div>
+          <div class="blog__item relative">
+            <img
+              class="w-full h-full"
+              src="./images/grid-metro-4.jpg"
+              alt="blog banner"
+            />
+            <div
+              class="blog__item-hidden text-white h-full w-full absolute flex flex-col justify-between p-20"
+            >
+              <div class="item__icon text-center p-10 bg-white">
+                <a
+                  href="./images/grid-metro-4.jpg"
+                  data-fancybox="gallery"
+                  data-caption="Caption #1"
+                >
+                  <i class="fa fa-search-plus text-black text-base"></i>
+                </a>
+              </div>
+              <div class="item__content">
+                <p class="uppercase mb-5 text-gray-200 text-base">logo</p>
+                <h4 class="uppercase text-xl">flippin bird</h4>
+              </div>
+            </div>
+          </div>
+          <div class="blog__item relative">
+            <img
+              class="w-full h-full"
+              src="./images/grid-metro-5.jpg"
+              alt="blog banner"
+            />
+            <div
+              class="blog__item-hidden text-white h-full w-full absolute flex flex-col justify-between p-20"
+            >
+              <div class="item__icon text-center p-10 bg-white">
+                <a
+                  href="./images/grid-metro-5.jpg"
+                  data-fancybox="gallery"
+                  data-caption="Caption #1"
+                >
+                  <i class="fa fa-search-plus text-black text-base"></i>
+                </a>
+              </div>
+              <div class="item__content">
+                <p class="uppercase mb-5 text-gray-200 text-base">logo</p>
+                <h4 class="uppercase text-xl">flippin bird</h4>
+              </div>
+            </div>
+          </div>
+          <div class="blog__item relative">
+            <img
+              class="w-full h-full"
+              src="./images/grid-metro-6.jpg"
+              alt="blog banner"
+            />
+            <div
+              class="blog__item-hidden text-white h-full w-full absolute flex flex-col justify-between p-20"
+            >
+              <div class="item__icon text-center p-10 bg-white">
+                <a
+                  href="./images/grid-metro-6.jpg"
+                  data-fancybox="gallery"
+                  data-caption="Caption #1"
+                >
+                  <i class="fa fa-search-plus text-black text-base"></i>
+                </a>
+              </div>
+              <div class="item__content">
+                <p class="uppercase mb-5 text-gray-200 text-base">logo</p>
+                <h4 class="uppercase text-xl">flippin bird</h4>
+              </div>
+            </div>
+          </div>
+          <div class="blog__item relative">
+            <img
+              class="w-full h-full"
+              src="./images/grid-metro-7.jpg"
+              alt="blog banner"
+            />
+            <div
+              class="blog__item-hidden text-white h-full w-full absolute flex flex-col justify-between p-20"
+            >
+              <div class="item__icon text-center p-10 bg-white">
+                <a
+                  href="./images/grid-metro-7.jpg"
+                  data-fancybox="gallery"
+                  data-caption="Caption #1"
+                >
+                  <i class="fa fa-search-plus text-black text-base"></i>
+                </a>
+              </div>
+              <div class="item__content">
+                <p class="uppercase mb-5 text-gray-200 text-base">logo</p>
+                <h4 class="uppercase text-xl">flippin bird</h4>
+              </div>
+            </div>
+          </div>
+          <div class="blog__item relative">
+            <img
+              class="w-full h-full"
+              src="./images/grid-metro-8.jpg"
+              alt="blog banner"
+            />
+            <div
+              class="blog__item-hidden text-white h-full w-full absolute flex flex-col justify-between p-20"
+            >
+              <div class="item__icon text-center p-10 bg-white">
+                <a
+                  href="./images/grid-metro-8.jpg"
+                  data-fancybox="gallery"
+                  data-caption="Caption #1"
+                >
+                  <i class="fa fa-search-plus text-black text-base"></i>
+                </a>
+              </div>
+              <div class="item__content">
+                <p class="uppercase mb-5 text-gray-200 text-base">logo</p>
+                <h4 class="uppercase text-xl">flippin bird</h4>
+              </div>
+            </div>
+          </div>
+          <div class="blog__item relative">
+            <img
+              class="w-full h-full"
+              src="./images/grid-metro-9.jpg"
+              alt="blog banner"
+            />
+            <div
+              class="blog__item-hidden text-white h-full w-full absolute flex flex-col justify-between p-20"
+            >
+              <div class="item__icon text-center p-10 bg-white">
+                <a
+                  href="./images/grid-metro-9.jpg"
+                  data-fancybox="gallery"
+                  data-caption="Caption #1"
+                >
+                  <i class="fa fa-search-plus text-black text-base"></i>
+                </a>
+              </div>
+              <div class="item__content">
+                <p class="uppercase mb-5 text-gray-200 text-base">logo</p>
+                <h4 class="uppercase text-xl">flippin bird</h4>
+              </div>
+            </div>
+          </div>
+          <div class="blog__item relative lastItem">
+            <img
+              class="w-full h-full"
+              src="./images/grid-metro-10.jpg"
+              alt="blog banner"
+            />
+            <div
+              class="blog__item-hidden text-white h-full w-full absolute flex flex-col justify-between p-20"
+            >
+              <div class="item__icon text-center p-10 bg-white">
+                <a
+                  href="./images/grid-metro-9.jpg"
+                  data-fancybox="gallery"
+                  data-caption="Caption #1"
+                >
+                  <i class="fa fa-search-plus text-black text-base"></i>
+                </a>
+              </div>
+              <div class="item__content">
+                <p class="uppercase mb-5 text-gray-200 text-base">logo</p>
+                <h4 class="uppercase text-xl">flippin bird</h4>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========== FOOTER ========= -->
-  <footer class="footer center py-100">
-    <div class="mainSize center items-center justify-between">
-      <div class="footer__copyright">
-        <p class="uppercase">&copy; 2021 ui-cybersoft. all rights reserved.</p>
+    <!-- ========== DYNAMIC NUMBER ========== -->
+    <section class="center py-100 bg-black">
+      <div class="mainSize flex items-center text-white">
+        <div class="w-25 flex flex-col items-center">
+          <span class="counter text-6xl font-light">8,705</span>
+          <span class="text-xl text-gray-300">PROJECTS COMPLETED</span>
+        </div>
+        <div class="w-25 flex flex-col items-center">
+          <span class="counter text-6xl font-light">480</span>
+          <span class="text-xl text-gray-300">ACTIVE CLIENTS</span>
+        </div>
+        <div class="w-25 flex flex-col items-center">
+          <span class="counter text-6xl font-light">625</span>
+          <span class="text-xl text-gray-300">CUPS OF COFFEE</span>
+        </div>
+        <div class="w-25 flex flex-col items-center">
+          <span class="counter text-6xl font-light">9,774</span>
+          <span class="text-xl text-gray-300">HAPPY CLIENTS</span>
+        </div>
       </div>
-      <div class="footer__social flex justify-end items-center">
-        <a href="#" class="flex items-center justify-center rounded-full p-10 mr-20">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="flex items-center justify-center rounded-full p-10 mr-20">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="#" class="flex items-center justify-center rounded-full p-10 mr-20">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="#" class="flex items-center justify-center rounded-full p-10">
-          <i class="fab fa-twitter"></i>
-        </a>
+    </section>
+
+    <!-- ========== EXPERIENCE ========== -->
+    <section
+      class="experience center py-100"
+      style="background-image: url(./images/bussiness_img_1.jpg)"
+    >
+      <div class="mainSize">
+        <div class="text-center">
+          <span class="uppercase text-sm text-red-100">how do we works</span>
+          <h2 class="mb-20 uppercase text-5xl text-white font-normal">
+            digital experience
+          </h2>
+          <p class="mb-50 font-bold text-gray-300 text-base">
+            We are committed to providing our customers with exceptional service
+            while offering our
+            <br />
+            employees the best training.
+          </p>
+        </div>
+        <div class="experience__video">
+          <video
+            controls
+            src="./video/INTRO_FINAL_NEW.mp4"
+            type="video/mp4"
+            poster="./images/home_slider.jpg"
+            class="w-full h-full"
+          ></video>
+        </div>
       </div>
-    </div>
-  </footer>
+    </section>
 
-  <button class="btnUp p-20 m-20 fixed border-0 rounded-4px">
-    <i class="fa fa-chevron-up font-bolder"></i>
-  </button>
+    <!-- ========== CONTACT ========== -->
+    <section class="contact center py-100 bg-white">
+      <div class="mainSize">
+        <div class="text-center">
+          <h2 class="mb-20 uppercase text-5xl font-normal">contact</h2>
+          <p class="mb-50 text-gray-300 text-base">
+            Thank you for your interest in our website & our services. If you
+            have any
+            <br />
+            questions, please write us a message now!
+          </p>
+        </div>
+        <div class="flex items-center px-25">
+          <div class="w-60">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.272843221653!2d106.70185321062071!3d10.790402689314838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175292591b672e5%3A0xb0efbe20cbbe911d!2zVHJ1bmcgVMOibSDEkMOgbyBU4bqhbyBM4bqtcCBUcsOsbmggQ3liZXJTb2Z0IC0gVHLhu6UgU-G7nyBDaMOtbmg!5e0!3m2!1sen!2sus!4v1704351477494!5m2!1sen!2sus"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              height="450"
+              class="w-full"
+            ></iframe>
+          </div>
+          <div class="w-40 px-20 py-5">
+            <form action="" method="get" class="contact_form">
+              <div>
+                <label for="username"></label>
+                <input
+                  class="w-full py-15 mb-20 pl-20 text-base"
+                  name="username"
+                  type="text"
+                  id="username"
+                  placeholder="Username"
+                />
+              </div>
+              <div>
+                <label for="mail"></label>
+                <input
+                  class="w-full py-15 mb-20 pl-20 text-base"
+                  name="mail"
+                  type="email"
+                  id="mail"
+                  placeholder="Email Address"
+                />
+              </div>
+              <div>
+                <label for="question"></label>
+                <textarea
+                  class="w-full py-15 mb-20 pl-20 text-base"
+                  name="question"
+                  id="question"
+                  cols="30"
+                  rows="10"
+                  placeholder="Add a Question..."
+                ></textarea>
+              </div>
+              <button
+                class="w-full pointer py-20 bg-black text-base text-white border-0"
+                type="submit"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Slick -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
-    integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script type="text/javascript" src="./index.js"></script>
-</body>
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer center py-100 bg-black">
+      <div class="mainSize center px-20 items-center justify-between">
+        <div class="text-white text-sm">
+          <p class="uppercase">
+            &copy; 2021 ui-cybersoft. all rights reserved.
+          </p>
+        </div>
+        <div class="footer__social flex justify-end items-center">
+          <a
+            href="#"
+            class="flex items-center justify-center rounded-full p-5 mr-10"
+          >
+            <i class="fab fa-facebook-f text-base text-white"></i>
+          </a>
+          <a
+            href="#"
+            class="flex items-center justify-center rounded-full p-5 mr-10"
+          >
+            <i class="fab fa-linkedin-in text-base text-white"></i>
+          </a>
+          <a
+            href="#"
+            class="flex items-center justify-center rounded-full p-5 mr-10"
+          >
+            <i class="fab fa-youtube text-base text-white"></i>
+          </a>
+          <a href="#" class="flex items-center justify-center rounded-full p-5">
+            <i class="fab fa-twitter text-base text-white"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
 
+    <button
+      class="btnUp pointer visibility flex justify-center items-center p-20 m-20 fixed border-0 rounded-4px text-white text-base"
+    >
+      <i class="fa fa-chevron-up font-bold"></i>
+    </button>
+
+    <!-- ========= CDN Jquery ========= -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- ========= CDN Slick ========= -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+      integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- ========= CDN Fancybox ========= -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"
+      integrity="sha512-ZKNVEa7gi0Dz4Rq9jXcySgcPiK+5f01CqW+ZoKLLKr9VMXuCsw3RjWiv8ZpIOa0hxO79np7Ec8DDWALM0bDOaQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- ========= Countup ========= -->
+    <script type="text/javascript" src="./js/jquery.countup.min.js"></script>
+
+    <!-- ========= Custom ========= -->
+    <script type="text/javascript" src="./js/index.js"></script>
+  </body>
 </html>
