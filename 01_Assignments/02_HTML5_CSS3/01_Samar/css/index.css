@@ -1,12 +1,119 @@
 /* ---------- HEADER ---------- */
 
+header {
+  top: 0;
+  left: 0;
+
+}
+
+header li {
+  padding: 55px 0;
+}
+
+header li a {
+  color: rgb(var(--dark-blue));
+}
+
+header li:hover a {
+  color: rgb(var(--pink));
+}
+
+
 /* ---------- HERO ---------- */
+.hero .hero__bg {
+  background-position: top;
+  background-size: contain
+}
+
+.hero .hero__content span:first-child {
+  color: rgb(var(--pink));
+  font-weight: 600;
+}
+
+.hero .hero__content h1 {
+  color: rgb(var(--dark-200));
+  line-height: 1.1;
+}
 
 /* ---------- SERVICE ---------- */
+.service>div {
+  background-size: cover;
+  background-position: bottom;
+}
+
+.service .service__title span {
+  color: rgb(var(--pink));
+  font-weight: 600;
+}
+
+.service .service__title h2 {
+  color: rgb(var(--dark-200));
+}
+
+.service .card>div {
+  background: rgb(var(--white));
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 0.5rem;
+  border: 3px dashed transparent
+}
+
+.service .card>div:hover {
+  border-color: rgb(var(--pink));
+}
 
 /* ---------- ABOUT ---------- */
+.about>div {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+.about .about__img {
+  left: -14%;
+}
+
+.about .about__img img {
+  border-radius: 0 100px 100px 0;
+}
+
+.about .about__content>span {
+  color: rgb(var(--pink));
+  font-weight: 600;
+}
+
+.about .about__content h2 {
+  color: rgb(var(--dark-200));
+  line-height: 1.1;
+}
+
+.about .about__content i {
+  color: rgb(var(--pink));
+}
 
 /* ---------- NUMBER ---------- */
+.number>div {
+  padding: 80px 0 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.number .number__item i {
+  height: 80px;
+  width: 80px;
+  line-height: 80px;
+  text-align: center;
+}
+
+.number .number__item p.text-6xl {
+  color: rgb(var(--pink));
+  line-height: 1;
+}
+
+.number .number__item:last-child {
+  color: rgb(var(--dark-200));
+  line-height: 1;
+}
 
 /* ---------- FEATURE ---------- */
 

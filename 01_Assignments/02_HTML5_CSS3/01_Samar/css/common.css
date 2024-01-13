@@ -18,11 +18,12 @@
   --dark-blue: 7, 1, 32;
   /* #070120 */
 
+
   /* Size */
-  --xs: 0.875rem;
-  /* 14px */
-  --sm: 0.9375rem;
-  /* 15px */
+  --xs: 0.5625rem;
+  /* 9px */
+  --sm: 0.9rem;
+  /* 14px ~ 15px */
   --base: 1rem;
   /* 16px */
   --lg: 1.125rem;
@@ -53,10 +54,11 @@
 }
 
 /* ---------- Default ---------- */
-html {
-  scroll-behavior: smooth;
-  background: rgb(var(--color-white));
-  font-family: 'Oswald', sans-serif;
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+  color: rgb(var(--gray));
+  line-height: 1.6;
   /*
   default:
   font-size: 16px; 
@@ -71,19 +73,60 @@ html {
 }
 
 .mainSize {
-  width: 75%;
+  /* width: 75%; */
+  width: 1199px;
 }
+
+.btn {
+  padding: 20px 35px;
+  border: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.bg-gradient {
+  color: rgb(var(--white));
+  background-image: linear-gradient(to right, rgb(var(--pink)) 0%, rgb(var(--orange)) 50%, rgb(var(--pink)) 100%);
+  background-size: 200%;
+}
+
 
 /* ----------  ---------- */
 /* ----------  ---------- */
 /* ----------  ---------- */
 
 /* ---------- HEIGHT ---------- */
+
 .h-screen {
   height: 100vh;
 }
 
 /* ---------- WIDTH ---------- */
+.w-25 {
+  width: 25%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.w-33 {
+  width: calc(100% / 3);
+}
+
+.w-40 {
+  width: 40%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-60 {
+  width: 60%;
+}
+
 .w-full {
   width: 100%;
 }
@@ -91,6 +134,13 @@ html {
 .w-screen {
   width: 100vw;
 }
+
+
+/* ---------- BORDER-RADIUS ---------- */
+.rounded-full {
+  border-radius: 50%;
+}
+
 
 /* ---------- POSITION ---------- */
 .absolute {
@@ -134,6 +184,10 @@ html {
 
 .items-center {
   align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
 }
 
 .justify-center {
@@ -511,7 +565,7 @@ html {
 }
 
 
-/* ---------- Reset CSS ---------- */
+/* ---------- Font Size ---------- */
 .text-xs {
   font-size: var(--xs);
 }
@@ -555,3 +609,47 @@ html {
 .text-7xl {
   font-size: var(--7xl);
 }
+
+
+/* ---------- Font Size ---------- */
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+.font-black {
+  font-weight: 900;
+}
+
+/* 
+
+
+
+1
+1.1
+1.2
+1.4
+
+26px
+35px
+32px
+40px
+50px
+80px
+
+*/

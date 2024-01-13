@@ -6,6 +6,14 @@
     <title>Samar - HTML Template</title>
     <!-- <link rel="image/x-icon" rel="shortcut icon" href="./images/favicon.png" /> -->
 
+    <!-- ---------- GOOGLE FONT ---------- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- ---------- LINE AWESOME ---------- -->
     <link
       rel="stylesheet"
@@ -25,10 +33,246 @@
   </head>
   <body>
     <!-- ---------- HEADER ---------- -->
+    <header class="absolute w-full">
+      <div class="flex justify-center">
+        <div class="mainSize flex justify-between items-center">
+          <div>
+            <img src="./images/logo-2.png" alt="logo" class="w-full" />
+          </div>
+          <div class="flex items-center">
+            <ul class="flex items-center mr-30">
+              <li class="px-15">
+                <a href="#" class="flex items-center text-sm">
+                  <span class="mr-5 font-medium">Home</span>
+                  <i class="fa fa-chevron-down text-xs"></i>
+                </a>
+              </li>
+              <li class="px-15">
+                <a href="#" class="flex items-center text-sm">
+                  <span class="mr-5 font-medium">Pages</span>
+                  <i class="fa fa-chevron-down text-xs"></i>
+                </a>
+              </li>
+              <li class="px-15">
+                <a href="#" class="flex items-center text-sm">
+                  <span class="mr-5 font-medium">Services</span>
+                  <i class="fa fa-chevron-down text-xs"></i>
+                </a>
+              </li>
+              <li class="px-15">
+                <a href="#" class="flex items-center text-sm">
+                  <span class="mr-5 font-medium">Post Layout</span>
+                  <i class="fa fa-chevron-down text-xs"></i>
+                </a>
+              </li>
+              <li class="px-15">
+                <a href="#" class="flex items-center text-sm">
+                  <span class="mr-5 font-medium">Blog</span>
+                  <i class="fa fa-chevron-down text-xs"></i>
+                </a>
+              </li>
+              <li class="px-15">
+                <a href="#" class="flex items-center">
+                  <span class="text-sm font-medium">Contact Us</span>
+                  <i class="fa fa-chevron-down text-xs"></i>
+                </a>
+              </li>
+            </ul>
+            <button class="btn uppercase text-sm">get a quote</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
     <!-- ---------- HERO ---------- -->
+    <section class="hero">
+      <div
+        class="hero__bg h-screen flex items-end justify-center"
+        style="background-image: url('./images/pic2.png')"
+      >
+        <div class="mainSize flex">
+          <!-- Hero Content -->
+          <div class="hero__content w-60">
+            <span class="mb-20 text-2xl">We are The Best</span>
+            <h1 class="mb-20 text-7xl">Freelance Product Designer Running</h1>
+            <p class="mb-15 text-lg">
+              We develop the relationships that underpin the next phase in your
+              organisation's growth.
+            </p>
+            <div class="mb-30">
+              <div class="flex items-center mb-20">
+                <i
+                  class="las la-check p-5 mr-10 rounded-full text-3xl bg-gradient"
+                ></i>
+                <span class="text-xl">Master's degree in designing</span>
+              </div>
+              <div class="flex items-center mb-20">
+                <i
+                  class="las la-check p-5 mr-10 rounded-full text-3xl bg-gradient"
+                ></i>
+                <span class="text-xl">Outstanding mobile design</span>
+              </div>
+            </div>
+            <button class="btn bg-gradient uppercase text-sm">
+              get started
+            </button>
+          </div>
+          <!-- Hero Image -->
+          <div class="w-40" style="background: gainsboro">
+            <div class="ml-30 w-full">
+              <img class="w-full" src="./images/pic3_1.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ---------- SERVICE ---------- -->
+    <section class="service">
+      <div
+        class="flex justify-center"
+        style="background-image: url(./images/bg2.png)"
+      >
+        <div class="mainSize">
+          <div class="service__title flex flex-col items-center">
+            <span class="mb-20 text-2xl">What We Do Best </span>
+            <h2 class="mb-20 text-7xl">Our Digital Services</h2>
+          </div>
+          <div class="service__list flex justify-between items-center">
+            <div class="card w-33 p-15">
+              <div class="p-30 flex flex-col items-center">
+                <div class="card__img mb-15">
+                  <img class="w-full" src="./images/pic1_3.jpg" alt="" />
+                </div>
+                <h3 class="mb-15 text-3xl">Web Development</h3>
+                <p class="">
+                  Vestibulum a efficitur ex. Ut iaculis dapibus iaculis.
+                  Praesent lacus magna, rhoncus quis magna quis.
+                </p>
+              </div>
+            </div>
+            <div class="card w-33 p-15">
+              <div class="p-30 flex flex-col items-center">
+                <div class="card__img mb-15">
+                  <img class="w-full" src="./images/pic2_2.jpg" alt="" />
+                </div>
+                <h3 class="mb-15 text-3xl">Strategy & Research</h3>
+                <p class="">
+                  Vestibulum a efficitur ex. Ut iaculis dapibus iaculis.
+                  Praesent lacus magna, rhoncus quis magna quis.
+                </p>
+              </div>
+            </div>
+            <div class="card w-33 p-15">
+              <div class="p-30 flex flex-col items-center">
+                <div class="card__img mb-15">
+                  <img class="w-full" src="./images/pic3_2.jpg" alt="" />
+                </div>
+                <h3 class="mb-15 text-3xl">Growth Tracking</h3>
+                <p class="">
+                  Vestibulum a efficitur ex. Ut iaculis dapibus iaculis.
+                  Praesent lacus magna, rhoncus quis magna quis.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ---------- ABOUT ---------- -->
+    <section class="about">
+      <div
+        class="flex justify-center"
+        style="background-image: url(./images/bg15.png)"
+      >
+        <div class="mainSize flex justify-end items-center relative">
+          <div class="about__img w-60 absolute">
+            <img src="./images/pic1.jpg" alt="" class="w-full" />
+          </div>
+          <div class="about__content w-50">
+            <span class="mb-15 text-2xl">About Us</span>
+            <h2 class="mb-20 text-7xl">Build Your Business Website Better</h2>
+            <p>
+              Proin laoreet leo vel enim gravida, at porttitor metus ultricies.
+              Cras eu velit enim. Vivamus blandit, dolor ut aliquet rutrum, ex
+              elit mattis sapien, non molestie felis neque et nulla. Sed euismod
+              turpis id nibh suscipit semper. Pellentesque dapibus risus arcu.
+            </p>
+            <div class="mb-30">
+              <div class="flex items-center">
+                <i class="flaticon-check mr-10 text-3xl"></i>
+                <span class=""
+                  >We support programs that create advancement opportunities for
+                  people
+                </span>
+              </div>
+              <div class="flex items-center">
+                <i class="flaticon-check mr-10 text-3xl"></i>
+                <span class="">
+                  Get a view of events and trends. Be updated on our recent news
+                </span>
+              </div>
+              <div class="flex items-center">
+                <i class="flaticon-check mr-10 text-3xl"></i>
+                <span class="">
+                  Finally, it all comes down to people. Creating a winning team.
+                </span>
+              </div>
+              <div class="flex items-center">
+                <i class="flaticon-check mr-10 text-3xl"></i>
+                <span class="">
+                  Get a view of events and trends. Be updated on our recent
+                  news.
+                </span>
+              </div>
+            </div>
+            <button class="btn bg-gradient uppercase text-sm">
+              learn more
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ---------- NUMBER ---------- -->
+    <section class="number">
+      <div
+        class="flex justify-center"
+        style="background-image: url(./images/bg14.png)"
+      >
+        <div class="mainSize flex">
+          <div class="number__item w-25 flex flex-col items-center">
+            <i
+              class="flaticon-smile mb-15 rounded-full text-5xl bg-gradient"
+            ></i>
+            <p class="text-6xl font-extrabold">18 Ml</p>
+            <p class="text-base">Satisfied Clients</p>
+          </div>
+          <div class="number__item w-25 flex flex-col items-center">
+            <i
+              class="flaticon-smile mb-15 rounded-full text-5xl bg-gradient"
+            ></i>
+            <p class="text-6xl font-extrabold">18 Ml</p>
+            <p class="text-base">Satisfied Clients</p>
+          </div>
+          <div class="number__item w-25 flex flex-col items-center">
+            <i
+              class="flaticon-smile mb-15 rounded-full text-5xl bg-gradient"
+            ></i>
+            <p class="text-6xl font-extrabold">18 Ml</p>
+            <p class="text-base">Satisfied Clients</p>
+          </div>
+          <div class="number__item w-25 flex flex-col items-center">
+            <i
+              class="flaticon-smile mb-15 rounded-full text-5xl bg-gradient"
+            ></i>
+            <p class="text-6xl font-extrabold">18 Ml</p>
+            <p class="text-base">Satisfied Clients</p>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- ---------- FEATURE ---------- -->
     <!-- ---------- PORTFOLIO ---------- -->
     <!-- ---------- BLOG ---------- -->
