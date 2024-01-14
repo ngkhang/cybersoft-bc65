@@ -121,6 +121,137 @@ header li:hover a {
 
 /* ---------- BLOG ---------- */
 
-/* ---------- CONTACT ---------- */
 
 /* ---------- FOOTER ---------- */
+.footer {
+  background-color: rgb(var(--dark-300));
+  background-image: url('../images/bg4.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.footer .markBg {
+  background-image: url('../images/pattern2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left top;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.footer .footer__subscribe {
+  z-index: 2;
+  background-color: rgb(var(--white));
+  background-image: url('../images/pattern3.png');
+  background-size: cover;
+  box-shadow: 0 0px 30px 0 rgba(0, 0, 0, 0.1);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  padding: 50px 60px;
+}
+
+.footer .footer__subscribe p {
+  color: rgb(var(--dark-200));
+}
+
+.footer .footer__subscribe form {
+  align-items: stretch;
+}
+
+.footer .footer__subscribe input {
+  border: 1px solid rgb(var(--white));
+  flex-grow: 1;
+  border-radius: 0.5rem 0 0 0.5rem;
+  outline: none;
+
+}
+
+.footer .footer__subscribe input:focus,
+.footer .footer__subscribe input:hover {
+  border-color: rgb(var(--pink));
+}
+
+.footer .footer__subscribe button {
+  border: 0;
+  padding: 20px 35px;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.footer .footer__contact {
+  z-index: 2;
+  padding: 70px 0;
+}
+
+.footer .footer__contact ul li {
+  padding-bottom: 15px;
+}
+
+.footer .footer__contact h4 {
+  color: rgb(var(--white));
+}
+
+.footer .footer__contact h4::before {
+  width: 10px;
+  left: 0;
+}
+
+.footer .footer__contact h4::after {
+  width: 45px;
+  left: 15px;
+}
+
+.footer .footer__contact h4::before,
+.footer .footer__contact h4::after {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  height: 4px;
+  background-image: linear-gradient(to right, rgb(var(--pink)) 0%, rgb(var(--orange)) 50%, rgb(var(--pink)) 100%);
+  background-size: 200%;
+  border-radius: 10px;
+}
+
+.footer .footer__contact>div:first-child ul li i {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: rgb(var(--white));
+}
+
+.footer .footer__contact ul li span {
+  color: rgb(var(--white));
+}
+
+.footer .footer__contact a {
+  color: rgb(var(--gray));
+  font-size: var(--base);
+}
+
+
+.footer .footer__copyright {
+  z-index: 2;
+  background: rgb(var(--dark-100));
+}
+
+.footer .footer__copyright p>span {
+  color: rgb(var(--pink));
+}
+
+.footer .footer__copyright p,
+.footer .footer__copyright a {
+  color: rgb(var(--white))
+}
+
+
+.footer .footer__copyright i {
+  /* background: rgba(var(--white), 0.1); */
+  height: 36px;
+  width: 36px;
+  line-height: 36px;
+  text-align: center;
+  background: rgba(var(--white), 0.1);
+}
