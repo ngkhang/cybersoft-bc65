@@ -42,6 +42,8 @@
   /* 65px */
   --7xl: 4.375rem;
   /* 70px */
+  --8xl: 5rem;
+  /* 80px */
 }
 
 /* ---------- Reset CSS ---------- */
@@ -611,6 +613,10 @@ body {
 
 .text-7xl {
   font-size: var(--7xl);
+}
+
+.text-8xl {
+  font-size: var(--8xl);
 }
 
 
