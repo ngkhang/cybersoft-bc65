@@ -30,6 +30,8 @@
   /* 32px */
   --text-3xl: 2.75rem;
   /* 44px */
+  --text-4xl: 3.75rem;
+  /* 60px */
 }
 
 html,
@@ -67,6 +69,10 @@ body {
   width: 50%;
 }
 
+.w-60 {
+  width: 60%;
+}
+
 .w-70 {
   width: 70%;
 }
@@ -95,6 +101,10 @@ body {
 
 .text-3xl {
   font-size: var(--text-3xl);
+}
+
+.text-4xl {
+  font-size: var(--text-4xl);
 }
 
 /* ========== FONT WEIGHT ========== */

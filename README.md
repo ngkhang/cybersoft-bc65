@@ -6,6 +6,7 @@
   - [Topic Overview](#topic-overview)
     - [Module 01: HTML - CSS](#module-01-html---css)
     - [Module 02: HTML5 - CSS3](#module-02-html5---css3)
+    - [Module 03: BootStrap](#module-03-bootstrap)
   - [Author](#author)
 
 ## Description
@@ -46,11 +47,20 @@
 ### Module 02: HTML5 - CSS3
 
 - Assignments:
-  - [ ] 01. Samar
+  - [ ] Samar (In Process)
 - Practices:
-  - [ ] 01. Meipaly (In Process)
+  - [x] Meipaly
 - Extra Practices:
   - [ ] 01. CSS3 Resolution
+
+### Module 03: BootStrap
+
+- Captones:
+  
+- Practices:
+  - [x] Portfolio
+- Extra Practices:
+  - [ ] Movie Bootstrap
 
 ## Author
 
