@@ -55,6 +55,14 @@ header .navbar-brand span {
   font-size: 36px;
 }
 
+@media screen and (max-width: 575.98px) {
+
+  header .navbar-brand span,
+  header .navbar-brand i {
+    font-size: 1.5rem
+  }
+}
+
 header a {
   color: var(--color-white);
   transition: all 0.3s;
@@ -70,7 +78,6 @@ header .navbar-nav li:hover a {
 
 header .nav-item {
   overflow: hidden;
-
 }
 
 header .nav-item::before {
@@ -84,32 +91,44 @@ header .nav-item::before {
   transition: all 0.3s;
 }
 
+@media screen and (max-width: 991.98px) {
+  header .nav-link {
+    color: var(--color-green);
+  }
+
+  header .navbar-collapse {
+    background: #fff
+  }
+
+  header .nav-item::before {
+    display: none;
+  }
+
+  header .navbar-nav li:hover a {
+    color: var(--color-white);
+  }
+
+  header .navbar-nav li:hover {
+    background-color: var(--color-green);
+  }
+}
+
 header .navbar-nav li.active::before,
 header .nav-item:hover::before {
   left: 0
 }
 
+header .navbar-toggler {
+  background: var(--color-green);
+}
 
+header .navbar-toggler i {
+  color: var(--color-white);
+  line-height: 1.5;
+}
 
 
 /* Carousel */
-.carousel .carousel-item img {
-  width: 140px;
-}
-
-.carousel .carousel-caption {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.carousel .markBg {
-  background: rgba(39, 43, 54, .5);
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .carousel .carousel-indicators {
   bottom: 10%;
 }
@@ -125,6 +144,26 @@ header .nav-item:hover::before {
   background: var(--color-green);
 }
 
+.carousel .carousel-item::after {
+  content: "";
+  background: rgba(39, 43, 54, .5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.carousel .carousel-item figure {
+  width: 140px;
+}
+
+.carousel .carousel-caption {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .carousel .carousel-caption h2 {
   font-size: 56px;
   line-height: 65px;
@@ -135,8 +174,6 @@ header .nav-item:hover::before {
 }
 
 
-
-
 /* Project */
 .project .project__type button {
   background: transparent;
@@ -144,7 +181,6 @@ header .nav-item:hover::before {
   color: var(--color-black-100);
   transition: all 0.3s;
 }
-
 
 .project .project__type button.active {
   background: var(--color-green);
@@ -172,8 +208,6 @@ header .nav-item:hover::before {
 
 .project .project__list .card:hover .card-body {
   border: 1px solid var(--color-green);
-  /* border-top: 0;
-  border-top: 0; */
 }
 
 .project .project__list .card:hover h4 {
@@ -183,6 +217,7 @@ header .nav-item:hover::before {
 .project .project__list .card p {
   color: var(--color-gray-200);
 }
+
 
 /* Service */
 .service {
@@ -198,7 +233,6 @@ header .nav-item:hover::before {
   left: 0;
   background: var(--color-black-markBg);
 }
-
 
 .service .service__list .service__item {
   padding: 40px;
@@ -231,6 +265,7 @@ header .nav-item:hover::before {
   line-height: 24px;
 }
 
+
 /* Award */
 .award {
   padding: 70px 0;
@@ -261,8 +296,8 @@ header .nav-item:hover::before {
   font-size: 36px;
   line-height: 42px;
   color: var(--color-black-100);
-  /* font-weight: 600; */
 }
+
 
 /* Footer */
 .footer a {
@@ -281,7 +316,6 @@ header .nav-item:hover::before {
   border: 1px solid var(--color-gray-100);
   transition: all 0.3s;
 }
-
 
 .footer a:hover,
 .footer__social i:hover {
