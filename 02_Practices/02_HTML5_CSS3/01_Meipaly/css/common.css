@@ -52,6 +52,10 @@ html {
   width: 75%;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 
 /* ========== HEIGHT ========== */
 .h-screen {

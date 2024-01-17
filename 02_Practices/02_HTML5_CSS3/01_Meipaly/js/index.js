@@ -1,5 +1,5 @@
 // Slick custom
-$(document).ready(function () {
+$(document).ready(() => {
   $(".slickCustom").slick({
     autoplay: true,
     accessibility: true,
@@ -25,20 +25,23 @@ $('.counter').countUp({
 });
 
 // Scroll to Top 
-$(document).ready(function () {
+$(document).ready(() => {
   $(".btnUp").click((event) => {
     event.preventDefault();
+    const style = {
+      scrollTop: 0,
+    }
+
+    const option = {
+      easing: "swing",
+      duration: 400,
+    }
     /*
       (selector).animate({styles},speed,easing,callback)
     or (selector).animate({styles},{options}) 
     */
 
-    $('html, body').animate({
-      scrollTop: 0,
-    }, {
-      easing: "swing",
-      duration: 400,
-    });
+    $('html, body').animate(style, option);
   });
 })
 
