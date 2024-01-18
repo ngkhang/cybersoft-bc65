@@ -29,6 +29,11 @@
     <!-- ---------- Owl Carousel ---------- -->
     <link rel="stylesheet" href="./css/owlcarousel/owl.carousel.min.css" />
     <link rel="stylesheet" href="./css/owlcarousel/owl.theme.default.min.css" />
+    <!-- ---------- Fancybox ---------- -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+    />
 
     <!-- ---------- My CSS ---------- -->
     <link rel="stylesheet" href="./css/common.css" />
@@ -123,7 +128,7 @@
           <!-- Hero Image -->
           <div class="w-40" style="background: gainsboro">
             <div class="ml-30 w-full">
-              <img class="w-full" src="./images/pic3_1.png" alt="" />
+              <img class="w-full h-full" src="./images/pic3_1.png" alt="" />
             </div>
           </div>
         </div>
@@ -145,7 +150,7 @@
             <div class="card w-33 p-15">
               <div class="p-30 flex flex-col items-center">
                 <div class="card__img mb-15">
-                  <img class="w-full" src="./images/pic1_3.jpg" alt="" />
+                  <img class="w-full h-full" src="./images/pic1_3.jpg" alt="" />
                 </div>
                 <h3 class="mb-15 text-3xl">Web Development</h3>
                 <p class="">
@@ -157,7 +162,7 @@
             <div class="card w-33 p-15">
               <div class="p-30 flex flex-col items-center">
                 <div class="card__img mb-15">
-                  <img class="w-full" src="./images/pic2_2.jpg" alt="" />
+                  <img class="w-full h-full" src="./images/pic2_2.jpg" alt="" />
                 </div>
                 <h3 class="mb-15 text-3xl">Strategy & Research</h3>
                 <p class="">
@@ -169,7 +174,7 @@
             <div class="card w-33 p-15">
               <div class="p-30 flex flex-col items-center">
                 <div class="card__img mb-15">
-                  <img class="w-full" src="./images/pic3_2.jpg" alt="" />
+                  <img class="w-full h-full" src="./images/pic3_2.jpg" alt="" />
                 </div>
                 <h3 class="mb-15 text-3xl">Growth Tracking</h3>
                 <p class="">
@@ -329,7 +334,7 @@
           </div>
           <div class="feature__right w-50">
             <div class="w-full">
-              <img class="w-full" src="./images/pic3.png" alt="" />
+              <img class="w-full h-full" src="./images/pic3.png" alt="" />
             </div>
           </div>
         </div>
@@ -337,16 +342,243 @@
     </section>
 
     <!-- ---------- PORTFOLIO ---------- -->
+    <section class="portfolio">
+      <div class="flex justify-center">
+        <div class="mainSize">
+          <div class="portfolio__title flex flex-col items-center">
+            <span class="inline-block mb-15 text-2xl">Portfolio</span>
+            <h2 class="mb-20 text-7xl">Our Latest Work</h2>
+          </div>
+          <div class="portfolio__list grid">
+            <div class="card relative rounded-md col-span-2">
+              <img class="w-full h-full" src="./images/pic1_2.jpg" alt="" />
+              <div class="overplay h-full w-full absolute">
+                <div class="overplay__btn absolute rounded-md bg-gradient">
+                  <a
+                    href="./images/pic1_2.jpg"
+                    data-fancybox="gallery"
+                    data-caption="Design 1"
+                  >
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <div class="overplay__content absolute">
+                  <h5 class="text-2xl font-extrabold">Software Landing</h5>
+                  <p>By Jhone Doe</p>
+                </div>
+              </div>
+            </div>
+            <div class="card relative rounded-md">
+              <img class="w-full h-full" src="./images/pic2_1.jpg" alt="" />
+              <div class="overplay h-full w-full absolute">
+                <div class="overplay__btn absolute rounded-md bg-gradient">
+                  <a
+                    href="./images/pic2_1.jpg"
+                    data-fancybox="gallery"
+                    data-caption="Design 2"
+                  >
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <div class="overplay__content absolute">
+                  <h5 class="text-2xl font-extrabold">Software Landing</h5>
+                  <p>By Jhone Doe</p>
+                </div>
+              </div>
+            </div>
+            <div class="card relative rounded-md">
+              <img class="w-full h-full" src="./images/pic3_1.jpg" alt="" />
+              <div class="overplay h-full w-full absolute">
+                <div class="overplay__btn absolute rounded-md bg-gradient">
+                  <a
+                    href="./images/pic3_1.jpg"
+                    data-fancybox="gallery"
+                    data-caption="Design 3"
+                  >
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <div class="overplay__content absolute">
+                  <h5 class="text-2xl font-extrabold">Software Landing</h5>
+                  <p>By Jhone Doe</p>
+                </div>
+              </div>
+            </div>
+            <div class="card relative rounded-md">
+              <img class="w-full h-full" src="./images/pic4.jpg" alt="" />
+              <div class="overplay h-full w-full absolute">
+                <div class="overplay__btn absolute rounded-md bg-gradient">
+                  <a
+                    href="./images/pic4.jpg"
+                    data-fancybox="gallery"
+                    data-caption="Design 4"
+                  >
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <div class="overplay__content absolute">
+                  <h5 class="text-2xl font-extrabold">Software Landing</h5>
+                  <p>By Jhone Doe</p>
+                </div>
+              </div>
+            </div>
+            <div class="card relative rounded-md col-span-2">
+              <img class="w-full h-full" src="./images/pic5.jpg" alt="" />
+              <div class="overplay h-full w-full absolute">
+                <div class="overplay__btn absolute rounded-md bg-gradient">
+                  <a
+                    href="./images/pic5.jpg"
+                    data-fancybox="gallery"
+                    data-caption="Design 5"
+                  >
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <div class="overplay__content absolute">
+                  <h5 class="text-2xl font-extrabold">Software Landing</h5>
+                  <p>By Jhone Doe</p>
+                </div>
+              </div>
+            </div>
+            <div class="card relative rounded-md row-span-2">
+              <img class="w-full h-full" src="./images/pic6.jpg" alt="" />
+              <div class="overplay h-full w-full absolute">
+                <div class="overplay__btn absolute rounded-md bg-gradient">
+                  <a
+                    href="./images/pic6.jpg"
+                    data-fancybox="gallery"
+                    data-caption="Design 6"
+                  >
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <div class="overplay__content absolute">
+                  <h5 class="text-2xl font-extrabold">Software Landing</h5>
+                  <p>By Jhone Doe</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ---------- BLOG ---------- -->
     <section class="blog">
       <div class="flex justify-center">
         <div class="mainSize">
-          <div class="blog__title">
+          <div class="blog__title flex flex-col items-center">
             <span class="inline-block mb-15 text-2xl">Our Blog</span>
             <h2 class="mb-20 text-7xl">Latest News & Blog</h2>
           </div>
-          <div class="blog__slide"></div>
+          <div class="blog__list owl-carousel owl-theme">
+            <div class="card rounded-base">
+              <figure class="card__header relative mb-25">
+                <img
+                  class="w-full rounded-base"
+                  src="./images/pic1_1.jpg"
+                  alt=""
+                />
+                <span
+                  class="absolute px-20 py-10 rounded-sm bg-gradient text-sm uppercase"
+                >
+                  23 march 2022</span
+                >
+              </figure>
+              <div class="card__body px-15 pb-20 mb-20">
+                <h4 class="text-3xl font-bold">
+                  Lorem ipsum dolor sit amet consectetur.
+                </h4>
+                <p>
+                  Nunc convallis sagittis dui eu dictum. Cras sodales id ipsum
+                  ac aliquam. Phasellus justo quam.
+                </p>
+              </div>
+              <div
+                class="card__footer flex items-center p-15 text-sm font-normal uppercase"
+              >
+                <div class="card__footer-author flex items-center mr-20">
+                  <i class="las la-user-circle mr-5 text-2xl"></i>
+                  <p>by <span>john doe</span></p>
+                </div>
+                <div class="card__footer-comment flex items-center">
+                  <i class="las la-comment mr-5 text-2xl"></i>
+                  <p>comments <span>15</span></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card rounded-base">
+              <figure class="card__header relative mb-25">
+                <img
+                  class="w-full rounded-base"
+                  src="./images/pic2.jpg"
+                  alt=""
+                />
+                <span
+                  class="absolute px-20 py-10 rounded-sm bg-gradient text-sm uppercase"
+                >
+                  23 march 2022</span
+                >
+              </figure>
+              <div class="card__body px-15 pb-20 mb-20">
+                <h4 class="text-3xl font-bold">
+                  Lorem ipsum dolor sit amet consectetur.
+                </h4>
+                <p>
+                  Nunc convallis sagittis dui eu dictum. Cras sodales id ipsum
+                  ac aliquam. Phasellus justo quam.
+                </p>
+              </div>
+              <div
+                class="card__footer flex items-center p-15 text-sm font-normal uppercase"
+              >
+                <div class="card__footer-author flex items-center mr-20">
+                  <i class="las la-user-circle mr-5 text-2xl"></i>
+                  <p>by <span>john doe</span></p>
+                </div>
+                <div class="card__footer-comment flex items-center">
+                  <i class="las la-comment mr-5 text-2xl"></i>
+                  <p>comments <span>15</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="card rounded-base">
+              <figure class="card__header relative mb-25">
+                <img
+                  class="w-full rounded-base"
+                  src="./images/pic3.jpg"
+                  alt=""
+                />
+                <span
+                  class="absolute px-20 py-10 rounded-sm bg-gradient text-sm uppercase"
+                >
+                  23 march 2022</span
+                >
+              </figure>
+              <div class="card__body px-15 pb-20 mb-20">
+                <h4 class="text-3xl font-bold">
+                  Lorem ipsum dolor sit amet consectetur.
+                </h4>
+                <p>
+                  Nunc convallis sagittis dui eu dictum. Cras sodales id ipsum
+                  ac aliquam. Phasellus justo quam.
+                </p>
+              </div>
+              <div
+                class="card__footer flex items-center p-15 text-sm font-normal uppercase"
+              >
+                <div class="card__footer-author flex items-center mr-20">
+                  <i class="las la-user-circle mr-5 text-2xl"></i>
+                  <p>by <span>john doe</span></p>
+                </div>
+                <div class="card__footer-comment flex items-center">
+                  <i class="las la-comment mr-5 text-2xl"></i>
+                  <p>comments <span>15</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -535,6 +767,8 @@
     ></script>
     <!-- ---------- Owlcarousel ---------- -->
     <script src="./js/owl.carousel.min.js"></script>
+    <!-- ---------- Fancybox ---------- -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
     <!-- ---------- My JS ---------- -->
     <script type="text/javascript" src="./js/index.js"></script>

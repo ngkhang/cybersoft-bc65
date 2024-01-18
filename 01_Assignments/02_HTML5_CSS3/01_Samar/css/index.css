@@ -159,9 +159,140 @@ header li:hover a {
 }
 
 /* ---------- PORTFOLIO ---------- */
+.portfolio {
+  padding-top: 115px;
+  background-image: url('../images/bg17.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.portfolio .portfolio__title span {
+  color: rgb(var(--pink));
+  font-weight: 600;
+}
+
+.portfolio .portfolio__title h2 {
+  color: rgb(var(--dark-200));
+  line-height: 1.1;
+}
+
+.portfolio .portfolio__list {
+  grid-template-columns: 1fr 1fr 1.5fr;
+  /* grid-template-rows: repeat(4, 1fr); */
+  gap: 35px
+}
+
+.col-span-2 {
+  grid-column: 1/ span 2;
+}
+
+.row-span-2 {
+  grid-row: 2 / span 2;
+  grid-column: 3/4;
+}
+
+.portfolio .portfolio__list .card {
+  overflow: hidden;
+}
+
+.portfolio .portfolio__list .overplay {
+  top: 0;
+  left: 0;
+  background: rgba(var(--black), 0.4);
+  color: rgb(var(--white));
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.portfolio .portfolio__list .overplay:hover {
+  opacity: 1;
+}
+
+.portfolio .overplay .overplay__btn {
+  top: 5px;
+  right: 5px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  transition: all 0.4s ease-in-out;
+}
+
+.portfolio .overplay .overplay__btn i {
+  color: rgb(var(--white));
+}
+
+.portfolio .portfolio__list .overplay:hover .overplay__btn {
+  top: 20px;
+  right: 20px;
+}
+
+.portfolio .overplay .overplay__content {
+  bottom: 5px;
+  left: 5px;
+  transition: all 0.4s ease-in-out;
+
+}
+
+.portfolio .portfolio__list .overplay:hover .overplay__content {
+  bottom: 20px;
+  left: 20px;
+}
+
+.portfolio .overplay .overplay__content p {
+  opacity: 0.7;
+}
 
 /* ---------- BLOG ---------- */
+.blog {
+  padding-top: 115px;
+  padding-bottom: 50px;
+  background-image: url('../images/bg16.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
 
+.blog .blog__title span {
+  color: rgb(var(--pink));
+  font-weight: 600;
+}
+
+.blog .blog__title h2 {
+  color: rgb(var(--dark-200));
+  line-height: 1.1;
+}
+
+.blog .card {
+  background: rgba(var(--pink), 0.1);
+}
+
+.blog .card .card__header span {
+  left: 15px;
+  bottom: -20px;
+}
+
+.blog .card .card__body {
+  line-height: 1.4;
+}
+
+.blog .card .card__body h4 {
+  color: rgb(var(--dark-200));
+}
+
+.blog .card .card__body p {
+  color: rgb(var(--gray));
+}
+
+.blog .card .card__footer {
+  border-top: 1px solid rgb(var(--black), 0.05);
+}
+
+.blog .card .card__footer i,
+.blog .card .card__footer .card__footer-author span {
+  color: rgb(var(--pink));
+}
 
 /* ---------- FOOTER ---------- */
 .footer {
