@@ -1,0 +1,60 @@
+/* ---------- TRANSFROM VARIABLE ---------- */
+:root {
+  --transition-all-0_2s: all 0.2s;
+  --transition-all-0_5s: all 0.5s;
+  --transition-all-0_75s: all 0.75s;
+  --transition-all-1s: all 1s;
+
+  --animate-duration: 2s;
+  --animation-duration-0_3s: 0.3s;
+  --animation-duration-0_5s: 0.5s;
+  --animation-duration-5s: 5s;
+
+  --animation-fill-mode-forwards: forwards;
+  --animation-fill-mode-infinite: infinite;
+}
+
+/* ---------- ANIMATION ---------- */
+@keyframes upToBottom {
+  49% {
+    transform: translateY(100%);
+  }
+
+  50% {
+    opacity: var(--opacity-0);
+    transform: translateY(-100%);
+  }
+
+  51% {
+    opacity: var(--opacity-100);
+  }
+}
+
+@keyframes move2 {
+  0% {
+    transform: rotate(1deg) translate(2px, 2px);
+  }
+
+  50% {
+    transform: rotate(-1deg) translate(-2px, -2px);
+  }
+
+  100% {
+    transform: rotate(1deg) translate(2px, 2px);
+  }
+}
+
+@keyframes toLeftFromRight {
+  49% {
+    transform: translateX(100%);
+  }
+
+  50% {
+    opacity: var(--opacity-0);
+    transform: translateX(-100%);
+  }
+
+  51% {
+    opacity: var(--opacity-100);
+  }
+}

@@ -9,7 +9,9 @@
   /* #f55f8d */
   --orange: 248, 174, 86;
   /* #f8ae56 */
-  --gray: 99, 99, 99;
+  --gray-100: 136, 136, 136;
+  /* #888 */
+  --gray-200: 99, 99, 99;
   /* #636363 */
   --dark-100: 31, 52, 59;
   /* #1f343b */
@@ -66,6 +68,14 @@
   /* 100px */
   --radius-full: 50%;
   /* 50% */
+
+  /* Opacity */
+  --opacity-0: 0;
+  /* 0% */
+  --opacity-70: 0.7;
+  /* 70% */
+  --opacity-100: 1;
+  /* 100% */
 }
 
 /* ---------- Reset CSS ---------- */
@@ -80,9 +90,10 @@
 /* ---------- Default ---------- */
 html,
 body {
-  font-family: 'Roboto', sans-serif;
-  color: rgb(var(--gray));
+  font-family: "Roboto", sans-serif;
+  color: rgb(var(--gray-200));
   line-height: 1.6;
+  scroll-behavior: smooth;
   /*
   default:
   font-size: 16px; 
@@ -90,6 +101,8 @@ body {
   */
 }
 
+
+/* ---------- Common ---------- */
 .center {
   display: flex;
   justify-content: center;
@@ -103,22 +116,51 @@ body {
 
 .btn {
   padding: 20px 35px;
-  border: 0;
-  border-radius: 30px;
   cursor: pointer;
+  color: rgb(var(--white));
+  transition: var(--transition-all-0_5s);
+}
+
+.btn.btn-primary {
+  border: 1px solid transparent;
+  outline: none;
+  border-radius: var(--radius-xl);
   text-transform: uppercase;
+  font-size: var(--sm);
+  line-height: 1.2;
+  font-weight: 500;
 }
 
 .bg-gradient {
   color: rgb(var(--white));
-  background-image: linear-gradient(to right, rgb(var(--pink)) 0%, rgb(var(--orange)) 50%, rgb(var(--pink)) 100%);
+  background-image: linear-gradient(to right, rgb(var(--pink)) 0%, rgb(var(--orange)) 51%, rgb(var(--pink)) 100%);
   background-size: 200%;
 }
 
+.btn:hover {
+  background-position: right center;
+}
 
-/* ----------  ---------- */
-/* ----------  ---------- */
-/* ----------  ---------- */
+.title>span {
+  display: inline-block;
+  color: rgb(var(--pink));
+  font-weight: 600;
+  font-size: var(--2xl);
+  margin-bottom: 20px;
+}
+
+.title>h2 {
+  color: rgb(var(--dark-200));
+  font-weight: 800;
+  font-size: var(--7xl);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.section-inner {
+  padding-top: 115px;
+}
+
 
 /* ---------- HEIGHT ---------- */
 .h-full {
@@ -163,6 +205,20 @@ body {
 }
 
 
+/* ---------- OPACITY ---------- */
+.opacity-0 {
+  opacity: var(--opacity-0);
+}
+
+.opacity-70 {
+  opacity: var(--opacity-70);
+}
+
+.opacity-100 {
+  opacity: var(--opacity-100);
+}
+
+
 /* ---------- BORDER-RADIUS ---------- */
 .rounded-sm {
   border-radius: var(--radius-sm);
@@ -200,9 +256,6 @@ body {
   border-radius: var(--radius-full);
 }
 
-/* 0 100px 100px 0 */
-/* 0.5rem 0 0 0.5rem
-0 0.5rem 0.5rem 0 */
 
 /* ---------- POSITION ---------- */
 .absolute {
@@ -226,16 +279,16 @@ body {
   display: block;
 }
 
-/* ---------- DISPLAY: GRID ---------- */
-.grid {
-  display: grid;
-}
-
-/* ---------- DISPLAY: FLEX ---------- */
 .flex {
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
+
+/* ---------- DISPLAY: FLEX ---------- */
 .flex-col {
   flex-direction: column;
 }
@@ -445,6 +498,36 @@ body {
   padding: 30px;
 }
 
+.pt-35 {
+  padding-top: 35px;
+}
+
+.pr-35 {
+  padding-right: 35px;
+}
+
+.pb-35 {
+  padding-bottom: 35px;
+}
+
+.pl-35 {
+  padding-left: 35px;
+}
+
+.px-35 {
+  padding-right: 35px;
+  padding-left: 35px;
+}
+
+.py-35 {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.p-35 {
+  padding: 35px;
+}
+
 /* ---------- MARGIN  ---------- */
 .mt-5 {
   margin-top: 5px;
@@ -632,6 +715,10 @@ body {
   text-transform: uppercase;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 
 /* ---------- Font Size ---------- */
 .text-xs {
@@ -683,7 +770,7 @@ body {
 }
 
 
-/* ---------- Font Size ---------- */
+/* ---------- Font Weight ---------- */
 .font-normal {
   font-weight: 400;
 }
