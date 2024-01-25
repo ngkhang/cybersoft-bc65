@@ -7,6 +7,7 @@
     - [Module 01: HTML - CSS](#module-01-html---css)
     - [Module 02: HTML5 - CSS3](#module-02-html5---css3)
     - [Module 03: BootStrap](#module-03-bootstrap)
+    - [Module 04: JavaScript](#module-04-javascript)
   - [Author](#author)
 
 ## Description
@@ -47,20 +48,39 @@
 ### Module 02: HTML5 - CSS3
 
 - Assignments:
-  - [ ] Samar (In Process)
+  - [x] Samar
 - Practices:
   - [x] Meipaly
 - Extra Practices:
-  - [ ] 01. CSS3 Resolution
+  - [ ] CSS3 Resolution
 
 ### Module 03: BootStrap
 
 - Captones:
-  
+  - [ ] Layout Studious
 - Practices:
   - [x] Portfolio
 - Extra Practices:
   - [ ] Movie Bootstrap
+
+### Module 04: JavaScript
+
+- Assignments:
+  - [x] Exercise 01
+- Practices:
+- Extra Practices:
+  - [ ] Cyber Modal
+  - [ ] Cyber Change BG
+  - [ ] Cyber Photo Editer
+  - [ ] Cyber BMI Caculator
+  - [ ] SideBar JS
+  - [ ] Cyber Count Down Timer
+  - [ ] Cyber FAQ Page
+  - [ ] Cyber Create Lorem
+  - [ ] Cyber basic calculator
+  - [ ] Tab JS
+  - [ ] Cyber Music Player
+  - [ ] Grocery List
 
 ## Author
 

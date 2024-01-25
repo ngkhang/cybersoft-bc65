@@ -41,17 +41,14 @@ header li:hover span {
   margin-left: 50px;
 }
 
-.hero .hero__img img {
-  vertical-align: middle;
-}
-
 /* ---------- SERVICE ---------- */
-.service>div {
+.service {
   background-size: cover;
-  background-position: bottom;
+  background-position: top center;
 }
 
-.service .card>div {
+.service .card {
+  width: calc((100% - 60px)/3);
   background: rgb(var(--white));
   box-shadow: 0 0 60px 0 rgba(var(--black), 0.1);
   text-align: center;
@@ -62,7 +59,7 @@ header li:hover span {
   transition: var(--transition-all-0_5s);
 }
 
-.service .card>div:hover {
+.service .card:hover {
   border-image: url("../images/br.png") 1 round;
   transform: translateY(-20px);
 }
@@ -73,11 +70,12 @@ header li:hover span {
 
 
 /* ---------- ABOUT ---------- */
-.about>div {
-  background-size: contain;
+.about {
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center right;
   overflow: hidden;
+  padding-bottom: 85px;
 }
 
 .about .about__img {
@@ -91,14 +89,9 @@ header li:hover span {
 
 .about .about__content i {
   color: rgb(var(--pink));
-  vertical-align: middle;
 }
 
 /* ---------- NUMBER ---------- */
-.number {
-  padding-top: 85px;
-}
-
 .number>div {
   padding: 80px 0 50px;
   background-position: center;
@@ -127,8 +120,6 @@ header li:hover span {
 
 /* ---------- FEATURE ---------- */
 .feature {
-  padding-top: 115px;
-  background-image: url('../images/bg2.png');
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -182,14 +173,11 @@ header li:hover span {
 }
 
 .feature .feature__right img {
-  vertical-align: middle;
   animation: move2 var(--animation-duration-5s) var(--animation-fill-mode-infinite);
-
 }
 
 /* ---------- PORTFOLIO ---------- */
 .portfolio {
-  background-image: url('../images/bg17.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -220,13 +208,13 @@ header li:hover span {
   left: -100%;
   height: 100%;
   width: 50%;
-  background: linear-gradient(to right, rgba(var(--black), 0) 0%, rgba(var(--black), 0.3) 100%);
+  background: linear-gradient(to right, rgba(var(--white), 0) 0%, rgba(var(--white), 0.3) 100%);
   transform: skewX(-25deg);
   transition: var(--transition-all-0_75s);
 }
 
 .portfolio .card:hover::after {
-  left: 100%;
+  left: 125%;
 }
 
 .portfolio .card .overplay {
@@ -482,8 +470,4 @@ header li:hover span {
   color: rgb(var(--white));
   box-shadow: -4px 4px 24px -10px rgb(var(--pink));
   cursor: pointer;
-}
-
-#btnScrollToTop button i {
-  vertical-align: middle;
 }
