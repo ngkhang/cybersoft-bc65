@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JS - 02 - Tip Calculator</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <section class="container mt-4">
+      <div class="row flex-column align-items-center">
+        <div class="col-6 p-5 bg-light rounded-lg">
+          <h1 class="py-3 mb-4 bg-warning text-uppercase text-center">
+            tính tiền tip
+          </h1>
+          <div class="form">
+            <div class="form-group">
+              <label for="money">Tổng tiền thanh toán?</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input
+                  class="form-control"
+                  aria-label="Amount (to the nearest dollar)"
+                  placeholder="Tổng tiền"
+                  type="text"
+                  name="money"
+                  id="money"
+                  value="10000"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="percentTip">Bạn muốn Tip bao nhiêu?</label>
+              <select class="form-control" name="percentTip" id="percentTip">
+                <option value="0.1" selected>Chọn để tip</option>
+                <option value="0.3">30% - Tuyệt</option>
+                <option value="0.2">20% - Tốt</option>
+                <option value="0.15">15% - Tạm ổn</option>
+                <option value="0.1">10% - Tốt</option>
+                <option value="0.05">5% - Thật tệ</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="person">Bạn muốn share cho bao nhiêu người?</label>
+              <input
+                type="text"
+                name="person"
+                id="person"
+                class="form-control"
+                placeholder="Nhập số người"
+                value="4"
+              />
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-danger w-100 mt-2 mb-5 px-5"
+              onclick="handleCaculatorTip()"
+            >
+              Tính nào!
+            </button>
+
+            <div>
+              <span class="text-uppercase d-inline-block mr-4">tip amount</span>
+              <h4 id="result" class="d-inline-block"></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Main JS -->
+    <script src="./js/index.js"></script>
+  </body>
+</html>

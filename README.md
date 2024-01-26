@@ -68,6 +68,7 @@
 - Assignments:
   - [x] Exercise 01
 - Practices:
+  - [ ] Tip Calculator
 - Extra Practices:
   - [ ] Cyber Modal
   - [ ] Cyber Change BG
