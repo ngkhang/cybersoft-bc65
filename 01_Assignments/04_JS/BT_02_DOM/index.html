@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JS - DOM</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body class="vh-100 d-flex justify-content-center align-items-center">
+    <div class="w-50 shadow-lg">
+      <div class="row rounded">
+        <div class="container-left col-2 p-3">
+          <div class="d-flex flex-column">
+            <button
+              type="button"
+              onclick="handleExerce('exercise01')"
+              class="btn-exercise mb-2 border-0 rounded active"
+            >
+              Bài 1
+            </button>
+            <button
+              type="button"
+              onclick="handleExerce('exercise02')"
+              class="btn-exercise mb-2 border-0 rounded"
+            >
+              Bài 2
+            </button>
+            <button
+              type="button"
+              onclick="handleExerce('exercise03')"
+              class="btn-exercise mb-2 border-0 rounded"
+            >
+              Bài 3
+            </button>
+            <button
+              type="button"
+              onclick="handleExerce('exercise04')"
+              class="btn-exercise mb-2 border-0 rounded"
+            >
+              Bài 4
+            </button>
+            <button
+              type="button"
+              onclick="handleExerce('exercise05')"
+              class="btn-exercise mb-2 border-0 rounded"
+            >
+              Bài 5
+            </button>
+          </div>
+        </div>
+        <div class="container-right col-10 bg-light p-3">
+          <!-- Exercise 01 -->
+          <div id="exercise01" class="exercise">
+            <!-- Title -->
+            <h2 class="exercise_title mb-3">Tính tiền lương nhân viên</h2>
+            <!-- Description -->
+            <div class="exercise_description p-3 mb-4">
+              <p class="mb-1">Mô tả</p>
+              <ul class="mb-2">
+                <li>Công thức tính: Lương = Lương 1 ngày * số ngày làm</li>
+              </ul>
+            </div>
+            <!-- Form -->
+            <div class="container">
+              <div class="exercise_form row mb-2">
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="moneyInDay"
+                      id="moneyInDay"
+                      placeholder="Nhập lương một ngày"
+                      autofocus
+                    />
+                  </div>
+                </div>
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="day"
+                      id="day"
+                      placeholder="Số ngày làm"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Button -->
+            <button
+              type="button"
+              onclick="getSalary()"
+              class="border-0 rounded-lg bg- px-5 py-2 mb-3"
+            >
+              Tính lương
+            </button>
+            <!-- Result -->
+            <p class="rounded px-2 py-3">
+              👉 <span id="result_exercise_01"></span>
+            </p>
+          </div>
+
+          <!-- Exercise 02-->
+          <div id="exercise02" class="exercise d-none">
+            <!-- Title -->
+            <h2 class="exercise_title mb-3">Tính giá trị trung bình</h2>
+            <!-- Description -->
+            <div class="exercise_description p-3 mb-4">
+              <p class="mb-1">Mô tả</p>
+              <ul class="mb-2">
+                <li>
+                  Công thức tính: Trung bình = (Số 1 + Số 2 + Số 3 + Số 4 + Số
+                  5) /5
+                </li>
+              </ul>
+            </div>
+            <!-- Form -->
+            <div class="container">
+              <div class="exercise_form row mb-2">
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="number_exercise02"
+                      id="number1"
+                      placeholder="Nhập số thứ 1"
+                      autofocus
+                    />
+                  </div>
+                </div>
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="number_exercise02"
+                      id="number2"
+                      placeholder="Nhập số thứ 2"
+                    />
+                  </div>
+                </div>
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="number_exercise02"
+                      id="number3"
+                      placeholder="Nhập số thứ 3"
+                    />
+                  </div>
+                </div>
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="number_exercise02"
+                      id="number4"
+                      placeholder="Nhập số thứ 4"
+                    />
+                  </div>
+                </div>
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="number_exercise02"
+                      id="number5"
+                      placeholder="Nhập số thứ 5"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Button -->
+            <button
+              type="button"
+              onclick="avergeNumber()"
+              class="border-0 rounded-lg bg- px-5 py-2 mb-3"
+            >
+              Tính trung bình
+            </button>
+            <!-- Result -->
+            <p class="rounded px-2 py-3">
+              👉 <span id="result_exercise_02"></span>
+            </p>
+          </div>
+
+          <!-- Exercise 03-->
+          <div id="exercise03" class="exercise d-none">
+            <!-- Title -->
+            <h2 class="exercise_title mb-3">Quy đổi tiền</h2>
+            <!-- Description -->
+            <div class="exercise_description p-3 mb-4">
+              <p class="mb-1">Mô tả</p>
+              <ul class="mb-2">
+                <li>Giá USD mặc định 1 USD = 23500</li>
+                <li>
+                  dùng thêm NumberFormat để số tiền hiển thị đẹp hơn:
+                  NumberFormat
+                </li>
+              </ul>
+            </div>
+            <!-- Form -->
+            <div class="container">
+              <div class="exercise_form row mb-2">
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="money"
+                      id="money"
+                      placeholder="Nhập số tiền USD"
+                      autofocus
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Button -->
+            <button
+              type="button"
+              onclick="convertMoney()"
+              class="border-0 rounded-lg bg- px-5 py-2 mb-3"
+            >
+              Quy đổi tiền
+            </button>
+            <!-- Result -->
+            <p class="rounded px-2 py-3">
+              👉 <span id="result_exercise_03"></span>
+            </p>
+          </div>
+
+          <!-- Exercise 04-->
+          <div id="exercise04" class="exercise d-none">
+            <!-- Title -->
+            <h2 class="exercise_title mb-3">
+              Tính diện tích, chu vi hình chữ nhật
+            </h2>
+            <!-- Description -->
+            <div class="exercise_description p-3 mb-4">
+              <p class="mb-1">Mô tả</p>
+              <ul class="mb-2">
+                <li>Diện tích: dài x rộng</li>
+                <li>Chu vi: (dài + rộng) x 2</li>
+              </ul>
+            </div>
+            <!-- Form -->
+            <div class="container">
+              <div class="exercise_form row mb-2">
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="long"
+                      id="long"
+                      placeholder="Nhập chiều dài"
+                      autofocus
+                    />
+                  </div>
+                </div>
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="wide"
+                      id="wide"
+                      placeholder="Nhập chiều rộng"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Button -->
+            <button
+              type="button"
+              onclick="calRectangle()"
+              class="border-0 rounded-lg bg- px-5 py-2 mb-3"
+            >
+              Tính
+            </button>
+            <!-- Result -->
+            <p class="rounded px-2 py-3">
+              👉 <span id="result_exercise_04"></span>
+            </p>
+          </div>
+
+          <!-- Exercise 05-->
+          <div id="exercise05" class="exercise d-none">
+            <!-- Title -->
+            <h2 class="exercise_title mb-3">Tính tổng 2 ký số</h2>
+            <!-- Description -->
+            <div class="exercise_description p-3 mb-4">
+              <p class="mb-1">Mô tả</p>
+              <ul class="mb-2">
+                <li>Nhập số có 2 chữ số: ab</li>
+                <li>Công thức: Tổng = a + b</li>
+              </ul>
+            </div>
+            <!-- Form -->
+            <div class="container">
+              <div class="exercise_form row mb-2">
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="numberTwoCharactor"
+                      id="numberTwoCharactor"
+                      placeholder="Nhập số có 2 chữ số"
+                      autofocus
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Button -->
+            <button
+              type="button"
+              onclick="sumTwoNumber()"
+              class="border-0 rounded-lg bg- px-5 py-2 mb-3"
+            >
+              Tính tổng
+            </button>
+            <!-- Result -->
+            <p class="rounded px-2 py-3">
+              👉 <span id="result_exercise_05"></span>
+            </p>
+          </div>
+
+          <!-- Spinner Loading -->
+          <div
+            id="spinner"
+            class="spinner-container d-none justify-content-center align-items-center h-100"
+          >
+            <div class="spinner-border text-info" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Main JS -->
+    <script src="./js/index.js"></script>
+  </body>
+</html>
