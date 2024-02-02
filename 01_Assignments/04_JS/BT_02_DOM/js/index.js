@@ -1,3 +1,23 @@
+// Validate input
+function validate(input, fieldName = '', type = '') {
+  let status = false;
+  let mess = '';
+
+  if (input === '')
+    mess = `Vui lòng nhập ${fieldName}`;
+  else if (Number.isNaN(input * 1))
+    mess = `${fieldName} không hợp lệ`;
+  else if (type === 'checkWith0' && input * 1 < 0) {
+    mess = `${fieldName} nhỏ hơn 0`;
+  }
+  else status = true;
+
+  return {
+    status,
+    mess,
+  };
+}
+
 // Reset all input
 function resetAll(resultId) {
   const inputs = document.getElementsByTagName('input');
@@ -6,9 +26,7 @@ function resetAll(resultId) {
   resultId.classList.remove('resultSuccess', 'resultError');
   resultId.classList.add('resultPedding');
 
-  [...inputs].forEach((input) => {
-    input.value = '';
-  });
+  [...inputs].forEach((input) => input.value = '');
 }
 
 // Fake loading
@@ -21,7 +39,7 @@ function fakeLoading(exrciseId) {
     spinnerId.classList.remove('d-flex');
     spinnerId.classList.add('d-none');
     exrciseId.classList.remove('d-none')
-  }, 500);
+  }, 300);
 }
 
 // Handle Submit with Enter keyboard
@@ -78,17 +96,21 @@ function getSalary() {
 
   resultID.classList.remove('resultPedding', 'resultError', 'resultSuccess');
 
-  let output;
+  let dayVal = dayId.value;
+  let moneyInDayVal = moneyInDayId.value;
 
-  if (!dayId.value * 1 && !moneyInDayId.value * 1) output = 'Vui lòng nhập input';
-  else if (dayId.value * 1 === NaN || moneyInDayId.value === NaN) output = 'Input không phải là số';
-  else if (!dayId.value * 1) output = 'Số ngày làm việc không hợp lệ';
-  else if (!moneyInDayId.value * 1) output = 'Tiền lương ngày làm việc không hợp lệ';
-  else output = dayId.value * 1 * moneyInDayId.value * 1;
+  let dayValid = validate(dayVal, 'Số ngày làm việc', 'checkWith0');
+  let moneyInDayValid = validate(moneyInDayVal, 'Tiền lương 1 ngày', 'checkWith0');
 
-  resultID.classList.add(`${(Number.isInteger(output)) ? 'resultSuccess' : 'resultError'}`);
+  let output = (moneyInDayValid.status && dayValid.status)
+    ? `👉 Tiền lương: ${dayVal * 1 * moneyInDayVal * 1}`
+    : `
+        ${!moneyInDayValid.status ? `${moneyInDayValid.mess}<br/>` : ''}
+        ${!dayValid.status ? dayValid.mess : ''}
+    `;
 
-  resultID.innerHTML = `👉 ${output}`;
+  resultID.classList.add(`${(moneyInDayValid.status && dayValid.status) ? 'resultSuccess' : 'resultError'}`);
+  resultID.innerHTML = output;
 }
 
 // BT 02 - Tính giá trị trung bình của 5 số
@@ -100,36 +122,43 @@ function avergeNumber() {
   resultID.classList.remove('resultPedding', 'resultError', 'resultSuccess');
 
   let total = 0;
-  listNumber.forEach((ele) => {
-    total += ele.value * 1;
-  });
+  let errorMess = '';
+  let arrNum = [...listNumber];
+  for (let i = 0; i < arrNum.length; i++) {
+    let numberValid = validate(arrNum[i].value, `Số thứ ${i + 1}`);
+    if (!numberValid.status) {
+      errorMess = numberValid.mess;
+      break;
+    }
 
-  let aver = total / COUNT;
-  resultID.classList.add('resultSuccess');
-  resultID.innerHTML = `👉 ${aver}`;
+    total += arrNum[i].value * 1;
+  }
+
+  let output = (errorMess === '')
+    ? `👉 Giá trị trung bình: ${total / COUNT}`
+    : errorMess;
+
+  resultID.classList.add(`${(errorMess === '') ? 'resultSuccess' : 'resultError'}`);
+  resultID.innerHTML = output;
 }
 
 // BT 03 - Quy đổi tiền tệ: USD -> VND
-function convertMoney(USD = 23_500) {
+function convertMoney() {
+  const USD = 23_500;
   const moneyId = document.getElementById('money');
   const resultID = document.getElementById('result_exercise_03');
 
   resultID.classList.remove('resultPedding', 'resultError', 'resultSuccess');
 
   let money = moneyId.value;
-  let output;
-  if (money === '') output = 'Vui lòng nhập số tiền'
-  else if (!Number.isInteger(money * 1) || money * 1 < 0) output = 'Số tiền không hợp lệ'
-  else output = money * 1 * USD;
 
-  if (Number.isInteger(output)) {
-    resultID.classList.add('resultSuccess');
-    resultID.innerHTML = `👉 ${new Intl.NumberFormat('vn-VN').format(output)}`;
-  }
-  else {
-    resultID.classList.add('resultError');
-    resultID.innerHTML = `👉 ${output}`;
-  }
+  let moneyValid = validate(money, 'Số tiền USD', 'checkWith0');
+  let output = (moneyValid.status)
+    ? `👉 ${new Intl.NumberFormat('vn-VN').format(money * 1 * USD)}`
+    : moneyValid.mess;
+
+  resultID.classList.add(`${(moneyValid.status) ? 'resultSuccess' : 'resultError'}`);
+  resultID.innerHTML = output;
 }
 
 // BT 04 - Tính chu vi và diện tích hình chữ nhật
@@ -143,21 +172,18 @@ function calRectangle() {
   let longValue = longId.value;
   let wideValue = wideId.value;
 
-  let output;
-  let S, P;
-  if (longValue === '' && wideValue === '') output = 'Vui lòng nhập chiều dài và chiều rộng';
-  else if (longValue === '') output = 'Vui lòng nhập chiều dài';
-  else if (wideValue === '') output = 'Vui lòng nhập chiều rộng';
-  else if (!Number.isInteger(longValue * 1) || longValue * 1 < 0) output = 'Chiều dài không hợp lệ';
-  else if (!Number.isInteger(wideValue * 1) || wideValue * 1 < 0) output = 'Chiều rộng không hợp lệ';
-  else {
-    S = longId.value * 1 * wideId.value * 1;
-    P = (longId.value * 1 + wideId.value * 1) * 2;
-    output = `Diện tích: ${S}; Chu vi: ${P}`;
-  }
+  let longValid = validate(longValue, 'Chiều dài', 'checkWith0');
+  let wideValid = validate(wideValue, 'Chiều rộng', 'checkWith0');
 
-  resultID.classList.add(`${(Number.isInteger(S)) ? 'resultSuccess' : 'resultError'}`);
-  resultID.innerHTML = `👉 ${output}`;
+  let output = (longValid.status && wideValid.status)
+    ? `👉 Diện tích: ${longValue * 1 * wideValue * 1} --- Chu vi: ${(longValue * 1 + wideValue * 1) * 2}`
+    : `
+        ${!longValid.status ? `${longValid.mess}<br/>` : ''}
+        ${!wideValid.status ? wideValid.mess : ''}
+    `;
+
+  resultID.classList.add(`${(longValid.status && wideValid.status) ? 'resultSuccess' : 'resultError'}`);
+  resultID.innerHTML = output;
 }
 
 // BT 05 - Tính tổng 2 ký số
@@ -169,12 +195,18 @@ function sumTwoNumber() {
 
   let output;
   let numberVal = numberId.value;
-  if (numberVal === '') output = 'Vui lòng không bỏ trống';
-  else if (!Number.isInteger(numberVal * 1)) output = 'Vui lòng nhập chữ số';
+  let total = NaN;
+
+  let numberValid = validate(numberVal, 'Số');
+
+  if (!numberValid.status) output = numberValid.mess;
   else if (numberVal * 1 < -99 || numberVal * 1 > 99) output = 'Vui lòng nhập số có 2 chữ số';
-  else output = Math.trunc(((numberVal < 0) ? -numberVal : numberVal) / 10) + numberVal % 10;
+  else {
+    if (numberVal < 0) numberVal = Math.abs(numberVal)
+    total = Math.trunc(numberVal / 10) + numberVal % 10;
+    output = `👉 Tổng: ${total}`;
+  }
 
-  resultID.classList.add(`${(Number.isInteger(output)) ? 'resultSuccess' : 'resultError'}`);
-
-  resultID.innerHTML = `👉 ${output}`;
+  resultID.classList.add(`${(!Number.isNaN(total)) ? 'resultSuccess' : 'resultError'}`);
+  resultID.innerHTML = output;
 }
