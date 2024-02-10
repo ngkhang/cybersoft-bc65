@@ -89,14 +89,18 @@
                     <br />
                     Output: 1, 2, 5
                   </li>
+                  <li>
+                    Input: numbers = 10.5, 5, 2
+                    <br />
+                    Output: Số thứ 1 không là số nguyên
+                  </li>
+                  <li>
+                    Input: numbers = 12, _, 2
+                    <br />
+                    Output: Vui lòng nhập Số thứ 2
+                  </li>
                 </ul>
-                <li>
-                  Validate input:
-                  <ul>
-                    <li>Không bỏ trống</li>
-                    <li>Là chữ số</li>
-                  </ul>
-                </li>
+                <li>Validate input: Không bỏ trống; Là chữ số nguyên</li>
               </ul>
             </div>
             <!-- Form -->
@@ -122,7 +126,6 @@
                       name="number2"
                       id="number2"
                       placeholder="Nhập số thứ 2"
-                      autofocus
                     />
                   </div>
                 </div>
@@ -167,22 +170,30 @@
               <p class="mb-1">Mô tả</p>
               <ul class="mb-2">
                 <li>
-                  Nhập vào đối tượng đang đối thoại: ba, mẹ, anh trai hoặc em
-                  gái. Trả về câu chào tương ứng.
+                  Nhập vào đối tượng đang sử dụng máy tính: ba, mẹ, anh trai
+                  hoặc em gái. Trả về câu chào tương ứng.
                 </li>
                 <li>Ví dụ:</li>
                 <ul>
                   <li>
-                    Input: numbers = 1, 5, 2
+                    Input: ba
                     <br />
-                    Output: 1, 2, 5
+                    Output: 👉 Thế giới có gì mới? cùng khám phá nào
+                  </li>
+                  <li>
+                    Input: a
+                    <br />
+                    Output: 👉 Cùng chiến game thôi nào
                   </li>
                 </ul>
                 <li>
                   Validate input:
                   <ul>
                     <li>Không bỏ trống</li>
-                    <li>Là chữ số</li>
+                    <li>
+                      Giới hạn 4 thành viên: ba (B/b), mẹ (M/m), anh trai (A/a)
+                      và em gái (E/e)
+                    </li>
                   </ul>
                 </li>
               </ul>
@@ -190,38 +201,14 @@
             <!-- Form -->
             <div class="container">
               <div class="exercise_form row mb-2">
-                <div class="col-4 mb-3">
+                <div class="col-12 mb-3">
                   <div class="input__container position-relative">
                     <input
                       class="w-100 px-2 py-1"
                       type="text"
-                      name="number1"
-                      id="number1"
-                      placeholder="Nhập số thứ 1"
-                      autofocus
-                    />
-                  </div>
-                </div>
-                <div class="col-4 mb-3">
-                  <div class="input__container position-relative">
-                    <input
-                      class="w-100 px-2 py-1"
-                      type="text"
-                      name="number2"
-                      id="number2"
-                      placeholder="Nhập số thứ 2"
-                      autofocus
-                    />
-                  </div>
-                </div>
-                <div class="col-4 mb-3">
-                  <div class="input__container position-relative">
-                    <input
-                      class="w-100 px-2 py-1"
-                      type="text"
-                      name="number3"
-                      id="number3"
-                      placeholder="Nhập số thứ 3"
+                      name="user"
+                      id="user"
+                      placeholder="Nhập người sử dụng máy tính"
                       autofocus
                     />
                   </div>
@@ -234,7 +221,7 @@
               onclick="greeting()"
               class="border-0 rounded-lg bg-success shadow text-white px-5 py-2 mb-3"
             >
-              Sắp xếp
+              Greeting
             </button>
             <!-- Result -->
             <p id="result_exercise_02" class="rounded px-2 py-3 resultPedding">
@@ -260,18 +247,22 @@
                 <li>Ví dụ:</li>
                 <ul>
                   <li>
-                    Input: numbers = 1, 5, 2
+                    Input: numbers = 1, 4, 6
                     <br />
-                    Output: 1, 2, 5
+                    Output: 👉 Số số lẻ: 1. Số số chẳn: 2
+                  </li>
+                  <li>
+                    Input: numbers = 1, _, 6
+                    <br />
+                    Output: Vui lòng nhập Số thứ 2
+                  </li>
+                  <li>
+                    Input: numbers = 1.5, 4, 6
+                    <br />
+                    Output: Số thứ 1 không là số nguyên
                   </li>
                 </ul>
-                <li>
-                  Validate input:
-                  <ul>
-                    <li>Không bỏ trống</li>
-                    <li>Là chữ số nguyên</li>
-                  </ul>
-                </li>
+                <li>Validate input: Không bỏ trống; Là chữ số nguyên</li>
               </ul>
             </div>
             <!-- Form -->
@@ -297,7 +288,6 @@
                       name="number2"
                       id="number2"
                       placeholder="Nhập số thứ 2"
-                      autofocus
                     />
                   </div>
                 </div>
@@ -309,7 +299,6 @@
                       name="number3"
                       id="number3"
                       placeholder="Nhập số thứ 3"
-                      autofocus
                     />
                   </div>
                 </div>
@@ -350,25 +339,30 @@
                   <li>
                     Input: Cạnh = 3, 4, 5
                     <br />
-                    Output: Tam giác vuông
+                    Output: 👉 Tam giác vuông
                   </li>
                   <li>
                     Input: Cạnh = 2, 2, 1
                     <br />
-                    Output: Tam giác cân
+                    Output: 👉 Tam giác cân
                   </li>
                   <li>
                     Input: Cạnh = 3, 3, 3
                     <br />
-                    Output: Tam giác đều
+                    Output: 👉 Tam giác đều
+                  </li>
+                  <li>
+                    Input: Cạnh = 4, 2, 3
+                    <br />
+                    Output: 👉 Tam giác thường
+                  </li>
+                  <li>
+                    Input: Cạnh = 2, 3, 1
+                    <br />
+                    Output: Không phải là tam giác
                   </li>
                 </ul>
-                <li>
-                  Validate input:
-                  <ul>
-                    <li>Không bỏ trống; Là chữ số</li>
-                  </ul>
-                </li>
+                <li>Validate input: Không bỏ trống; Là chữ số</li>
               </ul>
             </div>
             <!-- Form -->

@@ -96,8 +96,8 @@ function sortThreeNumber() {
     let number = arrNumber[i].value;
     let numberValid = validate(number, `Số thứ ${i + 1}`);
 
-    if (!numberValid.status) {
-      output = numberValid.mess;
+    if (!numberValid.status || !Number.isInteger(number * 1)) {
+      output = numberValid.mess || `Số thứ ${i + 1} không là số nguyên`;
       break;
     }
     arr.push(number * 1);
@@ -114,9 +114,41 @@ function sortThreeNumber() {
 
 // BT 02 - Chào hỏi thành viên trong nhà
 function greeting() {
-  // const
-}
+  const userId = document.getElementById('user');
+  let userVal = userId.value.toLowerCase();
+  const resultID = document.getElementById('result_exercise_02');
 
+  resultID.classList.remove('resultPedding', 'resultError', 'resultSuccess');
+
+  let output;
+  switch (userVal) {
+    case 'ba':
+    case 'b':
+      output = '👉 Thế giới có gì mới? cùng khám phá nào';
+      break;
+    case 'mẹ':
+    case 'm':
+      output = '👉 Mùa sales đã tới, cùng sắm đồ thôi';
+      break;
+    case 'anh trai':
+    case 'a':
+      output = '👉 Cùng chiến game thôi nào';
+      break;
+    case 'em gái':
+    case 'e':
+      output = '👉 Kpop có tin tức mới, xem nhanh nào';
+      break;
+    case '':
+      output = 'Vui lòng không bỏ trống';
+      break;
+    default:
+      output = 'Vui lòng nhập đúng định dạng';
+      break;
+  }
+
+  resultID.classList.add(`${(output.startsWith('👉')) ? 'resultSuccess' : 'resultError'}`);
+  resultID.innerHTML = output;
+}
 
 // BT 03 - Đếm số số lẻ và số số chẳn
 function filterNumber() {
@@ -177,9 +209,9 @@ function getTypeTriangle() {
   }
 
   if (output === undefined) {
-    if (!(sides[0] + sides[1] > sides[2])
-      && !(sides[0] + sides[2] > sides[1])
-      && !(sides[1] + sides[2] > sides[0])) {
+    if ((sides[0] + sides[1] <= sides[2])
+      || (sides[0] + sides[2] <= sides[1])
+      || (sides[1] + sides[2] <= sides[0])) {
 
       output = 'Không phải là tam giác';
     }
@@ -195,8 +227,9 @@ function getTypeTriangle() {
       || sides[0] ** 2 + sides[2] ** 2 === sides[1] ** 2
       || sides[1] ** 2 + sides[2] ** 2 === sides[0] ** 2) {
       output = '👉 Tam giác vuông';
-    }
+    } else output = '👉 Tam giác thường';
   }
+  console.log(output);
 
   resultID.classList.add(`${(output.startsWith('👉')) ? 'resultSuccess' : 'resultError'}`);
   resultID.innerHTML = output;
