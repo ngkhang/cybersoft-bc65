@@ -67,10 +67,13 @@
 
 - Assignments:
   - [x] Exercise 01
+  - [x] Exercise 02 - DOM JS
 - Practices:
-  - [ ] Tip Calculator
+  - [x] Tip Calculator
+  - [x] Add new element
+  - [x] Get Cost Uber
 - Extra Practices:
-  - [ ] Cyber Modal
+  - [ ] Cyber Modal (In process)
   - [ ] Cyber Change BG
   - [ ] Cyber Photo Editer
   - [ ] Cyber BMI Caculator

@@ -12,12 +12,6 @@ B2: xác định bước xử lý
 
 B3 : đầu ra - in kết quả ra màn hình
 */
-
-
-function handleValidate() {
-
-}
-
 function handleCaculatorTip() {
   let moneyId = document.getElementById('money');
   let percentTipId = document.getElementById('percentTip');
