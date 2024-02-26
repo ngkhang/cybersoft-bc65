@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Section 03 - JS</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body class="vh-100 d-flex justify-content-center align-items-center">
+    <div class="container shadow-lg">
+      <div class="row rounded">
+        <!-- Container Left -->
+        <div class="container-left col-2 p-3">
+          <div class="d-flex flex-column">
+            <button
+              type="button"
+              onclick="handleChangeExercise('exercise01')"
+              class="btn-exercise mb-3 py-2 shadow border-0 rounded active"
+            >
+              Bài 1
+            </button>
+            <button
+              type="button"
+              onclick="handleChangeExercise('exercise02')"
+              class="btn-exercise mb-3 py-2 shadow border-0 rounded"
+            >
+              Bài 2
+            </button>
+            <button
+              type="button"
+              onclick="handleChangeExercise('exercise03')"
+              class="btn-exercise mb-3 py-2 shadow border-0 rounded"
+            >
+              Bài 3
+            </button>
+            <button
+              type="button"
+              onclick="handleChangeExercise('exercise04')"
+              class="btn-exercise mb-3 py-2 shadow border-0 rounded"
+            >
+              Bài 4
+            </button>
+          </div>
+        </div>
+
+        <!-- Container Right -->
+        <div class="container-right col-10 bg-light p-3">
+          <!-- Exercise 01 -->
+          <div
+            id="exercise01"
+            class="exercise"
+            onkeydown="handleEnter(event, 'exercise01')"
+          >
+            <!-- Title -->
+            <h2 class="exercise_title mb-3">Quản lý tuyển sinh</h2>
+            <!-- Description -->
+            <div class="exercise_description p-3 mb-4">
+              <p class="mb-1">Mô tả</p>
+              <!-- <ul class="mb-2">
+                <li>Nhập lần lượt 3 số. Trả về 3 số theo thứ tự tăng dần</li>
+                <li>Ví dụ:</li>
+                <ul>
+                  <li>
+                    Input: numbers = 1, 5, 2
+                    <br />
+                    Output: 1, 2, 5
+                  </li>
+                  <li>
+                    Input: numbers = 10.5, 5, 2
+                    <br />
+                    Output: Số thứ 1 không là số nguyên
+                  </li>
+                  <li>
+                    Input: numbers = 12, _, 2
+                    <br />
+                    Output: Vui lòng nhập Số thứ 2
+                  </li>
+                </ul>
+                <li>Validate input: Không bỏ trống; Là chữ số nguyên</li>
+              </ul> -->
+            </div>
+            <!-- Form -->
+            <div class="container">
+              <div class="exercise_form row mb-2">
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="number1"
+                      id="number1"
+                      placeholder="Nhập điểm chuẩn"
+                      autofocus
+                    />
+                  </div>
+                </div>
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="number3"
+                      id="number3"
+                      placeholder="Loại khu vực"
+                    />
+                  </div>
+                </div>
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="number3"
+                      id="number3"
+                      placeholder="Đối tượng dự thi"
+                    />
+                  </div>
+                </div>
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="number2"
+                      id="number2"
+                      placeholder="Điểm môn thứ 1"
+                    />
+                  </div>
+                </div>
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="number3"
+                      id="number3"
+                      placeholder="Điểm môn thứ 2"
+                    />
+                  </div>
+                </div>
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="number3"
+                      id="number3"
+                      placeholder="Điểm môn thứ 3"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Button -->
+            <button
+              type="button"
+              onclick="sortThreeNumber()"
+              class="border-0 rounded-lg bg-success shadow text-white px-5 py-2 mb-3"
+            >
+              In kết quả
+            </button>
+            <!-- Result -->
+            <p id="result_exercise_01" class="rounded px-2 py-3 resultPedding">
+              👉 Kết quả...
+            </p>
+          </div>
+
+          <!-- Exercise 02 -->
+          <div
+            id="exercise02"
+            class="exercise d-none"
+            onkeydown="handleEnter(event, 'exercise02')"
+          >
+            <!-- Title -->
+            <h2 class="exercise_title mb-3">Chào hỏi</h2>
+            <!-- Description -->
+            <div class="exercise_description p-3 mb-4">
+              <p class="mb-1">Mô tả</p>
+              <ul class="mb-2">
+                <li>
+                  Nhập vào đối tượng đang sử dụng máy tính: ba, mẹ, anh trai
+                  hoặc em gái. Trả về câu chào tương ứng.
+                </li>
+                <li>Ví dụ:</li>
+                <ul>
+                  <li>
+                    Input: ba
+                    <br />
+                    Output: 👉 Thế giới có gì mới? cùng khám phá nào
+                  </li>
+                  <li>
+                    Input: a
+                    <br />
+                    Output: 👉 Cùng chiến game thôi nào
+                  </li>
+                </ul>
+                <li>
+                  Validate input:
+                  <ul>
+                    <li>Không bỏ trống</li>
+                    <li>
+                      Giới hạn 4 thành viên: ba (B/b), mẹ (M/m), anh trai (A/a)
+                      và em gái (E/e)
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <!-- Form -->
+            <div class="container">
+              <div class="exercise_form row mb-2">
+                <div class="col-12 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="user"
+                      id="user"
+                      placeholder="Nhập người sử dụng máy tính"
+                      autofocus
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Button -->
+            <button
+              type="button"
+              onclick="greeting()"
+              class="border-0 rounded-lg bg-success shadow text-white px-5 py-2 mb-3"
+            >
+              Greeting
+            </button>
+            <!-- Result -->
+            <p id="result_exercise_02" class="rounded px-2 py-3 resultPedding">
+              👉 Kết quả...
+            </p>
+          </div>
+
+          <!-- Exercise 03 -->
+          <div
+            id="exercise03"
+            class="exercise d-none"
+            onkeydown="handleEnter(event, 'exercise03')"
+          >
+            <!-- Title -->
+            <h2 class="exercise_title mb-3">In ra số số lẻ và số số chẳn</h2>
+            <!-- Description -->
+            <div class="exercise_description p-3 mb-4">
+              <p class="mb-1">Mô tả</p>
+              <ul class="mb-2">
+                <li>
+                  Nhập lần lượt 3 số nguyên. Trả về số số lẻ và số số chẳn
+                </li>
+                <li>Ví dụ:</li>
+                <ul>
+                  <li>
+                    Input: numbers = 1, 4, 6
+                    <br />
+                    Output: 👉 Số số lẻ: 1. Số số chẳn: 2
+                  </li>
+                  <li>
+                    Input: numbers = 1, _, 6
+                    <br />
+                    Output: Vui lòng nhập Số thứ 2
+                  </li>
+                  <li>
+                    Input: numbers = 1.5, 4, 6
+                    <br />
+                    Output: Số thứ 1 không là số nguyên
+                  </li>
+                </ul>
+                <li>Validate input: Không bỏ trống; Là chữ số nguyên</li>
+              </ul>
+            </div>
+            <!-- Form -->
+            <div class="container">
+              <div class="exercise_form row mb-2">
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="number1"
+                      id="number1"
+                      placeholder="Nhập số thứ 1"
+                      autofocus
+                    />
+                  </div>
+                </div>
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="number2"
+                      id="number2"
+                      placeholder="Nhập số thứ 2"
+                    />
+                  </div>
+                </div>
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="number3"
+                      id="number3"
+                      placeholder="Nhập số thứ 3"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Button -->
+            <button
+              type="button"
+              onclick="filterNumber()"
+              class="border-0 rounded-lg bg-success shadow text-white px-5 py-2 mb-3"
+            >
+              Đếm
+            </button>
+            <!-- Result -->
+            <p id="result_exercise_03" class="rounded px-2 py-3 resultPedding">
+              👉 Kết quả...
+            </p>
+          </div>
+
+          <!-- Exercise 04 -->
+          <div
+            id="exercise04"
+            class="exercise d-none"
+            onkeydown="handleEnter(event, 'exercise04')"
+          >
+            <!-- Title -->
+            <h2 class="exercise_title mb-3">Xác định loại tam giác</h2>
+            <!-- Description -->
+            <div class="exercise_description p-3 mb-4">
+              <p class="mb-1">Mô tả</p>
+              <ul class="mb-2">
+                <li>
+                  Nhập lần lượt 3 cạnh của tam giác. Trả về loại tam giác đó
+                  (tam giác đều, cân, vuông, không là tam giác)
+                </li>
+                <li>Ví dụ:</li>
+                <ul>
+                  <li>
+                    Input: Cạnh = 3, 4, 5
+                    <br />
+                    Output: 👉 Tam giác vuông
+                  </li>
+                  <li>
+                    Input: Cạnh = 2, 2, 1
+                    <br />
+                    Output: 👉 Tam giác cân
+                  </li>
+                  <li>
+                    Input: Cạnh = 3, 3, 3
+                    <br />
+                    Output: 👉 Tam giác đều
+                  </li>
+                  <li>
+                    Input: Cạnh = 4, 2, 3
+                    <br />
+                    Output: 👉 Tam giác thường
+                  </li>
+                  <li>
+                    Input: Cạnh = 2, 3, 1
+                    <br />
+                    Output: Không phải là tam giác
+                  </li>
+                </ul>
+                <li>Validate input: Không bỏ trống; Là chữ số</li>
+              </ul>
+            </div>
+            <!-- Form -->
+            <div class="container">
+              <div class="exercise_form row mb-2">
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="side1"
+                      id="side1"
+                      placeholder="Nhập cạnh thứ 1"
+                    />
+                  </div>
+                </div>
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="side2"
+                      id="side2"
+                      placeholder="Nhập cạnh thứ 2"
+                    />
+                  </div>
+                </div>
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="side3"
+                      id="side3"
+                      placeholder="Nhập cạnh thứ 3"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Button -->
+            <button
+              type="button"
+              onclick="getTypeTriangle()"
+              class="border-0 rounded-lg bg-success shadow text-white px-5 py-2 mb-3"
+            >
+              Kiểm tra
+            </button>
+            <!-- Result -->
+            <p id="result_exercise_04" class="rounded px-2 py-3 resultPedding">
+              👉 Kết quả...
+            </p>
+          </div>
+
+          <!-- Spinner Loading -->
+          <div
+            id="spinner"
+            class="spinner-container d-none justify-content-center align-items-center h-100"
+          >
+            <div class="spinner-border text-info" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Main JS -->
+    <script src="./js/index.js"></script>
+  </body>
+</html>

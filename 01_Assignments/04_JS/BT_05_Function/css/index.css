@@ -1,0 +1,90 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background: #fafafa;
+}
+
+/* Container Left */
+.container-left {
+  background: #FFDEA9;
+}
+
+.btn-exercise {
+  background: #fafafa;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-exercise:hover {
+  background: rgb(186, 226, 251);
+}
+
+.btn-exercise.active {
+  background: rgb(24, 166, 255);
+  color: #fff;
+}
+
+/* Container Right */
+.container-right {
+  background: #f4f2e9;
+}
+
+.exercise .exercise_title {
+  color: #00635d;
+}
+
+.exercise .exercise_description {
+  border-left: 4px solid lightblue;
+  background: rgb(207, 243, 255);
+  border-radius: 8px;
+}
+
+.exercise .exercise_description p {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.exercise .exercise_form .input__container input {
+  border: 0;
+  outline: 0;
+  color: #333;
+}
+
+.exercise .exercise_form .input__container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  transition: width 0.3s;
+}
+
+.exercise .exercise_form .input__container:hover::after,
+.exercise .exercise_form .input__container:focus-within::after {
+  width: 100%;
+}
+
+.exercise button {
+  transition: all 0.2s ease-in-out;
+}
+
+.exercise>p span {
+  display: block;
+}
+
+.resultPedding {
+  background: rgb(206, 230, 255);
+  border: 1px solid rgb(64, 48, 181);
+}
+
+.resultSuccess {
+  background: rgb(196, 251, 196);
+  border: 1px solid green;
+}
+
+.resultError {
+  background: rgb(255, 206, 209);
+  border: 1px solid rgb(168, 0, 0);
+  color: rgb(168, 0, 0);
+}
