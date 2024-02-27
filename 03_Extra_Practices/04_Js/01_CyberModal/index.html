@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700"
+    />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div id="modalFrame" class="modal__frame">
+      <div class="modal">
+        <div id="modalInner" class="modal__inner">
+          <div class="modal__header">
+            <button type="button" onclick="handleModal()">
+              <i class="fa fa-close"></i>
+            </button>
+          </div>
+          <div class="modal__body">
+            <h3>Modal Title</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+              fuga incidunt aperiam esse vel dolore.
+            </p>
+          </div>
+          <div class="modal__footer">
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas,
+              maxime.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="overplay"></div>
+    </div>
+
+    <!-- <section class="container">
+      <div class="modal">
+        <div class="overplay"></div>
+        <div class="modal__main">
+          <div class="modal__btn">
+            <button type="button"><i class="fa fa-close"></i></button>
+          </div>
+          <div class="modal__title">
+            <h3>Modal Title</h3>
+          </div>
+          <div class="modal__body">
+            <p>
+              
+            </p>
+          </div>
+          <div class="modal__footer">
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      </div>
+    </section> -->
+    <button class="btnModal" type="button" onclick="handleModal()">
+      open modal
+    </button>
+    <script src="./index.js"></script>
+  </body>
+</html>

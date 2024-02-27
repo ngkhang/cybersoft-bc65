@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Js - Section 04: Loop</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <section class="container">
+      <div class="row">
+        <!-- Demo 01: While -->
+        <div class="col-4 p-2">
+          <section class="bg-warning p-1 mb-5">
+            <h2>Demo 01: While</h2>
+            <div class="form-group">
+              <label for="demo01_Number">Nhập vào số nguyên</label>
+              <input
+                type="text"
+                class="form-control"
+                name="demo01_Number"
+                id="demo01_Number"
+                placeholder="..."
+              />
+            </div>
+            <button class="btn btn-warning px-5 mb-2" onclick="handleDemo01()">
+              Submit
+            </button>
+            <div id="result01" class="p-2 bg-success text-white"></div>
+          </section>
+        </div>
+
+        <!-- Demo 02: Do...While -->
+        <div class="col-4 p-2">
+          <section class="bg-warning p-1 mb-5">
+            <h2>Demo 02: Do while</h2>
+            <div class="form-group">
+              <label for="demo02_Number">Nhập vào số nguyên</label>
+              <input
+                type="text"
+                class="form-control"
+                name="demo02_Number"
+                id="demo02_Number"
+                placeholder="..."
+              />
+            </div>
+            <button class="btn btn-warning px-5 mb-2" onclick="handleDemo02()">
+              Submit
+            </button>
+            <div id="result02" class="p-2 bg-success text-white"></div>
+          </section>
+        </div>
+
+        <!-- Demo 03: Do...While -->
+        <div class="col-4 p-2">
+          <section class="bg-warning p-1 mb-5">
+            <h2>Demo 03: Print Odd and Even number</h2>
+            <button class="btn btn-warning px-5 mb-2" onclick="handleDemo03()">
+              Print
+            </button>
+            <div id="result03" class="p-2 bg-success text-white"></div>
+          </section>
+        </div>
+
+        <!-- Tổng số chẳn từ 0 đến n -->
+        <div class="col-4 p-2">
+          <section class="bg-warning p-1 mb-5">
+            <h2>Tổng số chẳn từ 0 đến n</h2>
+            <div class="form-group">
+              <label for="demo04_Number">Nhập vào số nguyên n</label>
+              <input
+                type="text"
+                class="form-control"
+                name="demo04_Number"
+                id="demo04_Number"
+                placeholder="..."
+              />
+            </div>
+            <button class="btn btn-warning px-5 mb-2" onclick="handleDemo04()">
+              Submit
+            </button>
+            <div id="result04" class="p-2 bg-success text-white"></div>
+          </section>
+        </div>
+
+        <!-- Các số chia hết cho 3 từ 0 đến n -->
+        <div class="col-4 p-2">
+          <section class="bg-warning p-1 mb-5">
+            <h2>Các số chia hết cho 3 từ 0 đến n</h2>
+            <div class="form-group">
+              <label for="demo05_Number">Nhập vào số nguyên n</label>
+              <input
+                type="text"
+                class="form-control"
+                name="demo05_Number"
+                id="demo05_Number"
+                placeholder="..."
+              />
+            </div>
+            <button class="btn btn-warning px-5 mb-2" onclick="handleDemo05()">
+              Submit
+            </button>
+            <div id="result05" class="p-2 bg-success text-white"></div>
+          </section>
+        </div>
+
+        <!-- In hình vuông n x n -->
+        <div class="col-4 p-2">
+          <section class="bg-warning p-1 mb-5">
+            <h2>In hình vuông n x n</h2>
+            <div class="form-group">
+              <label for="demo06_Number">Nhập vào kích thước cạnh</label>
+              <input
+                type="text"
+                class="form-control"
+                name="demo06_Number"
+                id="demo06_Number"
+                placeholder="..."
+              />
+            </div>
+            <button class="btn btn-warning px-5 mb-2" onclick="handleDemo06()">
+              Submit
+            </button>
+            <div id="result06" class="p-2 bg-success text-white"></div>
+          </section>
+        </div>
+
+        <!-- In hình tam giác cao n-->
+        <div class="col-4 p-2">
+          <section class="bg-warning p-1 mb-5">
+            <h2>In hình tam giác chiều cao n</h2>
+            <div class="form-group">
+              <label for="demo07_Number">Nhập vào kích thước chiều cao</label>
+              <input
+                type="text"
+                class="form-control"
+                name="demo07_Number"
+                id="demo07_Number"
+                placeholder="..."
+              />
+            </div>
+            <button class="btn btn-warning px-5 mb-2" onclick="handleDemo07()">
+              Submit
+            </button>
+            <div id="result07" class="p-2 bg-success text-white"></div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Main JS -->
+    <script src="./js/index.js"></script>
+  </body>
+</html>
