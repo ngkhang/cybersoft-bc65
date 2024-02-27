@@ -1,17 +1,41 @@
-// Validate input
-function validate(input, fieldName = '') {
-  let status = false;
+// Validate empty input
+function validateEmpty(input, fieldName) {
+  let status = true;
   let mess = '';
 
-  if (input === '')
+  if (input === '' || input === undefined) {
     mess = `Vui lòng nhập ${fieldName}`;
-  else if (Number.isNaN(input * 1))
-    mess = `${fieldName} không hợp lệ`;
-  else status = true;
+    status = false;
+  }
 
   return {
-    status,
     mess,
+    status,
+  };
+}
+
+// Validate number is interger or float
+function validateNumber(input, fieldName, option = 'Int') {
+  let status = true;
+  let mess = '';
+
+  let isEmpty = validateEmpty(input, fieldName);
+  if (isEmpty.status === false) {
+    return isEmpty;
+  }
+
+  if (Number.isNaN(input * 1)) {
+    mess = `${fieldName} không phải là số`;
+    status = false;
+  }
+  else if (option === 'Int' && !Number.isInteger(input * 1)) {
+    mess = `${fieldName} không phải là số nguyên`;
+    status = false;
+  }
+
+  return {
+    mess,
+    status,
   };
 }
 
@@ -44,16 +68,16 @@ function handleEnter(event, exerciseId) {
   if (event.keyCode === 13) {
     switch (exerciseId) {
       case 'exercise01':
-        sortThreeNumber();
+        printResult();
         break;
       case 'exercise02':
-        greeting();
+        calElectricityBill();
         break;
       case 'exercise03':
-        filterNumber();
+        // calTaxBill();
         break;
       default:
-        getTypeTriangle();
+        // getTypeTriangle();
         break;
     }
   };
@@ -82,104 +106,194 @@ function handleChangeExercise(exerciseId) {
   fakeLoading(exerciseID);
 }
 
-// BT 01 - Sắp xếp 3 số tăng dần
-function sortThreeNumber() {
-  const numbers = document.querySelectorAll('#exercise01 input');
-  const resultID = document.getElementById('result_exercise_01');
+// BT 01 - Quản lý tuyển sinh
+function printResult() {
+  const KHU_VUC = {
+    "A": 2,
+    "B": 1,
+    "C": 0.5,
+    "X": 0,
+  };
 
+  const DOI_TUONG = {
+    1: 2.5,
+    2: 1.5,
+    3: 1,
+    0: 0,
+  };
+
+  const resultID = document.getElementById('result_exercise_01');
   resultID.classList.remove('resultPedding', 'resultError', 'resultSuccess');
 
-  const arrNumber = [...numbers];
-  const arr = [];
+  let baseGrade = document.getElementById('baseGrade').value;
+  let area = document.getElementById('areas').value;
+  let objectStudent = document.getElementById('objectStudent').value;
+  let grades = document.getElementsByName('grades');
   let output;
-  for (let i = 0; i < arrNumber.length; i++) {
-    let number = arrNumber[i].value;
-    let numberValid = validate(number, `Số thứ ${i + 1}`);
 
-    if (!numberValid.status || !Number.isInteger(number * 1)) {
-      output = numberValid.mess || `Số thứ ${i + 1} không là số nguyên`;
-      break;
+  let checkBase = validateNumber(baseGrade, 'Điểm chuẩn', 'Float');
+  let checkArea = validateEmpty(area, 'Khu vực');
+  let checkObjectStudent = validateEmpty(objectStudent, 'Đối tượng dự thi');
+
+  if (!checkBase.status) output = checkBase.mess;
+  else if (!checkArea.status) output = checkArea.mess;
+  else if (!checkObjectStudent.status) output = checkObjectStudent.mess;
+  else {
+    let lstGrade = [...grades];
+    for (let i = 0; i < lstGrade.length; i++) {
+      let grade = lstGrade[i].value;
+      let checkGrade = validateNumber(grade, `Điểm môn thứ ${i + 1}`, 'Float');
+      if (!checkGrade.status) output = checkGrade.mess;
+      else if (grade * 1 > 10 || grade * 1 < 0) output = `Điểm môn thứ ${i + 1} không hợp lệ`;
+
+      if (output) break;
     }
-    arr.push(number * 1);
   }
 
   if (output === undefined) {
-    arr.sort((a, b) => a - b);
-    output = `👉 Thứ tự tăng dần: ${arr.join(', ')}`;
+    let totalThree = 0;
+    let isFail = false;
+    [...grades].forEach((grade) => {
+      totalThree += grade.value * 1;
+      if (grade.value * 1 <= 0) isFail = true;
+    });
+
+    let areaGrade = KHU_VUC[area];
+    let objectGrade = DOI_TUONG[objectStudent];
+    let totalGrade = areaGrade + objectGrade + totalThree;
+
+    output = (isFail || totalGrade < baseGrade)
+      ? `Tổng điểm: ${totalGrade} - Kết quả: Rớt`
+      : `👉Tổng điểm: ${totalGrade} - Kết quả: Đậu`;
   }
 
   resultID.classList.add(`${(output.startsWith('👉')) ? 'resultSuccess' : 'resultError'}`);
   resultID.innerHTML = output;
 }
 
-// BT 02 - Chào hỏi thành viên trong nhà
-function greeting() {
-  const userId = document.getElementById('user');
-  let userVal = userId.value.toLowerCase();
+// BT 02 - Tính tiền điện
+function calElectricityBill() {
+  let userName = document.getElementById('userName').value;
+  let countKw = document.getElementById('countKw').value;
   const resultID = document.getElementById('result_exercise_02');
 
   resultID.classList.remove('resultPedding', 'resultError', 'resultSuccess');
 
+  const LEVEL = {
+    1: {
+      range: 50,
+      price: 500,
+    },
+    2: {
+      range: 50,
+      price: 650,
+    },
+    3: {
+      range: 100,
+      price: 850,
+    },
+    4: {
+      range: 150,
+      price: 1100,
+    },
+    5: {
+      range: Infinity,
+      price: 1300,
+    },
+  }
   let output;
-  switch (userVal) {
-    case 'ba':
-    case 'b':
-      output = '👉 Thế giới có gì mới? cùng khám phá nào';
-      break;
-    case 'mẹ':
-    case 'm':
-      output = '👉 Mùa sales đã tới, cùng sắm đồ thôi';
-      break;
-    case 'anh trai':
-    case 'a':
-      output = '👉 Cùng chiến game thôi nào';
-      break;
-    case 'em gái':
-    case 'e':
-      output = '👉 Kpop có tin tức mới, xem nhanh nào';
-      break;
-    case '':
-      output = 'Vui lòng không bỏ trống';
-      break;
-    default:
-      output = 'Vui lòng nhập đúng định dạng';
-      break;
+
+  let checkUserName = validateEmpty(userName, 'Tên người sử dụng');
+  let checkCountKw = validateNumber(countKw, 'Số KW', 'Float');
+  if (!checkUserName.status) output = checkUserName.mess;
+  else if (!checkCountKw.status) output = checkCountKw.mess;
+  else if (countKw * 1 < 0) output = `Số KW không hợp lệ.`
+
+
+  if (output === undefined) {
+    let step = 1;
+    let price = 0;
+    let kw = countKw
+    while (kw !== 0) {
+      let levelCurrent = LEVEL[step];
+
+      if (kw > levelCurrent.range) {
+        price += levelCurrent.range * levelCurrent.price;
+        kw = kw - levelCurrent.range;
+        step++;
+      }
+      else {
+        price += kw * levelCurrent.price;
+        kw = 0;
+      }
+    };
+    output = `👉 Người sử dụng: ${userName} sử dụng ${countKw} KW - Phí: ${price}`;
   }
 
   resultID.classList.add(`${(output.startsWith('👉')) ? 'resultSuccess' : 'resultError'}`);
   resultID.innerHTML = output;
 }
 
-// BT 03 - Đếm số số lẻ và số số chẳn
-function filterNumber() {
-  const numbers = document.querySelectorAll('#exercise03 input');
+// BT 03 - Tính tiền thuế thu nhập cá nhân
+function calTaxBill() {
+  const TAX_LEVEL = {
+    1: {
+      range: 60,
+      percent: 0.05,
+    },
+    2: {
+      range: 120,
+      percent: 0.10,
+    },
+    3: {
+      range: 210,
+      percent: 0.15,
+    },
+    4: {
+      range: 384,
+      percent: 0.2,
+    },
+    5: {
+      range: 624,
+      percent: 0.25,
+    },
+    6: {
+      range: 960,
+      percent: 0.3,
+    },
+    7: {
+      range: Infinity,
+      percent: 0.35,
+    },
+  };
+
+  const PRICE_TAX = 4_000_000;
+  const MONEY_OF_DEPENDANT = 1_600_000;
+  let taxpayers = document.getElementById('taxpayers').value;
+  let income = document.getElementById('income').value;
+  let dependant = document.getElementById('dependant').value;
+
   const resultID = document.getElementById('result_exercise_03');
 
   resultID.classList.remove('resultPedding', 'resultError', 'resultSuccess');
 
-  const arrNumber = [...numbers];
   let output;
-  let oddNumber = 0;
-  let evenNumber = 0;
-  for (let i = 0; i < arrNumber.length; i++) {
-    let number = arrNumber[i].value;
-    let numberValid = validate(number, `Số thứ ${i + 1}`);
 
-    if (!numberValid.status || !Number.isInteger(number * 1)) {
-      output = numberValid.mess || `Số thứ ${i + 1} không là số nguyên`;
-      break;
-    }
-  }
+  let checkTaxPayers = validateEmpty(taxpayers, 'Họ và tên');
+  let checkIncome = validateNumber(income, 'Thu nhập', 'Float');
+  let checkDependant = validateNumber(dependant, 'Người phụ thuộc');
+
+  if (!checkTaxPayers.status) output = checkTaxPayers.mess;
+  else if (!checkIncome.status) output = checkIncome.mess;
+  else if (income * 1 < 0) output = `Thu nhập không được là số âm`;
+  else if (!checkDependant.status) output = checkDependant.mess;
+  else if (dependant * 1 < 0) output = `Số người phụ thuộc không được là số âm`;
+
 
   if (output === undefined) {
-    for (let i = 0; i < arrNumber.length; i++) {
-      let number = arrNumber[i].value;
-      (number * 1 % 2 === 0)
-        ? evenNumber++
-        : oddNumber++
-    }
+    let cost = income * 1 - PRICE_TAX - dependant * 1 * MONEY_OF_DEPENDANT;
 
-    output = `👉 Số số lẻ: ${oddNumber}. Số số chẳn: ${evenNumber}`;
+    output = `👉 ${taxpayers} thu nhập ${income}đ/năm - Tiền thuế phải trả: ${cost}`;
   }
 
   resultID.classList.add(`${(output.startsWith('👉')) ? 'resultSuccess' : 'resultError'}`);
@@ -229,180 +343,10 @@ function getTypeTriangle() {
       output = '👉 Tam giác vuông';
     } else output = '👉 Tam giác thường';
   }
-  console.log(output);
 
   resultID.classList.add(`${(output.startsWith('👉')) ? 'resultSuccess' : 'resultError'}`);
   resultID.innerHTML = output;
 }
-
-function isEmpty(input) {
-  let status = true;
-  let mess = '';
-
-  if (input === '') {
-    mess = `Vui lòng nhập ${fieldName}`;
-    status = false;
-  }
-
-  return {
-    mess,
-    status,
-  };
-}
-
-function isNumber(input, option = 'Int') {
-  let status = true;
-  let mess = '';
-
-  if (Number.isNaN(input * 1)) {
-    mess = `${fieldName} không phải là số`;
-    status = false;
-  }
-  else if (option === 'Int' && !Number.isInteger(input * 1)) {
-    mess = `${fieldName} không phải là số nguyên`;
-    status = false;
-  }
-
-
-  return {
-    mess,
-    status,
-  };
-}
-
-
-// BT 01 - Quản lý tuyển sinh
-function printResult() {
-  const KHU_VUC = {
-    "A": 2,
-    "B": 1,
-    "C": 0.5,
-    "X": 0,
-  };
-
-  const DOI_TUONG = {
-    1: 2.5,
-    2: 1.5,
-    3: 1,
-    0: 0,
-  };
-
-  const GRADE_BASE = 28;
-  let a = 4;
-  let b = 10;
-  let c = 8;
-  let khuvuc = 'B';
-  let doituong = 1;
-
-  let totalThree = a + b + c;
-  let result = '';
-
-  let areaGrade = KHU_VUC[khuvuc];
-  let objectGrade = DOI_TUONG[doituong];
-  let totalGrade = areaGrade + objectGrade + totalThree;
-
-  if (a <= 0 || b <= 0 || c <= 0) {
-    result = `Tổng điểm: ${totalGrade} - Kết quả: Rớt`;
-  }
-  else if (totalGrade >= GRADE_BASE) result = `Tổng điểm: ${totalGrade} - Kết quả: Đậu`;
-  else result = `Tổng điểm: ${totalGrade} - Kết quả: Rớt`;
-
-  console.log(result);
-  return result;
-}
-
-// BT 02 - Tính tiền điện
-function calculatorEng() {
-  let userName = 'BAS';
-  let countKw = 45.6;
-  const LEVEL = {
-    1: {
-      range: 50,
-      price: 500,
-    },
-    2: {
-      range: 50,
-      price: 650,
-    },
-    3: {
-      range: 100,
-      price: 850,
-    },
-    4: {
-      range: 150,
-      price: 1100,
-    },
-    5: {
-      range: Infinity,
-      price: 1300,
-    },
-  }
-
-  let step = 1;
-  let price = 0;
-
-  while (countKw !== 0) {
-    let levelCurrent = LEVEL[step];
-
-    if (countKw > levelCurrent.range) {
-      price += levelCurrent.range * levelCurrent.price;
-      countKw = countKw - levelCurrent.range;
-      step++;
-    }
-    else {
-      price += countKw * levelCurrent.price;
-      countKw = 0;
-    }
-  };
-  return price;
-}
-
-// BT 03 - Tính tiền thuế thu nhập cá nhân
-function calculatorTax() {
-  const LEVEL_TAX = {
-    1: {
-      range: 60,
-      percent: 0.05,
-    },
-    2: {
-      range: 120,
-      percent: 0.10,
-    },
-    3: {
-      range: 210,
-      percent: 0.15,
-    },
-    4: {
-      range: 384,
-      percent: 0.2,
-    },
-    5: {
-      range: 624,
-      percent: 0.25,
-    },
-    6: {
-      range: 960,
-      percent: 0.3,
-    },
-    7: {
-      range: Infinity,
-      percent: 0.35,
-    },
-  };
-
-  const PRICE_TAX = 4_000_000;
-  const PRICE_PERSON = 1_600_000;
-  let fullName = 'Nguyen Van A';
-  let totalSalary = 90_000_000;
-  let person = 2;
-
-  let cost = totalSalary - PRICE_TAX - person * PRICE_PERSON;
-  console.log(cost * 0.1);
-
-
-}
-// 8,280,000
-
 
 // BT 04 - Tính tiền cáp
 function calculatorCable() {
@@ -442,7 +386,6 @@ function calculatorCable() {
 
   let totalPrice = priceBase + priceChannel + priceConnect;
 
-  console.log(totalPrice);
   return totalPrice;
 }
 // 4115

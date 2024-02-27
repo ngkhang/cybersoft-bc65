@@ -57,8 +57,8 @@
    1. Tên người sử dụng: `userName`
    2. Số điện tiêu thụ: `energin` (KW)
 2. Kiểm tra số nhập vào có hợp lệ:
-   1. `userName`: không bỏ trống; là chữ
-   2. `energin`: không bỏ trống; là số
+   1. `userName`: không bỏ trống
+   2. `energin`: không bỏ trống; là số dương
    - Không hợp lệ: In lỗi ra UI
    - Hợp lệ:
      - In tên của người dùng và tổng số tiền điện phải trả.

@@ -28,8 +28,8 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="./css/index.css" />
   </head>
-  <body class="vh-100 d-flex justify-content-center align-items-center">
-    <div class="container shadow-lg">
+  <body class="d-flex justify-content-center align-items-center">
+    <div class="container mt-5 shadow-lg">
       <div class="row rounded">
         <!-- Container Left -->
         <div class="container-left col-2 p-3">
@@ -67,7 +67,7 @@
 
         <!-- Container Right -->
         <div class="container-right col-10 bg-light p-3">
-          <!-- Exercise 01 -->
+          <!-- BT 01 - Quản lý tuyển sinh -->
           <div
             id="exercise01"
             class="exercise"
@@ -77,29 +77,51 @@
             <h2 class="exercise_title mb-3">Quản lý tuyển sinh</h2>
             <!-- Description -->
             <div class="exercise_description p-3 mb-4">
-              <p class="mb-1">Mô tả</p>
-              <!-- <ul class="mb-2">
-                <li>Nhập lần lượt 3 số. Trả về 3 số theo thứ tự tăng dần</li>
-                <li>Ví dụ:</li>
+              <p class="mb-2">
+                Nhập lần lượt các thông tin: Điểm chuẩn, Khu vực, Đối tượng dự
+                thi và điểm 3 môn thi.
+                <br />
+                Trả về kết quả đậu/rớt của thí sinh.
+              </p>
+              <ul>
+                <li>
+                  <code
+                    >Tổng điểm = Điểm 3 môn + Điểm ưu tiên + Điểm khu vực</code
+                  >
+                </li>
+                <li>
+                  Điều kiện đậu:
+                  <ul>
+                    <li>Không môn nào bằng 0</li>
+                    <li>Tổng điểm >= Điểm chuẩn</li>
+                  </ul>
+                </li>
+              </ul>
+              <details class="mb-2">
+                <summary>Ví dụ:</summary>
                 <ul>
                   <li>
-                    Input: numbers = 1, 5, 2
+                    Input: Điểm chuẩn = 26; Khu vực = B; Đối tượng = 2; Điểm thi
+                    3 môn = 10, 6, 10
                     <br />
-                    Output: 1, 2, 5
+                    Output: Tổng điểm: 28.5 - Kết quả: Đậu
                   </li>
                   <li>
-                    Input: numbers = 10.5, 5, 2
+                    Input: Điểm chuẩn = 20; Khu vực = A; Đối tượng = 3; Điểm thi
+                    3 môn = 10, 0, 10
                     <br />
-                    Output: Số thứ 1 không là số nguyên
-                  </li>
-                  <li>
-                    Input: numbers = 12, _, 2
-                    <br />
-                    Output: Vui lòng nhập Số thứ 2
+                    Output: Tổng điểm: 23 - Kết quả: Rớt
                   </li>
                 </ul>
-                <li>Validate input: Không bỏ trống; Là chữ số nguyên</li>
-              </ul> -->
+              </details>
+              <p class="mb-2">Validate input</p>
+              <ul>
+                <li>Các trường không bỏ trống</li>
+                <li>
+                  Điểm chuẩn và điểm 3 môn dự thi là chữ số; nằm trong khoảng
+                  [0; 10]
+                </li>
+              </ul>
             </div>
             <!-- Form -->
             <div class="container">
@@ -109,8 +131,8 @@
                     <input
                       class="w-100 px-2 py-1"
                       type="text"
-                      name="number1"
-                      id="number1"
+                      name="baseGrade"
+                      id="baseGrade"
                       placeholder="Nhập điểm chuẩn"
                       autofocus
                     />
@@ -118,13 +140,28 @@
                 </div>
                 <div class="col-4 mb-3">
                   <div class="input__container position-relative">
-                    <input
+                    <select class="w-100 px-2 py-1" name="areas" id="areas">
+                      <option selected value="">Chọn khu vực</option>
+                      <option value="A">Khu vực A</option>
+                      <option value="B">Khu vực B</option>
+                      <option value="C">Khu vực C</option>
+                      <option value="X">Khác</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-4 mb-3">
+                  <div class="input__container position-relative">
+                    <select
                       class="w-100 px-2 py-1"
-                      type="text"
-                      name="number3"
-                      id="number3"
-                      placeholder="Loại khu vực"
-                    />
+                      name="objectStudent"
+                      id="objectStudent"
+                    >
+                      <option selected value="">Chọn đối tượng dự thi</option>
+                      <option value="1">Đối tượng 1</option>
+                      <option value="2">Đối tượng 2</option>
+                      <option value="3">Đối tượng 3</option>
+                      <option value="0">Khác</option>
+                    </select>
                   </div>
                 </div>
                 <div class="col-4 mb-3">
@@ -132,19 +169,7 @@
                     <input
                       class="w-100 px-2 py-1"
                       type="text"
-                      name="number3"
-                      id="number3"
-                      placeholder="Đối tượng dự thi"
-                    />
-                  </div>
-                </div>
-                <div class="col-4 mb-3">
-                  <div class="input__container position-relative">
-                    <input
-                      class="w-100 px-2 py-1"
-                      type="text"
-                      name="number2"
-                      id="number2"
+                      name="grades"
                       placeholder="Điểm môn thứ 1"
                     />
                   </div>
@@ -154,8 +179,7 @@
                     <input
                       class="w-100 px-2 py-1"
                       type="text"
-                      name="number3"
-                      id="number3"
+                      name="grades"
                       placeholder="Điểm môn thứ 2"
                     />
                   </div>
@@ -165,8 +189,7 @@
                     <input
                       class="w-100 px-2 py-1"
                       type="text"
-                      name="number3"
-                      id="number3"
+                      name="grades"
                       placeholder="Điểm môn thứ 3"
                     />
                   </div>
@@ -176,7 +199,7 @@
             <!-- Button -->
             <button
               type="button"
-              onclick="sortThreeNumber()"
+              onclick="printResult()"
               class="border-0 rounded-lg bg-success shadow text-white px-5 py-2 mb-3"
             >
               In kết quả
@@ -187,59 +210,110 @@
             </p>
           </div>
 
-          <!-- Exercise 02 -->
+          <!-- BT 02 - Tính tiền điện -->
           <div
             id="exercise02"
             class="exercise d-none"
             onkeydown="handleEnter(event, 'exercise02')"
           >
             <!-- Title -->
-            <h2 class="exercise_title mb-3">Chào hỏi</h2>
+            <h2 class="exercise_title mb-3">Tính tiền điện</h2>
             <!-- Description -->
             <div class="exercise_description p-3 mb-4">
-              <p class="mb-1">Mô tả</p>
-              <ul class="mb-2">
+              <p class="mb-2">
+                Nhập lần lượt các thông tin: Tên người sử dụng và số KW điện
+                tiêu thụ.
+                <br />
+                Trả về số tiền cần thanh toán
+              </p>
+              <ul>
                 <li>
-                  Nhập vào đối tượng đang sử dụng máy tính: ba, mẹ, anh trai
-                  hoặc em gái. Trả về câu chào tương ứng.
+                  <code
+                    >Phí thanh toán = Bậc 1 * Đơn giá 1 + Bậc 2 * Đơn giá 2 +
+                    ...</code
+                  >
                 </li>
-                <li>Ví dụ:</li>
+                <li>
+                  Số tiền theo bậc sử dụng
+                  <table class="container w-50 table">
+                    <thead>
+                      <td>Phạm vi</td>
+                      <td>vnđ/KW</td>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>50KW đầu</td>
+                        <td>500đ/KW</td>
+                      </tr>
+                      <tr>
+                        <td>50KW kế</td>
+                        <td>650đ/KW</td>
+                      </tr>
+                      <tr>
+                        <td>100KW tiếp theo</td>
+                        <td>850đ/KW</td>
+                      </tr>
+                      <tr>
+                        <td>150KW tiếp theo</td>
+                        <td>1100đ/KW</td>
+                      </tr>
+                      <tr>
+                        <td>Còn lại</td>
+                        <td>1300đ/KW</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+              <details class="mb-2">
+                <summary>Ví dụ:</summary>
                 <ul>
                   <li>
-                    Input: ba
+                    Input: User = ABC; Số KW = -120
                     <br />
-                    Output: 👉 Thế giới có gì mới? cùng khám phá nào
+                    Output: Số KW không hợp lệ.
                   </li>
                   <li>
-                    Input: a
+                    Input: User = ABC; Số KW = 120
                     <br />
-                    Output: 👉 Cùng chiến game thôi nào
+                    Output: Người sử dụng: ABC sử dụng 120 KW - Phí: 74500
+                  </li>
+                  <li>
+                    Input: User = ABC; Số KW = 260
+                    <br />
+                    Output: Người sử dụng: ABC sử dụng 260 KW - Phí: 208500
                   </li>
                 </ul>
-                <li>
-                  Validate input:
-                  <ul>
-                    <li>Không bỏ trống</li>
-                    <li>
-                      Giới hạn 4 thành viên: ba (B/b), mẹ (M/m), anh trai (A/a)
-                      và em gái (E/e)
-                    </li>
-                  </ul>
-                </li>
+              </details>
+              <p class="mb-2">Validate input</p>
+              <ul>
+                <li>Các trường không bỏ trống</li>
+                <li>Số KW tiêu thụ là số dương.</li>
               </ul>
             </div>
             <!-- Form -->
             <div class="container">
               <div class="exercise_form row mb-2">
-                <div class="col-12 mb-3">
+                <div class="col-6 mb-3">
                   <div class="input__container position-relative">
                     <input
                       class="w-100 px-2 py-1"
                       type="text"
-                      name="user"
-                      id="user"
-                      placeholder="Nhập người sử dụng máy tính"
+                      name="userName"
+                      id="userName"
+                      placeholder="Nhập tên người sử dụng"
                       autofocus
+                    />
+                  </div>
+                </div>
+                <div class="col-6 mb-3">
+                  <div class="input__container position-relative">
+                    <input
+                      class="w-100 px-2 py-1"
+                      type="text"
+                      name="countKw"
+                      id="countKw"
+                      placeholder="Nhập số KW tiêu thụ"
                     />
                   </div>
                 </div>
@@ -248,10 +322,10 @@
             <!-- Button -->
             <button
               type="button"
-              onclick="greeting()"
+              onclick="calElectricityBill()"
               class="border-0 rounded-lg bg-success shadow text-white px-5 py-2 mb-3"
             >
-              Greeting
+              Tra cứu hóa đơn
             </button>
             <!-- Result -->
             <p id="result_exercise_02" class="rounded px-2 py-3 resultPedding">
@@ -259,14 +333,14 @@
             </p>
           </div>
 
-          <!-- Exercise 03 -->
+          <!-- BT 03 - Tính tiền thuế thu nhập cá nhân -->
           <div
             id="exercise03"
             class="exercise d-none"
             onkeydown="handleEnter(event, 'exercise03')"
           >
             <!-- Title -->
-            <h2 class="exercise_title mb-3">In ra số số lẻ và số số chẳn</h2>
+            <h2 class="exercise_title mb-3">Tính tiền thuế thu nhập cá nhân</h2>
             <!-- Description -->
             <div class="exercise_description p-3 mb-4">
               <p class="mb-1">Mô tả</p>
@@ -303,9 +377,9 @@
                     <input
                       class="w-100 px-2 py-1"
                       type="text"
-                      name="number1"
-                      id="number1"
-                      placeholder="Nhập số thứ 1"
+                      name="taxpayers"
+                      id="taxpayers"
+                      placeholder="Nhập họ và tên người đóng thuế"
                       autofocus
                     />
                   </div>
@@ -315,9 +389,9 @@
                     <input
                       class="w-100 px-2 py-1"
                       type="text"
-                      name="number2"
-                      id="number2"
-                      placeholder="Nhập số thứ 2"
+                      name="income"
+                      id="income"
+                      placeholder="Nhập tổng thu nhập 1 năm (đồng)"
                     />
                   </div>
                 </div>
@@ -326,9 +400,9 @@
                     <input
                       class="w-100 px-2 py-1"
                       type="text"
-                      name="number3"
-                      id="number3"
-                      placeholder="Nhập số thứ 3"
+                      name="dependant"
+                      id="dependant"
+                      placeholder="Nhập số người phụ thuộc"
                     />
                   </div>
                 </div>
@@ -337,10 +411,10 @@
             <!-- Button -->
             <button
               type="button"
-              onclick="filterNumber()"
+              onclick="calTaxBill()"
               class="border-0 rounded-lg bg-success shadow text-white px-5 py-2 mb-3"
             >
-              Đếm
+              Tra cứu tiền thuế
             </button>
             <!-- Result -->
             <p id="result_exercise_03" class="rounded px-2 py-3 resultPedding">

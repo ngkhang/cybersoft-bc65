@@ -37,12 +37,14 @@ body {
   border-radius: 8px;
 }
 
-.exercise .exercise_description p {
+.exercise .exercise_description p,
+.exercise .exercise_description summary {
   font-weight: 500;
   font-size: 18px;
 }
 
-.exercise .exercise_form .input__container input {
+.exercise .exercise_form .input__container input,
+.exercise .exercise_form .input__container select {
   border: 0;
   outline: 0;
   color: #333;
