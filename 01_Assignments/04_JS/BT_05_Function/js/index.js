@@ -40,14 +40,23 @@ function validateNumber(input, fieldName, option = 'Int') {
 }
 
 // Reset all input
-function resetAll(resultId) {
-  const inputs = document.getElementsByTagName('input');
+function resetAll() {
+  // Reset value input
+  const inputs = document.querySelectorAll('input');
+  inputs.forEach((input) => {
+    input.value = '';
+    input.removeAttribute('autofocus');
+  });
 
-  resultId.innerHTML = '👉 Kết quả...';
-  resultId.classList.remove('resultSuccess', 'resultError');
-  resultId.classList.add('resultPedding');
+  // Reset output container
+  const outputs = document.querySelectorAll('.exercise>p');
 
-  [...inputs].forEach((input) => input.value = '');
+  outputs.forEach((output) => {
+    output.innerHTML = '👉 Kết quả...';
+
+    output.classList.remove('resultPedding', 'resultError', 'resultSuccess');
+    output.classList.add('resultPedding');
+  })
 }
 
 // Fake loading
@@ -57,9 +66,14 @@ function fakeLoading(exrciseId) {
   spinnerId.classList.add('d-flex');
 
   let timerId = setTimeout(() => {
+    // Turn on/off spinner
     spinnerId.classList.remove('d-flex');
     spinnerId.classList.add('d-none');
-    exrciseId.classList.remove('d-none')
+    exrciseId.classList.remove('d-none');
+
+    // Set auto focus input
+    const firstInput = exrciseId.querySelector('input');
+    if (firstInput) firstInput.focus();
   }, 300);
 }
 
@@ -74,10 +88,10 @@ function handleEnter(event, exerciseId) {
         calElectricityBill();
         break;
       case 'exercise03':
-        // calTaxBill();
+        calTaxBill();
         break;
       default:
-        // getTypeTriangle();
+        calculatorCable();
         break;
     }
   };
@@ -87,23 +101,38 @@ function handleEnter(event, exerciseId) {
 function handleChangeExercise(exerciseId) {
   const ID = exerciseId.slice(-1);
   const exerciseID = document.getElementById(exerciseId);
-  const listExercise = document.getElementsByClassName('exercise');
-  const listBtnExercise = document.getElementsByClassName('btn-exercise');
-  const resultId = document.getElementById(`result_exercise_0${ID}`);
+  const listExercise = document.querySelectorAll('.container-right .exercise');
+  const listBtnExercise = document.querySelectorAll('.btn-exercise');
 
-  resetAll(resultId);
+  resetAll();
 
-  [...listBtnExercise].forEach((ele, index) => {
-    (index === ID - 1)
-      ? ele.classList.add('active')
-      : ele.classList.remove('active');
-  });
+  listBtnExercise.forEach((ele, index) => (index === ID * 1 - 1)
+    ? ele.classList.add('active')
+    : ele.classList.remove('active')
+  );
 
-  [...listExercise].forEach((ele) => {
-    ele.classList.add('d-none');
-  });
+  listExercise.forEach((ele) => ele.classList.add('d-none'));
 
   fakeLoading(exerciseID);
+}
+
+// Format currency VND
+function convertCurrencyVnd(number) {
+  const LOCALE = 'vi-VN';
+  const OPTIONS = {
+    style: 'currency',
+    currency: 'VND',
+  };
+  return new Intl.NumberFormat(LOCALE, OPTIONS).format(number);
+}
+
+// Print output
+function printOutput(id, content) {
+  const resultID = document.getElementById(id);
+
+  resultID.classList.remove('resultPedding', 'resultError', 'resultSuccess');
+  resultID.classList.add(`${(content.startsWith('👉')) ? 'resultSuccess' : 'resultError'}`);
+  resultID.innerHTML = content;
 }
 
 // BT 01 - Quản lý tuyển sinh
@@ -121,9 +150,6 @@ function printResult() {
     3: 1,
     0: 0,
   };
-
-  const resultID = document.getElementById('result_exercise_01');
-  resultID.classList.remove('resultPedding', 'resultError', 'resultSuccess');
 
   let baseGrade = document.getElementById('baseGrade').value;
   let area = document.getElementById('areas').value;
@@ -167,18 +193,11 @@ function printResult() {
       : `👉Tổng điểm: ${totalGrade} - Kết quả: Đậu`;
   }
 
-  resultID.classList.add(`${(output.startsWith('👉')) ? 'resultSuccess' : 'resultError'}`);
-  resultID.innerHTML = output;
+  printOutput('result_exercise_01', output);
 }
 
 // BT 02 - Tính tiền điện
 function calElectricityBill() {
-  let userName = document.getElementById('userName').value;
-  let countKw = document.getElementById('countKw').value;
-  const resultID = document.getElementById('result_exercise_02');
-
-  resultID.classList.remove('resultPedding', 'resultError', 'resultSuccess');
-
   const LEVEL = {
     1: {
       range: 50,
@@ -201,6 +220,10 @@ function calElectricityBill() {
       price: 1300,
     },
   }
+
+  let userName = document.getElementById('userName').value;
+  let countKw = document.getElementById('countKw').value;
+
   let output;
 
   let checkUserName = validateEmpty(userName, 'Tên người sử dụng');
@@ -230,8 +253,7 @@ function calElectricityBill() {
     output = `👉 Người sử dụng: ${userName} sử dụng ${countKw} KW - Phí: ${price}`;
   }
 
-  resultID.classList.add(`${(output.startsWith('👉')) ? 'resultSuccess' : 'resultError'}`);
-  resultID.innerHTML = output;
+  printOutput('result_exercise_02', output);
 }
 
 // BT 03 - Tính tiền thuế thu nhập cá nhân
@@ -273,10 +295,6 @@ function calTaxBill() {
   let income = document.getElementById('income').value;
   let dependant = document.getElementById('dependant').value;
 
-  const resultID = document.getElementById('result_exercise_03');
-
-  resultID.classList.remove('resultPedding', 'resultError', 'resultSuccess');
-
   let output;
 
   let checkTaxPayers = validateEmpty(taxpayers, 'Họ và tên');
@@ -284,71 +302,54 @@ function calTaxBill() {
   let checkDependant = validateNumber(dependant, 'Người phụ thuộc');
 
   if (!checkTaxPayers.status) output = checkTaxPayers.mess;
+  else if (!Number.isNaN(taxpayers * 1)) output = `Họ và tên phải là chữ`;
   else if (!checkIncome.status) output = checkIncome.mess;
   else if (income * 1 < 0) output = `Thu nhập không được là số âm`;
+  else if (dependant * 1 === 0) dependant = 0;
   else if (!checkDependant.status) output = checkDependant.mess;
   else if (dependant * 1 < 0) output = `Số người phụ thuộc không được là số âm`;
 
 
   if (output === undefined) {
-    let cost = income * 1 - PRICE_TAX - dependant * 1 * MONEY_OF_DEPENDANT;
+    let prevCost = income * 1 - PRICE_TAX - dependant * 1 * MONEY_OF_DEPENDANT;
+    let cost = 0;
 
-    output = `👉 ${taxpayers} thu nhập ${income}đ/năm - Tiền thuế phải trả: ${cost}`;
+    let step = 1;
+    while (prevCost !== 0) {
+      let range = TAX_LEVEL[step].range * 1_000_000;
+      let percent = TAX_LEVEL[step].percent;
+      if (prevCost >= range) {
+        cost += range * percent;
+        prevCost = prevCost - range;
+      }
+      else {
+        cost += prevCost * percent;
+        prevCost = 0;
+      }
+      step++;
+    }
+
+    output = `👉 ${taxpayers} thu nhập ${convertCurrencyVnd(income)}/năm - Tiền thuế thu nhập cá nhân: ${convertCurrencyVnd(cost)}`;
   }
 
-  resultID.classList.add(`${(output.startsWith('👉')) ? 'resultSuccess' : 'resultError'}`);
-  resultID.innerHTML = output;
-}
-
-// BT 04 - Xác định loại tam giác
-function getTypeTriangle() {
-  const numbers = document.querySelectorAll('#exercise04 input');
-
-  const resultID = document.getElementById('result_exercise_04');
-
-  resultID.classList.remove('resultPedding', 'resultError', 'resultSuccess');
-
-  const arrNumber = [...numbers];
-  let output;
-  let sides = [];
-  for (let i = 0; i < arrNumber.length; i++) {
-    let number = arrNumber[i].value;
-    let numberValid = validate(number, `Cạnh thứ ${i + 1}`);
-
-    if (!numberValid.status) {
-      output = numberValid.mess;
-      break;
-    }
-    sides[i] = number * 1;
-  }
-
-  if (output === undefined) {
-    if ((sides[0] + sides[1] <= sides[2])
-      || (sides[0] + sides[2] <= sides[1])
-      || (sides[1] + sides[2] <= sides[0])) {
-
-      output = 'Không phải là tam giác';
-    }
-    else if (sides[0] === sides[1]
-      || sides[0] === sides[2]
-      || sides[1] === sides[2]) {
-      output = '👉 Tam giác cân';
-    }
-    else if (sides[0] === sides[1] === sides[2]) {
-      output = '👉 Tam giác đều';
-    }
-    else if (sides[0] ** 2 + sides[1] ** 2 === sides[2] ** 2
-      || sides[0] ** 2 + sides[2] ** 2 === sides[1] ** 2
-      || sides[1] ** 2 + sides[2] ** 2 === sides[0] ** 2) {
-      output = '👉 Tam giác vuông';
-    } else output = '👉 Tam giác thường';
-  }
-
-  resultID.classList.add(`${(output.startsWith('👉')) ? 'resultSuccess' : 'resultError'}`);
-  resultID.innerHTML = output;
+  printOutput('result_exercise_03', output);
 }
 
 // BT 04 - Tính tiền cáp
+function handleTypeCustomer() {
+  let containerConnect = document.getElementById('containerConnect');
+  let typeCustomer = document.getElementById('typeCustomer').value;
+
+  switch (typeCustomer) {
+    case 'Doanh nghiệp':
+      containerConnect.classList.remove('d-none');
+      break;
+    default:
+      containerConnect.classList.add('d-none');
+      break;
+  }
+}
+
 function calculatorCable() {
   const TYPE_CUSTOMER = {
     'Nhà dân': {
@@ -375,17 +376,41 @@ function calculatorCable() {
     },
   };
 
-  let codeCustomer = 'ABC123';
-  let typeCustomer = 'Doanh nghiệp';
-  let connects = 15;
-  let channels = 80;
+  let codeCustomer = document.getElementById('codeCustomer').value;
+  let typeCustomer = document.getElementById('typeCustomer').value;
+  let connects = document.getElementById('connect').value;
+  let channels = document.getElementById('channel').value;
 
-  let priceBase = TYPE_CUSTOMER[typeCustomer].costBase;
-  let priceChannel = channels * TYPE_CUSTOMER[typeCustomer].costChannel.count * TYPE_CUSTOMER[typeCustomer].costChannel.price;
-  let priceConnect = (connects > 10) ? (connects - 10) * TYPE_CUSTOMER[typeCustomer].costStandard.bonus + TYPE_CUSTOMER[typeCustomer].costStandard.basic : connects * TYPE_CUSTOMER[typeCustomer].costStandard.basic;
+  let output;
 
-  let totalPrice = priceBase + priceChannel + priceConnect;
+  // Validate input
+  let checkCodeCustomer = validateEmpty(codeCustomer, 'Mã khách hàng');
+  let checkTypeCustomer = validateEmpty(typeCustomer, 'Loại khách hàng');
+  let checkConnects = validateNumber(connects, 'Số kết nối');
+  let checkChannels = validateNumber(channels, 'Số kênh');
 
-  return totalPrice;
+  if (!checkCodeCustomer.status) output = checkCodeCustomer.mess;
+  else if (!checkTypeCustomer.status) output = checkTypeCustomer.mess;
+  else if (!checkChannels.status) output = checkChannels.mess;
+  else if (typeCustomer === 'Doanh nghiệp' && !checkConnects.status) output = checkConnects.mess;
+
+  const PRICE = TYPE_CUSTOMER[typeCustomer];
+
+  if (output === undefined) {
+    let priceBase = PRICE.costBase;
+    let priceChannel = channels * PRICE.costChannel.count * PRICE.costChannel.price;
+
+    let priceConnect = 0;
+    if (typeCustomer === 'Doanh nghiệp') {
+      priceConnect = (connects > 10) ? (connects - 10) * PRICE.costStandard.bonus + PRICE.costStandard.basic : PRICE.costStandard.basic;
+    }
+    else priceConnect = PRICE.costStandard.basic
+
+    let totalPrice = convertCurrencyVnd(priceBase + priceChannel + priceConnect);
+
+    output = `👉 Mã khách hàng: ${codeCustomer} - Tổng chi phí: ${totalPrice}`;
+  }
+
+  printOutput('result_exercise_04', output);
 }
-// 4115
+

@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body class="d-flex justify-content-center align-items-center">
-    <div class="container mt-5 shadow-lg">
+    <div class="container my-5 shadow-lg">
       <div class="row rounded">
         <!-- Container Left -->
         <div class="container-left col-2 p-3">
@@ -233,38 +233,49 @@
                     ...</code
                   >
                 </li>
-                <li>
-                  Số tiền theo bậc sử dụng
-                  <table class="container w-50 table">
-                    <thead>
-                      <td>Phạm vi</td>
-                      <td>vnđ/KW</td>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>50KW đầu</td>
-                        <td>500đ/KW</td>
-                      </tr>
-                      <tr>
-                        <td>50KW kế</td>
-                        <td>650đ/KW</td>
-                      </tr>
-                      <tr>
-                        <td>100KW tiếp theo</td>
-                        <td>850đ/KW</td>
-                      </tr>
-                      <tr>
-                        <td>150KW tiếp theo</td>
-                        <td>1100đ/KW</td>
-                      </tr>
-                      <tr>
-                        <td>Còn lại</td>
-                        <td>1300đ/KW</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </li>
               </ul>
+              <div class="container">
+                <div class="row">
+                  <div class="col-8">
+                    <p class="mb-2">Số tiền theo bậc sử dụng</p>
+                    <table class="table">
+                      <thead>
+                        <td>Phạm vi</td>
+                        <td>vnđ/KW</td>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>50KW đầu</td>
+                          <td>500đ/KW</td>
+                        </tr>
+                        <tr>
+                          <td>50KW kế</td>
+                          <td>650đ/KW</td>
+                        </tr>
+                        <tr>
+                          <td>100KW tiếp theo</td>
+                          <td>850đ/KW</td>
+                        </tr>
+                        <tr>
+                          <td>150KW tiếp theo</td>
+                          <td>1100đ/KW</td>
+                        </tr>
+                        <tr>
+                          <td>Còn lại</td>
+                          <td>1300đ/KW</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="col-4">
+                    <p class="mb-2">Validate input</p>
+                    <ul>
+                      <li>Các trường không bỏ trống</li>
+                      <li>Số KW tiêu thụ là số dương.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
               <details class="mb-2">
                 <summary>Ví dụ:</summary>
                 <ul>
@@ -285,11 +296,6 @@
                   </li>
                 </ul>
               </details>
-              <p class="mb-2">Validate input</p>
-              <ul>
-                <li>Các trường không bỏ trống</li>
-                <li>Số KW tiêu thụ là số dương.</li>
-              </ul>
             </div>
             <!-- Form -->
             <div class="container">
@@ -302,7 +308,6 @@
                       name="userName"
                       id="userName"
                       placeholder="Nhập tên người sử dụng"
-                      autofocus
                     />
                   </div>
                 </div>
@@ -343,31 +348,109 @@
             <h2 class="exercise_title mb-3">Tính tiền thuế thu nhập cá nhân</h2>
             <!-- Description -->
             <div class="exercise_description p-3 mb-4">
-              <p class="mb-1">Mô tả</p>
-              <ul class="mb-2">
+              <p class="mb-2">
+                Nhập lần lượt các thông tin: Họ tên, Tổng thu nhập năm và Số
+                người phụ thuộc.
+                <br />
+                Trả về số tiền thuế (tính lũy tuyến theo bậc) phải trả.
+              </p>
+              <ul>
                 <li>
-                  Nhập lần lượt 3 số nguyên. Trả về số số lẻ và số số chẳn
+                  <code
+                    >Thu nhập chịu thuế = Tiền lương 1 năm - 4.000.000 - Số
+                    người phụ thuộc * 1.600.000</code
+                  >
                 </li>
-                <li>Ví dụ:</li>
+                <li>
+                  <code
+                    >Tiền thuế phải trả = Thu nhập chịu thuế * Thuế suất
+                  </code>
+                </li>
+              </ul>
+              <div class="container">
+                <div class="row">
+                  <div class="col-8">
+                    <p class="mb-2">Bảng thuế suất theo bậc</p>
+                    <table class="table">
+                      <thead>
+                        <td>Thu nhập chịu thuế (triệu đồng)</td>
+                        <td>Thuế suất (%)</td>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Đến 60</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>Trên 60 đến 120</td>
+                          <td>10</td>
+                        </tr>
+                        <tr>
+                          <td>Trên 120 đến 210</td>
+                          <td>15</td>
+                        </tr>
+                        <tr>
+                          <td>Trên 210 đến 384</td>
+                          <td>20</td>
+                        </tr>
+                        <tr>
+                          <td>Trên 384 đến 624</td>
+                          <td>25</td>
+                        </tr>
+                        <tr>
+                          <td>Trên 624 đến 960</td>
+                          <td>30</td>
+                        </tr>
+                        <tr>
+                          <td>Trên 960</td>
+                          <td>35</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="col-4">
+                    <p class="mb-2">Validate input</p>
+                    <ul>
+                      <li>Họ tên và Tiền lương không bỏ trống</li>
+                      <li>Họ tên là chữ</li>
+                      <li>Tiền lương là số dương</li>
+                      <li>Số người phụ thuộc là số nguyên dương</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <details class="mb-2">
+                <summary>Ví dụ:</summary>
                 <ul>
                   <li>
-                    Input: numbers = 1, 4, 6
+                    Input: Họ tên: Nguyễn Văn A; Tổng thu nhập năm: 40.000.000;
+                    Số người phụ thuộc: 0;
                     <br />
-                    Output: 👉 Số số lẻ: 1. Số số chẳn: 2
+                    Output: Nguyễn Văn A thu nhập 40.000.000 ₫/năm - Tiền thuế
+                    thu nhập cá nhân: 1.800.000 ₫
                   </li>
                   <li>
-                    Input: numbers = 1, _, 6
+                    Input: Họ tên: Nguyễn Văn A; Tổng thu nhập năm: 260000000;
+                    Số người phụ thuộc: 4;
                     <br />
-                    Output: Vui lòng nhập Số thứ 2
+                    Output: Nguyễn Văn A thu nhập 260.000.000 ₫/năm - Tiền thuế
+                    thu nhập cá nhân: 25.440.000 ₫
                   </li>
                   <li>
-                    Input: numbers = 1.5, 4, 6
+                    Input: Họ tên: Nguyễn Văn A; Tổng thu nhập năm: 100000000;
+                    Số người phụ thuộc: 2;
                     <br />
-                    Output: Số thứ 1 không là số nguyên
+                    Output: Nguyễn Văn A thu nhập 100.000.000 ₫/năm - Tiền thuế
+                    thu nhập cá nhân: 6.280.000 ₫
+                  </li>
+                  <li>
+                    Input: Họ tên: Nguyễn Văn A; Tổng thu nhập năm: -10000000;
+                    Số người phụ thuộc: 2;
+                    <br />
+                    Output: Thu nhập không được là số âm
                   </li>
                 </ul>
-                <li>Validate input: Không bỏ trống; Là chữ số nguyên</li>
-              </ul>
+              </details>
             </div>
             <!-- Form -->
             <div class="container">
@@ -380,7 +463,6 @@
                       name="taxpayers"
                       id="taxpayers"
                       placeholder="Nhập họ và tên người đóng thuế"
-                      autofocus
                     />
                   </div>
                 </div>
@@ -422,86 +504,138 @@
             </p>
           </div>
 
-          <!-- Exercise 04 -->
+          <!-- BT 04: Tính tiền cáp -->
           <div
             id="exercise04"
             class="exercise d-none"
             onkeydown="handleEnter(event, 'exercise04')"
           >
             <!-- Title -->
-            <h2 class="exercise_title mb-3">Xác định loại tam giác</h2>
+            <h2 class="exercise_title mb-3">Tính tiền cáp</h2>
             <!-- Description -->
             <div class="exercise_description p-3 mb-4">
-              <p class="mb-1">Mô tả</p>
-              <ul class="mb-2">
+              <p class="mb-2">
+                Nhập lần lượt các thông tin: Mã khách hàng, Loại khách hàng, Số
+                kênh cao cấp, Số kết nối (nếu loại khách hàng là Doanh nghiệp)
+                <br />
+                Trả về chi phí cáp.
+              </p>
+              <ul>
                 <li>
-                  Nhập lần lượt 3 cạnh của tam giác. Trả về loại tam giác đó
-                  (tam giác đều, cân, vuông, không là tam giác)
+                  <code
+                    >Tổng chi phí = Phí hóa đơn + Phí dịch vụ cơ bản + Phí thuê
+                    kênh cao cấp</code
+                  >
                 </li>
-                <li>Ví dụ:</li>
+              </ul>
+              <div class="container">
+                <div class="row">
+                  <div class="col-8">
+                    <p class="mb-2">Bảng chi phí cáp theo loại khách hàng</p>
+                    <table class="table">
+                      <thead>
+                        <td>Loại chi phí</td>
+                        <td>Nhà dân</td>
+                        <td>Doanh nghiệp</td>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Phí xử lý hóa đơn</td>
+                          <td>4.5$</td>
+                          <td>15$</td>
+                        </tr>
+                        <tr>
+                          <td>Phí dịch vụ cơ bản</td>
+                          <td>20.5$</td>
+                          <td>
+                            <ul>
+                              <li>75$/10 kết nối đầu</li>
+                              <li>Mỗi kết nối thêm 5$/kết nối</li>
+                            </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Phí Thuê kênh cao cấp</td>
+                          <td>7.5$/ kênh</td>
+                          <td>50$/kênh</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="col-4">
+                    <p class="mb-2">Validate input</p>
+                    <ul>
+                      <li>Các trường không bỏ trống</li>
+                      <li>Số kênh cao cấp và SỐ kết nối là số nguyên dương</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <details class="mb-2">
+                <summary>Ví dụ:</summary>
                 <ul>
                   <li>
-                    Input: Cạnh = 3, 4, 5
+                    Input: Điểm chuẩn = 26; Khu vực = B; Đối tượng = 2; Điểm thi
+                    3 môn = 10, 6, 10
                     <br />
-                    Output: 👉 Tam giác vuông
+                    Output: Tổng điểm: 28.5 - Kết quả: Đậu
                   </li>
                   <li>
-                    Input: Cạnh = 2, 2, 1
+                    Input: Điểm chuẩn = 20; Khu vực = A; Đối tượng = 3; Điểm thi
+                    3 môn = 10, 0, 10
                     <br />
-                    Output: 👉 Tam giác cân
-                  </li>
-                  <li>
-                    Input: Cạnh = 3, 3, 3
-                    <br />
-                    Output: 👉 Tam giác đều
-                  </li>
-                  <li>
-                    Input: Cạnh = 4, 2, 3
-                    <br />
-                    Output: 👉 Tam giác thường
-                  </li>
-                  <li>
-                    Input: Cạnh = 2, 3, 1
-                    <br />
-                    Output: Không phải là tam giác
+                    Output: Tổng điểm: 23 - Kết quả: Rớt
                   </li>
                 </ul>
-                <li>Validate input: Không bỏ trống; Là chữ số</li>
-              </ul>
+              </details>
             </div>
             <!-- Form -->
             <div class="container">
               <div class="exercise_form row mb-2">
-                <div class="col-4 mb-3">
+                <div class="col-6 mb-3">
                   <div class="input__container position-relative">
                     <input
                       class="w-100 px-2 py-1"
                       type="text"
-                      name="side1"
-                      id="side1"
-                      placeholder="Nhập cạnh thứ 1"
+                      name="codeCustomer"
+                      id="codeCustomer"
+                      placeholder="Nhập mã khách hàng"
                     />
                   </div>
                 </div>
-                <div class="col-4 mb-3">
+                <div class="col-6 mb-3">
+                  <div class="input__container position-relative">
+                    <select
+                      class="w-100 px-2 py-1"
+                      name="typeCustomer"
+                      id="typeCustomer"
+                      onchange="handleTypeCustomer()"
+                    >
+                      <option selected value="">Chọn loại khách hàng</option>
+                      <option value="Nhà dân">Nhà dân</option>
+                      <option value="Doanh nghiệp">Doanh nghiệp</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-6 mb-3">
                   <div class="input__container position-relative">
                     <input
                       class="w-100 px-2 py-1"
                       type="text"
-                      name="side2"
-                      id="side2"
-                      placeholder="Nhập cạnh thứ 2"
+                      name="channel"
+                      id="channel"
+                      placeholder="Nhập số kênh..."
                     />
                   </div>
                 </div>
-                <div class="col-4 mb-3">
+                <div id="containerConnect" class="col-6 mb-3 d-none">
                   <div class="input__container position-relative">
                     <input
                       class="w-100 px-2 py-1"
                       type="text"
-                      name="side3"
-                      id="side3"
-                      placeholder="Nhập cạnh thứ 3"
+                      name="connect"
+                      id="connect"
+                      placeholder="Nhập số kết nối..."
                     />
                   </div>
                 </div>
@@ -510,10 +644,10 @@
             <!-- Button -->
             <button
               type="button"
-              onclick="getTypeTriangle()"
+              onclick="calculatorCable()"
               class="border-0 rounded-lg bg-success shadow text-white px-5 py-2 mb-3"
             >
-              Kiểm tra
+              Tra cứu thông tin
             </button>
             <!-- Result -->
             <p id="result_exercise_04" class="rounded px-2 py-3 resultPedding">

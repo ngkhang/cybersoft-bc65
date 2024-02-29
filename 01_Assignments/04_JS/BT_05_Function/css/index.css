@@ -1,3 +1,7 @@
+* {
+  transition: all 0.5s;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background: #fafafa;
@@ -10,7 +14,6 @@ body {
 
 .btn-exercise {
   background: #fafafa;
-  transition: all 0.2s ease-in-out;
 }
 
 .btn-exercise:hover {
@@ -59,16 +62,11 @@ body {
   height: 2px;
   background-color: #4158D0;
   background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-  transition: width 0.3s;
 }
 
 .exercise .exercise_form .input__container:hover::after,
 .exercise .exercise_form .input__container:focus-within::after {
   width: 100%;
-}
-
-.exercise button {
-  transition: all 0.2s ease-in-out;
 }
 
 .exercise>p span {

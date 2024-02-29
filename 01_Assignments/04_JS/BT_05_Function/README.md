@@ -73,7 +73,10 @@
 
 ### Input
 
-- Thông tin cá nhân: Họ tên, tổng thu nhập năm, số người phụ thuộc.
+- Thông tin cá nhân:
+  - Họ tên
+  - Tổng thu nhập năm
+  - Số người phụ thuộc
 
 ### Solution
 
