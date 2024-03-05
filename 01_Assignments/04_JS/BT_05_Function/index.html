@@ -117,10 +117,8 @@
               <p class="mb-2">Validate input</p>
               <ul>
                 <li>Các trường không bỏ trống</li>
-                <li>
-                  Điểm chuẩn và điểm 3 môn dự thi là chữ số; nằm trong khoảng
-                  [0; 10]
-                </li>
+                <li>Điểm chuẩn và điểm 3 môn dự thi là số dương</li>
+                <li>Điểm 3 môn dự thi nằm trong khoảng [0; 10]</li>
               </ul>
             </div>
             <!-- Form -->
@@ -287,12 +285,12 @@
                   <li>
                     Input: User = ABC; Số KW = 120
                     <br />
-                    Output: Người sử dụng: ABC sử dụng 120 KW - Phí: 74500
+                    Output: Người sử dụng: ABC sử dụng 120 KW - Phí: 74.500 ₫
                   </li>
                   <li>
                     Input: User = ABC; Số KW = 260
                     <br />
-                    Output: Người sử dụng: ABC sử dụng 260 KW - Phí: 208500
+                    Output: Người sử dụng: ABC sử dụng 260 KW - Phí: 208.500 ₫
                   </li>
                 </ul>
               </details>
@@ -316,8 +314,8 @@
                     <input
                       class="w-100 px-2 py-1"
                       type="text"
-                      name="countKw"
-                      id="countKw"
+                      name="energy"
+                      id="energy"
                       placeholder="Nhập số KW tiêu thụ"
                     />
                   </div>
@@ -566,7 +564,7 @@
                     <p class="mb-2">Validate input</p>
                     <ul>
                       <li>Các trường không bỏ trống</li>
-                      <li>Số kênh cao cấp và SỐ kết nối là số nguyên dương</li>
+                      <li>Số kênh cao cấp và Số kết nối là số nguyên dương</li>
                     </ul>
                   </div>
                 </div>
@@ -575,16 +573,40 @@
                 <summary>Ví dụ:</summary>
                 <ul>
                   <li>
-                    Input: Điểm chuẩn = 26; Khu vực = B; Đối tượng = 2; Điểm thi
-                    3 môn = 10, 6, 10
+                    Input: Mã khách hàng = ABC; Loại khách hàng = Nhà dân; Số
+                    kênh = 10;
                     <br />
-                    Output: Tổng điểm: 28.5 - Kết quả: Đậu
+                    Output: Mã khách hàng: ABC - Tổng chi phí: 100,00 $
                   </li>
                   <li>
-                    Input: Điểm chuẩn = 20; Khu vực = A; Đối tượng = 3; Điểm thi
-                    3 môn = 10, 0, 10
+                    Input: Mã khách hàng = ABC; Loại khách hàng = Nhà dân; Số
+                    kênh = -10;
                     <br />
-                    Output: Tổng điểm: 23 - Kết quả: Rớt
+                    Output: Số kênh không được âm
+                  </li>
+                  <li>
+                    Input: Mã khách hàng = ABC; Loại khách hàng = Doanh nghiệp;
+                    Số kết nối = 10; Số kênh = 10;
+                    <br />
+                    Output: Mã khách hàng: ABC - Tổng chi phí: 590,00 $
+                  </li>
+                  <li>
+                    Input: Mã khách hàng = ABC; Loại khách hàng = Doanh nghiệp;
+                    Số kết nối = 10; Số kênh = 10;
+                    <br />
+                    Output: Mã khách hàng: ABC - Tổng chi phí: 590,00 $
+                  </li>
+                  <li>
+                    Input: Mã khách hàng = ABC; Loại khách hàng = Doanh nghiệp;
+                    Số kết nối = 10; Số kênh = 12;
+                    <br />
+                    Output: Mã khách hàng: ABC - Tổng chi phí: 600,00 $
+                  </li>
+                  <li>
+                    Input: Mã khách hàng = ABC; Loại khách hàng = Doanh nghiệp;
+                    Số kết nối = 10; Số kênh = -12;
+                    <br />
+                    Output: Số kênh không được âm
                   </li>
                 </ul>
               </details>
@@ -681,7 +703,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Main JS -->
     <script src="./js/index.js"></script>
   </body>
 </html>

@@ -24,18 +24,22 @@
 
 ### Solution
 
-1. Tạo biến và cho người dùng nhập ...
+1. Tạo biến và cho người dùng nhập
+   - Điểm chuẩn: `baseGrade`.
+   - Điểm thi 3 môn: `subjA`,`subjB`,`subjC`.
+   - Khu vực ưu tiên: `area`.
+   - Đối tượng ưu tiên: `objectStudent`.
 2. Kiểm tra số nhập vào có hợp lệ: Không được bỏ trống
    - Không hợp lệ: In lỗi ra UI
    - Hợp lệ:
      - Có 1 môn có điểm = 0 -> Rớt
      - Tạo biến và gán giá trị:
-       - Tổng điểm 3 môn thi: `total = monA + monB + monC`
-       - Tổng điểm ưu tiên: `grade_uutien = grade_khuvuc + grade_doituong`
-       - Điểm tổng: `result = total + grade_uutien`;
+       - Tổng điểm 3 môn thi: `total = subjA + subjB + subj`
+       - Tổng điểm ưu tiên: `grade_priority = grade_area + grade_object`
+       - Điểm tổng: `result = total + grade_priority`;
      - So sánh điểm tổng và điểm chuẩn:
-       - điểm tổng >= điểm chuẩn: Đậu
-       - điểm tổng < điểm chuẩn: Rớt
+       - Điểm tổng >= điểm chuẩn: Đậu
+       - Điểm tổng < điểm chuẩn: Rớt
      - In kết quả đậu/rớt và tổng số điểm đạt được.
 
 ### Output
@@ -55,10 +59,10 @@
 
 1. Tạo biến và cho người dùng nhập:
    1. Tên người sử dụng: `userName`
-   2. Số điện tiêu thụ: `energin` (KW)
+   2. Số điện tiêu thụ: `energy` (KW)
 2. Kiểm tra số nhập vào có hợp lệ:
    1. `userName`: không bỏ trống
-   2. `energin`: không bỏ trống; là số dương
+   2. `energy`: không bỏ trống; là số dương
    - Không hợp lệ: In lỗi ra UI
    - Hợp lệ:
      - In tên của người dùng và tổng số tiền điện phải trả.
@@ -81,20 +85,23 @@
 ### Solution
 
 1. Tạo biến và cho người dùng nhập:
-   1. Họ tên: `fullName`
-   2. Tổng thu nhập năm `salary` (đơn vị đ)
-   3. Số người phụ thuộc `person`
+   1. Họ tên: `taxpayers`
+   2. Tổng thu nhập năm `income` (đơn vị đ)
+   3. Số người phụ thuộc `dependant`
 
 2. Kiểm tra số nhập vào có hợp lệ, các trường không bỏ trống và:
-   1. `fullName`: là chữ
-   2. `salary`: là số
-   3. `person`: là số nguyên
+   1. `taxpayers`: là chữ
+   2. `income`: là số
+   3. `dependant`: là số nguyên
    - Không hợp lệ: In lỗi ra UI
    - Hợp lệ:
+     - Tạo và gán giá trị cho hằng số:
+       - `PRICE_TAX` = 4.000.000
+       - `MONEY_OF_DEPENDANT` = 1.600.000
      - Tạo biến và gán giá trị theo công thức:
-       - `thunhap_chiuthue = salary - 4000000 - person * 1600000`;
-       - Só tiền thuế phải trả: `cash = thunhap_chiuthue * thueSuat`
-         - Trong đó, `thueSuat` theo bảng:
+       - `taxable_income = income - PRICE_TAX - dependant * MONEY_OF_DEPENDANT`;
+       - Só tiền thuế phải trả: `cash = taxable_income * tax_rate`
+         - Trong đó, `tax_rate` theo bảng:
 
             | Thu nhập chịu thuế (triệu đồng) | Thuế suất (%) |
             | ------------------------------- | ------------- |
@@ -126,8 +133,8 @@
 ### Solution
 
 1. Tạo biến và cho người dùng nhập:
-   1. Loại khách hàng: `type`
-   2. Mã khách hàng `code`
+   1. Loại khách hàng: `typeCustomer`
+   2. Mã khách hàng `codeCustomer`
    3. Số kênh cao cấp `channels`
    4. Số kết nối: `connects` - chỉ hiện nếu loại khách hàng là doanh nghiệp.
 
@@ -135,11 +142,11 @@
    - Không hợp lệ: In lỗi ra UI
    - Hợp lệ:
      - Tạo biến và gán giá trị:
-       - Phí xứ lý hóa đơn: `phixulyhoadon = giatheoType`;
-       - Phí dịch vụ cơ bản: `phixulyhoadon = giatheoType`;
-       - Phí thuê kênh cao cấp: `phithuekenhcaocap = hesotheoType * channels`
-       - Tổng số tiền phí phải trả: `cash = thunhap_chiuthue * thueSuat`
-         - Trong đó, `thueSuat` theo bảng:
+       - Phí xứ lý hóa đơn: `invoice_processing_fee = based_on_type`;
+       - Phí dịch vụ cơ bản: `service_fee = based_on_type`;
+       - Phí thuê kênh cao cấp: `premium_channel_fee = based_on_type * channels`
+       - Tổng số tiền phí phải trả: `cash = taxable_income * tax_rate`
+         - Trong đó, `tax_rate` theo bảng:
 
             | Loại chi phí       | Nhà dân    | Doanh nghiệp                                    |
             | ------------------ | ---------- | ----------------------------------------------- |
