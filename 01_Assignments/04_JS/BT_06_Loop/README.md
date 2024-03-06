@@ -1,7 +1,5 @@
 # Section 06: JavaScript - Loop
 
-- **NOTE**: Input đầu vào chưa thực hiện validate
-
 ## Bài tập 1: Tìm số nguyên dương n nhỏ nhất
 
 - Điều kiện: `1 + 2 + 3 + ... + n > 10000`
