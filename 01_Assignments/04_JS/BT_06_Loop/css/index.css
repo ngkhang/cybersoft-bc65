@@ -30,30 +30,30 @@ body {
   background: #f4f2e9;
 }
 
-.exercise .exercise_title {
+.exercise .exercise__title {
   color: #00635d;
 }
 
-.exercise .exercise_description {
+.exercise .exercise__description {
   border-left: 4px solid lightblue;
   background: rgb(207, 243, 255);
   border-radius: 8px;
 }
 
-.exercise .exercise_description p,
-.exercise .exercise_description summary {
+.exercise .exercise__description p,
+.exercise .exercise__description summary {
   font-weight: 500;
   font-size: 18px;
 }
 
-.exercise .exercise_form .input__container input,
-.exercise .exercise_form .input__container select {
+.exercise .exercise__form .input__container input,
+.exercise .exercise__form .input__container select {
   border: 0;
   outline: 0;
   color: #333;
 }
 
-.exercise .exercise_form .input__container::after {
+.exercise .exercise__form .input__container::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -64,8 +64,8 @@ body {
   background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 }
 
-.exercise .exercise_form .input__container:hover::after,
-.exercise .exercise_form .input__container:focus-within::after {
+.exercise .exercise__form .input__container:hover::after,
+.exercise .exercise__form .input__container:focus-within::after {
   width: 100%;
 }
 
