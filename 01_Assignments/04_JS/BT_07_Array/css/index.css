@@ -1,0 +1,117 @@
+* {
+  transition: all 0.5s;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: #e9e9e9;
+}
+
+body>div {
+  background: #fff;
+}
+
+body>div>div {
+  padding: 15px;
+}
+
+.btn-add {
+  background: #FFCC70;
+  color: #fff;
+  border: 1px solid #FFDEA9;
+}
+
+.btn-add.btn-main>span:first-child {
+  display: inline-block;
+}
+
+.btn-add.btn-main>span:last-child {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .btn-add.btn-main>span:first-child {
+    display: none;
+  }
+
+  .btn-add.btn-main>span:last-child {
+    display: inline-block;
+  }
+}
+
+.btn-add:hover {
+  background: #ffb640;
+  color: #fff;
+  border: 1px solid #FFCC70;
+}
+
+.btn-add.active {
+  background: rgb(24, 166, 255);
+  color: #fff;
+}
+
+
+.exercise>div {
+  background: #f4f2e9;
+  padding: 15px;
+}
+
+.exercise p.result {
+  margin: 0;
+}
+
+.exercise .exercise__title {
+  color: #00635d;
+}
+
+.exercise .exercise__description {
+  border-left: 4px solid lightblue;
+  background: rgb(207, 243, 255);
+  border-radius: 8px;
+}
+
+.exercise .exercise__description p,
+.exercise .exercise__description summary {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.exercise__form .input__container input,
+.exercise__form .input__container select {
+  border: 0;
+  outline: 0;
+  color: #333;
+}
+
+.exercise__form .input__container input::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+
+.exercise__form .input__container input:hover::after,
+.exercise__form .input__container input:focus-within::after {
+  width: 100%;
+}
+
+
+.resultPedding {
+  background: rgb(206, 230, 255);
+  border: 1px solid rgb(64, 48, 181);
+}
+
+.resultSuccess {
+  background: rgb(196, 251, 196);
+  border: 1px solid green;
+}
+
+.resultError {
+  background: rgb(255, 206, 209);
+  border: 1px solid rgb(168, 0, 0);
+  color: rgb(168, 0, 0);
+}

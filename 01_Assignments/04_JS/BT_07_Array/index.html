@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Js - Assg 06: Loop</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <!-- Container Input -->
+    <section class="container d-flex flex-column align-items-center mt-4">
+      <!-- Title -->
+      <h2 class="mb-3">Bài tập mảng</h2>
+
+      <!-- Input Form -->
+      <div class="container w-50 mb-3">
+        <div class="exercise__form row">
+          <div class="col-12">
+            <div class="input__container">
+              <label for="numbers">Nhập 1 hoặc nhiều số</label>
+              <div class="container">
+                <div class="row d-flex align-items-center">
+                  <input
+                    type="text"
+                    class="col-10 position-relative my-1 px-2 py-3 rounded-left"
+                    name="numbers"
+                    id="numbers"
+                    aria-describedby="numberHelpId"
+                    placeholder="1.55,-12, 0, 10, ..."
+                    autofocus
+                    onkeyup="handleEnter(event, getListNumber);"
+                  />
+                  <button
+                    class="col-2 btn-add btn-main py-3 px-2 rounded-right"
+                    onclick="getListNumber()"
+                  >
+                    <span>Add</span>
+                    <span>+</span>
+                  </button>
+                </div>
+              </div>
+              <small id="numberHelpId" class="form-text text-muted"
+                >Help text</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Origin Numbers -->
+      <div class="container w-50">
+        <p class="mb-2 font-weight-bold">Origin Numbers:</p>
+        <p class="my-0" id="originNumbers"></p>
+      </div>
+    </section>
+
+    <!-- Container Output -->
+    <div class="container my-5 shadow-lg">
+      <div class="row rounded">
+        <!-- Bài tập 01 - Tổng các số dương -->
+        <div id="exercise01" class="exercise col-3 p-2 mb-2">
+          <div class="container">
+            <p class="exercise__title">Tổng các số dương</p>
+            <p class="result rounded px-2 py-3 resultPedding">0</p>
+          </div>
+        </div>
+
+        <!-- Bài tập 02 - Đếm các số dương -->
+        <div id="exercise02" class="exercise col-3 p-2 mb-2">
+          <div class="container">
+            <p class="exercise__title">Đếm các số dương</p>
+            <p class="result rounded px-2 py-3 resultPedding">0</p>
+          </div>
+        </div>
+
+        <!-- Bài tập 03 - Tìm số nhỏ nhất -->
+        <div id="exercise03" class="exercise col-3 p-2 mb-2">
+          <div class="container">
+            <p class="exercise__title">Tìm số nhỏ nhất</p>
+            <p class="result rounded px-2 py-3 resultPedding">0</p>
+          </div>
+        </div>
+
+        <!-- Bài tập 04 - Tìm số dương nhỏ nhất -->
+        <div id="exercise04" class="exercise col-3 p-2 mb-2">
+          <div class="container">
+            <p class="exercise__title">Tìm số dương nhỏ nhất</p>
+            <p class="result rounded px-2 py-3 resultPedding">0</p>
+          </div>
+        </div>
+
+        <!-- Bài tập 05 - Tìm số chẳn cuối cùng -->
+        <div id="exercise05" class="exercise col-3 p-2 mb-2">
+          <div class="container">
+            <p class="exercise__title">Tìm số chẳn cuối cùng</p>
+            <p class="result rounded px-2 py-3 resultPedding">0</p>
+          </div>
+        </div>
+
+        <!-- Bài tập 06 - Đổi chỗ 2 số theo vị trí -->
+        <div id="exercise06" class="exercise col-6 p-2 mb-2">
+          <div class="container">
+            <p class="exercise__title">Tìm số chẳn cuối cùng</p>
+            <div class="exercise__form row align-items-end mb-2">
+              <div class="col-4">
+                <div
+                  class="input__container d-flex flex-column align-items-center"
+                >
+                  <label for="index1">Vị trí số thứ 1</label>
+                  <input
+                    type="text"
+                    class="position-relative w-100 pl-2 py-2 rounded"
+                    name="index1"
+                    id="index1"
+                    placeholder="..."
+                  />
+                </div>
+              </div>
+              <div class="col-4">
+                <div
+                  class="input__container d-flex flex-column align-items-center"
+                >
+                  <label for="index2">Vị trí số thứ 2</label>
+                  <input
+                    type="text"
+                    class="position-relative w-100 pl-2 py-2 rounded"
+                    name="index2"
+                    id="index2"
+                    placeholder="..."
+                  />
+                </div>
+              </div>
+              <!-- Button submit -->
+              <div class="col-4">
+                <button
+                  class="btn-add w-100 py-2 px-2 rounded-right"
+                  onclick="swapTwoNumber()"
+                >
+                  Change
+                </button>
+              </div>
+            </div>
+
+            <p class="result rounded px-2 py-3 resultPedding">0</p>
+          </div>
+        </div>
+
+        <!-- Bài tập 07 - Sắp xếp tăng dần -->
+        <div id="exercise07" class="exercise col-3 p-2 mb-2">
+          <div class="container">
+            <p class="exercise__title">Sắp xếp tăng dần</p>
+            <p class="result rounded px-2 py-3 resultPedding">0</p>
+          </div>
+        </div>
+
+        <!-- Bài tập 08 - Tìm số nguyên tố đầu tiên -->
+        <div id="exercise08" class="exercise col-3 p-2 mb-2">
+          <div class="container">
+            <p class="exercise__title">Tìm số nguyên tố đầu tiên</p>
+            <p class="result rounded px-2 py-3 resultPedding">0</p>
+          </div>
+        </div>
+
+        <!-- Bài tập 09 - Đếm số nguyên -->
+        <div id="exercise09" class="exercise col-3 p-2 mb-2">
+          <div class="container">
+            <p class="exercise__title">Đếm số nguyên</p>
+            <p class="result rounded px-2 py-3 resultPedding">0</p>
+          </div>
+        </div>
+
+        <!-- Bài tập 10 - So sánh số lượng số âm và số dương -->
+        <div id="exercise10" class="exercise col-6 p-2 mb-2">
+          <div class="container">
+            <p class="exercise__title">So sánh số lượng số âm và số dương</p>
+            <p class="result rounded px-2 py-3 resultPedding">
+              <span class="d-block">Số số dương: ... - Số số âm: ...</span>
+              <span class="d-block">Số lượng số âm ... số lượng số dương</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Main JS -->
+    <script type="text/javascript" src="./js/utils.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+  </body>
+</html>
