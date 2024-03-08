@@ -28,9 +28,9 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="./css/index.css" />
   </head>
-  <body>
+  <body class="py-3">
     <!-- Container Input -->
-    <section class="container d-flex flex-column align-items-center mt-4">
+    <section class="container d-flex flex-column align-items-center">
       <!-- Title -->
       <h2 class="mb-3">Bài tập mảng</h2>
 
@@ -38,17 +38,23 @@
       <div class="container w-50 mb-3">
         <div class="exercise__form row">
           <div class="col-12">
-            <div class="input__container">
-              <label for="numbers">Nhập 1 hoặc nhiều số</label>
+            <div class="">
+              <label for="numbers"
+                >Nhập 1 hoặc nhiều số (cách nhau ,). Định dạng hỗ trợ:</label
+              >
+              <ul>
+                <li>1</li>
+                <li>1, -10, 9.5</li>
+              </ul>
               <div class="container">
                 <div class="row d-flex align-items-center">
                   <input
                     type="text"
-                    class="col-10 position-relative my-1 px-2 py-3 rounded-left"
+                    class="col-10 my-1 px-2 py-3 rounded-left"
                     name="numbers"
                     id="numbers"
                     aria-describedby="numberHelpId"
-                    placeholder="1.55,-12, 0, 10, ..."
+                    placeholder="..."
                     autofocus
                     onkeyup="handleEnter(event, getListNumber);"
                   />
@@ -61,9 +67,10 @@
                   </button>
                 </div>
               </div>
-              <small id="numberHelpId" class="form-text text-muted"
-                >Help text</small
-              >
+              <small
+                id="numberHelpId"
+                class="form-text font-medium text-danger"
+              ></small>
             </div>
           </div>
         </div>
@@ -71,14 +78,14 @@
 
       <!-- Origin Numbers -->
       <div class="container w-50">
-        <p class="mb-2 font-weight-bold">Origin Numbers:</p>
-        <p class="my-0" id="originNumbers"></p>
+        <p class="mb-1 font-weight-bold">Origin Numbers:</p>
+        <p class="mb-3 py-2" id="originNumbers"></p>
       </div>
     </section>
 
     <!-- Container Output -->
-    <div class="container my-5 shadow-lg">
-      <div class="row rounded">
+    <div class="container__output container shadow-lg">
+      <div id="output" class="row rounded p-3">
         <!-- Bài tập 01 - Tổng các số dương -->
         <div id="exercise01" class="exercise col-3 p-2 mb-2">
           <div class="container">
@@ -122,16 +129,16 @@
         <!-- Bài tập 06 - Đổi chỗ 2 số theo vị trí -->
         <div id="exercise06" class="exercise col-6 p-2 mb-2">
           <div class="container">
-            <p class="exercise__title">Tìm số chẳn cuối cùng</p>
+            <p class="exercise__title">
+              Tìm số chẳn cuối cùng: (Vị trí bắt đầu = 1)
+            </p>
             <div class="exercise__form row align-items-end mb-2">
               <div class="col-4">
-                <div
-                  class="input__container d-flex flex-column align-items-center"
-                >
+                <div class="d-flex flex-column align-items-center">
                   <label for="index1">Vị trí số thứ 1</label>
                   <input
                     type="text"
-                    class="position-relative w-100 pl-2 py-2 rounded"
+                    class="w-100 pl-2 py-2 rounded"
                     name="index1"
                     id="index1"
                     placeholder="..."
@@ -139,13 +146,11 @@
                 </div>
               </div>
               <div class="col-4">
-                <div
-                  class="input__container d-flex flex-column align-items-center"
-                >
+                <div class="d-flex flex-column align-items-center">
                   <label for="index2">Vị trí số thứ 2</label>
                   <input
                     type="text"
-                    class="position-relative w-100 pl-2 py-2 rounded"
+                    class="w-100 pl-2 py-2 rounded"
                     name="index2"
                     id="index2"
                     placeholder="..."
@@ -163,7 +168,11 @@
               </div>
             </div>
 
-            <p class="result rounded px-2 py-3 resultPedding">0</p>
+            <p class="result rounded px-2 py-3 resultPedding">
+              Before: ...
+              <br />
+              After: ...
+            </p>
           </div>
         </div>
 
@@ -171,7 +180,11 @@
         <div id="exercise07" class="exercise col-3 p-2 mb-2">
           <div class="container">
             <p class="exercise__title">Sắp xếp tăng dần</p>
-            <p class="result rounded px-2 py-3 resultPedding">0</p>
+            <p class="result rounded px-2 py-3 resultPedding">
+              Before: ...
+              <br />
+              After: ...
+            </p>
           </div>
         </div>
 
@@ -200,6 +213,16 @@
               <span class="d-block">Số lượng số âm ... số lượng số dương</span>
             </p>
           </div>
+        </div>
+      </div>
+
+      <!-- Spinner Loading -->
+      <div
+        id="spinner"
+        class="spinner-container d-none justify-content-center align-items-center h-100"
+      >
+        <div class="spinner-border text-info" role="status">
+          <span class="sr-only">Loading...</span>
         </div>
       </div>
     </div>

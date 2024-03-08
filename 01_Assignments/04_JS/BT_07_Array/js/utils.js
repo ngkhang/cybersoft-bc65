@@ -88,10 +88,10 @@ function isNumber(
  * @param {number} time_ms - The time in milliseconds before hiding the spinner and showing the block (default: 300ms).
  * @param {Object} displayClass - An object containing CSS classes for managing element display.
  */
-function handleLoading(
+async function handleLoading(
   idSpinner,
   idBlock,
-  time_ms = 300,
+  time_ms = 400,
   displayClass = DISPLAY_CLASS,
 ) {
   const spinnerElement = document.getElementById(idSpinner);
@@ -100,39 +100,34 @@ function handleLoading(
   // Show spinner
   spinnerElement.classList.remove(displayClass.none);
   spinnerElement.classList.add(displayClass.flex);
+  blockElement.classList.add(displayClass.none);
 
   // Set timeout to hide spinner and show block after time_ms
-  let timerId = setTimeout(() => {
-    spinnerElement.classList.remove(displayClass.flex);
-    spinnerElement.classList.add(displayClass.none);
-    blockElement.classList.remove(displayClass.none);
-  }, time_ms);
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      spinnerElement.classList.remove(displayClass.flex);
+      spinnerElement.classList.add(displayClass.none);
+      blockElement.classList.remove(displayClass.none);
+      resolve();
+    }, time_ms);
+  });
 }
 
 /**
 * Resets input elements and sets default content for output fields.
 * @param {string} selectorInputs - The CSS selector for input elements to be reset.
-* @param {string} selectorOutput - The CSS selector for output fields where default content needs to be set.
 */
-function resetAll(selectorInputs, selectorOutput) {
-  const DEFAULT_CONTENT = "👉Kết quả...";
+function resetInputField(selectorInputs) {
+  // const DEFAULT_CONTENT = "👉Kết quả...";
 
   // Reset and set initial value for input elements
   const inputs = document.querySelectorAll(selectorInputs);
-
-  inputs.forEach((input) => {
+  inputs.forEach((input, index) => {
     input.value = "";
-    input.removeAttribute('autofocus');
+    if (index === 0) input.focus();
   });
 
-  // Reset and set default content for output fields
-  const outputs = document.querySelectorAll(selectorOutput);
-  outputs.forEach((output) => {
-    output.innerHTML = DEFAULT_CONTENT;
-
-    output.classList.remove(...Object.values(RESULT_CLASS));
-    output.classList.add(RESULT_CLASS.Pedding);
-  });
+  handleAutoFocusInput(inputs[0]);
 }
 
 /**
@@ -145,15 +140,12 @@ function handleEnter(event, action) {
 }
 
 /**
-* Sets focus on the first input element within a specified block element.
-* @param {string} idBlock - The ID of the block element containing input elements.
-* @param {string} selectorInput - The CSS selector for input elements within the block element.
+* Sets focus on the first input element.
+* @param {string} selectorInput - The CSS selector for input elements.
 */
-function handleAutoFocusInput(idBLock, selectorInput) {
-  const blockElement = document.getElementById(idBLock);
-
-  const firstInput = blockElement.querySelector(selectorInput);
-  if (firstInput) firstInput.focus();
+function handleAutoFocusInput(selectorInput) {
+  // const firstInput = document.querySelector(selectorInput);
+  if (selectorInput) selectorInput.focus();
 }
 
 /**
@@ -171,36 +163,4 @@ function printOutput(id, content, status) {
 
   resultElement.classList.add(classStatus);
   resultElement.innerHTML = content;
-}
-
-/**
-* Handles the change of block elements based on the clicked button.
-* @param {string} idBlock - The ID of the block element to be activated.
-* @param {string} selectorBlock - The CSS selector for block elements.
-* @param {string} selectorBtn - The CSS selector for buttons associated with the block elements.
-*/
-function handleChangeBlockByButton(idBlock, selectorBlock, selectorBtn) {
-  const regx = /\d+/g;
-
-  const listBlockElement = document.querySelectorAll(selectorBlock);
-  const listBtnElement = document.querySelectorAll(selectorBtn);
-
-  // Extract the index of the active button from the idBlock
-  const indexBtnActive = idBlock.match(regx).pop() * 1;
-
-  // Reset all input elements and set default content for output fields
-  resetAll('input', '.exercise>p');
-
-  // Change background button
-  listBtnElement.forEach((button, index) => {
-    (index === indexBtnActive - 1)
-      ? button.classList.add('active')
-      : button.classList.remove('active');
-  })
-
-  // Hidden block elements
-  listBlockElement.forEach((block) => block.classList.add(DISPLAY_CLASS.none));
-
-  // Loading and visible extract block from the idBlock 
-  handleLoading('spinner', idBlock);
 }

@@ -2,6 +2,13 @@
 
 - Input chung:
   - Danh sách các số người dùng nhập vào.
+  - Định dạng:
+    - Nhập từng số, ví dụ: `10`; `-9.5`
+    - Nhập nhiều số, ví dụ: `0, 10, 8, -19`; `2,3,1,5,5`
+  - Validate:
+    - Theo đúng định dạng
+    - Chỉ chứa số
+    - Không bỏ trống
 
 ## Bài tập 01: Tổng các số dương
 
@@ -9,14 +16,13 @@
 
 ### Solution
 
-- Tạo và gán giá trị `total = 0`.
-- Dùng vòng lặp `forEach()` và xét điều kiện: `number > 0`
-  - Thỏa: `total += number`.
-- In tổng `total`
+- Tạo biến `total` và gán giá trị của `reduce()`:
+  - Xét điều kiện: `number > 0`, thỏa: `total += number`.
+- In tổng `total` hoặc `Không tồn tại số dương`
 
 ### Output
 
-- In tổng của dãy số hoặc in lỗi cho ngươi dùng.
+- In tổng của dãy số.
 
 ---
 
@@ -30,11 +36,11 @@
 - Dùng vòng lặp `forEach((number) => {})` và xét: `number > 0`
   - Thỏa điều kiện: `count` tăng thêm 1.
   - Không thỏa điều kiện: `count` giữ nguyên.
-- In tổng `count`
+- In tổng `count` hoặc `Không có số dương`
 
 ### Output
 
-- In số số dương của dãy số hoặc in lỗi cho ngươi dùng.
+- In số số dương của dãy số
 
 ---
 
@@ -52,7 +58,7 @@
 
 ### Output
 
-- In số nhỏ nhất tìm được hoặc in lỗi cho ngươi dùng.
+- In số nhỏ nhất tìm được.
 
 ---
 
@@ -62,15 +68,15 @@
 
 ### Solution
 
-- Khởi tạo và gán giá trị `max = -Infinity`.
-- Duyệt mảng bằng `forEach()` qua từng `number`. Xét điều kiện: `max < number` và `number > 0`:
-  - Thỏa điều kiện: `max = number`
-  - Không thỏa điều kiện: `max` giữ nguyên giá trị.
-- In giá trị của `max`.
+- Khởi tạo `minPositive`.
+- Duyệt mảng bằng `forEach()` qua từng `number`. Xét điều kiện: `minPositive > number` và `number > 0`:
+  - Thỏa điều kiện: `minPositive = number`
+  - Không thỏa điều kiện: `minPositive` giữ nguyên giá trị.
+- In giá trị của `minPositive` hoặc Không tồn tại số dương.
 
 ### Output
 
-- In số dương lớn nhất tìm được hoặc in lỗi cho ngươi dùng.
+- In số dương lớn nhất tìm được.
 
 ---
 
@@ -80,14 +86,14 @@
 
 ### Solution
 
-- Khởi tạo và gán giá trị độ dài của mảng cho `sizeArray`.
+- Khởi tạo `positiveLasted`.
 - Duyệt mảng bằng `for()`, bắt đầu từ cuối mảng đến đầu mảng, qua từng `number`. Xét điều kiện: `number % 2 === 0` (`number` chia hết cho 2):
-  - Thỏa điều kiện:  in number.
+  - Thỏa điều kiện:  `positiveLasted = number` và thoát vòng lặp.
   - Không thỏa điều kiện: in thông báo `'Không tồn tại số chẳn'`.
 
 ### Output
 
-- In ra số chẳn cuối cùng của mảng hoặc thông báo lỗi cho người dùng.
+- In ra số chẳn cuối cùng của mảng.
 
 ---
 
@@ -103,7 +109,7 @@
 - Tạo và gán giá trị khi người dùng nhập:
   - `indexNumber1`: vị trí của số thứ 1
   - `indexNumber2`: vị trí của số thứ 2
-- Kiểm tra input: số nguyên dương.
+- Kiểm tra input: số nguyên dương; bắt đầu từ 1...
   - Không hợp lệ: in lỗi cho người dùng
   - Hợp lệ:
     - Khởi tạo và sao chép mảng chứa dãy số gốc cho `copyArr`
@@ -143,10 +149,14 @@
       - Tạo vòng lặp có `index = 2`; chạy từ `index` đến `number - 1`. Xét điều kiện `number` chia hết cho `index`
         - Thỏa điều kiện: Thoát vòng lặp, trả về `false`;
       - Chạy hết vòng lặp: trả về `true`;
-
-- Tạo biến `primeNumber` và gán giá trị trả về của hàm `find()` khi duyệt qua mảng, truyền `number` vào hàm `isPrimeNumber()`
+- Tạo biến `primeNumber` và gán giá trị trả về của hàm `find()` khi duyệt qua mảng. Bên trong `find()` truyền `number` vào hàm `isPrimeNumber()`.
+- `primeNumber` khác `undefined`:
+  - Thỏa: In ra số nguyên tố
+  - Không thỏa: Không tồn tại số nguyên tố
 
 ### Output
+
+- In ra số nguyên tố đầu tiên hoặc thông báo lỗi cho người dùng.
 
 ---
 
@@ -156,7 +166,17 @@
 
 ### Solution
 
+- Tạo biến `countInt` để nhận giá trị trả về từ `reduce()`.
+- Bên trong `reduce((count, number)=>{}, 0)`:
+  - Khởi tạo `count = 0`.
+  - Kiểm tra `number` có là số nguyên bằng `Number.isInterger()`:
+    - Thỏa: `count` tăng lên 1.
+    - Không thỏa: `count` giữ nguyên.
+  - In ra `count` hoặc `Không tồn tại số nguyên`.
+
 ### Output
+
+- In ra số số nguyên trong mảng hoặc thông báo lỗi cho người dùng.
 
 ---
 
@@ -166,6 +186,15 @@
 
 ### Solution
 
+- Tạo và gán giá trị:
+  - `countPosition = 0` - đếm số dương.
+  - `countNegative = 0` - đếm số âm.
+- Dùng `forEach((number))` để duyệt và so sánh điều kiện: `number > 0`:
+  - Thỏa: `countPosition` tăng thêm 1
+  - Không thỏa: `countNegative` tăng thêm 1
+- Thực hiện so sánh `countPosition` và `countNegative`.
+- In ra số lượng dương và số lượng số âm và kết quả so sánh.
+
 ### Output
 
----
+- In ra số lượng dương và số lượng số âm và kết quả so sánh.
