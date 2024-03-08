@@ -238,7 +238,7 @@ function sortedArray() {
 // Bài tập 08 - Tìm số nguyên tố đầu tiên
 function isPrimeNumber(number) {
   // Check number is Integer
-  if (!Number.isInteger(number)) return false;
+  if (!Number.isInteger(number) || number <= 1) return false;
   const STOP_POINT = number - 1;
 
   for (let index = 2; index <= STOP_POINT; index++) {
