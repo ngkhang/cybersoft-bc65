@@ -57,7 +57,7 @@
 ### Module 03: BootStrap
 
 - Captones:
-  - [ ] Layout Studious
+  - [x] Layout Studious
 - Practices:
   - [x] Portfolio
 - Extra Practices:
@@ -68,10 +68,17 @@
 - Assignments:
   - [x] Exercise 01
   - [x] Exercise 02 - DOM JS
+  - [x] Exercise 03 - Basic
+  - [ ] Exercise 04 - Advance (Cancel)
+  - [x] Exercise 05 - Function
+  - [x] Exercise 06 - Loop
+  - [x] Exercise 07 - Array
 - Practices:
   - [x] Tip Calculator
   - [x] Add new element
   - [x] Get Cost Uber
+  - [x] Filter student
+  - [ ] CRUD Student (In Process)
 - Extra Practices:
   - [ ] Cyber Modal (In process)
   - [ ] Cyber Change BG
