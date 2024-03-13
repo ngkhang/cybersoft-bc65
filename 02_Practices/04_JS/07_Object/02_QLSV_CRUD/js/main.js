@@ -1,12 +1,81 @@
 // List Student Global
 let ListStudent = [];
 
+const fieldValidation = {
+  MaSV: {
+    idErr: 'spanMaSV',
+    fieldName: 'Mã sinh viên',
+    arrCheck: ['isEmpty', 'isNumber'],
+  },
+  TenSV: {
+    idErr: 'spanTenSV',
+    fieldName: 'Tên sinh viên',
+    arrCheck: ['isEmpty', 'isString'],
+  },
+  Email: {
+    idErr: 'spanEmailSV',
+    fieldName: 'Email sinh viên',
+    arrCheck: ['isEmpty'],
+  },
+  Pass: {
+    idErr: 'spanMatKhau',
+    fieldName: 'Mật khẩu',
+    arrCheck: ['isEmpty'],
+  },
+  NgaySinh: {
+    idErr: 'spanNgaySinh',
+    fieldName: 'Ngày sinh',
+    arrCheck: ['isEmpty'],
+  },
+  khSV: {
+    idErr: 'spanKhoaHoc',
+    fieldName: 'Khóa học',
+    arrCheck: ['isEmpty'],
+  },
+  DiemToan: {
+    idErr: 'spanToan',
+    fieldName: 'Điểm Toán',
+    arrCheck: ['isEmpty', 'isNumber'],
+  },
+  DiemLy: {
+    idErr: 'spanLy',
+    fieldName: 'Điểm Lý',
+    arrCheck: ['isEmpty', 'isNumber'],
+  },
+  DiemHoa: {
+    idErr: 'spanHoa',
+    fieldName: 'Điểm Hóa',
+    arrCheck: ['isEmpty', 'isNumber'],
+  },
+}
+
 // Create new student
 function addNewStudent() {
   let newStudent = getInfoStudent();
-  ListStudent.push(newStudent);
-  render(ListStudent);
-  resetField();
+
+  let converArr = Object.entries(newStudent);
+  let isValid = true;
+
+  for (let idx = 0; idx < converArr.length - 1; idx++) {
+    const [key, value] = converArr[idx];
+    let idErr = fieldValidation[key].idErr;
+
+    let arrFiel = fieldValidation[key].arrCheck;
+    for (let step = 0; step < arrFiel.length; step++) {
+      const nameFunc = arrFiel[step];
+      let isCheck = listFunc[nameFunc](value, idErr, fieldValidation[key].fieldName);
+      if (!isCheck) {
+        isValid = false;
+        break;
+      }
+    }
+  }
+  if (isValid) {
+    ListStudent.push(newStudent);
+    render(ListStudent);
+    resetField();
+  }
+
 }
 
 // Update infor student
@@ -57,9 +126,11 @@ function resetField() {
 
 // Search student
 function searchStudent() {
-  let nameStudent = document.getElementById('txtSearch').value;
-  let student = ListStudent.filter((stu) => stu.TenSV === nameStudent);
+  let nameStudent = document.getElementById('txtSearch').value.trim();
 
+  if (nameStudent.length < 0) return;
+
+  let student = ListStudent.filter((stu) => stu.TenSV.includes(nameStudent));
   render(nameStudent === '' ? ListStudent : student);
   nameStudent.value = '';
 }
