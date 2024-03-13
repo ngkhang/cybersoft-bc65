@@ -1,22 +1,15 @@
-const TITLE_EMPLOYEE = {
-  'Sếp': 3,
-  'Trưởng phòng': 2,
-  'Nhân viên': 1,
-}
-
-const LEVEL_EMPLOYEE = {
-  Infinity: 'xuất sắc',
-  191: 'giỏi',
-  175: 'khá',
-  159: 'trung bình',
-}
-
 function getLevelEmployee(workTime) {
-  let keys = Object.keys(LEVEL_EMPLOYEE);
+  // let keys = Object.keys(RANGE_LEVEL_EMPLOYEE);
 
-  for (let step = 0; step < keys.length; step++) {
-    const key = keys[step];
-    if (workTime <= key) return LEVEL_EMPLOYEE[key];
+  // for (let step = 0; step < keys.length; step++) {
+  //   const key = keys[step];
+  //   if (workTime <= key) return RANGE_LEVEL_EMPLOYEE[key];
+  // }
+
+  const range = Object.entries(RANGE_LEVEL_EMPLOYEE);
+  for (let index = 0; index < range.length; index++) {
+    const size = range[index][1];
+    if (workTime * 1 <= size) return range[index][0];
   }
 }
 

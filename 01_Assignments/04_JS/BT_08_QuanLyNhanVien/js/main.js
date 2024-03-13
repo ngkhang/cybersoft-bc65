@@ -3,25 +3,24 @@ let EMPLOYEES = [];
 
 // Clear Form
 function clearForm() {
-  const inputsForm = [
-    ...document.querySelectorAll('.modal-body form .input-group input'),
-    ...document.querySelectorAll('.modal-body form .input-group select')
-  ];
+  const inputsForm = getInputsQuery(querySelectors);
 
-  inputsForm.forEach((input) => {
-    input.value = '';
-  })
+  inputsForm.forEach((input) => input.value = '');
 }
 
 // Close Modal
 function closeModal() {
+  clearForm();
   $('#myModal').modal('hide');
 }
 
+// Handle button close modal
+document.getElementById('btnDong').onclick = () => closeModal();
+
 // Render List Employee
-function render() {
+function render(listEmployee) {
   const tableDSId = document.getElementById('tableDanhSach');
-  let content = EMPLOYEES.map((emp) => {
+  let content = listEmployee.map((emp) => {
     return `
       <tr>
         <td>${emp.tknv}</td>
@@ -46,7 +45,7 @@ document.getElementById('btnThemNV').onclick = () => {
   EMPLOYEES.push(newEmployee);
   clearForm();
   closeModal();
-  render();
+  render(EMPLOYEES);
 }
 
 // Update: Update information of employee
@@ -58,15 +57,24 @@ function deleteEmployee(account) {
   const newListEmployee = EMPLOYEES.filter((employee) => employee.tknv !== account);
 
   EMPLOYEES = [...newListEmployee];
-  render();
+  render(EMPLOYEES);
 }
 
 // Find employee by key-value
-function findEmployees(key, value) {
-  const employees = EMPLOYEES.filter((employee) => employee[key] === value);
+// function findEmployees(key, value) {
+//   const employees = EMPLOYEES.filter((employee) => employee[key] === value);
 
-  return employees.length !== 0 ? employees : -1;
+//   return employees.length !== 0 ? employees : -1;
+// }
+
+// Search employees
+function findEmployeesWithLevel() {
+  const levelSearch = document.getElementById('searchName').value;
+
+  const lstEmployee = EMPLOYEES.filter((emp) => emp.getLevel() === levelSearch);
+
+  render(lstEmployee.lenght !== 0 ? lstEmployee : EMPLOYEES);
 }
 
-
+document.getElementById('btnTimNV').onclick = () => findEmployeesWithLevel();
 
