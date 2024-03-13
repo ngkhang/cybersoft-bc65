@@ -8,6 +8,7 @@
     - [Module 02: HTML5 - CSS3](#module-02-html5---css3)
     - [Module 03: BootStrap](#module-03-bootstrap)
     - [Module 04: JavaScript](#module-04-javascript)
+    - [Module 05: SASS](#module-05-sass)
   - [Author](#author)
 
 ## Description
@@ -73,6 +74,7 @@
   - [x] Exercise 05 - Function
   - [x] Exercise 06 - Loop
   - [x] Exercise 07 - Array
+  - [ ] Exercise 08 - QuanLyNhanVien (In Process)
 - Practices:
   - [x] Tip Calculator
   - [x] Add new element
@@ -92,6 +94,11 @@
   - [ ] Tab JS
   - [ ] Cyber Music Player
   - [ ] Grocery List
+
+### Module 05: SASS
+
+- Practices:
+  - [ ] CyberPhone
 
 ## Author
 
