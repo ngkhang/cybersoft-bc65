@@ -1,80 +1,78 @@
 // List employee
 let EMPLOYEES = [];
 
-// Clear Form
-function clearForm() {
-  const inputsForm = getInputsQuery(querySelectors);
-
-  inputsForm.forEach((input) => input.value = '');
-}
-
-// Close Modal
-function closeModal() {
-  clearForm();
-  $('#myModal').modal('hide');
-}
-
 // Handle button close modal
-document.getElementById('btnDong').onclick = () => closeModal();
+// When click button
+document.getElementById(DOM_ID.BTN_CLOSE_MODAL).onclick = () => resetForm(querySelectors);
+// FIX: When click over form
+// document.getElementById(DOM_ID.MODAL).addEventListener('click', () => {
+//   resetForm(querySelectors);
+// });
 
-// Render List Employee
-function render(listEmployee) {
-  const tableDSId = document.getElementById('tableDanhSach');
-  let content = listEmployee.map((emp) => {
-    return `
-      <tr>
-        <td>${emp.tknv}</td>
-        <td>${emp.name}</td>
-        <td>${emp.email}</td>
-        <td>${emp.datePicker}</td>
-        <td>${emp.titleEmp}</td>
-        <td>${emp.getTotalSalary()}</td>
-        <td>${emp.getLevel()}</td>
-        <td><em class="fa fa-cog" onclick="deleteEmployee('${emp.tknv}')"></em></td>
-      </tr>
-    `;
-  })
-
-  tableDSId.innerHTML = content.join('');
-}
-
-/*  ======= CRUD ======= */
 // Create: Add new employee
-document.getElementById('btnThemNV').onclick = () => {
+document.getElementById(DOM_ID.BTN_ADD_MAIN).onclick = () => handleButton(DOM_ID.BTN_UPDATE_EMPLOYEE, true);
+
+document.getElementById(DOM_ID.BTN_ADD_EMPLOYEE).onclick = () => {
   let newEmployee = getInfoEmployee();
+
+  // Validate input
+
   EMPLOYEES.push(newEmployee);
-  clearForm();
-  closeModal();
+  resetForm(querySelectors);
+  handleModal('hide');
+  handleButton(DOM_ID.BTN_UPDATE_EMPLOYEE, false);
   render(EMPLOYEES);
 }
 
 // Update: Update information of employee
-function updateEmployee(account) {
+function editEmployee(account) {
+  handleButton(DOM_ID.BTN_ADD_EMPLOYEE, true);
+
+  const employee = findEmployees((employee) => employee['tknv'] === account)[0];
+
+  handleModal('show');
+  const inputsForm = getInputsQuery(querySelectors);
+
+  inputsForm.forEach((input) => {
+    let inputId = input.id;
+    if (inputId === 'tknv') input.readOnly = true;
+    input.value = employee[inputId];
+  });
 }
 
-// Delete: Delete employee
+document.getElementById(DOM_ID.BTN_UPDATE_EMPLOYEE).onclick = () => {
+  let newInfoEmployee = getInfoEmployee();
+
+  let currentInfoEmployee = findEmployees((employee) => employee['tknv'] === newInfoEmployee.tknv);
+
+  Object.keys(currentInfoEmployee).forEach((key) => {
+    currentInfoEmployee[key] = newInfoEmployee[key];
+  })
+
+  resetForm(querySelectors);
+  handleModal('hide');
+  handleButton(DOM_ID.BTN_ADD_EMPLOYEE, false);
+  render(EMPLOYEES);
+}
+
+// Delete employee
 function deleteEmployee(account) {
-  const newListEmployee = EMPLOYEES.filter((employee) => employee.tknv !== account);
+  const newListEmployee = findEmployees((employee) => employee['tknv'] !== account);
 
   EMPLOYEES = [...newListEmployee];
   render(EMPLOYEES);
 }
 
-// Find employee by key-value
-// function findEmployees(key, value) {
-//   const employees = EMPLOYEES.filter((employee) => employee[key] === value);
-
-//   return employees.length !== 0 ? employees : -1;
-// }
-
 // Search employees
-function findEmployeesWithLevel() {
-  const levelSearch = document.getElementById('searchName').value;
+document.getElementById(DOM_ID.BTN_SEARCH_EMPLOYEE).onclick = () => {
+  const levelSearch = document.getElementById(DOM_ID.SEARCH).value;
+  if (levelSearch === '') {
+    render(EMPLOYEES);
+    return;
+  }
+  // Validate input
 
-  const lstEmployee = EMPLOYEES.filter((emp) => emp.getLevel() === levelSearch);
-
-  render(lstEmployee.lenght !== 0 ? lstEmployee : EMPLOYEES);
+  // Return
+  const listSearch = findEmployees((employee) => employee.getLevel() === levelSearch);
+  render(listSearch !== -1 ? listSearch : []);
 }
-
-document.getElementById('btnTimNV').onclick = () => findEmployeesWithLevel();
-

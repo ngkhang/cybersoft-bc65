@@ -1,35 +1,61 @@
 const TITLE_EMPLOYEE = {
-  'Sếp': 3,
-  'Trưởng phòng': 2,
-  'Nhân viên': 1,
-}
+  'giam_doc': {
+    text: 'Giám đốc',
+    value: 3,
+  },
+  'truong_phong': {
+    text: 'Trưởng phòng',
+    value: 2,
+  },
+  'nhan_vien': {
+    text: 'Nhân viên',
+    value: 1,
+  },
+};
 
-const LEVEL_EMPLOYEE = {
-  XUAT_SAC: 'xuất sắc',
-  GIOI: 'giỏi',
-  KHA: 'khá',
-  TRUNG_BINH: 'trung bình',
-}
+const RANKS_OF_EMPLOYEE = [
+  {
+    title: 'xuất sắc',
+    minRank: 192,
+    maxRank: 200,
+  },
+  {
+    title: 'giỏi',
+    minRank: 176,
+    maxRank: 191,
+  },
+  {
+    title: 'khá',
+    minRank: 160,
+    maxRank: 175,
+  },
+  {
+    title: 'trung bình',
+    minRank: 80,
+    maxRank: 159,
+  },
+];
 
-const RANGE_LEVEL_EMPLOYEE = {
-  [LEVEL_EMPLOYEE.XUAT_SAC]: Infinity,
-  [LEVEL_EMPLOYEE.GIOI]: 191,
-  [LEVEL_EMPLOYEE.KHA]: 175,
-  [LEVEL_EMPLOYEE.TRUNG_BINH]: 159,
-}
-
-const KEYS_ID = {
-  "tknv": "tknv",
-  "name": "name",
-  "email": "email",
-  "password": "password",
-  "datePicker": "datePicker",
-  "salary": "salary",
-  "titleEmp": "titleEmp",
-  "workTime": "workTime",
-}
+const DOM_ID = {
+  TABLE: 'tableDanhSach',
+  MODAL: 'myModal',
+  SEARCH: 'searchName',
+  BTN_ADD_MAIN: 'btnThem',
+  BTN_ADD_EMPLOYEE: 'btnThemNV',
+  BTN_UPDATE_EMPLOYEE: 'btnCapNhat',
+  BTN_CLOSE_MODAL: 'btnDong',
+  BTN_SEARCH_EMPLOYEE: 'btnTimNV',
+};
 
 const querySelectors = [
   '.modal-body form .input-group input',
   '.modal-body form .input-group select',
-]
+];
+
+const REGEXS = {
+  NUMBER: /^[0-9]+$/,
+  NAME: /[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêếìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]+\ /,
+  EMAIL: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+  PASSWORD: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,10}$/,
+  DATE: /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/(19|20)\d{2}$/,
+}

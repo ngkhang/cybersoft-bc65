@@ -1,31 +1,26 @@
+// Get level employee based on working time
 function getLevelEmployee(workTime) {
-  // let keys = Object.keys(RANGE_LEVEL_EMPLOYEE);
+  let rankEmployee = RANKS_OF_EMPLOYEE.find((rank) => rank.minRank <= workTime * 1 && workTime * 1 <= rank.maxRank);
 
-  // for (let step = 0; step < keys.length; step++) {
-  //   const key = keys[step];
-  //   if (workTime <= key) return RANGE_LEVEL_EMPLOYEE[key];
-  // }
-
-  const range = Object.entries(RANGE_LEVEL_EMPLOYEE);
-  for (let index = 0; index < range.length; index++) {
-    const size = range[index][1];
-    if (workTime * 1 <= size) return range[index][0];
-  }
+  return rankEmployee.title;
 }
 
+// TODO: Còn properties: totalSalary và levelEmployee
 function Employee(_tknv, _name, _email, _password, _datePicker, _salary, _titleEmp, _workTime) {
+  // Properties
   this.tknv = _tknv;
   this.name = _name;
   this.email = _email;
   this.password = _password;
   this.datePicker = _datePicker;
-  this.salary = _salary;
+  this.salary = _salary * 1;
   this.titleEmp = _titleEmp;
-  this.workTime = _workTime;
+  this.workTime = _workTime * 1;
 
-  // Tinh tong luong nhan vien theo chuc vu
-  this.getTotalSalary = () => this.salary * 1 * TITLE_EMPLOYEE[this.titleEmp];
+  // Methods
+  // Get total salary based on title employee
+  this.getTotalSalary = () => this.salary * 1 * TITLE_EMPLOYEE[this.titleEmp].value;
 
-  // Xep loai nhan vien theo gio lam viec
+  // Get level employee
   this.getLevel = () => getLevelEmployee(this.workTime);
 }
