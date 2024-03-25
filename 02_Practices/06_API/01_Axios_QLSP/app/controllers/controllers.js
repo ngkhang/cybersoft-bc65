@@ -12,18 +12,24 @@ function render(productList) {
         <td class='w-25'>${prod.description}</td>
         <td class=''>
           <div class='d-flex justify-content-between'>
-          <button
-            class='btn btn-primary px-4 py-1' type='button'
-            onclick='delProduct("${prod.id}")'
-          >
-            Xóa
-          </button>
-          <button 
-            class='btn btn-danger px-4 py-1 mr-2' type='button'
-            onclick='editProduct("${prod.id}")'
-          >
-            Sửa
-          </button>
+            <button
+              class='btn btn-primary px-4 py-1 mr-1' type='button'
+              onclick='viewProduct("${prod.id}")'
+            >
+              Chi tiết
+            </button>
+            <button
+              class='btn btn-danger px-4 py-1 mr-1' type='button'
+              onclick='delProduct("${prod.id}")'
+            >
+              Xóa
+            </button>
+            <button 
+              class='btn btn-warning px-4 py-1' type='button'
+              onclick='editProduct("${prod.id}")'
+            >
+              Sửa
+            </button>
           </div>
         </td>
       </tr>    

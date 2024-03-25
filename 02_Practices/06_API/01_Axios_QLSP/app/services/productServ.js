@@ -5,17 +5,17 @@ const END_POINTS = {
 };
 
 const PRODUCT_SERVER = {
-  getProducts: () => {
+  getAllProduct: () => {
     return axios({
       url: `${BASE_URL}/${END_POINTS.PRODUCT}`,
       method: 'GET',
     });
   },
-  delProduct: (idProduct) => {
+  getProduct: (idProduct) => {
     return axios({
       url: `${BASE_URL}/${END_POINTS.PRODUCT}/${idProduct}`,
-      method: 'DELETE',
-    })
+      method: 'GET',
+    });
   },
   addProduct: (data) => {
     return axios({
@@ -30,5 +30,11 @@ const PRODUCT_SERVER = {
       method: 'PUT',
       data,
     })
-  }
+  },
+  delProduct: (idProduct) => {
+    return axios({
+      url: `${BASE_URL}/${END_POINTS.PRODUCT}/${idProduct}`,
+      method: 'DELETE',
+    })
+  },
 }
