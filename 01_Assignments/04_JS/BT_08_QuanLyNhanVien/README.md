@@ -4,11 +4,11 @@
 
 1. [x] In danh sách nhân viên.
 2. [ ] Tạo đối tượng nhân viên với các thuộc tính và phương thức theo yêu cầu.
-3. [ ] Validation input.
-4. [ ] Thêm nhân viên mới.
-5. [ ] Cập nhật thông tin nhân viên.
-6. [ ] Xóa nhân viên.
-7. [ ] Tìm nhân viên theo xếp loại.
+3. [x] Validation input.
+4. [x] Thêm nhân viên mới.
+5. [x] Cập nhật thông tin nhân viên.
+6. [x] Xóa nhân viên.
+7. [x] Tìm nhân viên theo xếp loại.
 
 ## Flow
 
@@ -52,31 +52,31 @@
 
 #### Requirement
 
-1. [ ] Tài khoản:
-   1. [ ] Không để trống.
-   2. [ ] Độ dài: 4-6 ký số.
-   3. [ ] Là duy nhất.
-2. [ ] Tên nhân viên:
-   1. [ ] Không để trống.
-   2. [ ] Là chữ.
-3. [ ] Email:
-   1. [ ] Không để trống.
-   2. [ ] Đúng định dạng email.
-4. [ ] Mật khẩu:
-   1. [ ] Không để trống.
-   2. [ ] Độ dài: 6-10 ký tự.
-   3. [ ] Có ít nhất: 1 ký tự số, 1 ký tự in hoa, 1 ký tự đặc biệt.
-5. [ ] Ngày làm:
-   1. [ ] Không để trống.
+1. [x] Tài khoản:
+   1. [x] Không để trống.
+   2. [x] Độ dài: 4-6 ký số.
+   3. [x] Là duy nhất.
+2. [x] Tên nhân viên:
+   1. [x] Không để trống.
+   2. [x] Là chữ.
+3. [x] Email:
+   1. [x] Không để trống.
+   2. [x] Đúng định dạng email.
+4. [x] Mật khẩu:
+   1. [x] Không để trống.
+   2. [x] Độ dài: 6-10 ký tự.
+   3. [x] Có ít nhất: 1 ký tự số, 1 ký tự in hoa, 1 ký tự đặc biệt.
+5. [x] Ngày làm:
+   1. [x] Không để trống.
    2. [ ] Đúng định dạng: mm/dd/yyyy
-6. [ ] Lương cơ bản:
-   1. [ ] Không để trống.
-   2. [ ] Giới hạn: 1_000_000 - 20_000_000
-7. [ ] Chức vụ:
-   [ ] Không để trống (chọn chức vụ hợp lệ)
-8. [ ] Số giờ làm trong tháng:
-   1. [ ] Không để trống.
-   2. [ ] Giới hạn: 80 - 200 (h)
+6. [x] Lương cơ bản:
+   1. [x] Không để trống.
+   2. [x] Giới hạn: 1_000_000 - 20_000_000
+7. [x] Chức vụ:
+   1. [x] Không để trống (chọn chức vụ hợp lệ)
+8. [x] Số giờ làm trong tháng:
+   1. [x] Không để trống.
+   2. [x] Giới hạn: 80 - 200 (h)
 
 #### Functions
 
@@ -92,35 +92,33 @@
 
 ### Thêm nhân viên mới
 
-- Status: 🔃In process
+- Status: ✅Done
 - Step:
 
 1. [x] Lấy thông tin từ form
-2. [ ] Validation input
-   1. [ ] Hợp lệ:
+2. [x] Validation input
+   1. [x] Hợp lệ:
       1. [x] Thêm vào danh sách
       2. [x] Xóa và đóng form
       3. [x] Render danh sách mới.
-   2. [ ] Không hợp lệ:
-      1. [ ] Thông báo lỗi ngay bên dưới input.
+   2. [x] Không hợp lệ: Thông báo lỗi ngay bên dưới input.
 
 ### Cập nhật thông tin
 
-- Status:
+- Status: ✅Done
 - Step:
-  - [ ] Tìm account của nhân viên trong danh sách dựa vào `tknv`.
-  - [ ] Hiển thị thông tin hiện tại của nhân viên:
-    - [ ] Mở modal
-    - [ ] Disable button `Thêm nhân viên`
-    - [ ] Hiển thị thông tin lên form input (disable `tknv` input)
-  - [ ] Cập nhật thông tin mới
-    - [ ] Validation thông tin mới từ form
-      - [ ] Hợp lệ:
-        - [ ] Cập nhật thông tin mới dựa vào key: `tknv`
-        - [ ] Xóa và đóng modal
-        - [ ] Enable button `Thêm nhân viên`
-        - [ ] Render danh sách
-      - [ ] Không hợp lệ: Thông báo lỗi ngay bên dưới input
+  - [x] Tìm account của nhân viên trong danh sách dựa vào `tknv`.
+  - [x] Hiển thị thông tin hiện tại của nhân viên:
+    - Mở modal
+    - Disable button `Thêm nhân viên`
+    - Hiển thị thông tin lên form input (disable `tknv` input)
+  - [x] Cập nhật thông tin mới: Validation thông tin mới từ form
+    - Hợp lệ:
+      - Cập nhật thông tin mới dựa vào key: `tknv`
+      - Xóa và đóng modal
+      - Enable button `Thêm nhân viên`
+      - Render danh sách
+    - Không hợp lệ: Thông báo lỗi ngay bên dưới input
 
 ### Xóa nhân viên
 
@@ -132,7 +130,7 @@
 
 ### Tìm nhân viên dựa theo xếp loại
 
-- Status:
+- Status: ✅Done
 - Step:
   - Validation input search (xuất sắc, giỏi, khá hoặc trung bình):
     - Hợp lệ:

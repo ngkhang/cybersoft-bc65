@@ -1,78 +1,160 @@
-// List employee
+// Global List employee
 let EMPLOYEES = [];
 
+// Start: Handle with DOM
+
+// End: Handle with DOM
+
+// Start: Handle logic
+
+// End: Handle logic
+
+// 👇 Fix
 // Handle button close modal
 // When click button
-document.getElementById(DOM_ID.BTN_CLOSE_MODAL).onclick = () => resetForm(querySelectors);
+document.querySelector(QUERY_SELECTORS.BTN_CLOSE_MODAL).onclick = () =>
+  resetInputsField();
 // FIX: When click over form
-// document.getElementById(DOM_ID.MODAL).addEventListener('click', () => {
-//   resetForm(querySelectors);
+// document.querySelector(QUERY_SELECTORS.MODAL).addEventListener('click', () => {
+//   resetInputsField();
 // });
 
-// Create: Add new employee
-document.getElementById(DOM_ID.BTN_ADD_MAIN).onclick = () => handleButton(DOM_ID.BTN_UPDATE_EMPLOYEE, true);
+/**
+ * Feature: Add a new employee
+ * - Disable button UPDATE
+ * - Handle add a new employee
+ *    - Validate input
+ *    - Add
+ *    - Reset input form
+ *    - Close modal
+ *    - Render UI
+ */
+// Disable button UPDATE
+getElements(QUERY_SELECTORS.BTN_ADD_MAIN)[0].onclick = () =>
+  handleButton(QUERY_SELECTORS.BTN_UPDATE_EMPLOYEE, true);
 
-document.getElementById(DOM_ID.BTN_ADD_EMPLOYEE).onclick = () => {
+// Handle add a new employee
+document.querySelector(QUERY_SELECTORS.BTN_ADD_EMPLOYEE).onclick = () => {
   let newEmployee = getInfoEmployee();
 
   // Validate input
+  let isValid = handleValidate(newEmployee, "ADD");
 
-  EMPLOYEES.push(newEmployee);
-  resetForm(querySelectors);
-  handleModal('hide');
-  handleButton(DOM_ID.BTN_UPDATE_EMPLOYEE, false);
-  render(EMPLOYEES);
-}
+  if (isValid) {
+    EMPLOYEES.push(newEmployee);
+    resetInputsField();
+    handleModal("hide");
+    handleButton(QUERY_SELECTORS.BTN_UPDATE_EMPLOYEE, false);
+    render(EMPLOYEES);
+  }
+};
 
-// Update: Update information of employee
+/**
+ * Feature: Update information of employee
+ * - Handle get current information of employee
+ *    - Disable button ADD
+ *    - Get current information
+ *    - Open modal (form)
+ *    -
+ * - Handle update:
+ *    - Get info from Form
+ *    - Validation input
+ *    - Update
+ *    - Reset input field
+ *    - Close modal
+ *    - Enable button ADD_EMPLOYEE
+ *    - Re-render
+ */
+// Handle get current information of employee
 function editEmployee(account) {
-  handleButton(DOM_ID.BTN_ADD_EMPLOYEE, true);
+  handleButton(QUERY_SELECTORS.BTN_ADD_EMPLOYEE, true);
 
-  const employee = findEmployees((employee) => employee['tknv'] === account)[0];
+  const employee = findDataByCallback(
+    EMPLOYEES,
+    (employee) => employee["tknv"] === account
+  )[0];
 
-  handleModal('show');
-  const inputsForm = getInputsQuery(querySelectors);
+  handleModal("show");
+  const inputsForm = getElements(QUERY_SELECTORS.INPUTS_FIELD);
+  // const inputsForm = getInputsQuery();
 
   inputsForm.forEach((input) => {
     let inputId = input.id;
-    if (inputId === 'tknv') input.readOnly = true;
+    if (inputId === "tknv") input.readOnly = true;
     input.value = employee[inputId];
   });
 }
-
-document.getElementById(DOM_ID.BTN_UPDATE_EMPLOYEE).onclick = () => {
+// Handle update
+document.querySelector(QUERY_SELECTORS.BTN_UPDATE_EMPLOYEE).onclick = () => {
   let newInfoEmployee = getInfoEmployee();
 
-  let currentInfoEmployee = findEmployees((employee) => employee['tknv'] === newInfoEmployee.tknv);
+  // Validate input
+  let isValid = handleValidate(newInfoEmployee);
 
-  Object.keys(currentInfoEmployee).forEach((key) => {
-    currentInfoEmployee[key] = newInfoEmployee[key];
-  })
+  if (isValid) {
+    let currentInfoEmployee = findDataByCallback(
+      EMPLOYEES,
+      (employee) => employee["tknv"] === newInfoEmployee.tknv
+    )[0];
+    // let currentInfoEmployee = findEmployees(
+    //   (employee) => employee["tknv"] === newInfoEmployee.tknv
+    // )[0];
 
-  resetForm(querySelectors);
-  handleModal('hide');
-  handleButton(DOM_ID.BTN_ADD_EMPLOYEE, false);
-  render(EMPLOYEES);
-}
+    Object.keys(currentInfoEmployee).forEach((key) => {
+      if (key !== "tknv") currentInfoEmployee[key] = newInfoEmployee[key];
+    });
 
+    resetInputsField();
+    handleButton(QUERY_SELECTORS.BTN_ADD_EMPLOYEE, false);
+    handleModal("hide");
+    render(EMPLOYEES);
+  }
+};
+
+/**
+ * Feature: Delete a employee
+ * - Handle delete employee:
+ *    - Find employee by "TKNV"
+ *    - Delete it
+ */
 // Delete employee
 function deleteEmployee(account) {
-  const newListEmployee = findEmployees((employee) => employee['tknv'] !== account);
+  const newListEmployee = findDataByCallback(
+    EMPLOYEES,
+    (employee) => employee["tknv"] !== account
+  );
 
   EMPLOYEES = [...newListEmployee];
   render(EMPLOYEES);
 }
 
+/**
+ * Feature: Search employee
+ * - Handle button Search and Enter keyboard
+ * - Handle search
+ *    - Get value input serach
+ *    - Find value in list
+ */
+// Handle button Search and Enter keyboard
+document.querySelector(QUERY_SELECTORS.BTN_SEARCH_EMPLOYEE).onclick = () => {
+  handleSearch();
+};
+
+document.querySelector(QUERY_SELECTORS.SEARCH).onkeydown = (event) => {
+  if (event.keyCode === 13) handleSearch();
+};
 // Search employees
-document.getElementById(DOM_ID.BTN_SEARCH_EMPLOYEE).onclick = () => {
-  const levelSearch = document.getElementById(DOM_ID.SEARCH).value;
-  if (levelSearch === '') {
+function handleSearch() {
+  const levelSearch = document.querySelector(QUERY_SELECTORS.SEARCH).value;
+
+  if (levelSearch === "") {
     render(EMPLOYEES);
     return;
   }
-  // Validate input
 
-  // Return
-  const listSearch = findEmployees((employee) => employee.getLevel() === levelSearch);
-  render(listSearch !== -1 ? listSearch : []);
+  const listEmployee = findDataByCallback(
+    EMPLOYEES,
+    (employee) => employee.getLevel() === levelSearch.trim().toLowerCase()
+  );
+  render(listEmployee);
 }

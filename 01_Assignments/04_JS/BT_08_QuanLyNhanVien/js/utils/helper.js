@@ -1,67 +1,82 @@
-function getInputsQuery(arrSelector) {
-  const inputs = [];
+/**
+ * Function get elements by selectors param
+ * @param selectors {array | string} - List selectors
+ * @return array elements
+ */
+function getElements(selectors) {
+  if (typeof selectors === "string")
+    return document.querySelectorAll(selectors);
 
-  arrSelector.forEach((selector) => {
-    inputs.push(...document.querySelectorAll(selector));
-  });
-
-  return inputs;
-}
-
-// Reset form input
-function resetForm(listQuery) {
-  const inputsForm = getInputsQuery(listQuery);
-
-  inputsForm.forEach((input) => input.value = '');
+  const ELEMENTS = [];
+  selectors.forEach((ele) => ELEMENTS.push(...document.querySelectorAll(ele)));
+  return ELEMENTS;
 }
 
 /**
-* Handle Modal
-* @param status {"show" | "hide"}
-*/
-function handleModal(status) {
-  $(`#${DOM_ID.MODAL}`).modal(status);
+ * Function reset inputs field form
+ */
+function resetInputsField() {
+  const inputsForm = getElements(QUERY_SELECTORS.INPUTS_FIELD);
+
+  inputsForm.forEach((input) => (input.value = ""));
 }
 
 /**
-* Handle button
-* @param btnID {string} 
-* @param status {boolean} 
-*/
-function handleButton(btnID, status) {
-  document.getElementById(btnID).disabled = status;
-}
+ * Handle button
+ * @param queryBtn {string}
+ * @param status {boolean}
+ */
+const handleButton = (queryBtn, status) =>
+  (document.querySelector(queryBtn).disabled = status);
 
-// Render list employee
-function render(listEmployee) {
-  const tableID = document.getElementById(DOM_ID.TABLE);
+/**
+ * Handle Modal
+ * @param status {string} - Status of modal: "show" or "hide"
+ */
+const handleModal = (status) => $(QUERY_SELECTORS.MODAL).modal(status);
 
-  // FIX: 👇Handle error when no data ${TITLE_EMPLOYEE[employee.titleEmp].text}
+/**
+ * Find data
+ * @param data {array}
+ * @param callback {function}
+ * @return array
+ */
+const findDataByCallback = (data, callback) => data.filter(callback);
 
-  let content = listEmployee.map((employee) => {
+/**
+ * Render list data
+ * @param list {array}
+ */
+function render(list) {
+  const tableID = document.querySelector(QUERY_SELECTORS.TABLE);
+
+  // FIX: 👇Handle error when no data ${TITLE_EMPLOYEE[item.titleEmp].text}
+
+  let content = list.map((item) => {
     return `
       <tr>
-        <td>${employee.tknv}</td>
-        <td>${employee.name}</td>
-        <td>${employee.email}</td>
-        <td>${employee.datePicker}</td>
-        <td>${TITLE_EMPLOYEE[employee.titleEmp].text}</td>
-        <td>${employee.getTotalSalary()}</td>
-        <td>${employee.getLevel()}</td>
+        <td>${item.tknv}</td>
+        <td>${item.name}</td>
+        <td>${item.email}</td>
+        <td>${item.datePicker}</td>
+        <td>${TITLE_EMPLOYEE[item.titleEmp].text}</td>
+        <td>${item.getTotalSalary()}</td>
+        <td>${item.getLevel()}</td>
         <td>
-          <button class='btn btn-primary' onclick='editEmployee("${employee.tknv}")'>Edit</button>
-          <button class='btn btn-danger' onclick='deleteEmployee("${employee.tknv}")'>Delete</button>
+          <button class='btn btn-primary'
+            onclick='editEmployee("${item.tknv}")'
+          >
+            Edit
+          </button>
+          <button class='btn btn-danger'
+            onclick='deleteEmployee("${item.tknv}")'
+          >
+            Delete
+          </button>
         </td>
       </tr>
     `;
   });
 
-  tableID.innerHTML = content.join('');
-}
-
-// Find employee
-function findEmployees(callback) {
-  const output = EMPLOYEES.filter((emp) => callback(emp));
-
-  return output.length !== 0 ? output : -1;
+  tableID.innerHTML = content.join("");
 }
