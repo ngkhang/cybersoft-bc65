@@ -24,17 +24,34 @@ function render(productList) {
             >
               Xóa
             </button>
-            <button 
-              class='btn btn-warning px-4 py-1' type='button'
-              onclick='editProduct("${prod.id}")'
-            >
-              Sửa
-            </button>
           </div>
         </td>
       </tr>    
     `;
   });
 
-  document.querySelector(DOM_ID.TABLE_BODY_ID).innerHTML = contents.join('');
+  document.querySelector(QUERY_SELECTORS.TABLE_BODY).innerHTML = contents.join('');
+}
+
+function getInfoForm() {
+  const ELEMENTS = getElements(QUERY_SELECTORS.INPUT_FORM);
+
+  let newProduct = new Product();
+  ELEMENTS.forEach((input) => {
+    let key = PRODUCT_PROPS[input.id];
+    let value = input.value;
+
+    newProduct[key] = key === 'price' ? value * 1 : value;
+  });
+
+  return newProduct;
+}
+
+function setInfoForm(data) {
+  const INPUTS = getElements(QUERY_SELECTORS.INPUT_FORM);
+
+  INPUTS.forEach((ele) => {
+    const key = PRODUCT_PROPS[ele.id];
+    ele.value = data[key];
+  });
 }

@@ -5,10 +5,13 @@ const END_POINTS = {
 };
 
 const PRODUCT_SERVER = {
-  getAllProduct: () => {
+  getAllProduct: (name) => {
     return axios({
       url: `${BASE_URL}/${END_POINTS.PRODUCT}`,
       method: 'GET',
+      params: {
+        name: name || undefined,
+      },
     });
   },
   getProduct: (idProduct) => {

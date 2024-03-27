@@ -5,172 +5,118 @@ function fetchProductList() {
     .catch((error) => console.log(error));
 }
 
-// Add new product
-function addProduct(dataProduct) {
-  PRODUCT_SERVER.addProduct(dataProduct)
+// Initial
+document.querySelector("body").onload = () => {
+  fetchProductList();
+  isOpenSpinner(false);
+};
+
+// Handle button RESET input
+document.querySelector(QUERY_SELECTORS.BTN_MODAL_RESET).onclick = () =>
+  handleResetInputs();
+
+// Handle button ADD & UPDATE when modal hidden
+$(QUERY_SELECTORS.MODAL).on("hidden.bs.modal", () => {
+  handleButton(QUERY_SELECTORS.BTN_MODAL_ADD, false);
+  handleButton(QUERY_SELECTORS.BTN_MODAL_UPDATE, false);
+  handleResetInputs();
+});
+
+// ADD NEW PRODUCT
+// 1. Disable button UPDATE
+document.querySelector(QUERY_SELECTORS.BTN_ADD_PRODUCT).onclick = () => {
+  handleButton(QUERY_SELECTORS.BTN_MODAL_UPDATE, true);
+};
+// 2. Handle add new product
+document.querySelector(QUERY_SELECTORS.BTN_MODAL_ADD).onclick = () => {
+  isOpenSpinner(true);
+  let newProduct = getInfoForm();
+
+  PRODUCT_SERVER.addProduct(newProduct)
     .then((response) => {
       fetchProductList();
+      handleModal("hide");
     })
-    .catch((error) => console.log(error));
-}
+    .catch((error) => console.log(error))
+    .finally(() => isOpenSpinner(false));
+};
 
-// Detail product
+// UPDATE PRODUCT
+// 1. Disable ADD & RESET button
 function viewProduct(idProduct) {
+  handleButton(QUERY_SELECTORS.BTN_MODAL_ADD, true);
+  handleButton(QUERY_SELECTORS.BTN_MODAL_RESET, true);
+  isOpenSpinner(true);
+
   PRODUCT_SERVER.getProduct(idProduct)
     .then((response) => {
       let product = response.data;
-      let idProduct = product.id;
-
-      handleModal('show');
-
-      const Elements = [
-        ...document.querySelectorAll('.modal-body input'),
-        ...document.querySelectorAll('.modal-body select'),
-        ...document.querySelectorAll('.modal-body textarea'),
-      ];
-
-      Elements.forEach((item) => {
-        const key = PRODUCT_PROPS[item.id];
-        item.value = product[key];
-      });
-
-      const btnElemnts = `
-        <button
-          class="btn btn-primary" type="button"
-          onclick="handleAddNewProduct()"
-        >
-          Add
-        </button>
-        <button
-          class="btn btn-warning"
-          type="button"
-          onclick="handleUpdate('${idProduct}')"
-        >
-          Update
-        </button>
-        <button
-          class="btn btn-light"
-          type="button"
-          onclick="handleReset()"
-        >
-          Reset
-        </button>
-      `;
-
-      document.querySelector(DOM_ID.MODAL_FOOTER).innerHTML = btnElemnts;
+      handleModal("show");
+      setInfoForm(product);
     })
-    .catch((error) => console.log(error));
+    .catch((error) => console.log(error))
+    .finally(() => isOpenSpinner(false));
 }
+// 2. Handle UPDATE button
+document.querySelector(QUERY_SELECTORS.BTN_MODAL_UPDATE).onclick = () => {
+  let newInfoProduct = getInfoForm();
+  isOpenSpinner(true);
 
-// Delete product
-function delProduct(idProduct) {
-  PRODUCT_SERVER.delProduct(idProduct)
+  PRODUCT_SERVER.updateProduct(newInfoProduct.id, newInfoProduct)
     .then((response) => {
-      fetchProductList()
+      handleModal("hide");
+      fetchProductList();
     })
-    .catch((error) => console.log(error));
+    .catch((error) => console.log(error))
+    .finally(() => isOpenSpinner(false));
 }
 
-// Update product
-function updateProduct(idProduct) {
-  let newInfoProduct = {};
-  // handleModal('hide');
-  const Elements = [
-    ...document.querySelectorAll('.modal-body input'),
-    ...document.querySelectorAll('.modal-body select'),
-    ...document.querySelectorAll('.modal-body textarea'),
-  ];
+// DELETE PRODUCT
+function delProduct(idProduct) {
+  isOpenSpinner(true);
+  PRODUCT_SERVER.delProduct(idProduct)
+    .then((response) => fetchProductList())
+    .catch((error) => console.log(error))
+    .finally(() => isOpenSpinner(false));
+}
 
-  Elements.forEach((item) => {
-    const key = PRODUCT_PROPS[item.id];
-    newInfoProduct[key] = item.value;
+// SEARCH PRODUCT
+// 1. Handle Enter and button SEARCH
+document
+  .querySelector(QUERY_SELECTORS.INPUT_SEARCH)
+  .addEventListener("keyup", (e) => {
+    if (e.keyCode === 13) {
+      let keyWord = e.target.value.trim().toLowerCase();
+      handleSearchInput(keyWord);
+    }
   });
+document.querySelector(QUERY_SELECTORS.SEARCH).onclick = () => {
+  let keyWord = document.querySelector(QUERY_SELECTORS.INPUT_SEARCH).value.trim().toLowerCase();
+  handleSearchInput(keyWord);
+};
 
-  PRODUCT_SERVER.updateProduct()
+// 2. Handle search
+function handleSearchInput(keyWord) {
+  isOpenSpinner(true);
 
-
-}
-
-// Search product
-function handleSearchInput(nameProduct) {
+  // Solution 1:
   PRODUCT_SERVER.getAllProduct()
     .then((response) => {
       const LIST_PRODUCT = response.data;
-      let listProduct = (nameProduct === '')
-        ? LIST_PRODUCT
-        : LIST_PRODUCT.filter((prod) => prod.name === nameProduct);
+      let listProduct =
+        keyWord === ""
+          ? LIST_PRODUCT
+          : findDataByCallback(LIST_PRODUCT, (prod) =>
+            prod.name.toLowerCase().includes(keyWord)
+          );
       render(listProduct);
     })
-    .catch((error) => console.log(error));
-}
+    .catch((error) => console.log(error))
+    .finally(() => isOpenSpinner(false));
 
-// Handle Button Enter
-document.querySelector(DOM_ID.INPUT_SEARCH).addEventListener('keyup', (e) => {
-  if (e.keyCode === 13) handleSearchInput(e.target.value.trim());
-})
-document.querySelector(DOM_ID.ICON_SEARCH).onclick = () => {
-  let value = document.querySelector(DOM_ID.INPUT_SEARCH).value.trim()
-  handleSearchInput(value);
-}
-
-// Handle Button Reset
-function handleReset() {
-  const Elements = [
-    ...document.querySelectorAll('.modal-body input'),
-    ...document.querySelectorAll('.modal-body select'),
-    ...document.querySelectorAll('.modal-body textarea'),
-  ];
-
-  Elements.forEach((item) => item.value = '');
-}
-
-// Handle Modal
-function handleModal(status) {
-  $(`${DOM_ID.MODAL}`).modal(status);
-}
-
-// Initial
-document.querySelector('body').onload = () => {
-  fetchProductList();
-}
-
-// Handle add new product
-function handleAddNewProduct() {
-  const Elements = [
-    ...document.querySelectorAll('.modal-body input'),
-    ...document.querySelectorAll('.modal-body select'),
-    ...document.querySelectorAll('.modal-body textarea'),
-  ];
-
-  let newProduct = new Product();
-  Elements.forEach((input) => {
-    let key = PRODUCT_PROPS[input.id];
-    let value = input.value;
-
-    newProduct[key] = key === 'price' ? value * 1 : value;
-  });
-  addProduct(newProduct);
-  handleModal('hide');
-}
-
-// Handle button update
-function handleUpdate(idProduct) {
-  const Elements = [
-    ...document.querySelectorAll('.modal-body input'),
-    ...document.querySelectorAll('.modal-body select'),
-    ...document.querySelectorAll('.modal-body textarea'),
-  ];
-
-  let updateProduct = new Product();
-  Elements.forEach((item) => {
-    const key = PRODUCT_PROPS[item.id];
-    updateProduct[key] = item.value;
-  });
-
-  PRODUCT_SERVER.updateProduct(idProduct, updateProduct)
-    .then((response) => {
-      handleModal('hide');
-      fetchProductList();
-    })
-    .catch((error) => console.log(error));
+  // Solution 2:
+  // PRODUCT_SERVER.getAllProduct(valueSearch)
+  //   .then((response) => render(response.data))
+  //   .catch((error) => console.log(error))
+  //   .finally(() => isOpenSpinner(false));
 }

@@ -2,8 +2,9 @@
 
 ## Tracking Task
 
-- [ ] Get all product
-- [ ] Get a product
-- [ ] Add a new product
-- [ ] Update product info
-- [ ] Delete  product
+- Not Validation
+- [x] Get all product
+- [x] Get a product
+- [x] Add a new product
+- [x] Update product info
+- [x] Delete  product
