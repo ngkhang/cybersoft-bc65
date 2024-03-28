@@ -1,23 +1,12 @@
 // Global List employee
 let EMPLOYEES = [];
 
-// Start: Handle with DOM
-
-// End: Handle with DOM
-
-// Start: Handle logic
-
-// End: Handle logic
-
-// 👇 Fix
-// Handle button close modal
-// When click button
-document.querySelector(QUERY_SELECTORS.BTN_CLOSE_MODAL).onclick = () =>
+// Handle Modal
+$(QUERY_SELECTORS.MODAL).on("hidden.bs.modal", () => {
   resetInputsField();
-// FIX: When click over form
-// document.querySelector(QUERY_SELECTORS.MODAL).addEventListener('click', () => {
-//   resetInputsField();
-// });
+  disableButton(QUERY_SELECTORS.BTN_ADD_EMPLOYEE, false);
+  disableButton(QUERY_SELECTORS.BTN_UPDATE_EMPLOYEE, false);
+});
 
 /**
  * Feature: Add a new employee
@@ -31,20 +20,18 @@ document.querySelector(QUERY_SELECTORS.BTN_CLOSE_MODAL).onclick = () =>
  */
 // Disable button UPDATE
 getElements(QUERY_SELECTORS.BTN_ADD_MAIN)[0].onclick = () =>
-  handleButton(QUERY_SELECTORS.BTN_UPDATE_EMPLOYEE, true);
+  disableButton(QUERY_SELECTORS.BTN_UPDATE_EMPLOYEE, true);
 
 // Handle add a new employee
 document.querySelector(QUERY_SELECTORS.BTN_ADD_EMPLOYEE).onclick = () => {
-  let newEmployee = getInfoEmployee();
+  let newEmployee = getObjectFromForm(QUERY_SELECTORS.INPUTS_FIELD, Employee);
 
   // Validate input
   let isValid = handleValidate(newEmployee, "ADD");
 
   if (isValid) {
     EMPLOYEES.push(newEmployee);
-    resetInputsField();
     handleModal("hide");
-    handleButton(QUERY_SELECTORS.BTN_UPDATE_EMPLOYEE, false);
     render(EMPLOYEES);
   }
 };
@@ -67,7 +54,7 @@ document.querySelector(QUERY_SELECTORS.BTN_ADD_EMPLOYEE).onclick = () => {
  */
 // Handle get current information of employee
 function editEmployee(account) {
-  handleButton(QUERY_SELECTORS.BTN_ADD_EMPLOYEE, true);
+  disableButton(QUERY_SELECTORS.BTN_ADD_EMPLOYEE, true);
 
   const employee = findDataByCallback(
     EMPLOYEES,
@@ -75,18 +62,18 @@ function editEmployee(account) {
   )[0];
 
   handleModal("show");
-  const inputsForm = getElements(QUERY_SELECTORS.INPUTS_FIELD);
-  // const inputsForm = getInputsQuery();
 
-  inputsForm.forEach((input) => {
-    let inputId = input.id;
-    if (inputId === "tknv") input.readOnly = true;
-    input.value = employee[inputId];
+  setObjectToForm(QUERY_SELECTORS.INPUTS_FIELD, employee, (input) => {
+    if (input.id === "tknv") input.readOnly = true;
   });
 }
+
 // Handle update
 document.querySelector(QUERY_SELECTORS.BTN_UPDATE_EMPLOYEE).onclick = () => {
-  let newInfoEmployee = getInfoEmployee();
+  let newInfoEmployee = getObjectFromForm(
+    QUERY_SELECTORS.INPUTS_FIELD,
+    Employee
+  );
 
   // Validate input
   let isValid = handleValidate(newInfoEmployee);
@@ -96,16 +83,11 @@ document.querySelector(QUERY_SELECTORS.BTN_UPDATE_EMPLOYEE).onclick = () => {
       EMPLOYEES,
       (employee) => employee["tknv"] === newInfoEmployee.tknv
     )[0];
-    // let currentInfoEmployee = findEmployees(
-    //   (employee) => employee["tknv"] === newInfoEmployee.tknv
-    // )[0];
 
     Object.keys(currentInfoEmployee).forEach((key) => {
       if (key !== "tknv") currentInfoEmployee[key] = newInfoEmployee[key];
     });
 
-    resetInputsField();
-    handleButton(QUERY_SELECTORS.BTN_ADD_EMPLOYEE, false);
     handleModal("hide");
     render(EMPLOYEES);
   }
@@ -117,7 +99,6 @@ document.querySelector(QUERY_SELECTORS.BTN_UPDATE_EMPLOYEE).onclick = () => {
  *    - Find employee by "TKNV"
  *    - Delete it
  */
-// Delete employee
 function deleteEmployee(account) {
   const newListEmployee = findDataByCallback(
     EMPLOYEES,
@@ -145,16 +126,19 @@ document.querySelector(QUERY_SELECTORS.SEARCH).onkeydown = (event) => {
 };
 // Search employees
 function handleSearch() {
-  const levelSearch = document.querySelector(QUERY_SELECTORS.SEARCH).value;
+  const keyWord = document
+    .querySelector(QUERY_SELECTORS.SEARCH)
+    .value.trim()
+    .toLowerCase();
 
-  if (levelSearch === "") {
+  if (keyWord === "") {
     render(EMPLOYEES);
     return;
   }
 
-  const listEmployee = findDataByCallback(
-    EMPLOYEES,
-    (employee) => employee.getLevel() === levelSearch.trim().toLowerCase()
+  const listEmployee = findDataByCallback(EMPLOYEES, (employee) =>
+    employee.getLevel().toLowerCase().includes(keyWord)
   );
+
   render(listEmployee);
 }

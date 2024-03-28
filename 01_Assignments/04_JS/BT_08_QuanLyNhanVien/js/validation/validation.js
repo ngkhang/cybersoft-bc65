@@ -74,13 +74,12 @@ function isNumberInRange(input, fieldName, start, end, idError) {
 /**
  * Function to validate if a string is in name format and display an error message by DOM ID
  * @param {string} input - The input string to be validated
- * @param {string} fieldName - The name of the field being validated (for error message)
  * @param {string} idError - The ID of the DOM element to display the error message
  * @return {boolean} - Returns true if the input is in name format, false otherwise
  */
-function isValidateName(input, fieldName, idError) {
+function isNameFormat(input, idError) {
   if (!REGEXS.NAME.test(input.trim())) {
-    let content = `${fieldName} không đúng định dạng tên`;
+    let content = "Tên không đúng định dạng tên";
     displayErrorMessage(idError, content);
     return false;
   }
@@ -91,17 +90,18 @@ function isValidateName(input, fieldName, idError) {
 /**
  * Function to validate if a key is unique within a given data array and display an error message by DOM ID
  * @param {string} input - The key to be checked for uniqueness
- * @param {Array} data - The array of objects to be searched for the key
  * @param {string} key - The property name of the key in the objects of the data array
+ * @param {string} fieldName - The name of the field being validated (for error message)
+ * @param {Array} data - The array of objects to be searched for the key
  * @param {string} idError - The ID of the DOM element to display the error message
  * @return {boolean} - Returns true if the key is unique, false otherwise
  */
-function isUniqueKey(input, data, key, idError) {
+function isUniqueKey(input, key, fieldName, data, idError) {
   if (data.length === 0) return true;
 
   const duplicateIndex = data.findIndex((item) => item[key] === input);
   if (duplicateIndex !== -1) {
-    let content = `${input} đã tồn tại`;
+    let content = `${fieldName} đã tồn tại`;
     displayErrorMessage(idError, content);
     return false;
   }
@@ -168,10 +168,12 @@ function isPasswordFormat(input, idError) {
  * @param {string} date - The date string in "mm/dd/yyyy" format
  * @return {boolean} - Returns true if the day part is valid for the given month and year, false otherwise
  */
-function validDayOfFebruary(date) {
+function validDayInFebruary(date) {
   const [month, day, year] = date.split("/");
   const daysInMonth = new Date(year, month, 0).getDate();
+
   if (month === "02") return parseInt(day) <= daysInMonth;
+  return true;
 }
 
 /**
@@ -180,8 +182,8 @@ function validDayOfFebruary(date) {
  * @param {string} idError - The ID of the DOM element to display the error message
  * @return {boolean} - Returns true if the input is in date format, false otherwise
  */
-function isValidDateFormat(input, idError) {
-  if (!REGEXS.DATE.test(input) && !validDayOfFebruary(input)) {
+function isDateFormat(input, idError) {
+  if (!REGEXS.DATE.test(input) || !validDayInFebruary(input)) {
     let content = `Ngày không đúng định dạng mm/dd/yyyy`;
     displayErrorMessage(idError, content);
     return false;
@@ -190,53 +192,101 @@ function isValidDateFormat(input, idError) {
   return true;
 }
 
+function validateTKNV(tknv, { fieldName, idError }) {
+  return (
+    isEmpty(tknv, fieldName, idError) &&
+    isNumber(tknv, fieldName, idError) &&
+    isValidLength(tknv, fieldName, 4, 6, idError) &&
+    isUniqueKey(tknv, "tknv", fieldName, EMPLOYEES, idError)
+  );
+}
+
+function validateName(name, { fieldName, idError }) {
+  return isEmpty(name, fieldName, idError) && isNameFormat(name, idError);
+}
+
+function validateEmail(email, { fieldName, idError }) {
+  return isEmpty(email, fieldName, idError) && isEmailFormat(email, idError);
+}
+
+function validatePassword(passWord, { fieldName, idError }) {
+  const OPTIONS = {
+    sizeLen: [6, 10],
+  };
+
+  return (
+    isEmpty(passWord, fieldName, idError) &&
+    isValidLength(passWord, fieldName, ...OPTIONS.sizeLen, idError) &&
+    isPasswordFormat(passWord, idError)
+  );
+}
+
+function validateDatePicker(datePicker, { fieldName, idError }) {
+  return (
+    isEmpty(datePicker, fieldName, idError) && isDateFormat(datePicker, idError)
+  );
+}
+
+function validateSalary(salary, { fieldName, idError }) {
+  const OPTIONS = {
+    range: [1_000_000, 20_000_000],
+  };
+
+  return (
+    isEmpty(salary, fieldName, idError) &&
+    isNumber(salary, fieldName, idError) &&
+    isNumberInRange(salary, fieldName, ...OPTIONS.range, idError)
+  );
+}
+
+function validateTitleEmployee(titleEmp, { fieldName, idError }) {
+  return isEmpty(titleEmp, fieldName, idError);
+}
+
+function validateWorkingTime(workTime, { fieldName, idError }) {
+  const OPTIONS = {
+    range: [80, 200],
+  };
+  return (
+    isEmpty(workTime, fieldName, idError) &&
+    isNumber(workTime, fieldName, idError) &&
+    isNumberInRange(workTime, fieldName, ...OPTIONS.range, idError)
+  );
+}
+
+/**
+ * Validates employee data based on the specified action.
+ * @param {object} employee - The employee data to validate.
+ * @param {string} action - The action to perform (default is "EDIT").
+ * @returns {boolean} - Returns true if all inputs are valid, false otherwise.
+ */
 function handleValidate(employee, action = "EDIT") {
   let isValid = true;
 
-  if (action === "ADD") {
-    isValid &=
-      isEmpty(employee.tknv, "Tài khoản", "#tbTKNV") &&
-      isNumber(employee.tknv, "Tài khoản", "#tbTKNV") &&
-      isValidLength(employee.tknv, "Tài khoản", 4, 6, "#tbTKNV") &&
-      isUniqueKey(employee.tknv, EMPLOYEES, "tknv", "#tbTKNV");
-  }
+  // Validation TKNV when add new employee
+  if (action === "ADD")
+    isValid = validateTKNV(employee.tknv, PROPS_EMPLOYEE.tknv);
 
   // Validate Name
-  isValid &=
-    isEmpty(employee.name, "Tên", "#tbName") &&
-    isValidateName(employee.name, "Tên", "#tbName");
+  isValid &= validateName(employee.name, PROPS_EMPLOYEE.name);
+
   // Validate Email
-  isValid &=
-    isEmpty(employee.email, "Email", "#tbEmail") &&
-    isEmailFormat(employee.email, "#tbEmail");
+  isValid &= validateEmail(employee.email, PROPS_EMPLOYEE.email);
+
   // Validate Password
-  isValid &=
-    isEmpty(employee.password, "Mật khẩu", "#tbPassword") &&
-    isValidLength(employee.password, "Mật khẩu", 6, 10, "#tbPassword") &&
-    isPasswordFormat(employee.password, "#tbPassword");
+  isValid &= validatePassword(employee.password, PROPS_EMPLOYEE.password);
+
   // Validate datePicker
-  isValid &=
-    isEmpty(employee.datePicker, "Ngày làm", "#tbDatePicker") &&
-    isValidDateFormat(employee.datePicker, "#tbDatePicker");
+  isValid &= validateDatePicker(employee.datePicker, PROPS_EMPLOYEE.datePicker);
 
   // Validate Salary
-  isValid &=
-    isEmpty(employee.salary, "Lương", "#tbSalary") &&
-    isNumber(employee.salary, "Lương", "#tbSalary") &&
-    isNumberInRange(
-      employee.salary,
-      "Lương",
-      1_000_000,
-      20_000_000,
-      "#tbSalary"
-    );
+  isValid &= validateSalary(employee.salary, PROPS_EMPLOYEE.salary);
+
   // Validate Title Employee
-  isValid &= isEmpty(employee.titleEmp, "Chức vụ", "#tbTitleEmp");
+  isValid &= validateTitleEmployee(employee.titleEmp, PROPS_EMPLOYEE.titleEmp);
+
   // Validate Working Time
-  isValid &=
-    isEmpty(employee.workTime, "Giờ làm việc", "#tbworkTime") &&
-    isNumber(employee.workTime, "Giờ làm việc", "#tbworkTime") &&
-    isNumberInRange(employee.workTime, "Giờ làm việc", 80, 200, "#tbworkTime");
+  isValid &= validateWorkingTime(employee.workTime, PROPS_EMPLOYEE.workingTime);
 
   return isValid;
 }

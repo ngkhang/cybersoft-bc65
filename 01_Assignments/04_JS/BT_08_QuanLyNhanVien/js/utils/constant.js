@@ -62,3 +62,39 @@ const REGEXS = {
   // PASSWORD: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,10}$/,
   DATE: /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/(19|20)\d{2}$/,
 };
+
+// Properties of Employee
+const PROPS_EMPLOYEE = {
+  tknv: {
+    fieldName: "Tài khoản",
+    idError: "#tbTKNV",
+  },
+  name: {
+    fieldName: "Tên",
+    idError: "#tbName",
+  },
+  email: {
+    fieldName: "Email",
+    idError: "#tbEmail",
+  },
+  password: {
+    fieldName: "Mật khẩu",
+    idError: "#tbPassword",
+  },
+  datePicker: {
+    fieldName: "Ngày làm",
+    idError: "#tbDatePicker",
+  },
+  salary: {
+    fieldName: "Lương",
+    idError: "#tbSalary",
+  },
+  titleEmp: {
+    fieldName: "Chức vụ",
+    idError: "#tbTitleEmp",
+  },
+  workingTime: {
+    fieldName: "Giờ làm việc",
+    idError: "#tbworkTime",
+  },
+};

@@ -26,7 +26,7 @@ function resetInputsField() {
  * @param queryBtn {string}
  * @param status {boolean}
  */
-const handleButton = (queryBtn, status) =>
+const disableButton = (queryBtn, status) =>
   (document.querySelector(queryBtn).disabled = status);
 
 /**
@@ -49,8 +49,6 @@ const findDataByCallback = (data, callback) => data.filter(callback);
  */
 function render(list) {
   const tableID = document.querySelector(QUERY_SELECTORS.TABLE);
-
-  // FIX: 👇Handle error when no data ${TITLE_EMPLOYEE[item.titleEmp].text}
 
   let content = list.map((item) => {
     return `
