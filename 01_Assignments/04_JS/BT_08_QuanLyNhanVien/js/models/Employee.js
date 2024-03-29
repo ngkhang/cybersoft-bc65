@@ -7,7 +7,6 @@ function getLevelEmployee(workTime) {
   return rankEmployee.title;
 }
 
-// TODO: Còn properties: totalSalary và levelEmployee
 function Employee(
   _tknv,
   _name,

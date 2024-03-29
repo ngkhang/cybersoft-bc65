@@ -10,7 +10,7 @@
     - [5. Cập nhật thông tin nhân viên](#5-cập-nhật-thông-tin-nhân-viên)
     - [6. Xóa nhân viên](#6-xóa-nhân-viên)
     - [7. Tìm nhân viên](#7-tìm-nhân-viên)
-    - [8. Xử lý logic](#8-xử-lý-logic)
+  - [Author](#author)
 
 ## Tracking Tasks
 
@@ -26,21 +26,17 @@
 
 ### 1. Khởi tạo đối tượng nhân viên
 
-- Status:
+- Status: ✅Done
 - Step:
   - Properties:
-    - Nhận từ form:
-      - Tài khoản
-      - Họ tên
-      - Email
-      - Mật khẩu
-      - Ngày làm
-      - Lương cơ bản
-      - Chức vụ: Giám đốc, Trưởng phòng, Nhân viên
-      - Giờ làm trong tháng
-    - Nhận từ method trả về:
-      - Tổng Lương
-      - Loại nhân viên
+    - Tài khoản
+    - Họ tên
+    - Email
+    - Mật khẩu
+    - Ngày làm
+    - Lương cơ bản
+    - Chức vụ: Giám đốc, Trưởng phòng, Nhân viên
+    - Giờ làm trong tháng
   - Methods:
     - Tính tổng lượng cho nhân viên:
       `Tổng lương = Lương cơ bản * Hệ số theo chức vụ`
@@ -121,10 +117,10 @@
   - Lây thông tin từ form
   - Validation input
     - Hợp lệ:
-      - Thêm váo danh sách global.
-      - Reset input field và đóng modal (modal)
+      - Thêm vào danh sách global.
+      - Xử lý modal: reset input field, enable button và đóng modal.
       - Re-render danh sách
-    - Không hợp lệ: Thông báo lỗi ngay.
+    - Không hợp lệ: Thông báo lỗi.
 
 ### 5. Cập nhật thông tin nhân viên
 
@@ -133,12 +129,11 @@
   - Tìm thông tin nhân viên dựa vào `tknv`.
   - Hiển thị thông tin nhân viên:
     - Mở modal (form) và hiển thị thông tin.
-    - Disable `ADD`, `RESET` button và khóa `tknv` input.
+    - Disable `ADD`, `RESET` button và disable `tknv` input.
   - Cập nhật thông tin mới: Validation input
     - Hợp lệ:
       - Tìm nhân viên dựa vào `tknv` và cập nhật thông tin mới.
-      - Reset input field và đóng modal (modal)
-      - Enable `ADD` và `RESET` button
+      - Xử lý modal: reset input field, enable button và đóng modal.
       - Re-render danh sách
     - Không hợp lệ: Thông báo lỗi
 
@@ -158,9 +153,6 @@
   - Duyệt mảng danh sách và tìm với keyword.
   - In danh sách đã tìm được.
 
-### 8. Xử lý logic
+## Author
 
-- Handle Enter keyboard when searching
-- Modal
-- Reset input field form
-- Disable/Enable button
+- Nguyen Khang

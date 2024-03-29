@@ -13,12 +13,38 @@ function getElements(selectors) {
 }
 
 /**
+ * Function to display error message by DOM ID
+ * @param {string} idError - The ID of the DOM element to display the error message
+ * @param {string} messError - The error message to display
+ */
+function displayErrorMessage(idError, messError) {
+  const errorElement = document.querySelector(idError);
+
+  if (errorElement) {
+    if (messError === "") {
+      errorElement.classList.remove("d-inline-block");
+    } else {
+      errorElement.classList.add("d-inline-block");
+      errorElement.innerHTML = messError;
+    }
+  }
+}
+
+/**
  * Function reset inputs field form
  */
 function resetInputsField() {
   const inputsForm = getElements(QUERY_SELECTORS.INPUTS_FIELD);
 
   inputsForm.forEach((input) => (input.value = ""));
+}
+
+/**
+ * Function reset mess error
+ */
+function resetMessError() {
+  const spansEle = getElements(QUERY_SELECTORS.SPANS_MESS);
+  spansEle.forEach((span) => displayErrorMessage(`#${span.id}`, ""));
 }
 
 /**

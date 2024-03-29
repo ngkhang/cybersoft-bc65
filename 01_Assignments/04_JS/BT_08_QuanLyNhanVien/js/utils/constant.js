@@ -15,22 +15,22 @@ const TITLE_EMPLOYEE = {
 
 const RANKS_OF_EMPLOYEE = [
   {
-    title: "xuất sắc",
+    title: "Xuất sắc",
     minRank: 192,
     maxRank: 200,
   },
   {
-    title: "giỏi",
+    title: "Giỏi",
     minRank: 176,
     maxRank: 191,
   },
   {
-    title: "khá",
+    title: "Khá",
     minRank: 160,
     maxRank: 175,
   },
   {
-    title: "trung bình",
+    title: "Trung bình",
     minRank: 80,
     maxRank: 159,
   },
@@ -50,6 +50,7 @@ const QUERY_SELECTORS = {
     ".modal-body form .input-group input",
     ".modal-body form .input-group select",
   ],
+  SPANS_MESS: "span.sp-thongbao",
 };
 
 // List Regex using validation

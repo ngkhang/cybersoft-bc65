@@ -1,22 +1,4 @@
 /**
- * Function to display error message by DOM ID
- * @param {string} idError - The ID of the DOM element to display the error message
- * @param {string} messError - The error message to display
- */
-function displayErrorMessage(idError, messError) {
-  const errorElement = document.querySelector(idError);
-
-  if (errorElement) {
-    if (messError === "") {
-      errorElement.classList.remove("d-inline-block");
-    } else {
-      errorElement.classList.add("d-inline-block");
-      errorElement.innerHTML = messError;
-    }
-  }
-}
-
-/**
  * Function to check if a field is empty and display an error message if it is
  * @param {string} input - The input string to be validated
  * @param {string} fieldName - The name of the field being validated (for error message)

@@ -11,7 +11,7 @@ function getObjectFromForm(querySelectors, constructor) {
 
   inputFields.forEach((input) => {
     let inputId = input.id;
-    newObj[inputId] = input.value;
+    newObj[inputId] = input.value.trim();
   });
 
   return newObj;

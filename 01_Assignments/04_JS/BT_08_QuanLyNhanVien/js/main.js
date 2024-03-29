@@ -4,25 +4,30 @@ let EMPLOYEES = [];
 // Handle Modal
 $(QUERY_SELECTORS.MODAL).on("hidden.bs.modal", () => {
   resetInputsField();
+  resetMessError();
+  [...document.querySelectorAll(QUERY_SELECTORS.INPUTS_FIELD)].find(
+    (input) => input.id === "tknv"
+  ).readOnly = false;
   disableButton(QUERY_SELECTORS.BTN_ADD_EMPLOYEE, false);
   disableButton(QUERY_SELECTORS.BTN_UPDATE_EMPLOYEE, false);
 });
 
 /**
  * Feature: Add a new employee
- * - Disable button UPDATE
- * - Handle add a new employee
- *    - Validate input
- *    - Add
- *    - Reset input form
- *    - Close modal
- *    - Render UI
+ * - Disable UPDATE button
+ * - Handle adding a new employee:
+ *    - Validate input from the form
+ *    - Add the new employee to the list
+ *    - Handle Modal:
+ *      - Close Modal
+ *      - Reset input form and enable button
+ *    - Re-render UI
  */
-// Disable button UPDATE
+// 1. Disable button UPDATE
 getElements(QUERY_SELECTORS.BTN_ADD_MAIN)[0].onclick = () =>
   disableButton(QUERY_SELECTORS.BTN_UPDATE_EMPLOYEE, true);
 
-// Handle add a new employee
+// 2. Handle add a new employee
 document.querySelector(QUERY_SELECTORS.BTN_ADD_EMPLOYEE).onclick = () => {
   let newEmployee = getObjectFromForm(QUERY_SELECTORS.INPUTS_FIELD, Employee);
 
@@ -38,21 +43,21 @@ document.querySelector(QUERY_SELECTORS.BTN_ADD_EMPLOYEE).onclick = () => {
 
 /**
  * Feature: Update information of employee
- * - Handle get current information of employee
- *    - Disable button ADD
+ * - Handle getting current information of an employee:
+ *    - Disable the ADD button
  *    - Get current information
- *    - Open modal (form)
- *    -
- * - Handle update:
- *    - Get info from Form
+ *    - Open the modal and display information
+ *
+ * - Handle the update process:
+ *    - Retrieve information from the form
  *    - Validation input
- *    - Update
- *    - Reset input field
- *    - Close modal
- *    - Enable button ADD_EMPLOYEE
- *    - Re-render
+ *    - Update the employee information
+ *    - Handle Modal:
+ *      - Close Modal
+ *      - Reset input form and enable button
+ *    - Re-render UI
  */
-// Handle get current information of employee
+// 1. Handle getting current information of an employee
 function editEmployee(account) {
   disableButton(QUERY_SELECTORS.BTN_ADD_EMPLOYEE, true);
 
@@ -68,7 +73,7 @@ function editEmployee(account) {
   });
 }
 
-// Handle update
+// 2. Handle the update process
 document.querySelector(QUERY_SELECTORS.BTN_UPDATE_EMPLOYEE).onclick = () => {
   let newInfoEmployee = getObjectFromForm(
     QUERY_SELECTORS.INPUTS_FIELD,
@@ -94,10 +99,10 @@ document.querySelector(QUERY_SELECTORS.BTN_UPDATE_EMPLOYEE).onclick = () => {
 };
 
 /**
- * Feature: Delete a employee
- * - Handle delete employee:
- *    - Find employee by "TKNV"
- *    - Delete it
+ * Feature: Delete an employee
+ * - Find the employee by their "TKNV" (Employee Account)
+ * - Remove the employee from the list
+ * - Re-render UI
  */
 function deleteEmployee(account) {
   const newListEmployee = findDataByCallback(
@@ -110,13 +115,13 @@ function deleteEmployee(account) {
 }
 
 /**
- * Feature: Search employee
- * - Handle button Search and Enter keyboard
- * - Handle search
- *    - Get value input serach
- *    - Find value in list
+ * Feature: Search for an employee
+ * - Handle the Search button and Enter key press
+ * - Handle the search process:
+ *    - Get the keyword entered in the search input
+ *    - Find mathching employees in the list
  */
-// Handle button Search and Enter keyboard
+// 1. Handle the Search button and Enter key press
 document.querySelector(QUERY_SELECTORS.BTN_SEARCH_EMPLOYEE).onclick = () => {
   handleSearch();
 };
@@ -124,7 +129,8 @@ document.querySelector(QUERY_SELECTORS.BTN_SEARCH_EMPLOYEE).onclick = () => {
 document.querySelector(QUERY_SELECTORS.SEARCH).onkeydown = (event) => {
   if (event.keyCode === 13) handleSearch();
 };
-// Search employees
+
+// 2. Handle the search process
 function handleSearch() {
   const keyWord = document
     .querySelector(QUERY_SELECTORS.SEARCH)
