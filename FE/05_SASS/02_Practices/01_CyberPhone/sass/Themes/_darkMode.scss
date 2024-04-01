@@ -1,0 +1,26 @@
+.darkMode {
+  &__box {
+    width: 200px;
+    position: fixed;
+    top: 20%;
+    right: 0;
+    display: flex;
+    align-items: flex-start;
+    transition: 0.3s;
+
+    &.is-hide{
+      right: -150px;
+    }
+  }
+  &__button {
+    background: $color-blue-1;
+    color: $color-white-1;
+    border-radius: 5px 0 0 5px;
+    width: 50px;
+  }
+
+  &__content {
+    background: $color-blue-1;
+    flex: 1;
+  }
+}

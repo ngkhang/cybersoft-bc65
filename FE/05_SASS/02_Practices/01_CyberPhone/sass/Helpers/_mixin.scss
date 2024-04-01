@@ -1,0 +1,16 @@
+@mixin styleText ($fsize, $fweight, $color) {
+  font-size: $fsize;
+  font-weight: $fweight;
+  color: $color;
+}
+@mixin styleBtn ($fsize, $fweight, $color, $bg, $border, $radius, $boxShadow, $padding, ) {
+  font-size: $fsize;
+  font-weight: $fweight;
+  color: $color;
+  background: $bg;
+  border: $border;
+  border-radius: $radius;
+  box-shadow: $boxShadow;
+  padding: $padding;
+}
+

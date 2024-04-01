@@ -1,0 +1,185 @@
+@charset "UTF-8";
+/*
+Thứ tự import file .scss
+- Helpers: chứa các file variables, mixin, extend, function,...
+- Vendors: chứa scss của library bên ngoài
+- Base: chỉnh sửa mặc định của trình duyệt reset
+- Components: chứa các file phần tử của trang: btn, title
+- Layout: tp lớn dùng chung cho toàn page: Header, Footer, Sidebar
+- Pages: chứa style riêng của trang khác nhau
+- Themes: chứa theme chủ đao khác nhau
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background: #f6f9fe;
+  font-family: "Nunito", sans-serif;
+}
+
+.button {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2a73dd;
+  background: transparent;
+  border: 2px solid #2a73dd;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px #c9d8f4;
+  padding: 13.5px 44px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.button:hover {
+  background: #2a73dd;
+  border-color: #2a73dd;
+  color: #fff;
+}
+.button.btn-blue {
+  color: #fff;
+  border: none;
+  background: linear-gradient(120deg, #60a4f4, #2a73dd);
+}
+.button.btn-blue:hover {
+  opacity: 0.75;
+}
+
+header {
+  box-shadow: 0 2px 4px #e2ebfc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  background: #f5f9fe;
+}
+header .navbar-brand {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2a73dd;
+}
+header .nav-item:not(:last-child) {
+  margin-right: 30px;
+}
+header .nav-item.active .nav-link {
+  color: #2a73dd;
+}
+header .nav-item.active .nav-link::after {
+  transform: scaleX(1);
+}
+header .nav-link {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1d365e;
+  position: relative;
+  padding: 10px !important;
+}
+header .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #2a73dd;
+  left: 0;
+  bottom: 0;
+  transform: scaleX(0);
+  transition: 0.2s;
+}
+header .nav-link.hover {
+  color: #2a73dd;
+}
+header .nav-link.hover::after {
+  transform: scaleX(1);
+}
+
+.phoneCarousel {
+  background-image: url("../image/product-header-bg.jpg");
+  background-position: right bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 225px 0;
+}
+.phoneCarousel__content h2 {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #2a73dd;
+}
+.phoneCarousel__content h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #1d365e;
+  margin-bottom: 20px;
+}
+.phoneCarousel__content p {
+  font-size: 1rem;
+  font-weight: normal;
+  color: #656774;
+}
+
+.product {
+  padding: 100px 0;
+}
+.product__title h2 {
+  margin-bottom: 70px;
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1d365e;
+  letter-spacing: 0.015rem;
+}
+.product__list .card {
+  box-shadow: 6px 6px 12px #e2ebfc, -6px -6px 12px #fff;
+  background-color: #f5f9fe;
+  border: none;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+.product__list .card img {
+  box-shadow: 6px 6px 12px #e2ebfc, -6px -6px 12px #fff;
+  border-radius: 8px;
+}
+.product__list .card button {
+  border: 0;
+  border-radius: 4px;
+  letter-spacing: 0.03rem;
+  font-size: 10px;
+  font-weight: 600;
+  background: #f5f9fe;
+  padding: 8px 20px;
+}
+.product__list .card button:hover {
+  box-shadow: inset 1px 1px 3px #e2ebfc, inset -2px -2px 5px #fff;
+}
+
+.footer {
+  background: #2a73dd;
+  padding-bottom: 60px;
+}
+.footer ul a {
+  color: #fff;
+}
+
+.darkMode__box {
+  width: 200px;
+  position: fixed;
+  top: 20%;
+  right: 0;
+  display: flex;
+  align-items: flex-start;
+  transition: 0.3s;
+}
+.darkMode__box.is-hide {
+  right: -150px;
+}
+.darkMode__button {
+  background: #2a73dd;
+  color: #fff;
+  border-radius: 5px 0 0 5px;
+  width: 50px;
+}
+.darkMode__content {
+  background: #2a73dd;
+  flex: 1;
+}/*# sourceMappingURL=main.css.map */

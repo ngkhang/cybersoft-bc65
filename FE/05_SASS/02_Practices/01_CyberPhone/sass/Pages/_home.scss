@@ -1,0 +1,76 @@
+.phoneCarousel {
+  background-image: url("../image/product-header-bg.jpg");
+  background-position: right bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 225px 0;
+
+  &__content {
+    h2 {
+      @include styleText(5rem, 700, $color-blue-1);
+    }
+    h3 {
+      @include styleText(1.5rem, 500, $color-blue-2);
+      margin-bottom: 20px;
+    }
+    p {
+      @include styleText(1rem, normal, $color-dark-1);
+    }
+  }
+}
+
+.product {
+  padding: 100px 0;
+  &__title {
+    h2 {
+      margin-bottom: 70px;
+      text-align: center;
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: $color-blue-2;
+      letter-spacing: 0.015rem;
+    }
+  }
+
+  &__list {
+    .card {
+      box-shadow:
+        6px 6px 12px $color-white-3,
+        -6px -6px 12px $color-white-1;
+      background-color: $color-white-4;
+      border: none;
+      padding: 30px;
+      margin-bottom: 30px;
+      img {
+        box-shadow:
+          6px 6px 12px $color-white-3,
+          -6px -6px 12px $color-white-1;
+        border-radius: 8px;
+      }
+
+      button {
+        border: 0;
+        border-radius: 4px;
+        letter-spacing: 0.03rem;
+        font-size: 10px;
+        font-weight: 600;
+        background: #f5f9fe;
+    padding: 8px 20px;
+    &:hover{
+      box-shadow: inset 1px 1px 3px #e2ebfc, inset -2px -2px 5px #fff;
+    }
+      }
+    }
+  }
+}
+
+.footer{
+  background: $color-blue-1;
+  padding-bottom: 60px;
+  
+  ul {
+    a{
+      color: $color-white-1;
+    }
+  }
+}

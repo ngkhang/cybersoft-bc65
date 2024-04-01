@@ -9,6 +9,8 @@
     - [Module 03: BootStrap](#module-03-bootstrap)
     - [Module 04: JavaScript](#module-04-javascript)
     - [Module 05: SASS](#module-05-sass)
+    - [Module 06: API](#module-06-api)
+    - [Module 07: ES6](#module-07-es6)
   - [Author](#author)
 
 ## Description
@@ -99,6 +101,22 @@
 
 - Practices:
   - [ ] CyberPhone
+
+### Module 06: API
+
+- Captones:
+  - [ ]
+- Practices:
+  - [ ] Axios QLSP (in process)
+
+### Module 07: ES6
+
+- Assignments:
+  - [] Dressing Room
+- Practices:
+  - [ ]
+- Extra Practices:
+  - [ ] Followers Pagination
 
 ## Author
 
