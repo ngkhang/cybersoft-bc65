@@ -6,8 +6,12 @@ import { Outlet } from 'react-router-dom';
 const HomeTemplate = () => {
   return (
     <>
-      <HeaderHome/>
-        <div className="content" style={{minHeight: 650}}>
+      <div className='bg-light shadow'>
+        <div className='container'>
+          <HeaderHome/>
+        </div>
+      </div>
+        <div className="container" style={{minHeight: 650}}>
           <Outlet/>
         </div>
       <FooterHome/>
