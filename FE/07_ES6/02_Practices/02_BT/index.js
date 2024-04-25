@@ -1,3 +1,4 @@
+// Data
 const items = [
   {
     id: 1,
@@ -61,26 +62,33 @@ const items = [
   },
 ];
 
-// Render table chứa các thuộc tính items
+const QUERYS = {
+  THEAD_TABLE: "thead#tbl-header",
+  TBODY_TABLE: "tbody#tbl-body",
+
+};
+
+// Render header table
 function renderHead(data) {
-  const theadId = document.querySelector('thead#tbl-header');
+  const theadId = document.querySelector(QUERYS.THEAD_TABLE);
 
   const item = data[0];
 
-  let content = '';
+  let content = "";
   for (const key in item) {
     content += `
-      <th name="${key}" data-sort="asc" onclick="handleSort(this)">
+      <th name="${key}" data-sort="asc" onclick="handleSort(this)" style="cursor: pointer;">
         ${key}        
-        <span>⬆️</span>
+        <span id="btn-${key}">⬆️</span>
       </th>  
-    `
+    `;
   }
-  theadId.innerHTML = `<tr>${content}</tr>`;
+  theadId.innerHTML = `<tr class="text-uppercase">${content}</tr>`;
 }
 
+// Render body table
 function renderBody(data) {
-  const tbodyId = document.querySelector('tbody#tbl-body');
+  const tbodyId = document.querySelector(QUERYS.TBODY_TABLE);
 
   let content = data.map((item) => {
     return `
@@ -93,35 +101,35 @@ function renderBody(data) {
     `;
   });
 
-  tbodyId.innerHTML = content.join('');
-}
-
-window.handleSort = (target) => {
-  let keyWord = target.getAttribute("name");
-  let currentSort = target.getAttribute("data-sort");
-  let prevSort = currentSort === 'asc' ? 'desc' : 'asc';
-  let newList = sorted(items, keyWord, prevSort);
-  renderBody(newList);
-  target.setAttribute('data-sort', prevSort);
+  tbodyId.innerHTML = content.join("");
 }
 
 window.onload = () => {
   renderHead(items);
   renderBody(items);
-}
+};
 
-// Sắp xếp lớn - bé khi click vào head
+window.handleSort = (target) => {
+  let keyWord = target.getAttribute("name");
+  let currentSort = target.getAttribute("data-sort");
+  let prevSort = currentSort === "asc" ? "desc" : "asc";
+  let newList = sorted(items, keyWord, prevSort);
+  renderBody(newList);
+
+  let btnHeadStr = `span#btn-${keyWord}`;
+  document.querySelector(btnHeadStr).innerHTML = prevSort === 'asc' ? '⬆️' : '⬇️';
+  target.setAttribute("data-sort", prevSort);
+};
+
+// Sắp xếp lớn - bé khi click vào header table
 function sorted(data, key, option) {
   return _.orderBy(data, [key], [option]);
-  // return data.sort((item1, item2) => item1[key] > item2[key])
 }
 
-
 // Tìm kiếm sản phẩm theo tên
-function getItemByName(data, value, key = 'name') {
+function getItemByName(data, value, key = "name") {
   let valueConvert = convertToSlug(value);
-  return data.filter((item) => convertToSlug(item[key]).includes(valueConvert)
-  );
+  return data.filter((item) => convertToSlug(item[key]).includes(valueConvert));
 }
 
 // Tìm theo giá sản phẩm từ n -> m
@@ -135,32 +143,35 @@ function getItemsByPrice(data, start, end) {
  * @return string
  */
 window.convertToSlug = function (str) {
-  let title, slug
+  let slug;
 
   //Đổi chữ hoa thành chữ thường
-  slug = str.toLowerCase()
+  slug = str.toLowerCase();
 
   //Đổi ký tự có dấu thành không dấu
-  slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a')
-  slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e')
-  slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i')
-  slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o')
-  slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u')
-  slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y')
-  slug = slug.replace(/đ/gi, 'd')
+  slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, "a");
+  slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, "e");
+  slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, "i");
+  slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, "o");
+  slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, "u");
+  slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, "y");
+  slug = slug.replace(/đ/gi, "d");
   //Xóa các ký tự đặt biệt
-  slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\|_/gi, '')
+  slug = slug.replace(
+    /\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\|_/gi,
+    ""
+  );
   //Đổi khoảng trắng thành ký tự gạch ngang
-  slug = slug.replace(/ /gi, "-")
+  slug = slug.replace(/ /gi, "-");
   //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
   //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
-  slug = slug.replace(/\-\-\-\-\-/gi, '-')
-  slug = slug.replace(/\-\-\-\-/gi, '-')
-  slug = slug.replace(/\-\-\-/gi, '-')
-  slug = slug.replace(/\-\-/gi, '-')
+  slug = slug.replace(/\-\-\-\-\-/gi, "-");
+  slug = slug.replace(/\-\-\-\-/gi, "-");
+  slug = slug.replace(/\-\-\-/gi, "-");
+  slug = slug.replace(/\-\-/gi, "-");
   //Xóa các ký tự gạch ngang ở đầu và cuối
-  slug = '@' + slug + '@'
-  slug = slug.replace(/\@\-|\-\@|\@/gi, '')
+  slug = "@" + slug + "@";
+  slug = slug.replace(/\@\-|\-\@|\@/gi, "");
   //In slug ra textbox có id “slug”
-  return slug
-}
+  return slug;
+};
