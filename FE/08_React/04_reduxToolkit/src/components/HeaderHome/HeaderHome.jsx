@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 const HeaderHome = () => {
   return (
@@ -18,17 +18,46 @@ const HeaderHome = () => {
       <div className="collapse navbar-collapse" id="collapsibleNavId">
         <ul className="navbar-nav me-auto mt-2 mt-lg-0">
           <li className="nav-item">
-            <NavLink className={({isActive}) => isActive ? 'nav-link bg-white text-dark' : 'nav-link'} to="/demo-redux">
-              Demo
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "nav-link bg-white text-dark" : "nav-link"
+              }
+              to="/redux-basic"
+            >
+              Redux Basic
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className={({isActive}) => isActive ? 'nav-link bg-white text-dark' : 'nav-link'} to="/chat-app">
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "nav-link bg-white text-dark" : "nav-link"
+              }
+              to="/chat-app"
+            >
               Chat App
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "nav-link bg-white text-dark" : "nav-link"
+              }
+              to="/cart-store"
+            >
+              Cart Store
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "nav-link bg-white text-dark" : "nav-link"
+              }
+              to="/students"
+            >
+              Students
+            </NavLink>
+          </li>
         </ul>
-        
       </div>
     </nav>
   );

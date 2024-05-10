@@ -5,12 +5,15 @@ import { Provider } from "react-redux";``
 import { store } from './redux/store';
 
 import DefaultTemplate from './template/DefaultTemplate';
+import './assets/scss/index.scss'
+
 import Home from "./pages/Home";
+import Page404 from './pages/Page404';
 import NumberState from './pages/DemoRedux/NumberState';
 import ChatApp from './pages/ChatApp/ChatApp';
-import Page404 from './pages/Page404';
+import CartMainPage from './pages/CartStore/CartMainPage';
 
-import './assets/scss/index.scss'
+import StudentPage from './pages/Students/StudentPage';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -19,8 +22,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Routes>
           <Route path='/' element={<DefaultTemplate />} >
             <Route index element={<Home />} />
-            <Route path='demo-redux' element={<NumberState />} />
+            <Route path='redux-basic' element={<NumberState />} />
             <Route path='chat-app' element={<ChatApp />} />
+            <Route path='cart-store' element={<CartMainPage />} />
+            <Route path='students' element={<StudentPage />} />
           </Route>
           <Route path='*' element={<Page404/>}/>
         </Routes>

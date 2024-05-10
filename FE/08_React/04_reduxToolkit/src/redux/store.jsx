@@ -1,5 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TYPE } from "./action";
+import cartReducer from './reducers/cartReducer';
+import studentReducer from './reducers/studentReducer';
 
 const initialState = {
   number: 1,
@@ -18,7 +20,6 @@ export const store = configureStore({
     fontSize: (state = initialState.fontSize, action) => {
       return action.type === TYPE.FONT_NUMBER ? action.payload : state;
     },
-
     arrComments: (state = initialState.arrComments, action) => {
       if(action.type === TYPE.UPDATE_COMMENT) {
         state = [
@@ -27,6 +28,8 @@ export const store = configureStore({
         ]
       }
       return state;
-    }
+    },
+    cartReducer: cartReducer,
+    studentReducer,
   },
 });
