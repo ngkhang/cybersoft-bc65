@@ -11,6 +11,7 @@
     - [Module 05: SASS](#module-05-sass)
     - [Module 06: API](#module-06-api)
     - [Module 07: ES6](#module-07-es6)
+    - [Module 08: React](#module-08-react)
   - [Author](#author)
 
 ## Description
@@ -76,7 +77,7 @@
   - [x] Exercise 05 - Function
   - [x] Exercise 06 - Loop
   - [x] Exercise 07 - Array
-  - [ ] Exercise 08 - QuanLyNhanVien (In Process)
+  - [x] Exercise 08 - QuanLyNhanVien
 - Practices:
   - [x] Tip Calculator
   - [x] Add new element
@@ -100,23 +101,38 @@
 ### Module 05: SASS
 
 - Practices:
-  - [ ] CyberPhone
+  - [x] CyberPhone
 
 ### Module 06: API
 
 - Captones:
-  - [ ]
+  - [x] API JS
 - Practices:
-  - [ ] Axios QLSP (in process)
+  - [x] Axios QLSP
 
 ### Module 07: ES6
 
 - Assignments:
-  - [] Dressing Room
 - Practices:
-  - [ ]
+  - [x] BT ES6 - Lodash
 - Extra Practices:
-  - [ ] Followers Pagination
+
+### Module 08: React
+
+- Assignments:
+  - [x] Change Color Car
+  - [x] Shoes Store
+  - [x] Booking Ticket
+- Practices:
+  - [x] 01. Basic: 07_Props: 01 - Map 07_Props
+  - [x] 01. Basic: 07_Props: 02 - View Detail
+  - [x] 01. Basic: 08: 01 Car Store
+  - [x] 01. Basic: 08: 02 Cart
+  - [x] 02. React Router DOM
+  - [x] 03. Formik_Yup
+  - [x] 04. Redux Toolkit
+  - [ ] 05. Hook (Life Cycle, hooks)
+- Extra Practices:
 
 ## Author
 
