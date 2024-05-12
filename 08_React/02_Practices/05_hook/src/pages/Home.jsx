@@ -7,7 +7,10 @@ const Home = () => {
       <div className="row">
         {ROUTES_NAME.map((route, index) => {
           return (
-            <div key={index} className="col">
+            <div
+              key={index}
+              className={`mb-2 ${route.subs.length > 2 ? "col-6" : "col-3"}`}
+            >
               <h3 className="">{route.name}</h3>
               {route.des && (
                 <ul>
@@ -23,7 +26,9 @@ const Home = () => {
                       <Link
                         className="text-decoration-none"
                         to={`/${route.path}/${subRoute.path}/${
-                          subRoute.options?.idParam ? 1 : ""
+                          subRoute.options?.idParam
+                            ? subRoute.options.idParam
+                            : ""
                         }`}
                       >
                         {subRoute.name}
