@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import { Provider } from "react-redux";``
+// import { Provider } from "react-redux";
 // import { store } from './redux/store';
 
 import DefaultTemplate from "./template/DefaultTemplate";
@@ -25,7 +25,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                   return (
                     <Route
                       key={idx}
-                      path={`/${route.path}/${subRoute.path}/${subRoute.options?.idParam ? subRoute.options.idParam : ""}`}
+                      path={`/${route.path}/${subRoute.path}/${
+                        subRoute.options?.idParam
+                          ? subRoute.options.idParam
+                          : ""
+                      }`}
                       element={<subRoute.component />}
                     />
                   );
