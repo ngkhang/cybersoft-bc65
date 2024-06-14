@@ -1,6 +1,55 @@
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { DispatchType, RootState } from "../../redux/store";
+import { ACCESS_TOKEN, USER_LOGIN } from "../../utils/api";
+import { delCookie } from "../../utils/helper";
+import { routeLink } from "../../App";
+import { setLogoutAction } from "../../redux/reducers/userReducer";
 
 const HeaderHome = () => {
+  const { userLogin, userProfile } = useSelector(
+    (state: RootState) => state.userReducer
+  );
+  const dispatch: DispatchType = useDispatch();
+
+  const handleLogout = () => {
+    localStorage.removeItem(ACCESS_TOKEN);
+    localStorage.removeItem(USER_LOGIN);
+    delCookie(USER_LOGIN);
+
+    const action = setLogoutAction();
+    dispatch(action);
+
+    routeLink.push("/");
+  };
+
+  const render = () => {
+    if (userLogin) {
+      return (
+        <>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/profile">
+              {userProfile?.name}
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <button type="button" className="btn" onClick={handleLogout}>
+              Logout
+            </button>
+          </li>
+        </>
+      );
+    }
+
+    return (
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/login">
+          Login
+        </NavLink>
+      </li>
+    );
+  };
+
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-primary">
       <div className="container">
@@ -17,17 +66,13 @@ const HeaderHome = () => {
           aria-label="Toggle navigation"
         />
         <div className="collapse navbar-collapse" id="collapsibleNavId">
-          <ul className="navbar-nav me-auto mt-2 mt-lg-0">
+          <ul className="navbar-nav me-auto mt-lg-0">
             <li className="nav-item">
               <NavLink className="nav-link" to="/home">
                 Home
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/login">
-                Login
-              </NavLink>
-            </li>
+            {render()}
             <li className="nav-item">
               <NavLink className="nav-link" to="/register">
                 Register
@@ -38,40 +83,7 @@ const HeaderHome = () => {
                 Cart
               </NavLink>
             </li>
-            {/* <li className="nav-item dropdown">
-              <NavLink
-                className="nav-link dropdown-toggle"
-                to="#"
-                id="dropdownId"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Dropdown
-              </NavLink>
-              <div className="dropdown-menu" aria-labelledby="dropdownId">
-                <NavLink className="dropdown-item" to="#">
-                  Action 1
-                </NavLink>
-                <NavLink className="dropdown-item" to="#">
-                  Action 2
-                </NavLink>
-              </div>
-            </li> */}
           </ul>
-          {/* <form className="d-flex my-2 my-lg-0">
-            <input
-              className="form-control me-sm-2"
-              type="text"
-              placeholder="Search"
-            />
-            <button
-              className="btn btn-outline-success my-2 my-sm-0"
-              type="submit"
-            >
-              Search
-            </button>
-          </form> */}
         </div>
       </div>
     </nav>

@@ -1,8 +1,8 @@
-import useDataHome from "../../hooks/useDataHome";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import useDataHome from "../../hooks/useDataHome";
 import ProductModelType from "../../models/ProductModel";
 
-const Home = () => {
+const HomeMobile = () => {
   const { data } = useDataHome();
 
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       <div className="row">
         {data.map((prod: ProductModelType) => {
           return (
-            <div key={prod.id} className="col-3 mb-4">
+            <div key={prod.id} className="col-4 mb-4">
               <ProductCard prod={prod} />
             </div>
           );
@@ -21,4 +21,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeMobile;

@@ -1,14 +1,11 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { DispatchType, GetStateMethodType } from "../store";
-import axios from "axios";
 import ProductModelType, {
   ProductDetailModelType,
+  ProductStateType,
 } from "../../models/ProductModel";
-
-export interface ProductStateType {
-  arrProduct: ProductModelType[];
-  productDetail: ProductDetailModelType | null;
-}
+import { httpClient } from "../../utils/config";
+import { PRODUCT_API } from "../../utils/api";
 
 const initialState: ProductStateType = {
   arrProduct: [],
@@ -38,12 +35,10 @@ export const { setArrProductAction, setProductDetail } = productReducer.actions;
 
 export default productReducer.reducer;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getAllProductApi =
-  () => async (dispatch: DispatchType, getState: GetStateMethodType) => {
-    const res = await axios.get(
-      "https://apistore.cybersoft.edu.vn/api/Product"
-    );
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  () => async (dispatch: DispatchType, _getState: GetStateMethodType) => {
+    const res = await httpClient.get(PRODUCT_API.LIST);
     const action: PayloadAction<ProductModelType[]> = setArrProductAction(
       res.data.content
     );
@@ -52,9 +47,7 @@ export const getAllProductApi =
 
 export const getProductDetailApi =
   (id: number | string) => async (dispatch: DispatchType) => {
-    const res = await axios.get(
-      `https://apistore.cybersoft.edu.vn/api/Product/getbyid?id=${id}`
-    );
+    const res = await httpClient.get(PRODUCT_API.DETAIL(id));
     const action: PayloadAction<ProductDetailModelType> = setProductDetail(
       res.data.content
     );

@@ -16,6 +16,8 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import ResponsiveItem from "./templates/ResponsiveItem";
+import HomeMobile from "./pages/Home/HomeMobile";
 
 export const routeLink: any = createBrowserHistory();
 
@@ -26,7 +28,16 @@ function App() {
         <HistoryRouter history={routeLink}>
           <Routes>
             <Route path="/" element={<HomeTemplate />}>
-              <Route path="home" element={<Home />} />
+              {/* <Route path="home" element={<Home />} /> */}
+              <Route
+                index
+                element={
+                  <ResponsiveItem
+                    component={<Home />}
+                    mobileComponent={<HomeMobile />}
+                  />
+                }
+              />
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
               <Route path="cart" element={<Cart />} />

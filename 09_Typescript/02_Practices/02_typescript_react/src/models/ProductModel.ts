@@ -25,3 +25,8 @@ export default interface ProductModelType extends ProductDetailModelType {
   deleted: boolean;
   imgLink: null;
 }
+
+export interface ProductStateType {
+  arrProduct: ProductModelType[],
+  productDetail: ProductDetailModelType | null,
+}
