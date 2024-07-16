@@ -1,18 +1,19 @@
 import sequelize from '../models/connect.js';
-import initModels from '../models/init-models.js';
-// import User from '../models/user-v1.js';
+// Option 1: Manual define model
+// import User from '../models/users-v1.js';
 
+// Option 2: Using library: sequelize-auto - Database first
+import initModels from '../models/init-models.js';
 const model = initModels(sequelize);
 
-// Handle logic for User
+// Get all users
 const getUser = async (request, response) => {
+  // Option 1:
   // let users = await User.findAll();
-  let users = await model.video.findAll({
-    where: {
-      video_id: 3
-    },
-    include: ["type"], // include: [as_property]
-  });
+
+  // Option 2:
+  let users = await model.video.findAll();
+
   response.send(users);
 };
 
