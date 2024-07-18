@@ -7,4 +7,4 @@ userRouter.get("/get-user", getUser)
 
 userRouter.post("/create-user", createUser)
 
-export default userRouter
+export default userRouter;

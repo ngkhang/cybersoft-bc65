@@ -47,9 +47,24 @@ const getVideoPage = async (req, res) => {
   responseData({ data, totalPage }, 'Thành công', 200, res);
 }
 
+const getVideoDetail = async (req, res) => {
+  let { videoId } = req.params;
+
+  let data = await model.video.findOne({
+    where: {
+      video_id: videoId,
+    },
+    include: ['user'],
+    // init-models.js: video table - user table. {as: 'user'}
+  })
+
+  responseData(data, 'Thành công', 200, res);
+}
+
 export {
   getVideo,
   getType,
   getVideoType,
   getVideoPage,
+  getVideoDetail,
 }
