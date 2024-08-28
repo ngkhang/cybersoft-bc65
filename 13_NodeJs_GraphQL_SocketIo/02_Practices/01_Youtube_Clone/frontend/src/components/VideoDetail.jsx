@@ -5,6 +5,7 @@ import { Typography, Box, Stack } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 import { Videos, Loader } from ".";
+import { getVideoDetail } from '../utils/fetchFromAPI';
 
 
 const VideoDetail = () => {
@@ -13,14 +14,14 @@ const VideoDetail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    let item = { video_id: 1, video_name: "Build and Deploy 5 JavaScript & React API Projects in 10 Hours - Full Course | RapidAPI", channelDetail: "", marginTop: " ", thumbnail: "https://i.ytimg.com/vi/QU9c0053UAU/hq720.jpg", source: "https://www.youtube.com/watch?v=ar3n9UAbalo", user :{ full_name: "abc", user_id: 1, channelTitle: "JavaScript Mastery",}, viewCount: 100, likeCount: 100 };
+    getVideoDetail(id)
+      .then((result) => setVideoDetail(result));
 
-    setVideoDetail(item);
-
-    let lstItem = [{ video_id: 1, video_name: "Build and Deploy 5 JavaScript & React API Projects in 10 Hours - Full Course | RapidAPI", channelDetail: "", marginTop: " ", thumbnail: "https://i.ytimg.com/vi/QU9c0053UAU/hq720.jpg", channelId: 1, channelTitle: "abc", channelId: 1, channelTitle: "JavaScript Mastery" },
-    { video_id: 2, video_name: "The movies Iron man 4: 0.1 Hours", channelDetail: "", marginTop: " ", thumbnail: "https://i.ytimg.com/vi/t86sKsR4pnk/hq720.jpg", channelId: 1, channelTitle: "abc", channelId: 1, channelTitle: "JavaScript Mastery" }
+    let lstItem = [{ video_id: 1, video_name: "Build and Deploy 5 JavaScript & React API Projects in 10 Hours - Full Course | RapidAPI", channelDetail: "", marginTop: " ", thumbnail: "https://i.ytimg.com/vi/QU9c0053UAU/hq720.jpg", channelId: 1, channelTitle: "JavaScript Mastery" },
+    { video_id: 2, video_name: "The movies Iron man 4: 0.1 Hours", channelDetail: "", marginTop: " ", thumbnail: "https://i.ytimg.com/vi/t86sKsR4pnk/hq720.jpg", channelId: 1, channelTitle: "JavaScript Mastery" }
     ];
-    setVideos(lstItem)
+
+    setVideos(lstItem);
   }, [id]);
 
   // if(!videoDetail) return <Loader />;
@@ -41,7 +42,7 @@ const VideoDetail = () => {
               </Typography>
               <Stack direction="row" justifyContent="space-between" sx={{ color: "#fff" }} py={1} px={2} >
                 <div>
-                  <i className="fa-solid fa-comments pe-3"></i>
+                  <img className="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width={40} height={40} />
                   <Link to={`/channel/${user.user_id}`}>
                     <Typography variant={{ sm: "subtitle1", md: 'h6' }} color="#fff" >
                       <b>

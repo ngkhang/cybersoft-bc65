@@ -7,6 +7,16 @@ const END_POINT = {
     getVideos: 'video/get-videos',
     getTypes: 'video/get-types',
     getVideosPage: 'video/get-videos-page',
+    getVideosType: 'video/get-videos-type',
+    searchVideosByName: 'video/search',
+    getVideoDetail: 'video/get-video-detail',
+  },
+  user: {
+    login: 'auth/login',
+    signUp: 'auth/sign-up',
+    loginFace: 'auth/login-face',
+    forgetCheckMail: 'auth/forget-check-email',
+    forgetCheckCode: 'auth/forget-check-code',
   }
 }
 
@@ -37,12 +47,12 @@ export const getTypes = async () => {
 };
 
 export const getVideosType = async (typeId) => {
-  const { data } = await axios.get(`${BASE_URL}/video/get-videos-type/${typeId}`);
+  const { data } = await axios.get(`${BASE_URL}/${END_POINT.video.getVideosType}/${typeId}`);
   return data.content;
 };
 
 export const searchVideosByName = async (videoName) => {
-  const { data } = await axios.get(`${BASE_URL}/video/search/${videoName}`);
+  const { data } = await axios.get(`${BASE_URL}/${END_POINT.searchVideosByName}/${videoName}`);
   return data.content;
 }
 
@@ -51,12 +61,37 @@ export const getVideosPage = async (page) => {
   return data.content;
 }
 
-// export const loginApi = async (newData) => {
-//   const { data } = await axios.post(`${BASE_URL}/auth/login`, newData);
-//   return data;
-// };
+export const getVideoDetail = async (videoId) => {
+  const { data } = await axios.get(`${BASE_URL}/${END_POINT.video.getVideoDetail}/${videoId}`);
 
-// export const signUpApi = async (newData) => {
-//   const { data } = await axios.post(`${BASE_URL}/auth/sign-up`, newData);
-//   return data;
-// };
+  return data.content;
+}
+
+export const loginApi = async (newData) => {
+  const { data } = await axios.post(`${BASE_URL}/${END_POINT.user.login}`, newData);
+
+  return data;
+}
+
+export const signUpApi = async (newData) => {
+  const { data } = await axios.post(`${BASE_URL}/${END_POINT.user.signUp}`, newData);
+  return data;
+};
+
+export const loginFacebookAPI = async (newData) => {
+  const { data } = await axios.post(`${BASE_URL}/${END_POINT.user.loginFace}`, newData);
+
+  return data;
+}
+
+export const forgetCheckMailAPI = async (newData) => {
+  const { data } = await axios.post(`${BASE_URL}/${END_POINT.user.forgetCheckMail}`, newData);
+
+  return data;
+}
+
+export const forgetCheckCodeAPI = async (newData) => {
+  const { data } = await axios.post(`${BASE_URL}/${END_POINT.user.forgetCheckCode}`, newData);
+
+  return data;
+}

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import FacebookLogin from 'react-facebook-login';
+import { useNavigate, useParams } from "react-router-dom";
 import { Box, CardMedia } from "@mui/material";
 
 import { Videos, ChannelCard } from ".";
-import { loginApi } from '../utils/fetchFromAPI';
+import { loginApi, loginFacebookAPI } from '../utils/fetchFromAPI';
+import ReactFacebookLogin from "react-facebook-login";
 
 const handleLogin = () => {
   let email = document.querySelector('#email').value;
@@ -13,11 +13,25 @@ const handleLogin = () => {
   loginApi({ email, password })
     .then((result) => {
       alert('Đăng nhập thành công');
-
       // Lưu localStorage
     })
     .catch((err) => {
       alert(err.response.data.message)
+    })
+}
+
+const handleLoginFace = (response) => {
+  let { id, name, email } = response;
+  let newData = { faceAppId: id, fullName: name, email };
+
+  loginFacebookAPI(newData)
+    .then((result) => {
+      alert(result.message);
+      // Xử lý localStorage
+    })
+    .catch((error) => {
+      // console.log(error)
+      alert(error.response.data.message);
     })
 }
 
@@ -30,6 +44,8 @@ const Login = () => {
   useEffect(() => {
 
   }, []);
+
+  const navigate = useNavigate();
 
   return <div className="p-5 " style={{ minHeight: "100vh" }}>
     <div className=" d-flex justify-content-center">
@@ -47,13 +63,19 @@ const Login = () => {
           <button type="button" className="btn btn-primary" onClick={handleLogin}>
             Login
           </button>
+
+          <a href="#" className=" text-primary" onClick={()=> navigate("/forget")}>
+            Forget password
+          </a>
+
         </div>
-        <FacebookLogin
+        <ReactFacebookLogin
           appId="1088597931155576"
-          autoLoad={true}
           fields="name,email,picture"
-          onClick={componentClicked}
-          callback={responseFacebook} />
+          autoLoad={true}
+          callback={(res) => handleLoginFace(res)}
+          // onClick={componentClicked}
+          />
       </form>
     </div>
   </div>
