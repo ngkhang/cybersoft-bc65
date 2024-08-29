@@ -6,6 +6,46 @@ import { Videos, ChannelCard } from ".";
 
 import ReactPlayer from "react-player";
 import { DOMAIN_BE_IMG } from "../utils/constants";
+import { uploadCloudAPI, uploadVideoAPI } from '../utils/fetchFromAPI';
+
+// Case 1: Sử dụng bên thứ 3 (Cloudinary)
+const handleUploadWithCloudinary = () => {
+  let file = document.querySelector('#formFile').files[0];
+
+  let key = 'file'; // Do Cloudinary quy định là "file"
+  let formData = new FormData();
+
+  formData.append(key, file);
+  formData.append("upload_preset", "wwhksidf"); // Dùng để xác thực đúng user quản trị
+
+  uploadCloudAPI(formData)
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => console.log(error));
+}
+
+// Case 2: Lưu trực tiếp vào source (làm việc với server)
+const handleUploadWithServer = () => {
+  let file = document.querySelector('#formFile').files[0];
+
+  let key = 'file'; // Có thể tự quy định key
+
+  // Option 1: new FormData();
+  let formData = new FormData();
+  formData.append(key, file);
+
+  // Option 2: formData là object - phải config headers 'Content-Type': 'multipart/form-data', 
+  // let formData = {
+  //   key: file,
+  // }
+
+  uploadVideoAPI(formData)
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => console.log(error));
+}
 
 const InfoUser = () => {
   const [channelDetail, setChannelDetail] = useState();
@@ -35,7 +75,13 @@ const InfoUser = () => {
           <div className="col-2">
             <img className="rounded-circle" src={avatar} width="100%" />
 
-            <input className="form-control" type="file" id="formFile" />
+            <input className="form-control" type="file" id="formFile" onChange={(e) => {
+              // // Case 1: SỬ dụng bên thứ 3 (Cloudinary)
+              // handleUploadWithCloudinary();
+
+              // Case 2: Lưu trực tiếp vào source (làm việc với server)
+              handleUploadWithServer();
+            }} />
 
           </div>
           <div className=" col-10">

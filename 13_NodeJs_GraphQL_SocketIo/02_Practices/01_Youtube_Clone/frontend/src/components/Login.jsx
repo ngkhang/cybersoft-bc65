@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Box, CardMedia } from "@mui/material";
 
 import { Videos, ChannelCard } from ".";
-import { loginApi, loginFacebookAPI } from '../utils/fetchFromAPI';
+import { loginApi, loginFacebookAPI } from '../utils/fetchFromAPI.js';
 import ReactFacebookLogin from "react-facebook-login";
 
 const handleLogin = () => {
@@ -69,13 +69,12 @@ const Login = () => {
           </a>
 
         </div>
-        <ReactFacebookLogin
+        {/* <ReactFacebookLogin
           appId="1088597931155576"
           fields="name,email,picture"
           autoLoad={true}
           callback={(res) => handleLoginFace(res)}
-          // onClick={componentClicked}
-          />
+          /> */}
       </form>
     </div>
   </div>

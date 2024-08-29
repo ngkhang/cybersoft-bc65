@@ -3,14 +3,14 @@ import { useParams } from "react-router-dom";
 import { Box, CardMedia } from "@mui/material";
 
 import { Videos, ChannelCard } from ".";
-import { signUpAPI } from "../utils/fetchFromAPI";
+import { signUpApi } from '../utils/fetchFromAPI';
 
 const handleSignUp = () => {
   let fullName = document.querySelector('#fullName').value;
   let email = document.querySelector('#email').value;
   let password = document.querySelector('#pass').value;
 
-  signUpAPI({ fullName, email, password })
+  signUpApi({ fullName, email, password })
     .then((result) => {
       alert('Đăng ký thành công');
     })
