@@ -1,7 +1,9 @@
+import fs from 'fs';
 import { Op } from 'sequelize';
 import initModels from '../models/init-models.js';
 import responseData from '../config/response.js';
 import sequelize from '../models/connect.js';
+import { optimizeImage } from '../config/upload.js';
 
 const model = initModels(sequelize);
 
@@ -70,6 +72,25 @@ const getVideoDetail = async (req, res) => {
   responseData(data, 'Thành công', 200, res);
 }
 
+const upload = async (req, res) => {
+  let file = req.file;
+  optimizeImage(file.filename);
+
+  // Lưu tên file đã optimize (file.filename) vào database (ORM Sequelize update)
+  responseData(data, 'Thành công', 200, res);
+}
+
+const uploadWithBase64 = async (req, res) => {
+  let file = req.file;
+  let urlFile = process.cwd() + '/public/images/' + file.filename;
+
+  fs.readFile(urlFile, (error, data) => {
+    let base64 = `data:${file.mimetype};base64,${Buffer.from(data).toString('base64')}`;
+    // Lưu tên file đã optimize (chuỗi base64- base64) vào database (ORM Sequelize update)
+    responseData(data, 'Thành công', 200, res);
+  })
+}
+
 export {
   getVideos,
   getTypes,
@@ -77,4 +98,6 @@ export {
   searchVideos,
   getVideosPage,
   getVideoDetail,
+  upload,
+  uploadWithBase64,
 }
