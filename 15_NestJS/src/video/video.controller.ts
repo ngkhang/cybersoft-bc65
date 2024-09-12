@@ -1,40 +1,50 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors, UploadedFiles, UploadedFile } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  UseInterceptors,
+  UploadedFiles,
+  UploadedFile,
+} from '@nestjs/common';
 import { VideoService } from './video.service';
 import { CreateVideoDto } from './dto/create-video.dto';
 import { UpdateVideoDto } from './dto/update-video.dto';
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
-import {diskStorage} from 'multer';
+import { diskStorage } from 'multer';
 import { ApiTags } from '@nestjs/swagger';
 
-@ApiTags('video')
+// Handle storage upload
+const storage = {
+  storage: diskStorage({
+    destination: `${process.cwd()}/public/images`,
+    filename: (req, file, callback) =>
+      // Rename file
+      callback(null, new Date().getTime() + '_' + file.originalname),
+  }),
+};
+
+@ApiTags('video') // Group API trong Swagger
 @Controller('video')
 export class VideoController {
-  constructor(
-    private readonly videoService: VideoService,
-  ) {}
+  constructor(private readonly videoService: VideoService) {}
 
+  // Decorator chạy trước khi vào request ~ Middleware
   // Upload single pic
-  @UseInterceptors(FileInterceptor('hinhAnh', {
-    storage: diskStorage({
-      destination: process.cwd() + '/public/images',
-      filename: (req, file, callback) => callback(null, new Date().getTime + '_' + file.originalname)
-    })
-  }))
+  @UseInterceptors(FileInterceptor('hinhAnh', storage))
   @Post('/upload')
-  upload(@UploadedFile() file: Express.Multer.File){
+  upload(@UploadedFile() file: Express.Multer.File) {
     return file;
   }
 
   // Upload multi pic
-  @UseInterceptors(FilesInterceptor('hinhAnh', 5, {
-    storage: diskStorage({
-      destination: process.cwd() + '/public/images',
-      filename: (req, file, callback) => callback(null, new Date().getTime + '_' + file.originalname)
-    })
-  }))
-  @Post('/upload-multi')
-  uploadMulti(@UploadedFiles() file: Express.Multer.File){
-    return file;
+  @UseInterceptors(FilesInterceptor('hinhAnh', 5, storage))
+  @Post('/uploads')
+  uploadMulti(@UploadedFiles() files: Express.Multer.File[]) {
+    return files;
   }
 
   @Post()
