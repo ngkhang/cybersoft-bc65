@@ -11,11 +11,15 @@ import {
   UploadedFile,
 } from '@nestjs/common';
 import { VideoService } from './video.service';
-import { CreateVideoDto } from './dto/create-video.dto';
+import {
+  CreateVideoDto,
+  FilesUploadDto,
+  FileUploadDto,
+} from './dto/create-video.dto';
 import { UpdateVideoDto } from './dto/update-video.dto';
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBody, ApiConsumes, ApiTags } from '@nestjs/swagger';
 
 // Handle storage upload
 const storage = {
@@ -34,14 +38,24 @@ export class VideoController {
 
   // Decorator chạy trước khi vào request ~ Middleware
   // Upload single pic
-  @UseInterceptors(FileInterceptor('hinhAnh', storage))
+  @UseInterceptors(FileInterceptor('file', storage))
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({
+    description: 'Upload single pic',
+    type: FileUploadDto,
+  })
   @Post('/upload')
   upload(@UploadedFile() file: Express.Multer.File) {
     return file;
   }
 
   // Upload multi pic
-  @UseInterceptors(FilesInterceptor('hinhAnh', 5, storage))
+  @UseInterceptors(FilesInterceptor('files', 5, storage))
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({
+    description: 'Upload mutil pic',
+    type: FilesUploadDto,
+  })
   @Post('/uploads')
   uploadMulti(@UploadedFiles() files: Express.Multer.File[]) {
     return files;
