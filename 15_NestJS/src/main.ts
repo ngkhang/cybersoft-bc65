@@ -20,7 +20,10 @@ async function bootstrap() {
   app.use(express.static('.'));
 
   // Swagger
-  const configSwagger = new DocumentBuilder().setTitle('Node 43').build(); // config
+  const configSwagger = new DocumentBuilder()
+    .addBearerAuth() // Handle pass và mở khóa token cho toàn bộ nơi bị khóa token
+    .setTitle('Node 43')
+    .build(); // config
   const documentSwagger = SwaggerModule.createDocument(app, configSwagger);
   SwaggerModule.setup('/swagger', app, documentSwagger);
 

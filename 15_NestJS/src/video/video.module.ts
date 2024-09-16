@@ -1,11 +1,14 @@
 import { Module } from '@nestjs/common';
 import { VideoService } from './video.service';
 import { VideoController } from './video.controller';
-// import { ConfigModule } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
+import { JwtModule } from '@nestjs/jwt';
+import { PrismaService } from 'prisma/prisma.service';
 
 @Module({
-  // imports: [ConfigModule], // module ConfigModule chỉ dùng trong module video
+  // module trong import chỉ dùng trong module video
+  imports: [ConfigModule, JwtModule.register({})],
   controllers: [VideoController],
-  providers: [VideoService],
+  providers: [VideoService, PrismaService],
 })
 export class VideoModule {}

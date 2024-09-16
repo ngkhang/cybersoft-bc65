@@ -1,24 +1,35 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { CreateVideoDto } from './dto/create-video.dto';
 import { UpdateVideoDto } from './dto/update-video.dto';
-import { PrismaClient } from '@prisma/client';
+
+// Cách 1: Setup Prisma
+// import { PrismaClient } from '@prisma/client';
+// const prisma = new PrismaClient();
+
+// Cách 2: Recommend
+import { PrismaService } from 'prisma/prisma.service';
 
 @Injectable()
 export class VideoService {
-  prisma = new PrismaClient();
+  constructor(private readonly prismaService: PrismaService) {}
 
   create(createVideoDto: CreateVideoDto) {
     return 'This action adds a new video';
   }
 
   async findAll() {
-    // Nest.Js support async -> Có thể bỏ await
-    const data = await this.prisma.video.findMany();
-    return data;
+    try {
+      // Nest.Js support async -> Có thể bỏ await
+      // const data = await prisma.video.findMany();
+      const data = await this.prismaService.video.findMany();
+      return data;
+    } catch (error) {
+      throw new HttpException('Lỗi Server', 500);
+    }
   }
 
   async findOne(id: number) {
-    const data = await this.prisma.video.findMany({
+    const data = await this.prismaService.video.findMany({
       where: {
         video_id: id,
       },

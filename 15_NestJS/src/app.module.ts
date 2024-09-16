@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { VideoModule } from './video/video.module';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
+import { JwtStrategy } from './strategy/jwt.strategy';
 
 @Module({
   // Khai báo module - kết nối: controller và service của đối tượng đó; với các module khác
@@ -17,6 +18,6 @@ import { AuthModule } from './auth/auth.module';
   // Khai báo controller - định nghĩa api (request, response) (router trong express)
   controllers: [AppController],
   // Khai báo service (provider) - định nghĩa logic (controller trong express)
-  providers: [AppService],
+  providers: [AppService, JwtStrategy],
 })
 export class AppModule {}

@@ -1,5 +1,5 @@
 import {
-  Body,
+  // Body,
   Controller,
   Get,
   HttpCode,
@@ -12,10 +12,10 @@ import { AppService } from './app.service';
 import { Request, Response } from 'express';
 import { ApiBody, ApiParam, ApiProperty, ApiQuery } from '@nestjs/swagger';
 
-interface UserType {
-  id3: string;
-  name3: string;
-}
+// interface UserType {
+//   id3: string;
+//   name3: string;
+// }
 
 // Type dùng cho request theo Express phải là Class
 class UserTypeClass {
@@ -79,7 +79,6 @@ export class AppController {
     };
   }
 
-  //
   // Decorator hỗ trợ request query load ra Swagger
   @ApiQuery({
     name: 'id',
@@ -90,9 +89,9 @@ export class AppController {
     name: 'title',
     type: String,
   })
-  // @ApiBody({
-  //   type: UserTypeClass, // Type của body phải là class
-  // })
+  @ApiBody({
+    type: UserTypeClass, // Type của body phải là class
+  })
   @Get('/get-number/:title')
   getNumber(@Req() req: Request) {
     const { id } = req.query;
