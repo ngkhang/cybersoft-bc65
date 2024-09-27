@@ -11,7 +11,6 @@ export const createToken = (data) => {
   // Tham số 2 - secret key
   let signature = 'node_43';
 
-  // Tham số 3 (option?) - header: object (nếu có truyền thì payload phải là object)
   let header = {
     algorithm: 'HS256', // default
     expiresIn: '60 days',
@@ -31,16 +30,37 @@ export const decodeToken = (token) => {
   return jwt.decode(token);
 };
 
+// Create token refresh
+export const createTokenRef = (data) => {
+  let payload = {
+    data,
+  };
+
+  let signatureRef = 'node_43_ref';
+
+  let header = {
+    algorithm: 'HS256', // default
+    expiresIn: '7 days',
+  };
+
+  return jwt.sign(payload, signatureRef, header);
+}
+
+// Verify token refresh
+export const verifyTokenRef = (token) => {
+  return jwt.verify(token, 'node_43_ref', (error) => error);
+};
+
 // Middleware Token
 export const middlewareToken = (req, res, next) => {
   let { token } = req.headers;
 
   let checkToken = verifyToken(token);
-  if (!checkToken) next();
+  if (checkToken === null) next();
   else {
     console.log(checkToken);
     res
       .status(401)
-      .send('Authorized');
+      .send(checkToken.name);
   }
 }

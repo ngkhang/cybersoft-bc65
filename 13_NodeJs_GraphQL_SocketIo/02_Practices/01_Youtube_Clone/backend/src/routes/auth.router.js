@@ -1,5 +1,5 @@
 import express from 'express';
-import { forgetCheckCode, forgetCheckEmail, login, loginFacebook, signUp } from '../controllers/auth.controller.js';
+import { forgetCheckCode, forgetCheckEmail, login, loginFacebook, resetToken, signUp } from '../controllers/auth.controller.js';
 
 const authRouter = express.Router();
 
@@ -17,5 +17,8 @@ authRouter.post("/forget-check-code", forgetCheckCode);
 
 // Đổi mật khẩu
 // Gửi mail, pass mới kèm code để cập nhật
+
+// Reset token
+authRouter.post("/reset-token", resetToken);
 
 export default authRouter;
