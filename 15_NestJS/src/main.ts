@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as express from 'express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { ValidationPipe } from '@nestjs/common';
 
 const PORT = 3000; // Port server
 
@@ -18,6 +19,9 @@ async function bootstrap() {
 
   // Định vị nơi load tài nguyên
   app.use(express.static('.'));
+
+  // Validator input
+  app.useGlobalPipes(new ValidationPipe());
 
   // Swagger
   const configSwagger = new DocumentBuilder()

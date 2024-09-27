@@ -13,8 +13,17 @@ import { PrismaService } from 'prisma/prisma.service';
 export class VideoService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  create(createVideoDto: CreateVideoDto) {
-    return 'This action adds a new video';
+  async create(createVideoDto: CreateVideoDto) {
+    try {
+      const num_views = Number(createVideoDto.views);
+      createVideoDto.views = num_views;
+      const data = await this.prismaService.video.create({
+        data: createVideoDto,
+      });
+      return data;
+    } catch (error) {
+      throw new HttpException('Lỗi Server', 500);
+    }
   }
 
   async findAll() {

@@ -11,6 +11,8 @@ import {
   UploadedFile,
   UseGuards,
   Req,
+  Res,
+  HttpStatus,
 } from '@nestjs/common';
 import { VideoService } from './video.service';
 import {
@@ -20,10 +22,19 @@ import {
 } from './dto/create-video.dto';
 import { UpdateVideoDto } from './dto/update-video.dto';
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
-import { diskStorage } from 'multer';
-import { ApiBearerAuth, ApiBody, ApiConsumes, ApiTags } from '@nestjs/swagger';
+// import { diskStorage } from 'multer';
+import {
+  ApiBearerAuth,
+  ApiBody,
+  ApiConsumes,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
 import { JwtService } from '@nestjs/jwt';
+import { Response } from 'express';
+import storeService, { StorageName } from 'src/shared/file-upload.service';
 
 interface UserType {
   user: {
@@ -33,14 +44,14 @@ interface UserType {
 }
 
 // Handle storage upload
-const storage = {
-  storage: diskStorage({
-    destination: `${process.cwd()}/public/images`,
-    filename: (req, file, callback) =>
-      // Rename file
-      callback(null, new Date().getTime() + '_' + file.originalname),
-  }),
-};
+// const storage = {
+//   storage: diskStorage({
+//     destination: `${process.cwd()}/public/images`,
+//     filename: (req, file, callback) =>
+//       // Rename file
+//       callback(null, new Date().getTime() + '_' + file.originalname),
+//   }),
+// };
 
 @ApiTags('video') // Group API trong Swagger
 // @UseGuards(AuthGuard('jwt_node43')) // Khóa API theo cấp controller (đối tượng)
@@ -53,7 +64,9 @@ export class VideoController {
 
   // Decorator chạy trước khi vào request ~ Middleware
   // Upload single pic
-  @UseInterceptors(FileInterceptor('file', storage))
+  @UseInterceptors(
+    FileInterceptor('file', { storage: storeService(StorageName.Video) }),
+  )
   @ApiConsumes('multipart/form-data')
   @ApiBody({
     description: 'Upload single pic',
@@ -65,7 +78,9 @@ export class VideoController {
   }
 
   // Upload multi pic
-  @UseInterceptors(FilesInterceptor('files', 5, storage))
+  @UseInterceptors(
+    FilesInterceptor('files', 5, { storage: storeService(StorageName.Video) }),
+  )
   @ApiConsumes('multipart/form-data')
   @ApiBody({
     description: 'Upload mutil pic',
@@ -76,16 +91,20 @@ export class VideoController {
     return files;
   }
 
-  @Post()
-  create(@Body() createVideoDto: CreateVideoDto) {
-    return this.videoService.create(createVideoDto);
-  }
-
   /*
     Khóa Api dùng thư viện
   */
   @ApiBearerAuth() // Decorator cho swagger hoạt động mở khóa token
   @UseGuards(AuthGuard('jwt_node43')) // Decorator cho strategy hoạt động
+  @ApiOperation({ summary: 'Get all video' })
+  @ApiResponse({
+    status: HttpStatus.OK,
+    description: 'Get all video successfully!',
+  })
+  @ApiResponse({
+    status: HttpStatus.INTERNAL_SERVER_ERROR,
+    description: 'Error server',
+  })
   @Get()
   findAll(@Req() req) {
     // Flow code Auth: Lấy token từ headers -> Check token
@@ -98,6 +117,15 @@ export class VideoController {
     const data = req.user;
     console.log(data);
     return this.videoService.findAll();
+  }
+
+  @Post('/create-video')
+  async create(
+    @Body() createVideoDto: CreateVideoDto,
+    @Res() res: Response,
+  ): Promise<Response<CreateVideoDto>> {
+    const newVideo = await this.videoService.create(createVideoDto);
+    return res.status(201).json(newVideo);
   }
 
   @Get(':id')
